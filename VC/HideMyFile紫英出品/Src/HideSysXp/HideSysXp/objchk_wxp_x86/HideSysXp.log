@@ -1,0 +1,42 @@
+﻿生成启动时间为 2013/10/27 23:35:11。
+     1>项目“E:\TempCode\HideSysXp\HideSysXp\HideSysXp.vcxproj”在节点 2 上(build 个目标)。
+     1>Build:
+         call D:\WINDDK\7600.16385.1\bin\setenv.bat D:\WINDDK\7600.16385.1 chk wxp
+         cd /d E:\TempCode\HideSysXp\HideSysXp\
+         build
+         OACR monitor running already
+         path contains nonexistant d:\program files (x86)\microsoft visual studio 10.0\common7\tools\bin, removing
+         BUILD: Compile and Link for x86
+         
+         BUILD: Loading d:\winddk\7600.16385.1\build.dat...
+         
+         BUILD: Computing Include file dependencies:
+         
+         BUILD: Start time: Sun Oct 27 23:35:11 2013
+         BUILD: Examining e:\tempcode\hidesysxp\hidesysxp directory for files to compile.
+         
+             e:\tempcode\hidesysxp\hidesysxp 
+         
+         Invalidating OACR warning log for 'root:x86chk'
+         BUILD: Saving d:\winddk\7600.16385.1\build.dat...
+         
+         BUILD: Compiling and Linking e:\tempcode\hidesysxp\hidesysxp directory
+         
+         Configuring OACR for 'root:x86chk' - <OACR on>
+         _NT_TARGET_VERSION SET TO WINXP
+         Compiling - ssdthook.cpp
+         Linking Executable - objchk_wxp_x86\i386\hidesysxp.sys
+         BUILD: Finish time: Sun Oct 27 23:35:13 2013
+         BUILD: Done
+         
+         
+         
+             3 files compiled - 4 Warnings
+         
+             1 executable built
+         
+     1>已完成生成项目“E:\TempCode\HideSysXp\HideSysXp\HideSysXp.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:02.09

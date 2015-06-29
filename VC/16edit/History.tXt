@@ -1,0 +1,32 @@
+
+16Edit FX - 1.1 (5th Feb 2k2)
+-----------------------------
+- digit pair selection more tolerant
+- shift key support
+- scrolling, while selection a block, by moving the
+  mouse above or under the text/digit area
+- search UNICODE strings
+- search dialog options will be restored
+- ENTER support for the edit boxes
+- TAB key switches between text and data field
+- ripped nitty looking Windows StatusBar control
+- some new options (have a look at APIs.tXt)
+- non-default window background colors supported (thx bart)
+- icon not stolen from WinAmp anymore ;-)
+- ESC is the new hot key to close the main window
+- fixed GPF while tracing in increased memory blocks
+- minor bugfixes
+- added cheap commandline support in example loader
+- include file for MASM/TASM added
+
+
+16Edit Virgin b - 1.0b (26th Dec 2k1)
+-------------------------------------
+- some internal errors fixed
+- some functions slightly modified
+- C compatibility for 16EditDll.h/16Edit.lib added
+
+
+16Edit Virgin - 1.0 (23th Dec 2k1)
+----------------------------------
+- initial version

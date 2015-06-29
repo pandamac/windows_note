@@ -1,0 +1,6 @@
+TARGETNAME=HideSys
+TARGETTYPE=DRIVER
+
+SOURCES=stdafx.cpp \
+	HideSys.cpp\
+	SSDTHook.cpp

@@ -1,0 +1,54 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: 16Edit - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x407 /fo"Debug/rsrc.res" /d "_DEBUG" "C:\Documents and Settings\panda\桌面\b\16edit\SRC\rsrc.rc"" 
+Creating temporary file "C:\DOCUME~1\panda\LOCALS~1\Temp\RSPEF.tmp" with contents
+[
+/nologo /Zp1 /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "MY16EDIT_EXPORTS" /FR"Debug/" /Fp"Debug/16Edit.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Documents and Settings\panda\桌面\b\16edit\SRC\16Edit.cpp"
+"C:\Documents and Settings\panda\桌面\b\16edit\SRC\Common.cpp"
+"C:\Documents and Settings\panda\桌面\b\16edit\SRC\CPathString.cpp"
+"C:\Documents and Settings\panda\桌面\b\16edit\SRC\CThread.cpp"
+"C:\Documents and Settings\panda\桌面\b\16edit\SRC\File.cpp"
+"C:\Documents and Settings\panda\桌面\b\16edit\SRC\HexEditWnd.cpp"
+"C:\Documents and Settings\panda\桌面\b\16edit\SRC\WideChar.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\panda\LOCALS~1\Temp\RSPEF.tmp" 
+Creating temporary file "C:\DOCUME~1\panda\LOCALS~1\Temp\RSPF0.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib COMCTL32.LIB /nologo /dll /incremental:yes /pdb:"Debug/16Edit.pdb" /debug /machine:I386 /def:"16Edit.def" /out:"bin\16Edit.DLL" /implib:"Debug/16Edit.lib" /pdbtype:sept 
+".\Debug\16Edit.obj"
+".\Debug\Common.obj"
+".\Debug\CPathString.obj"
+".\Debug\CThread.obj"
+".\Debug\File.obj"
+".\Debug\HexEditWnd.obj"
+".\Debug\WideChar.obj"
+".\Debug\rsrc.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\panda\LOCALS~1\Temp\RSPF0.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+16Edit.cpp
+Common.cpp
+CPathString.cpp
+CThread.cpp
+File.cpp
+HexEditWnd.cpp
+WideChar.cpp
+Linking...
+   Creating library Debug/16Edit.lib and object Debug/16Edit.exp
+
+
+
+<h3>Results</h3>
+16Edit.DLL - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

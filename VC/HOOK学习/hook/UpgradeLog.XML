@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="hook">
+</Property><Property Name="解决方案文件" Value="G:\beiyong\biancheng\hook\hook.sln">
+</Property><Property Name="用户选项文件" Value="G:\beiyong\biancheng\hook\hook.suo">
+</Property><Property Name="Date" Value="2014年4月2日">
+</Property><Property Name="Time" Value="20:59">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="hook.sln" Description="文件已成功备份为 G:\beiyong\biancheng\hook\hook.sln.old">
+</Event><Event ErrorLevel="0" Project="" Source="hook.suo" Description="文件已成功备份为 G:\beiyong\biancheng\hook\hook.suo.old">
+</Event><Event ErrorLevel="0" Project="hook" Source="hook\hook.vcproj" Description="Converting project file 'G:\beiyong\biancheng\hook\hook\hook.vcproj'.">
+</Event><Event ErrorLevel="1" Project="hook" Source="hook\hook.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="0" Project="hook" Source="hook\hook.vcproj" Description="Done converting to new project file 'G:\beiyong\biancheng\hook\hook\hook.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="hook" Source="hook\hook.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="hook.sln" Description="成功转换解决方案">
+</Event><Event ErrorLevel="3" Project="" Source="hook.sln" Description="Converted">
+</Event></UpgradeLog>

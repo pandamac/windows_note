@@ -1,0 +1,26 @@
+void GetConsoleInput(char* strInput, 
+	int   intMaxChars)
+{
+	char ch;
+	char minChar = ' ';
+	minChar++;
+
+	ch = getch();
+	while (ch != '\r')
+	{
+		if (ch == '\b' && strlen(strInput) > 0)
+		{
+			strInput[strlen(strInput)-1]   = '\0';
+			printf("\b \b");
+		}
+		else if (ch >= minChar && strlen(strInput) < intMaxChars)
+		{
+			strInput[strlen(strInput)+1] = '\0';
+			strInput[strlen(strInput)]   = ch;
+			putch('*');
+		}
+		ch = getch();
+	}
+	putch('\n');
+}
+GetConsoleInput(szPassword, 512);             //  获取密码，这个是自己写的函数，目的是在屏幕上显示的是*。

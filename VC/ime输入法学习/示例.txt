@@ -1,0 +1,39 @@
+一个拦截并修改输入法的模块（源码） 
+拦截并修改输入法，就是说比如你用智能ABC输入法，输入法文字是“一二三”，但是确认上屏后出来的内容确是“四五六”这样子，此技术大概可以用来做输入法外挂辅助工具之类的吧。 
+
+模块是一个DLL，用VC++写的，压缩包里有这个DLL的源码。原理就是使用API HOOK拦截输入法的相关函数（ImmGetCompositionString函数，应用程序通过调用这个函数取得输入法输入），以达到截获并修改输入信息的目的。 
+VB也可以使用这个DLL，DLL通过自定义消息WM_HXWDLLWX_QQBTX与主程序通信。要在VB里处理自定义消息可能您需要用到子类化技术。 
+该DLL导出如下函数： 
+Public Declare Function DLLstartHOOK Lib "hxwdllwx.dll" (ByVal hwnd As Long) As Long 
+Public Declare Function DLLstopHOOK Lib "hxwdllwx.dll" () As Long 
+Public Declare Function DLLsetHOOKState Lib "hxwdllwx.dll" (ByVal myState As Boolean) As Long 
+Public Declare Function DLLGetPubString Lib "hxwdllwx.dll" () As String 
+Public Declare Function DLLSetPubString Lib "hxwdllwx.dll" (ByVal tmpstr As String) As Long 
+
+简单的说下怎么用： 
+在窗体的Load事件中，你需要注册自定义消息WM_HXWDLLWX_QQBTX，然后调用DLLstartHOOK函数初始化拦截模块，你需要将程序窗口的句柄传递给DLLstartHOOK函数，这样，当用户输入事件发生时，DLL会发送WM_HXWDLLWX_QQBTX消息给该句柄的窗口。该窗口为了能处理自定义消息，需要先子类化。如下所示： 
+Private Sub Form_Load() 
+WM_HXWDLLWX_QQBTX = RegisterWindowMessage("WM_HXWDLLWX_QQBTX")  '注册自定义消息 
+DLLstartHOOK Me.hwnd  '初始化输入法拦截模块 
+PrevWndProc = SetWindowLong(Me.hwnd, GWL_WNDPROC, AddressOf SubWndProc) '子类化窗口 
+End Sub 
+
+然后就可以调用DLLsetHOOKState函数来设置拦截模块的状态，DLLsetHOOKState True打开拦截，DLLsetHOOKState False关闭拦截。 
+在打开拦截的情况下，一旦用户发生输入事件，DLL会发送自定义消息WM_HXWDLLWX_QQBTX给主窗口，在主窗口处理WM_HXWDLLWX_QQBTX消息的函数中，可以调用DLLGetPubString函数得到用户的输入。如果需要修改用户的输入，可以调用DLLSetPubString函数重新设置用户的输入，这样就可以修改输入法内容了。如下所示，下面的代码将用户的每一次输入都自动添加字符串“END”，比如用户输入“你好”，出来的是“你好END”。 
+Public Function SubWndProc(ByVal hwnd As Long, ByVal Msg As Long, ByVal wParam As Long, ByVal lParam As Long) As Long 
+Dim myConStr As String, tmpStr1 As String, tmpStr2 As String 
+If Msg = WM_HXWDLLWX_QQBTX Then 
+   myConStr = DLLGetPubString() 
+   tmpStr1 = Replace(myConStr, Chr(0), "") 
+   tmpStr2 = myconver(tmpStr1) 
+   DLLSetPubString tmpStr2 
+End If 
+SubWndProc = CallWindowProc(PrevWndProc, hwnd, Msg, wParam, lParam) 
+End Function 
+
+Function myconver(ByVal s As String) As String 
+myconver = s & "END" 
+End Function 
+
+最后，程序结束的时候别忘了调用DLLstopHOOK卸载这个API HOOK。 
+基本上就是这样了，压缩包中给出了完整的示例代码，并且还有一个应用的例子。如果有什么问题，也可以联系我 qq511795070 

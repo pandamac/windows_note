@@ -1,0 +1,3 @@
+1>warnings in directory g:\beiyong\biancheng\driver\testdriver\testdriver
+1>d:\winddk\7600.16385.1\inc\ddk\wdm.h(3923) : warning C4005: 'CTL_CODE' : macro redefinition
+1>d:\winddk\7600.16385.1\inc\ddk\wdm.h(3923) : warning C4005: 'CTL_CODE' : macro redefinition

@@ -1,0 +1,131 @@
+http://blog.didierstevens.com/programs/pdf-tools/
+
+
+PDF Tools
+I produced screencasts for my pdfid and pdf-parser tools, you can find them on Didier Stevens Labs products page.
+
+There are translations of this page, see bottom.
+
+pdf-parser.py
+
+This tool will parse a PDF document to identify the fundamental elements used in the analyzed file. It will not render a PDF document. The code of the parser is quick-and-dirty, I¡¯m not recommending this as text book case for PDF parsers, but it gets the job done.
+
+You can see the parser in action in this screencast.
+
+
+
+The stats option display statistics of the objects found in the PDF document. Use this to identify PDF documents with unusual/unexpected objects, or to classify PDF documents. For example, I generated statistics for 2 malicious PDF files, and although they were very different in content and size, the statistics were identical, proving that they used the same attack vector and shared the same origin.
+
+The search option searches for a string in indirect objects (not inside the stream of indirect objects). The search is not case-sensitive, and is susceptible to the obfuscation techniques I documented (as I¡¯ve yet to encounter these obfuscation techniques in the wild, I decided no to resort to canonicalization).
+
+filter option applies the filter(s) to the stream. For the moment, only FlateDecode is supported (e.g. zlib decompression).
+
+The raw option makes pdf-parser output raw data (e.g. not the printable Python representation).
+
+objects outputs the data of the indirect object which ID was specified. This ID is not version dependent. If more than one object have the same ID (disregarding the version), all these objects will be outputted.
+
+reference allows you to select all objects referencing the specified indirect object. This ID is not version dependent.
+
+type allows you to select all objects of a given type. The type is a Name and as such is case-sensitive and must start with a slash-character (/).
+
+pdf-parser_V0_4_3.zip (https)
+MD5: 2220FFE37AEA36FC593AE33440385E76
+SHA256: 1416624938359FDD375108D922350D1B7B0E41B3A40A48F778D6D72D8A405DE6
+
+make-pdf tools
+make-pdf-javascript.py allows one to create a simple PDF document with embedded JavaScript that will execute upon opening of the PDF document. It¡¯s essentially glue-code for the mPDF.py module which contains a class with methods to create headers, indirect objects, stream objects, trailers and XREFs.
+
+20081109-134003
+
+If you execute it without options, it will generate a PDF document with JavaScript to display a message box (calling app.alert).
+
+To provide your own JavaScript, use option ¨Cjavascript for a script on the command line, or ¨Cjavascriptfile for a script contained in a file.
+
+make-pdf-embedded.py creates a PDF file with an embedded file.
+
+
+
+Download:
+
+make-pdf_V0_1_4.zip (https)
+MD5: D2630ABDE44DFFDD5640AEF391CE591D
+SHA256: 11578A938F9FFCC16456519375AF8817C1F8F0D9C41C68BBF78882BFB36B8058
+
+pdfid.py
+This tool is not a PDF parser, but it will scan a file to look for certain PDF keywords, allowing you to identify PDF documents that contain (for example) JavaScript or execute an action when opened. PDFiD will also handle name obfuscation.
+
+The idea is to use this tool first to triage PDF documents, and then analyze the suspicious ones with my pdf-parser.
+
+An important design criterium for this program is simplicity. Parsing a PDF document completely requires a very complex program, and hence it is bound to contain many (security) bugs. To avoid the risk of getting exploited, I decided to keep this program very simple (it is even simpler than pdf-parser.py).
+
+20090330-214223
+
+PDFiD will scan a PDF document for a given list of strings and count the occurrences (total and obfuscated) of each word:
+
+obj
+endobj
+stream
+endstream
+xref
+trailer
+startxref
+/Page
+/Encrypt
+/ObjStm
+/JS
+/JavaScript
+/AA
+/OpenAction
+/JBIG2Decode
+/RichMedia
+/Launch
+/XFA
+Almost every PDF documents will contain the first 7 words (obj through startxref), and to a lesser extent stream and endstream. I¡¯ve found a couple of PDF documents without xref or trailer, but these are rare (BTW, this is not an indication of a malicious PDF document).
+
+/Page gives an indication of the number of pages in the PDF document. Most malicious PDF document have only one page.
+
+/Encrypt indicates that the PDF document has DRM or needs a password to be read.
+
+/ObjStm counts the number of object streams. An object stream is a stream object that can contain other objects, and can therefor be used to obfuscate objects (by using different filters).
+
+/JS and /JavaScript indicate that the PDF document contains JavaScript. Almost all malicious PDF documents that I¡¯ve found in the wild contain JavaScript (to exploit a JavaScript vulnerability and/or to execute a heap spray). Of course, you can also find JavaScript in PDF documents without malicious intend.
+
+/AA and /OpenAction indicate an automatic action to be performed when the page/document is viewed. All malicious PDF documents with JavaScript I¡¯ve seen in the wild had an automatic action to launch the JavaScript without user interaction.
+
+The combination of automatic action  and JavaScript makes a PDF document very suspicious.
+
+/JBIG2Decode indicates if the PDF document uses JBIG2 compression. This is not necessarily and indication of a malicious PDF document, but requires further investigation.
+
+/RichMedia is for embedded Flash.
+
+/Launch counts launch actions.
+
+/XFA is for XML Forms Architecture.
+
+A number that appears between parentheses after the counter represents the number of obfuscated occurrences. For example, /JBIG2Decode 1(1) tells you that the PDF document contains the name /JBIG2Decode and that it was obfuscated (using hexcodes, e.g. /JBIG#32Decode).
+
+BTW, all the counters can be skewed if the PDF document is saved with incremental updates.
+
+Because PDFiD is just a string scanner (supporting name obfuscation), it will also generate false positives. For example, a simple text file starting with %PDF-1.1 and containing words from the list will also be identified as a PDF document.
+
+Download:
+
+pdfid_v0_1_2.zip (https)
+MD5: 60FC17757201F014A6ADA0744B74A740
+SHA256: 1CF36C50427A2206275C322A8C098CD96A844CAF6077B105ADE9B1974789856F
+
+PDFTemplate.bt
+This is a 010 Editor template for the PDF file format.
+It¡¯s particularly useful for malformed PDF files, like this example with PDFUnknown structures:
+
+
+
+Download:
+
+PDFTemplate.zip (https)
+
+MD5: C124200C3317ACA9C17C2AE2579FCFEB
+
+SHA256: 24C4FEAD2CABAD82EC336DDCFD404915E164D7B48FBA7BA1295E12BBAF8EB15D
+
+Translations

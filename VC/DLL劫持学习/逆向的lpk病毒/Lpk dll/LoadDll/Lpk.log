@@ -1,0 +1,41 @@
+﻿生成启动时间为 2014/8/7 23:00:12。
+     1>项目“C:\Users\Administrator\Desktop\挖洞任务\lpk\Lpk dll\Lpk.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Debug\Lpk.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         所有输出均为最新。
+         所有输出均为最新。
+       ManifestResourceCompile:
+         所有输出均为最新。
+       Link:
+         所有输出均为最新。
+       Manifest:
+         所有输出均为最新。
+       CustomBuildStep:
+         Description: Performing Custom Build Step
+         copy debug/Lpk.dll LoadDll/Lpk1.dll
+         :VCEnd
+         debug\cl.command.1.tlog
+         debug\CL.read.1.tlog
+         debug\CL.write.1.tlog
+         debug\link-cvtres.read.1.tlog
+         debug\link-cvtres.write.1.tlog
+         debug\link.784-cvtres.read.1.tlog
+         debug\link.784-cvtres.write.1.tlog
+         debug\link.784.read.1.tlog
+         debug\link.784.write.1.tlog
+         debug\link.command.1.tlog
+         debug\link.read.1.tlog
+         debug\link.write.1.tlog
+         debug\LoadDll.exe
+         debug\LoadDll.ilk
+         debug\LoadDll.pdb
+         debug\Lpk.dll
+         debug\Lpk.dll.embed.manifest
+         debug\Lpk.dll.embed.manifest.res
+         debug\Lpk.dll.intermediate.manifest
+         debug\Lpk.exp
+         debug\Lpk.ilk
+         debug\Lpk.lastbuildstate
+         debug\Lpk.lib
+         debug\Lpk.log

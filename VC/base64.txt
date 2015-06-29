@@ -1,0 +1,37 @@
+BOOL Base64Encode(unsigned char *buffer, DWORD len, unsigned char *buffer64, DWORD *len64)
+{
+    DWORD       i;
+    DWORD       l;
+    unsigned char base64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+
+    l = len/3;
+    for (i=0; i<l; i++)
+    {
+        buffer64[i*4]     = base64[buffer[i*3] >> 2];
+        buffer64[i*4 + 1] = base64[((buffer[i*3] & 3) << 4) | (buffer[i*3 + 1] >> 4)];
+        buffer64[i*4 + 2] = base64[((buffer[i*3 + 1] & 0xf) << 2) | (buffer[i*3 + 2] >> 6)];
+        buffer64[i*4 + 3] = base64[buffer[i*3 + 2] & 0x3f];
+    }
+    if (len % 3 == 1)
+    {
+        buffer64[l*4]     = base64[buffer[l*3] >> 2];
+        buffer64[l*4 + 1] = base64[(buffer[i*3] & 3) << 4];
+        buffer64[l*4 + 2] = buffer64[l*4 + 3] = '=';
+        *len64 = (l + 1) * 4;
+    }
+    else
+    if (len % 3 == 2)
+    {
+        buffer64[l*4]     = base64[buffer[l*3] >> 2];
+        buffer64[l*4 + 1] = base64[((buffer[l*3] & 3) << 4) | (buffer[l*3 + 1] >> 4)];
+        buffer64[l*4 + 2] = base64[((buffer[l*3 + 1] & 0xf) << 2)];
+        buffer64[l*4 + 3] = '=';
+        *len64 = (l + 1) * 4;
+    }
+    else
+    {
+        *len64 = l * 4;
+    }
+    buffer64[*len64] = 0;
+    return TRUE;
+}

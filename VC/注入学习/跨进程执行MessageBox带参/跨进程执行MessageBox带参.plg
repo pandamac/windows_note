@@ -1,0 +1,35 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: 跨进程执行MessageBox带参 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP2181.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/跨进程执行MessageBox带参.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"Z:\E\虚拟机文件\biancheng\VC\跨进程执行MessageBox带参\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP2181.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP2182.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/跨进程执行MessageBox带参.pdb" /debug /machine:I386 /out:"Debug/跨进程执行MessageBox带参.exe" /pdbtype:sept 
+".\Debug\StdAfx.obj"
+".\Debug\跨进程执行MessageBox带参.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP2182.tmp"
+<h3>Output Window</h3>
+Compiling...
+StdAfx.cpp
+Linking...
+LINK : fatal error LNK1104: cannot open file ".\Debug\跨进程执行MessageBox带参.obj"
+执行 link.exe 时出错.
+
+
+
+<h3>Results</h3>
+跨进程执行MessageBox带参.exe - 1 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

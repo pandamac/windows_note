@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "自校验", "自校验\自校验.vcproj", "{6D72FE41-A0EF-4FDC-A925-4B86F36AD834}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6D72FE41-A0EF-4FDC-A925-4B86F36AD834}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6D72FE41-A0EF-4FDC-A925-4B86F36AD834}.Debug|Win32.Build.0 = Debug|Win32
+		{6D72FE41-A0EF-4FDC-A925-4B86F36AD834}.Release|Win32.ActiveCfg = Release|Win32
+		{6D72FE41-A0EF-4FDC-A925-4B86F36AD834}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

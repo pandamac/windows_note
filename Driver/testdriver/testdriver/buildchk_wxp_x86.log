@@ -1,0 +1,40 @@
+BUILD: Computing Include file dependencies:
+BUILD: Examining g:\beiyong\biancheng\driver\testdriver\testdriver directory for files to compile.
+oacr invalidate root:x86chk /autocleanqueue
+1>Compiling and Linking g:\beiyong\biancheng\driver\testdriver\testdriver *************
+1>'nmake.exe /nologo BUILDMSG=Stop. -i /nologo /f d:\winddk\7600.16385.1\bin\makefile.def BUILD_PASS=PASS2 LINKONLY=1 NOPASS0=1 MAKEDIR_RELATIVE_TO_BASEDIR='
+1>BUILDMSG: _NT_TARGET_VERSION SET TO WINXP
+1> D:\WinDDK\7600.16385.1\Bin\x86\oacr\oacrlink /out:g:\beiyong\biancheng\driver\testdriver\testdriver\objchk_wxp_x86\i386\testdriver.sys /machine:ix86 @g:\beiyong\biancheng\driver\testdriver\testdriver\objchk_wxp_x86\i386\lnk.rsp
+1>Microsoft (R) Incremental Linker Version 9.00.30729.207
+1>Copyright (C) Microsoft Corporation.  All rights reserved.
+1>/MERGE:_PAGE=PAGE 
+1>/MERGE:_TEXT=.text 
+1>/SECTION:INIT,d 
+1>/OPT:REF 
+1>/OPT:ICF 
+1>/IGNORE:4198,4010,4037,4039,4065,4070,4078,4087,4089,4221 
+1>/INCREMENTAL:NO 
+1>/release 
+1>/NODEFAULTLIB 
+1>/WX 
+1>/debug 
+1>/debugtype:cv,fixup,pdata 
+1>/version:6.1 
+1>/osversion:6.1 
+1>/functionpadmin:5 
+1>/safeseh 
+1>/pdbcompress 
+1>/STACK:0x40000,0x1000 
+1>/driver 
+1>/base:0x10000 
+1>/align:0x80 /stub:d:\winddk\7600.16385.1\lib\wxp\stub512.com 
+1>/subsystem:native,5.01 
+1>/entry:GsDriverEntry@8 
+1>/out:g:\beiyong\biancheng\driver\testdriver\testdriver\objchk_wxp_x86\i386\testdriver.sys 
+1>g:\beiyong\biancheng\driver\testdriver\testdriver\objchk_wxp_x86\i386\stdafx.obj 
+1>g:\beiyong\biancheng\driver\testdriver\testdriver\objchk_wxp_x86\i386\testdriver.obj 
+1>d:\winddk\7600.16385.1\lib\wxp\i386\BufferOverflowK.lib 
+1>d:\winddk\7600.16385.1\lib\wxp\i386\ntoskrnl.lib 
+1>d:\winddk\7600.16385.1\lib\wxp\i386\hal.lib 
+1>d:\winddk\7600.16385.1\lib\wxp\i386\wmilib.lib 
+1>d:\winddk\7600.16385.1\lib\wxp\i386\sehupd.lib 

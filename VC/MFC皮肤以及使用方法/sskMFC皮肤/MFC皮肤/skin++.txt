@@ -1,0 +1,51 @@
+我试验过了0.1.3和2.0，3.0版本的skin++.
+
+ 
+
+1，SKIN++不同版本的用法不同，.ssk文件的格式也不同，所以不可以混用。（2.x和3.x的应该相同，但是跟0.1.3的不同）
+
+2，在0.1.3版本的文件名：SkinPlusPlus.h，SkinPlusPlus.lib，SkinPlusPlus.dll，及ssk文件。
+
+　关键方法：（1）添加文件，包含.h，包含lib。
+
+　　　　　　（2）在InitInstance中调用：InitializeSkin("dll/Minimized.ssk"); 来初始化。
+
+　　　　　　（3）在ExitInstance中调用：ExitSkin();   释放资源。
+
+　　　　　　（4）在更改风格方法中，调用：LoadSkin(filename);
+
+　　　　　　（5）去除风格，调用：RemoveSkin();
+
+　　　　　　（6）设置某控件不用skin++风格：SetNoSkinHwnd(HWND hWnd);
+
+　　　　　　　　注意：此方法只设置hWnd本身不用风格，而不能设置子窗口风格。
+
+3，在2.0以后的文件名：SkinPPWTL.h，SkinPPWTL.dll，SkinPPWTL.lib。使用方法一样，只不过成员函数都在0.1.3的前面加了个skinpp。
+
+4，特别注意，在VS2005里面，设置UNICODE后，用skin++2.x,3.x的版本的时候，
+
+需要在头文件中，
+
+将：SKINPPWTL_API BOOL  skinppLoadSkin(TCHAR* szSkinFile,BOOL bFromIni = FALSE);
+
+改成：SKINPPWTL_API BOOL  skinppLoadSkin(CHAR* szSkinFile,BOOL bFromIni = FALSE);
+
+ 5，在VS2005里面，调用 LoadSkin(char* SkinFile);方法时，从CString转化到char*，不能用一般的转换方法，会报错，试验没错的方法：
+
+char* BasicFunction::StringToCharX(CString str)
+{    
+    int len = WideCharToMultiByte( CP_ACP , 0 , str , str.GetLength() , NULL , 0 , NULL , NULL );
+    char* pAscii =new char[len+1];
+    len = WideCharToMultiByte(  CP_ACP , 0 , str , str.GetLength() , pAscii , len +1 , NULL ,NULL );
+    pAscii[len] = 0;
+    return pAscii;
+}
+
+ 
+
+疑惑是：
+
+
+ 
+
+对于一个自己重写的CListCtrl控件，估计是因为下面内含子控件，所以CListCtrl->m_hWnd不能代表整个界面的风格，光对他设置不用skin皮肤是不够的。还没想到解决办法。

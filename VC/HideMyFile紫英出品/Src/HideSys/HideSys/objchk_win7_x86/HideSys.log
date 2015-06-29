@@ -1,0 +1,17 @@
+﻿生成启动时间为 2013/10/28 21:28:10。
+     1>项目“C:\Users\Administrator\Desktop\HideMyFile\Src\HideSys\HideSys\HideSys.vcxproj”在节点 2 上(build 个目标)。
+     1>Build:
+         call \bin\setenv.bat  chk win7
+         cd /d C:\Users\Administrator\Desktop\HideMyFile\Src\HideSys\HideSys\
+         build
+         系统找不到指定的路径。
+         'build' 不是内部或外部命令，也不是可运行的程序
+         或批处理文件。
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.MakeFile.Targets(38,5): error MSB3073: 命令“call \bin\setenv.bat  chk win7
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.MakeFile.Targets(38,5): error MSB3073: cd /d C:\Users\Administrator\Desktop\HideMyFile\Src\HideSys\HideSys\
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.MakeFile.Targets(38,5): error MSB3073: build”已退出，代码为 9009。
+     1>已完成生成项目“C:\Users\Administrator\Desktop\HideMyFile\Src\HideSys\HideSys\HideSys.vcxproj”(build 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:00.22

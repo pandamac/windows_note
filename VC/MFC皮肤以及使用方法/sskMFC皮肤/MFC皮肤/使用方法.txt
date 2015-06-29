@@ -1,0 +1,21 @@
+1、将SkinPPWTL.lib  skinppwtl.dll SkinPPWTL.h三个文件及相应皮肤拷贝至工程文件夹下
+2、在StdAfx.h文件中加入#include "SkinPPWTL.h"
+	//..
+	#endif // _AFX_NO_AFXCMN_SUPPORT 
+	#include "SkinPPWTL.h"   //在这个地方加
+	#pragma comment(lib,"SkinPPWTL.lib")
+	//{{AFX_INSERT_LOCATION}}
+	//..
+3、在BOOL CXXApp::InitInstance()函数中加入：
+BOOL CWwApp::InitInstance()
+{
+skinppLoadSkin(_T("blue.ssk"));//blue.ssk为项目下的皮肤文件
+//..
+}
+4、如果是SDI/MDI程序，则要重载ExitInstance
+int CWwApp::ExitInstance() 
+{
+	// TODO: Add your specialized code here and/or call the base class
+	skinppExitSkin();
+	return CWinApp::ExitInstance();
+}

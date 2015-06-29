@@ -1,0 +1,27 @@
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+#include <ntddk.h>
+#ifdef __cplusplus
+}
+#endif
+
+VOID DriverUnload(PDRIVER_OBJECT pDriverObject)
+{
+    UnHookSsdt();
+    KdPrint(("Driver Unload Success !\n"));
+}
+
+extern "C" NTSTATUS DriverEntry(PDRIVER_OBJECT pDriverObject, PUNICODE_STRING pRegistryPath )
+{
+    KdPrint(("Welcome to My Driver\n"));
+    pDriverObject->DriverUnload = DriverUnload;
+    /* 所有函数的地址
+    for (int i = 0; i < KeServiceDescriptorTable->NumberOfServices; i++)
+    {
+        KdPrint(("NumberOfService[%d]-------%X\n", i, KeServiceDescriptorTable->ServiceTableBase[i]));
+    }*/
+    HookSsdt();
+    return STATUS_SUCCESS;
+}

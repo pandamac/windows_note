@@ -1,0 +1,17 @@
+var x
+
+mov x,00401000
+start1: 
+find x,#74027501ff#
+cmp $RESULT ,0
+je next
+mov [$RESULT],#9090909090#,5
+log x 
+
+next:
+add x,1
+cmp x,405000
+jg start2
+jmp start1
+
+start2:

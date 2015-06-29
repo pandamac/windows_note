@@ -1,0 +1,42 @@
+// 自删除函数
+
+void SelfDel()
+{
+	char DirBuffer[MAX_PATH],TempBuffer[MAX_PATH];
+	char temp[MAX_PATH];
+	HMODULE hModule = GetModuleHandle(NULL);
+	GetModuleFileName(hModule,DirBuffer,sizeof(DirBuffer));
+	GetFileTitle(DirBuffer,TempBuffer,MAX_PATH);
+	
+	char *str = strrchr(DirBuffer,'\\');
+	int result = str - DirBuffer + 1;
+	for (int i=0;i<result;i++)
+	{
+			temp[i] = DirBuffer[i];
+	}
+	temp[i] = '\0';
+
+	strcat(temp,"system.bat");
+	// 生过程自删除批处理文件
+	FILE *fp;
+	fp = fopen(temp,"wb+");
+	fprintf(fp,"@echo off\r\n");
+	fprintf(fp,":start\r\n\tif not exist %s goto done\r\n",TempBuffer);
+	fprintf(fp,"\tdel /f /q %s\r\n",TempBuffer);
+	fprintf(fp,"goto start\r\n");
+	fprintf(fp,":done\r\n");
+	fprintf(fp,"\tdel /f /q %%0\r\n");
+	fclose(fp);
+	
+	// 隐藏运行批处理完成自删除
+	WinExec(temp,SW_HIDE);
+/*
+@echo off
+:start
+	if not exist xxx.exe goto done
+	del /f /q xxx.exe
+goto start
+:done
+	del /f /q %0
+*/
+}

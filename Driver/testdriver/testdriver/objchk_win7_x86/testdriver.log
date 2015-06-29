@@ -1,0 +1,45 @@
+﻿生成启动时间为 2014/11/8 14:53:23。
+     1>项目“G:\beiyong\biancheng\Driver\testdriver\testdriver\testdriver.vcxproj”在节点 2 上(build 个目标)。
+     1>Build:
+         call D:\WinDDK\7600.16385.1\bin\setenv.bat D:\WinDDK\7600.16385.1 chk win7
+         cd /d G:\beiyong\biancheng\Driver\testdriver\testdriver\
+         build
+         Launching OACR monitor
+         path contains nonexistant e:\microsoft visual studio 10.0\common7\tools\bin, removing
+         BUILD: Compile and Link for x86
+         
+         BUILD: Loading d:\winddk\7600.16385.1\build.dat...
+         
+         BUILD: corrupt database (Directory error)
+         
+         BUILD: Computing Include file dependencies:
+         
+         BUILD: Start time: Sat Nov 08 14:53:24 2014
+         BUILD: Examining g:\beiyong\biancheng\driver\testdriver\testdriver directory for files to compile.
+         
+             g:\beiyong\biancheng\driver\testdriver\testdriver 
+         
+         Invalidating OACR warning log for 'root:x86chk'
+         BUILD: Saving d:\winddk\7600.16385.1\build.dat...
+         
+         BUILD: Compiling and Linking g:\beiyong\biancheng\driver\testdriver\testdriver directory
+         
+         Configuring OACR for 'root:x86chk' - <OACR on>
+         Compiling - stdafx.cpp
+         Compiling - testdriver.cpp
+         Compiling - generating code...
+         Linking Executable - objchk_win7_x86\i386\testdriver.sys
+         BUILD: Finish time: Sat Nov 08 14:53:25 2014
+         BUILD: Done
+         
+         
+         
+             4 files compiled - 3 Warnings
+         
+             1 executable built
+         
+     1>已完成生成项目“G:\beiyong\biancheng\Driver\testdriver\testdriver\testdriver.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:02.21

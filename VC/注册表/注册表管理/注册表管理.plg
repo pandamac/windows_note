@@ -1,0 +1,31 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: 注册表管理 - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Release/注册表管理.res" /d "NDEBUG" /d "_AFXDLL" "Z:\G\虚拟机文件\biancheng\VC\注册表\注册表管理\注册表管理.rc"" 
+Creating temporary file "C:\DOCUME~1\panda\LOCALS~1\Temp\RSP4EE6.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:no /pdb:"Release/注册表管理.pdb" /machine:I386 /out:"Release/注册表管理.exe" 
+".\Release\StdAfx.obj"
+".\Release\SUBCREATE.obj"
+".\Release\VALUECREATE.obj"
+".\Release\注册表管理.obj"
+".\Release\注册表管理Dlg.obj"
+".\Release\注册表管理.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\panda\LOCALS~1\Temp\RSP4EE6.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Linking...
+
+
+
+<h3>Results</h3>
+注册表管理.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

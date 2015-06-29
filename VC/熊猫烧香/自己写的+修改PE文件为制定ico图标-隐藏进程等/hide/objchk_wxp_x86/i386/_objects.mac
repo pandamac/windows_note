@@ -1,0 +1,16 @@
+
+
+386_OBJECTS=\
+ $(OBJ_PATH)\$O\hook.obj \
+
+
+
+
+
+# lowercased
+BASEDIR=d:\winddk\7600.16385.1
+OBJECT_ROOT=d:\winddk\7600.16385.1
+MAKEDIR_LOWERCASE=g:\beiyong\biancheng\test\ganran_pe\hide
+OBJ_PATH=g:\beiyong\biancheng\test\ganran_pe\hide
+CONCURRENT_MIDL=0
+CONCURRENT_MANIFEST_BUILD=0

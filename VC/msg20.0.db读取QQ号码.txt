@@ -1,0 +1,100 @@
+方法：
+利用VirtualQueryEx返回qq.exe的mbi内存信息，再用ReadProcessMemory获取到buff，比较是否有Msg2.0.db
+
+int GetInBuffer(const void *pStart, int nLen, const void *pFindBuffer, int nfLen)  
+{  
+    for (int i = 0; i < nLen - nfLen; i++)  
+    {  
+        if (memcmp((void *)((ULONG)pStart + i), pFindBuffer, nfLen) == 0)  
+        {  
+            return i;  
+        }  
+    }  
+
+    return -1;  
+}
+
+void CQQLoginDlg::GetQQNum(DWORD dwPid)
+{
+    //qq是unicode编码
+    static wchar_t QQDATA[] = L"Msg2.0.db";
+    // 打开QQ进程
+    HANDLE hProcess = OpenProcess(PROCESS_VM_READ | PROCESS_QUERY_INFORMATION,0,dwPid);  
+
+    int nMemLen = 28, nMemStart;  
+    void *pMemAddress = NULL;  
+    BYTE *bMemBuffer;  
+
+    MEMORY_BASIC_INFORMATION mbi;  
+    memset(&mbi,0,sizeof(MEMORY_BASIC_INFORMATION));  
+
+    wchar_t szQQnumber[15];  
+    szQQnumber[0] = 0; 
+
+    // 当VirtualQueryEx的lpvAddress参数落在一个EXE或DLL模块中时，AllocationBase就成为此EXE或DLL的基地址。
+    while(VirtualQueryEx(hProcess,pMemAddress,&mbi,nMemLen) != 0)  
+    {
+        if(mbi.Type == MEM_PRIVATE && mbi.Protect == PAGE_READWRITE) 
+        {
+            bMemBuffer = new BYTE[mbi.RegionSize + 1];  
+            bMemBuffer[mbi.RegionSize] = 0;  
+
+            // 在qq进程中读取pMemAddress地址到bMemBuffer
+            if (ReadProcessMemory(hProcess,pMemAddress,bMemBuffer,mbi.RegionSize,NULL))  
+            {
+                nMemStart = GetInBuffer(bMemBuffer,mbi.RegionSize,QQDATA,sizeof(QQDATA));  
+
+                if(nMemStart != -1)  
+                {
+                    // "les\505168553\Msg2.0.db"
+                    // 此时mbi.AllocationBase = 0x2310000
+                    wchar_t *pQQText = (wchar_t *)&bMemBuffer[nMemStart - 28];  
+                    wchar_t *pQQstart = wcsstr(pQQText, L"\\");  
+                    if (pQQstart)  
+                    {  
+                        pQQstart++;  
+                        wchar_t *pQQEnd = wcsstr(pQQstart, L"\\");  
+                        if (pQQEnd)  
+                        {  
+                            lstrcpynW(szQQnumber, pQQstart, pQQEnd - pQQstart + 1);   
+                            CListBox *pListBox = (CListBox *)(GetDlgItem(IDC_LIST1));
+                            pListBox->InsertString(pListBox->GetCount(),szQQnumber);
+                        }  
+                    } 
+                    delete[] bMemBuffer;  
+                    break;  
+                }
+            }
+            delete[] bMemBuffer;
+        }
+        pMemAddress = (void *)((ULONG)pMemAddress + mbi.RegionSize);  
+    }
+    CloseHandle(hProcess); 
+}
+void CQQLoginDlg::EnumQQProcess()
+{
+    HANDLE hSnapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS,0);  
+
+    PROCESSENTRY32 pe32;  
+    pe32.dwSize=sizeof(PROCESSENTRY32);  
+
+    BOOL bFind = Process32First(hSnapshot,&pe32);  
+    while(bFind)  
+    {  
+        if(lstrcmpi(pe32.szExeFile, _T("QQ.exe")) == 0)  
+        {  
+            GetQQNum(pe32.th32ProcessID);
+        }  
+        bFind= Process32Next(hSnapshot, &pe32);  
+    }  
+
+    CloseHandle(hSnapshot);  
+
+}
+void CQQLoginDlg::OnBnClickedButton1()
+{
+    // TODO: 在此添加控件通知处理程序代码
+    CListBox *pListBox = (CListBox *)(GetDlgItem(IDC_LIST1));
+    pListBox->ResetContent();
+    EnumQQProcess();
+}

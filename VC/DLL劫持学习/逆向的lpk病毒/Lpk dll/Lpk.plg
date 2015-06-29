@@ -1,0 +1,47 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Lpk - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP51A7.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "LPK_EXPORTS" /Fp"Debug/Lpk.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Users\Administrator\Desktop\挖洞任务\lpk\Lpk dll\Lpk.cpp"
+]
+Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP51A7.tmp" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP51A8.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /dll /incremental:yes /pdb:"Debug/Lpk.pdb" /debug /machine:I386 /def:".\Lpk.def" /out:"Debug/Lpk.dll" /implib:"Debug/Lpk.lib" /pdbtype:sept 
+".\Debug\Lpk.obj"
+".\Debug\StdAfx.obj"
+]
+Creating command line "link.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP51A8.tmp"
+<h3>Output Window</h3>
+Compiling...
+Lpk.cpp
+C:\Users\Administrator\Desktop\挖洞任务\lpk\Lpk dll\Lpk.cpp(78) : warning C4005: 'LOBYTE' : macro redefinition
+        e:\microsoft visual studio\vc98\include\windef.h(190) : see previous definition of 'LOBYTE'
+C:\Users\Administrator\Desktop\挖洞任务\lpk\Lpk dll\Lpk.cpp(152) : warning C4101: 'v4' : unreferenced local variable
+C:\Users\Administrator\Desktop\挖洞任务\lpk\Lpk dll\Lpk.cpp(153) : warning C4101: 'v5' : unreferenced local variable
+C:\Users\Administrator\Desktop\挖洞任务\lpk\Lpk dll\Lpk.cpp(223) : warning C4002: too many actual parameters for macro 'RtlZeroMemory'
+C:\Users\Administrator\Desktop\挖洞任务\lpk\Lpk dll\Lpk.cpp(196) : warning C4101: 'v12' : unreferenced local variable
+C:\Users\Administrator\Desktop\挖洞任务\lpk\Lpk dll\Lpk.cpp(197) : warning C4101: 'v13' : unreferenced local variable
+C:\Users\Administrator\Desktop\挖洞任务\lpk\Lpk dll\Lpk.cpp(258) : warning C4002: too many actual parameters for macro 'RtlZeroMemory'
+C:\Users\Administrator\Desktop\挖洞任务\lpk\Lpk dll\Lpk.cpp(291) : error C2065: 'SHRegGetValueW' : undeclared identifier
+C:\Users\Administrator\Desktop\挖洞任务\lpk\Lpk dll\Lpk.cpp(312) : error C2065: 'PathGetShortPath' : undeclared identifier
+C:\Users\Administrator\Desktop\挖洞任务\lpk\Lpk dll\Lpk.cpp(338) : warning C4010: single-line comment contains line-continuation character
+C:\Users\Administrator\Desktop\挖洞任务\lpk\Lpk dll\Lpk.cpp(461) : warning C4002: too many actual parameters for macro 'RtlZeroMemory'
+C:\Users\Administrator\Desktop\挖洞任务\lpk\Lpk dll\Lpk.cpp(471) : error C2065: 'DriveType' : undeclared identifier
+C:\Users\Administrator\Desktop\挖洞任务\lpk\Lpk dll\Lpk.cpp(498) : warning C4002: too many actual parameters for macro 'RtlZeroMemory'
+执行 cl.exe 时出错.
+
+
+
+<h3>Results</h3>
+Lpk.dll - 1 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: InstallBho - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\panda\LOCALS~1\Temp\RSP31D1.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/InstallBho.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"Z:\G\Books\计算机病毒揭秘与对抗源码\第五章  计算机病毒的惯用技术\5.2.4\InstallBho\InstallBho.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\panda\LOCALS~1\Temp\RSP31D1.tmp" 
+Creating temporary file "C:\DOCUME~1\panda\LOCALS~1\Temp\RSP31D2.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/InstallBho.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"Z:\G\Books\计算机病毒揭秘与对抗源码\第五章  计算机病毒的惯用技术\5.2.4\InstallBho\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\panda\LOCALS~1\Temp\RSP31D2.tmp" 
+Creating temporary file "C:\DOCUME~1\panda\LOCALS~1\Temp\RSP31D3.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/InstallBho.pdb" /debug /machine:I386 /out:"Debug/InstallBho.exe" /pdbtype:sept 
+".\Debug\InstallBho.obj"
+".\Debug\StdAfx.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\panda\LOCALS~1\Temp\RSP31D3.tmp"
+<h3>Output Window</h3>
+Compiling...
+StdAfx.cpp
+Compiling...
+InstallBho.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+InstallBho.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

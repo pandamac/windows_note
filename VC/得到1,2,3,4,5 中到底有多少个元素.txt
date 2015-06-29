@@ -1,0 +1,43 @@
+int getPortsCount(char * portList)
+{
+	int		result; // eax@4
+	char *	nextToken; // eax@7
+	char *	buf; // [sp+4h] [bp-Ch]@5
+	char *	p; // [sp+Ch] [bp-4h]@7
+	int		count; // [sp+8h] [bp-8h]@9
+	
+	if ( portList )
+	{
+		buf = (char *)malloc(lstrlen(portList) + 16);
+		if (buf)
+		{
+			strcpy(buf, portList);
+			nextToken = strtok(buf, ",");
+			p = nextToken;
+			if (nextToken)
+			{
+				count = 0;
+				while ( p )
+				{
+					p = strtok(0, ",");
+					count++;
+				}
+				result = count;
+			}
+			else
+			{
+				result = 0;
+			}
+			free(buf);
+		}
+		else
+		{
+			result = 0;
+		}
+	}
+	else
+	{
+		result = 0;
+	}
+	return result;
+}

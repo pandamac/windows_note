@@ -1,0 +1,4 @@
+1>warnings in directory g:\beiyong\biancheng\test\ganran_pe\hide
+1>g:\beiyong\biancheng\test\ganran_pe\hide\hook.c(17) : warning C4047: '=' : 'PLIST_ENTRY' differs in levels of indirection from 'ULONG'
+1>g:\beiyong\biancheng\test\ganran_pe\hide\hook.c(55) : warning C4047: '=' : 'PLIST_ENTRY' differs in levels of indirection from 'ULONG'
+1>g:\beiyong\biancheng\test\ganran_pe\hide\hook.c(66) : warning C4047: '=' : 'PLIST_ENTRY' differs in levels of indirection from 'ULONG'

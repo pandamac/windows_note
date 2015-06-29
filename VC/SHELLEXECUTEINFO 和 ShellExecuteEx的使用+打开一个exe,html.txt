@@ -1,0 +1,134 @@
+SHELLEXECUTEINFO 和 ShellExecuteEx的使用
+在日常工作中用到的一些知识，很久没有总结过，前几日参加一个会议，很是无聊。自己思索着自己这两年来所做过的东西，写着写着居然也写下了100个知识点。想把它一条一条总结下来，动笔总不是很容易。就拿这篇文章作为第一篇。
+
+        很多东西取之于网络，也有一些自己的心得。才疏学浅，就当一个知识梳理的过程吧。
+        
+ 第一篇 SHELLEXECUTEINFO 和 ShellExecuteEx的使用
+
+        使用SHELLEXECUTEINFO和ShellExecuteEx，我也主要是在cab包的安装时使用的。基本上是这样使用的，如下：
+ 
+     SHELLEXECUTEINFO ShellInfo;
+             
+     memset(&ShellInfo, 0, sizeof(ShellInfo));
+     ShellInfo.cbSize = sizeof(ShellInfo);
+     ShellInfo.hwnd = NULL;
+     ShellInfo.lpVerb = _T("open");
+     ShellInfo.lpFile = szFilePath;
+     ShellInfo.nShow = SW_SHOWNORMAL;
+     ShellInfo.fMask = SEE_MASK_NOCLOSEPROCESS;
+ 
+     BOOL bResult = ShellExecuteEx(&ShellInfo);
+一、SHELLEXECUTEINFO 结构
+
+在MSDN中，它这样定义：
+Contains information used by ShellExecuteEx
+原型如下：
+typedef struct _SHELLEXECUTEINFO {
+       DWORD cbSize;  
+       ULONG fMask;
+       HWND hwnd;
+       LPCTSTR lpVerb;
+       LPCTSTR lpFile;
+       LPCTSTR lpParameters;
+       LPCTSTR lpDirectory;
+       int nShow;
+       HINSTANCE hInstApp;
+       LPVOID lpIDList;
+       LPCTSTR lpClass;
+       HKEY hkeyClass;
+       DWORD dwHotKey;
+       union {
+          HANDLE hIcon;
+          HANDLE hMonitor;
+       } DUMMYUNIONNAME;
+      HANDLE hProcess;
+} SHELLEXECUTEINFO, *LPSHELLEXECUTEINFO;
+参数详解：
+cbSize
+结构大小，以字节为单位。
+fMask
+一个标志数组，用来设置其他成员的有效性。
+hwnd
+可选。执行ShellExecuteEx的窗口句柄，可设为NULL。
+lpVerb
+指定执行的动作，包括：edit ，explore ，find ，open，print， properties
+lpFile
+以\0 结尾的字符串，指出 lpVerb 的操作对象的路径，被系统支持的操作包括文本的 open 、 print等
+lpParameters
+可选。运行/打开程序的参数，如果打开的是一个文档，则该项无效
+lpDirectory
+可选。指明工作目录的名字，成员没有说明，则默认为当前目录
+nShow
+必须。指定打开的程序的显示方式，为SW_值中的一个。
+hInstApp
+【out】如果设置SEE_MASK_NOCLOSEPROCESS S值并且ShellExecuteEx 调用成功，则该项的值大于32，如果调用失败，则将设置为 SE_ERR_XXX 的错误值。
+lpIDList
+一个ITEMIDLIST结构的地址，用来存储成员的特别标识符，当fMask不包括SEE_MASK_IDLIST或SEE_MASK_INVOKEIDLIST时该项被忽略
+lpClass
+用以指明文件类别的名字或GUID，当fMask不包括SEE_MASK_CLASSNAME时该项被忽略
+hkeyClass
+获得已在系统注册的文件类型的Handle，当fMask不包括SEE_MASK_HOTKEY时该项被忽略
+ dwHotKey
+程序的热键关联，低位存储虚拟关键码（Key Code），高位存储修改标志位(HOTKEYF_)，修改标志为（modifier flags）的详细列表请看WM_SETHOTKEY消息的描述，当fmask不包括SEE_MASK_HOTKEY时该项被忽略
+DUMMYUNIONNAME
+hIcon
+取得对应文件类型的图标的Handle，当fMask不包括SEE_MASK_ICON时该项被忽略
+hMonitor
+将文档显示在显示器上的Handle，当fMask不包括SEE_MASK_HMONITOR时该项被忽略
+hProcess
+指向新启动的程序的句柄。若fMask不设为SEE_MASK_NOCLOSEPROCESS则该项值为NULL。但若程序没有启动，即使fMask设为SEE_MASK_NOCLOSEPROCESS，该值也仍为NULL。
+二、ShellExecuteEx
+
+功能：Performs an operation on a specified file。对指定应用程序执行某个操作
+原型：
+BOOL ShellExecuteEx(LPSHELLEXECUTEINFO lpExecInfo);
+参数：
+lpExecInfo
+[in, out] 一个指向 SHELLEXECUTEINFO 结构的指针，用来传递和保存应用程序执行相关的信息。
+返回值：
+如果函数成功执行就返回TRUE，否则返回 FALSE 。可调用 GetLastError 获取错误信息。
+备注：
+由于ShellExecuteEx 能够将执行委托给那些由组件对象模型COM激活的Shell 扩展（数据源，上下文菜单句柄，动词实现），因此在调用ShellExecuteEx 之前要先初始化 COM。某些Shell 扩展要求单线程单元模型的COM，在这种情况下，应当像下面一般初始化COM：
+CoInitializeEx (NULL,COINIT_APARTMENTTHREADED | COINIT_DISABLE_OLE1DDE)
+在某些情况下 ShellExecuteEx 并没有使用这种类型的Shell 扩展，这时就无需初始化COM。虽然如此，总是在使用这个函数之前初始化COM是个不错的举措。
+三、例子
+
+1、打开一个应用程序
+     SHELLEXECUTEINFO ShellInfo;
+             
+     memset(&ShellInfo, 0, sizeof(ShellInfo));
+     ShellInfo.cbSize = sizeof(ShellInfo);
+     ShellInfo.hwnd = NULL;
+     ShellInfo.lpVerb = _T("open");
+     ShellInfo.lpFile = szFilePath; // 此处写执行文件的绝对路径
+     ShellInfo.nShow = SW_SHOWNORMAL;
+     ShellInfo.fMask = SEE_MASK_NOCLOSEPROCESS;
+ 
+     BOOL bResult = ShellExecuteEx(&ShellInfo);
+2、如何打开一个文档
+   程序代码如上
+3、如何打开一个网页
+SHELLEXECUTEINFO ShellInfo;
+             
+     memset(&ShellInfo, 0, sizeof(ShellInfo));
+     ShellInfo.cbSize = sizeof(ShellInfo);
+     ShellInfo.hwnd = NULL;
+     ShellInfo.lpVerb = _T("open");
+     ShellInfo.lpFile = _T("http://www.sina.com");
+     ShellInfo.nShow = SW_SHOWNORMAL;
+     ShellInfo.fMask = SEE_MASK_NOCLOSEPROCESS;
+ 
+     BOOL bResult = ShellExecuteEx(&ShellInfo);
+4、如何启动一个程序，直到它运行结束？
+SHELLEXECUTEINFO ShellInfo;
+             
+     memset(&ShellInfo, 0, sizeof(ShellInfo));
+     ShellInfo.cbSize = sizeof(ShellInfo);
+     ShellInfo.hwnd = NULL;
+     ShellInfo.lpVerb = _T("open");
+     ShellInfo.lpFile = szFilePath;
+     ShellInfo.nShow = SW_SHOWNORMAL;
+     ShellInfo.fMask = SEE_MASK_NOCLOSEPROCESS;
+     ShellExecuteEx(&ShellInfo);
+ 
+WaitForSingleObject(ShellInfo.hProcess,INFINITE);

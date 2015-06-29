@@ -1,0 +1,32 @@
+0041B001 >  60                            PUSHAD
+0041B002    E8 03 00 00 00                   CALL 复件_PeP.0041B00A
+0041B007  - E9 EB 04 5D 45                   JMP 459EB4F7
+0041B00C    55                            PUSH EBP
+0041B00D    C3                            RETN
+0041B00E    E8 01000000                   CALL 复件_PeP.0041B014
+0041B013    EB 5D                         JMP SHORT 复件_PeP.0041B072
+0041B015    BB EDFFFFFF                   MOV EBX,-13
+0041B01A    03DD                          ADD EBX,EBP
+0041B01C    81EB 00B00100                 SUB EBX,1B000
+0041B022    83BD 22040000 00              CMP DWORD PTR SS:[EBP+422],0
+0041B029    899D 22040000                 MOV DWORD PTR SS:[EBP+422],EBX
+0041B02F    0F85 65030000                 JNZ 复件_PeP.0041B39A
+0041B035    8D85 2E040000                 LEA EAX,DWORD PTR SS:[EBP+42E]
+0041B03B    50                            PUSH EAX
+0041B03C    FF95 4D0F0000                 CALL DWORD PTR SS:[EBP+F4D]
+0041B042    8985 26040000                 MOV DWORD PTR SS:[EBP+426],EAX
+0041B048    8BF8                          MOV EDI,EAX
+0041B04A    8D5D 5E                       LEA EBX,DWORD PTR SS:[EBP+5E]
+0041B04D    53                            PUSH EBX
+0041B04E    50                            PUSH EAX
+0041B04F    FF95 490F0000                 CALL DWORD PTR SS:[EBP+F49]
+0041B055    8985 4D050000                 MOV DWORD PTR SS:[EBP+54D],EAX
+0041B05B    8D5D 6B                       LEA EBX,DWORD PTR SS:[EBP+6B]
+0041B05E    53                            PUSH EBX
+0041B05F    57                            PUSH EDI
+0041B060    FF95 490F0000                 CALL DWORD PTR SS:[EBP+F49]
+
+"\x60\xE8\x03\x00\x00\x00\xE9\xEB\x04\x5D" \
+"\x45\x55\xC3\xE8\x01\x00\x00\x00\xEB\x5D" \
+"\xBB\xED\xFF\xFF\xFF\x03\xDD\x81\xEB" \
+"\x00\xB0\x01"

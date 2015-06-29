@@ -1,0 +1,123 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (中国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+DLG_MAIN DIALOGEX 200, 150, 282, 129
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "中转函数DllHijack"
+FONT 9, "宋体"
+BEGIN
+    EDITTEXT        IDC_EXPORTDLL,84,17,148,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TARGETDLL,84,36,148,12,ES_AUTOHSCROLL
+    LTEXT           "提供导出表的Dll",IDC_STATIC,13,19,62,12
+    LTEXT           "修改导出表的Dll",IDC_STATIC,14,38,63,10
+    CONTROL         "新增节",IDC_ADDSECTION,"Button",BS_AUTORADIOBUTTON,20,
+                    96,39,9
+    CONTROL         "扩大节",IDC_EXPANDSECTION,"Button",BS_AUTORADIOBUTTON,
+                    71,95,37,12
+    GROUPBOX        "Static",IDC_STATIC,12,80,115,37
+    PUSHBUTTON      "生成",IDOK,172,93,46,15
+    PUSHBUTTON      "退出",IDCANCEL,229,93,42,16
+    EDITTEXT        IDC_TRANSITNAME,84,55,148,12,ES_AUTOHSCROLL
+    LTEXT           "中转Dll名",IDC_STATIC,14,57,47,11
+    PUSHBUTTON      "...",IDC_EXPORTDLL_BROWSE,240,16,31,15,0,
+                    WS_EX_CLIENTEDGE | WS_EX_STATICEDGE
+    PUSHBUTTON      "...",IDC_TARGETDLL_BROWSE,240,34,31,15,0,
+                    WS_EX_CLIENTEDGE | WS_EX_STATICEDGE
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    DLG_MAIN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 275
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 122
+        HORZGUIDE, 121
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON1               ICON    DISCARDABLE     "main.ico"
+#endif    // Chinese (中国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

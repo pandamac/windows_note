@@ -1,0 +1,2 @@
+1>warnings in directory d:\vc工程\ssdthook
+1>d:\vc工程\ssdthook\hookzwcreatefile.c(194) : warning C4996: 'MmCreateMdl': was declared deprecat1>d:\vc工程\ssdthook\hookzwcreatefile.c(200) : warning C4996: 'MmMapLockedPages': was declared deprecated

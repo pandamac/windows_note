@@ -1,0 +1,129 @@
+.safe_a {
+	color:#019846 !important;
+}
+
+.unsafe_a {
+	color:#de0000 !important;
+}
+
+.little_safe {
+	color:#037dc9 !important;
+}
+
+.little_unsafe {
+	color:#ff7e0d !important;
+}
+
+.safe_a, .unsafe_a, .little_safe, .little_unsafe{
+	font-size: 16px;
+}
+
+.gj_a {
+	color:#037dc9 !important;
+	text-decoration:none !important;
+}
+
+.gj_a:hover {
+	color:#009ee7 !important;
+}
+
+.gj_left {
+	margin-left:30px; 
+	*margin-left: 25px;
+	color:#037dc9 !important;
+	text-decoration:none !important;
+}
+
+.gj_detail_left {
+	margin-left:55px; 
+	*margin-left: 50px;
+	color:#037dc9 !important;
+	text-decoration:none !important;
+}
+
+.gj_tri {
+	display: block;
+	width: 15px;
+	height: 7px;
+	left:21px;
+	top: -7px;
+	position: absolute;
+	z-index: 10;
+}
+
+.gj_body {
+	padding-left: 15px;
+	height: 83px;
+	/*background: url('http://s.pc.qq.com/discuz/image/v2/header_bg.png') no-repeat;*/
+	background: url('http://s.pc.qq.com/discuz/image/v2/header_bg.png') no-repeat;
+}
+
+.gj_statu {
+	padding-top: 17px;
+}
+
+.gj_bottom {
+	background: url('http://s.pc.qq.com/discuz/image/v2/gj_tips_bg.png') no-repeat;
+	margin-top: 0px;
+	padding-left: 15px;
+	padding-bottom: 10px;
+	/*border-left: 1px #659dc6 solid;
+	border-right: 1px #659dc6 solid;
+	border-bottom: 1px #659dc6 solid;*/
+	z-index: 2000;
+}
+
+.gj_star {
+	position: relative;
+	top: 2px;
+	margin-left: 2px;
+	margin-right: 1px;
+	z-index: 1000;
+}
+
+.gj_face{
+	position: relative;
+	top: 2px;
+	left: 10px;
+}
+
+.gj_icon{
+	position: relative;
+	top: 5px;
+	margin-right: 5px;
+}
+
+.safe_statu{
+	position:absolute;
+	/*display:none;*/
+	width:307px;
+	font-size:12px;
+	line-height: 21px;
+	z-index: 999;
+	background:#FFFFFF;
+	text-indent: 0;
+}
+
+.safe_statu a{
+	font-weight: 400;
+	font-style: normal;
+}
+
+.safe_statu_wording{
+	display:block;
+	float:left;
+	margin-left:5px;
+	margin-top:7px;width:180px;
+}
+
+.gj_ie6png {
+   position: relative;
+   behavior: expression((this.runtimeStyle.behavior="none")&&(this.pngSet?this.pngSet=true:(this.nodeName == "IMG" && this.src.toLowerCase().indexOf('.png')>-1?(this.runtimeStyle.backgroundImage = "none",
+   this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + this.src + "', sizingMethod='image')",
+   this.src = "http://s.pc.qq.com/discuz/image/transparent.gif"):(this.origBg = this.origBg? this.origBg :this.currentStyle.backgroundImage.toString().replace('url("','').replace('")',''),
+   this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + this.origBg + "', sizingMethod='crop')",
+   this.runtimeStyle.backgroundImage = "none")),this.pngSet=true));
+}
+
+#gj_operate { padding-top: 3px\9; *padding-top: 0px;}
+#gj_show_wording { line-height: 17px;}

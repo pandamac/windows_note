@@ -1,0 +1,11 @@
+
+EXPORTS
+DLLstartHOOK
+DLLstopHOOK
+DLLsetHOOKState
+DLLGetPubString
+DLLSetPubString
+RunDllHostCallBack
+
+SEGMENTS
+mysechx     READ WRITE SHARED

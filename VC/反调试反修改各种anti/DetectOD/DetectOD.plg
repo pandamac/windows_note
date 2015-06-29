@@ -1,0 +1,43 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: DetectOD - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Debug/DetectOD.res" /d "_DEBUG" /d "_AFXDLL" "G:\beiyong\biancheng\VC\反调试反修改各种anti\DetectOD\DetectOD.rc"" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP4D07.tmp" with contents
+[
+/nologo /MDd /w /W0 /WX /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/DetectOD.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"G:\beiyong\biancheng\VC\反调试反修改各种anti\DetectOD\DetectODDlg.cpp"
+]
+Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP4D07.tmp" 
+Creating command line "link.exe /nologo /subsystem:windows /incremental:yes /pdb:"Debug/DetectOD.pdb" /debug /machine:I386 /out:"Debug/DetectOD.exe" /pdbtype:sept  ".\Debug\DetectOD.obj" ".\Debug\DetectODDlg.obj" ".\Debug\StdAfx.obj" ".\Debug\DetectOD.res" "
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+DetectODDlg.cpp
+e:\microsoft visual studio\vc98\include\winable.h(40) : error C2011: 'tagGUITHREADINFO' : 'struct' type redefinition
+e:\microsoft visual studio\vc98\include\winable.h(202) : note C6311: c:\program files\microsoft platform sdk for windows xp sp2\include\winuser.h(10683) : see previous definition of 'OBJID_WINDOW'
+e:\microsoft visual studio\vc98\include\winable.h(203) : note C6311: c:\program files\microsoft platform sdk for windows xp sp2\include\winuser.h(10684) : see previous definition of 'OBJID_SYSMENU'
+e:\microsoft visual studio\vc98\include\winable.h(204) : note C6311: c:\program files\microsoft platform sdk for windows xp sp2\include\winuser.h(10685) : see previous definition of 'OBJID_TITLEBAR'
+e:\microsoft visual studio\vc98\include\winable.h(205) : note C6311: c:\program files\microsoft platform sdk for windows xp sp2\include\winuser.h(10686) : see previous definition of 'OBJID_MENU'
+e:\microsoft visual studio\vc98\include\winable.h(206) : note C6311: c:\program files\microsoft platform sdk for windows xp sp2\include\winuser.h(10687) : see previous definition of 'OBJID_CLIENT'
+e:\microsoft visual studio\vc98\include\winable.h(207) : note C6311: c:\program files\microsoft platform sdk for windows xp sp2\include\winuser.h(10688) : see previous definition of 'OBJID_VSCROLL'
+e:\microsoft visual studio\vc98\include\winable.h(208) : note C6311: c:\program files\microsoft platform sdk for windows xp sp2\include\winuser.h(10689) : see previous definition of 'OBJID_HSCROLL'
+e:\microsoft visual studio\vc98\include\winable.h(209) : note C6311: c:\program files\microsoft platform sdk for windows xp sp2\include\winuser.h(10690) : see previous definition of 'OBJID_SIZEGRIP'
+e:\microsoft visual studio\vc98\include\winable.h(210) : note C6311: c:\program files\microsoft platform sdk for windows xp sp2\include\winuser.h(10691) : see previous definition of 'OBJID_CARET'
+e:\microsoft visual studio\vc98\include\winable.h(211) : note C6311: c:\program files\microsoft platform sdk for windows xp sp2\include\winuser.h(10692) : see previous definition of 'OBJID_CURSOR'
+e:\microsoft visual studio\vc98\include\winable.h(212) : note C6311: c:\program files\microsoft platform sdk for windows xp sp2\include\winuser.h(10693) : see previous definition of 'OBJID_ALERT'
+e:\microsoft visual studio\vc98\include\winable.h(213) : note C6311: c:\program files\microsoft platform sdk for windows xp sp2\include\winuser.h(10694) : see previous definition of 'OBJID_SOUND'
+e:\microsoft visual studio\vc98\include\winable.h(229) : error C2040: 'HWINEVENTHOOK' : 'unsigned long' differs in levels of indirection from 'struct HWINEVENTHOOK__ *'
+执行 cl.exe 时出错.
+
+
+
+<h3>Results</h3>
+DetectOD.exe - 1 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

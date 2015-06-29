@@ -1,0 +1,65 @@
+__asm
+
+{  
+        xor eax,eax    
+        jz label1
+        __emit e7h
+        __emit e8h   // call
+        __emit e9h   // jmp
+
+label1:
+}
+__asm
+{
+        xor eax,eax
+        jz label2
+        /* junk code */
+        __emit 74h // jz
+labe2:
+}
+
+去除花指令可以用winhex搜索特征码来改成nop，当然直接用idc插件改更方便。简单写个脚本
+
+#include <idc.idc>
+
+static main()
+{
+    auto i,j,from,size;
+    from=0x11400; //起始地址
+    size=0x1000;//扫描数据块大小
+
+    for ( i=0; i < size;i++ )
+    {
+
+        //查找 E7 E8 E9 替换90
+
+        if ((Byte(from) == 0xE7) &&
+            (Byte(from+1) == 0xE8) &&
+            (Byte(from+2) == 0xE9))
+        {
+            Message("test\n");
+            for(j=0;j<3;j++)
+            {
+                PatchByte(from,0x90);
+                from++;
+            }
+            continue;  //回到for
+        }
+
+        // 查找 33 c0 74 10 ?? ?? ?? ?? …… 后16个替换成90
+        if (Byte(from) == 0x33 && Byte(from+1) == 0xC0 && Byte(from + 2) == 0x74 &&
+            Byte(from + 3) == 0x10)
+        {
+            for (j = 0; j < 16; j++)
+            {
+                PatchByte(from+4, 0x90);
+                from++;
+            }
+            continue;
+        }
+        from++;
+
+    }
+    Message("\n" + "OK\n");
+
+ }

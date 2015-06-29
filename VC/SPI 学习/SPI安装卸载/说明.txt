@@ -1,0 +1,3 @@
+Service Provider Interface SPI
+当用户调用相应API进行通信时，WINSOCK库内部实际是调用SPI去实现相应API的功能的
+WINSOCK2支持的动态链接库 WS2_32.DLL 实现的

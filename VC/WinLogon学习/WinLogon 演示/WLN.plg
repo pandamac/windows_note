@@ -1,0 +1,42 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: WLN - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\panda\LOCALS~1\Temp\RSP32.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "WLN_EXPORTS" /Fp"Debug/WLN.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Documents and Settings\panda\桌面\WinLogon 演示\WLN.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\panda\LOCALS~1\Temp\RSP32.tmp" 
+Creating temporary file "C:\DOCUME~1\panda\LOCALS~1\Temp\RSP33.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "WLN_EXPORTS" /Fp"Debug/WLN.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Documents and Settings\panda\桌面\WinLogon 演示\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\panda\LOCALS~1\Temp\RSP33.tmp" 
+Creating temporary file "C:\DOCUME~1\panda\LOCALS~1\Temp\RSP34.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /dll /incremental:yes /pdb:"Debug/WLN.pdb" /debug /machine:I386 /out:"Debug/WLN.dll" /implib:"Debug/WLN.lib" /pdbtype:sept 
+".\Debug\StdAfx.obj"
+".\Debug\WLN.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\panda\LOCALS~1\Temp\RSP34.tmp"
+<h3>Output Window</h3>
+Compiling...
+StdAfx.cpp
+Compiling...
+WLN.cpp
+Linking...
+   Creating library Debug/WLN.lib and object Debug/WLN.exp
+
+
+
+<h3>Results</h3>
+WLN.dll - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

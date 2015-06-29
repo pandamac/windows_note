@@ -1,0 +1,49 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: HookDll - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Debug/HookDll.res" /d "_DEBUG" /d "_AFXDLL" "Z:\G\Books\Virus\Windows黑客技术揭秘与攻防I——C语言篇\AutoPlay\Docs\第8章\键盘记录\HookDll\HookDll.rc"" 
+Creating temporary file "C:\DOCUME~1\panda\LOCALS~1\Temp\RSPED.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_MBCS" /D "_USRDLL" /FR"Debug/" /Fp"Debug/HookDll.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"Z:\G\Books\Virus\Windows黑客技术揭秘与攻防I——C语言篇\AutoPlay\Docs\第8章\键盘记录\HookDll\HookDll.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\panda\LOCALS~1\Temp\RSPED.tmp" 
+Creating temporary file "C:\DOCUME~1\panda\LOCALS~1\Temp\RSPEE.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_MBCS" /D "_USRDLL" /FR"Debug/" /Fp"Debug/HookDll.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"Z:\G\Books\Virus\Windows黑客技术揭秘与攻防I——C语言篇\AutoPlay\Docs\第8章\键盘记录\HookDll\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\panda\LOCALS~1\Temp\RSPEE.tmp" 
+Creating temporary file "C:\DOCUME~1\panda\LOCALS~1\Temp\RSPEF.tmp" with contents
+[
+/nologo /subsystem:windows /dll /incremental:yes /pdb:"Debug/HookDll.pdb" /debug /machine:I386 /def:".\HookDll.def" /out:"Debug/HookDll.dll" /implib:"Debug/HookDll.lib" /pdbtype:sept 
+".\Debug\HookDll.obj"
+".\Debug\StdAfx.obj"
+".\Debug\HookDll.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\panda\LOCALS~1\Temp\RSPEF.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+HookDll.cpp
+Z:\G\Books\Virus\Windows黑客技术揭秘与攻防I——C语言篇\AutoPlay\Docs\第8章\键盘记录\HookDll\HookDll.cpp(56) : warning C4273: 'SetKeyHook' : inconsistent dll linkage.  dllexport assumed.
+Linking...
+   Creating library Debug/HookDll.lib and object Debug/HookDll.exp
+Creating command line "bscmake.exe /nologo /o"Debug/HookDll.bsc"  ".\Debug\StdAfx.sbr" ".\Debug\HookDll.sbr""
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+HookDll.dll - 0 error(s), 1 warning(s)
+</pre>
+</body>
+</html>

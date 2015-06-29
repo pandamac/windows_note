@@ -1,0 +1,32 @@
+﻿生成启动时间为 2014/4/9 11:21:10。
+     1>项目“G:\beiyong\biancheng\121114138MulAppLoader_src\MulAppLoader_src\MulAppLoader\MulAppExe\MulAppExe.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Debug\MulAppExe.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         所有输出均为最新。
+         E:\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\MulAppExe.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt MulAppExeDlg.cpp
+         MulAppExeDlg.cpp
+       ResourceCompile:
+         所有输出均为最新。
+       ManifestResourceCompile:
+         所有输出均为最新。
+       Link:
+         E:\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"G:\beiyong\biancheng\121114138MulAppLoader_src\MulAppLoader_src\MulAppLoader\Debug\MulAppExe.exe" /INCREMENTAL /NOLOGO /MANIFEST /ManifestFile:"Debug\MulAppExe.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"G:\beiyong\biancheng\121114138MulAppLoader_src\MulAppLoader_src\MulAppLoader\Debug\MulAppExe.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"wWinMainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"G:\beiyong\biancheng\121114138MulAppLoader_src\MulAppLoader_src\MulAppLoader\Debug\MulAppExe.lib" /MACHINE:X86 Debug\MulAppExe.res
+         Debug\MulAppExe.exe.embed.manifest.res
+         Debug\MulAppExe.obj
+         Debug\MulAppExeDlg.obj
+         Debug\stdafx.obj
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\MulAppExe.exe.embed.manifest" /manifest Debug\MulAppExe.exe.intermediate.manifest "E:\Microsoft Visual Studio 10.0\VC\Include\Manifest\dpiaware.manifest"
+         所有输出均为最新。
+       LinkEmbedManifest:
+         所有输出均为最新。
+         MulAppExe.vcxproj -> G:\beiyong\biancheng\121114138MulAppLoader_src\MulAppLoader_src\MulAppLoader\Debug\MulAppExe.exe
+       FinalizeBuildStatus:
+         正在删除文件“Debug\MulAppExe.unsuccessfulbuild”。
+         正在对“Debug\MulAppExe.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“G:\beiyong\biancheng\121114138MulAppLoader_src\MulAppLoader_src\MulAppLoader\MulAppExe\MulAppExe.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:01.26

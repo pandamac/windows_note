@@ -1,0 +1,24 @@
+DWORD GetHeaders(PCHAR ibase,
+				 PIMAGE_FILE_HEADER *pfh,
+				 PIMAGE_OPTIONAL_HEADER *poh,
+				 PIMAGE_SECTION_HEADER *psh)
+
+{ 
+	PIMAGE_DOS_HEADER mzhead=(PIMAGE_DOS_HEADER)ibase;
+
+	if    ((mzhead->e_magic!=IMAGE_DOS_SIGNATURE) ||
+		(ibase[mzhead->e_lfanew]!=IMAGE_NT_SIGNATURE))
+		return FALSE;
+
+	*pfh=(PIMAGE_FILE_HEADER)&ibase[mzhead->e_lfanew];
+	if (((PIMAGE_NT_HEADERS)*pfh)->Signature!=IMAGE_NT_SIGNATURE) 
+		return FALSE;
+	*pfh=(PIMAGE_FILE_HEADER)((PBYTE)*pfh + sizeof(IMAGE_NT_SIGNATURE));
+
+	*poh=(PIMAGE_OPTIONAL_HEADER)((PBYTE)*pfh+sizeof(IMAGE_FILE_HEADER));
+	if ((*poh)->Magic!=IMAGE_NT_OPTIONAL_HDR32_MAGIC)
+		return FALSE;
+
+	*psh=(PIMAGE_SECTION_HEADER)((PBYTE)*poh+sizeof(IMAGE_OPTIONAL_HEADER));
+	return TRUE;
+}

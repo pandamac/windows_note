@@ -1,0 +1,32 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: OverlappedServer - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP82D.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /FR"Debug/" /Fp"Debug/OverlappedServer.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"G:\beiyong\biancheng\VC\Õ¯¬Á≥Ã–Ú—ßœ∞\OverlappedServer÷ÿµ˛IO\OverlappedServer.cpp"
+]
+Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP82D.tmp" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP82E.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/OverlappedServer.pdb" /debug /machine:I386 /out:"Debug/OverlappedServer.exe" /pdbtype:sept 
+".\Debug\OverlappedServer.obj"
+]
+Creating command line "link.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP82E.tmp"
+<h3>Output Window</h3>
+Compiling...
+OverlappedServer.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+OverlappedServer.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

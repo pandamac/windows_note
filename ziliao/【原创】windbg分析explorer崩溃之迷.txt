@@ -1,0 +1,105 @@
+标 题: 【原创】windbg分析explorer崩溃之迷
+作 者: leochao
+时 间: 2014-10-07,21:29:46
+链 接: http://bbs.pediy.com/showthread.php?t=193030
+
+1.初识敌情：    
+    放假归来，打开电脑连上网，提示有几封未读邮件，尽是一些工作相关的内容，处理完成之后放在一个文件夹之中，并随手将文件夹命名为a，随即准备压缩回复邮件。本来想右键点击文件然后进行缩，这时状况出现了，只要在文件夹上点击右键，explorer就崩溃，然后自动重启。接连几次之后，我的第一感是难道电脑中有病毒了？就试着点击桌面上其它的文件夹，可以弹出右键菜单，能够进行压缩。只要点击刚才我新建的文件夹a，explorer就崩溃。这样看来病毒的可能性就小了，如果有问题，应该都有问题才对。
+    2上windbg
+    为了把问题搞清楚，只有请出电脑中的“抓虫大师”来帮忙了，因为平常电脑中出现问题也没少请他，但不知这次能否药到病除。为了能够在explorer崩溃的时候windbg自动跳出来为我分析敌情，首先要将windbg设置为jit调试器。一切准备好之后，就等bug自动上钩了。
+    再次右键点击文件夹1，崩溃如期而至，此时windbg也兴奋的跳出来向我报告发现情况，请求我处理。在命令行中输入kvn查看一下栈回溯。
+ # ChildEBP RetAddr  Args to Child              
+WARNING: Stack unwind information not available. Following frames may be wrong.
+00 000adb24 04ee468d 000adb44 04efffcc 1d00d4ac WinMTExt!DllUnregisterServer+0xa879
+01 000adb94 04edd3b8 000ae240 0722e13c 000ae0bc WinMTExt!DllUnregisterServer+0xa50d
+02 000adc4c 77253b27 77253b2c 7738d40c 000add8c WinMTExt!DllUnregisterServer+0x3238
+03 000adc80 769297b4 000000e2 000adca4 769da1d4 ntdll!RtlNtStatusToDosError+0x3b (FPO: [Non-Fpo])
+04 000adca4 769da06e 000adcc4 00000044 000adcf0 0x769297b4
+05 000add98 851b850d 0722e13c 000addf0 000ae240 kernel32!BaseRegGetKeySemantics+0x24e (FPO: [Non-Fpo])
+06 000addc0 769f7609 04ed1284 1d00c0b0 000ae77c 0x851b850d
+07 000ade74 77253b27 77253b2c 7738d624 00000000 kernel32!lstrcatW+0x73 
+08 000adea8 769df6f2 769df722 851b87e5 000ae0c8 ntdll!RtlNtStatusToDosError+0x3b (FPO: [Non-Fpo])
+09 000adf2c 769e1040 76a565c0 00000000 000adf94 kernel32!LocalBaseRegOpenKey+0x159 (FPO: [Non-Fpo])
+0a 000adf3c 0795e328 000adf58 769dc748 0795e328 kernel32!CLOSE_LOCAL_HANDLE_INTERNAL+0x48 (FPO: [Non-Fpo])
+0b 000adfb8 7555e916 00000010 000ae08c 00000004 0x795e328
+0c 000adff4 75b365ff 1d00d2d0 04edb2c5 002301ef shlwapi!SHRegGetValueW+0xbc 
+0d 000ae01c 002301ef 00000000 0000796d 00007afa shell32!SHRegGetDWORDW+0x26 (FPO: [Non-Fpo])
+
+    通过shell32!SHRegGetDWORDW可以知道，这正是我弹出右键菜单时发生的动作，继续向上找可以知道，出事故的地方是在WinMTExt这个模块中。然后通过lm vm WinMTExt查看一下这个dll文件的来历。
+start    end        module name
+04ed0000 04f14000   WinMTExt   (export symbols)       WinMTExt.dll
+    Loaded symbol image file: WinMTExt.dll
+    Image path: C:\Program Files\WinMount\WinMTExt.dll
+    Image name: WinMTExt.dll
+    Timestamp:        Wed Oct 20 13:22:47 2010 (4CBE7CA7)
+    CheckSum:         00048B03
+    ImageSize:        00044000
+    File version:     3.3.1.20
+    Product version:  3.3.1.20
+    File flags:       0 (Mask 3F)
+    File OS:          4 Unknown Win32
+    File type:        2.0 Dll
+    File date:        00000000.00000000
+    Translations:     0009.03a8
+    CompanyName:      WinMount International Inc.
+    ProductName:      WinMTExt.dll
+    InternalName:     WinMTExt.dll
+    OriginalFilename: WinMTExt.dll
+    ProductVersion:   3.4.1015
+    FileVersion:      3.4.1015
+    FileDescription:  WinMount Explorer Extension
+    LegalCopyright:   (C) WinMount International Inc. All Rights Reserved
+    原来是winMount软件的Explorer扩展dll。它怎么出错了呢？现在我们就回到事故现场看看发生了什么？使用windbg的反汇编命令ub WinMTExt!DllUnregisterServer+0xa879,得到结果如下：
+WinMTExt!DllUnregisterServer+0xa866:
+04ee49e6 83ec20          sub     esp,20h
+04ee49e9 8b4508          mov     eax,dword ptr [ebp+8]
+04ee49ec 56              push    esi
+04ee49ed 57              push    edi
+04ee49ee 6a08            push    8
+04ee49f0 59              pop     ecx
+04ee49f1 be54b5ef04      mov     esi,offset WinMTExt!DllUnregisterServer+0x213d4
+04ee49f6 8d7de0          lea     edi,[ebp-20h]
+0:000> u
+WinMTExt!DllUnregisterServer+0xa879:
+04ee49f9 f3a5            rep movs dword ptr es:[edi],dword ptr [esi]
+    这段汇编只要内容为在栈中开辟32字节的区域来存放esi所指向的内容，一共复制8次（ecx=8），那么来看看esi中的值是什么：通过r esi可以看到esi=ccefb554,然后查看ccefb554所指的内容。使用db ccefb554查看，
+ccefb554  ?? ?? ?? ?? ?? ?? ?? ??-?? ?? ?? ?? ?? ?? ?? ??  ????????????????
+ccefb564  ?? ?? ?? ?? ?? ?? ?? ??-?? ?? ?? ?? ?? ?? ?? ??  ????????????????
+    ？表示没有内容，所以导致rep movs dword ptr es:[edi],dword ptr [esi]这条件指令在执行时引发内存读取错误。通过 ub WinMTExt!DllUnregisterServer+0xa50d查看其父函数，是什么原因导致这个问题。
+WinMTExt!DllUnregisterServer+0xa4f3:
+04ee4673 8d45d8          lea     eax,[ebp-28h]
+04ee4676 50              push    eax
+04ee4677 8d4db0          lea     ecx,[ebp-50h]
+04ee467a e851b6ffff      call    WinMTExt!DllUnregisterServer+0x5b50 (04edfcd0)
+04ee467f 68ccffef04      push    offset WinMTExt!DllUnregisterServer+0x25e4c (04efffcc)
+04ee4684 8d45b0          lea     eax,[ebp-50h]
+04ee4687 50              push    eax
+04ee4688 e854030000      call    WinMTExt!DllUnregisterServer+0xa861 (04ee49e1)
+    看了半天也没发现什么有价值的内容，还是把眼光放长远一点，继续它的函数 ub winMTExt!DllUnregisterServer+0x3238 L10
+WinMTExt!DllUnregisterServer+0x3201:
+04edd381 a810            test    al,10h
+04edd383 0f84ab000000    je      WinMTExt!DllUnregisterServer+0x32b4 (04edd434)
+04edd389 bb01000000      mov     ebx,1
+04edd38e 895c2410        mov     dword ptr [esp+10h],ebx
+04edd392 85ff            test    edi,edi
+04edd394 752c            jne     WinMTExt!DllUnregisterServer+0x3242 (04edd3c2)
+04edd396 e8ba8a0000      call    WinMTExt!DllUnregisterServer+0xbcd5 (04ee5e55)
+04edd39b 33c0            xor     eax,eax
+04edd39d 8b74241c        mov     esi,dword ptr [esp+1Ch]
+04edd3a1 8d4efc          lea     ecx,[esi-4]
+04edd3a4 3b4810          cmp     ecx,dword ptr [eax+10h]
+04edd3a7 7205            jb      WinMTExt!DllUnregisterServer+0x322e (04edd3ae)
+04edd3a9 e8a78a0000      call    WinMTExt!DllUnregisterServer+0xbcd5 (04ee5e55)
+04edd3ae 395e10          cmp     dword ptr [esi+10h],ebx//ebx=1,从上面mov ebx,1可知。esi+10h处内容为文件夹名字的长度
+04edd3b1 7705            ja      WinMTExt!DllUnregisterServer+0x3238 (04edd3b8)
+04edd3b3 e89e720000      call    WinMTExt!DllUnregisterServer+0xa4d6 (04ee4656)//导致explorer崩溃的元凶
+    由于最下面的call很关键，是导致explorer崩溃的元凶。而看一下上面的那个判断，esi+10h处的内容与1相比，如果<=1就执行这个call,而>1则执行call后面的内容。分析到这里突然想自己的文件夹的名字a，长度为1，所以导致问题的发生。于是大胆猜esi+10h内容很可能是文件夹名字的长度。那么下面就试一下。首先将文件夹的名字命名为leochao，一个7个字节，下面看看esi+10h外的内容是否为7。关掉windbg，等桌面恢复以后重新启动一个windbg，然后附加到explorer进程中，点击break中断下来，在命令行中输入：bu WinMTExt!DllUnregisterServer+0x3201,然后输入g, 点击刚才的文件夹，单步执行到cmp     dword ptr [esi+10h],ebx这句，查看esi+10h的内容，dd esi+10，内容果然为00000007。
+    3.解决问题
+    分析到这里可以看到，程序在判断出现了错误。原意为如果文件夹名字的长度<1，则程序走向失败，而这里写误写为了<=1，从而导致文件夹名称长度为1时，程序也走向失败。现在明白了原因之后，只需将ja改为jge即可，将内存地址04edd3b1的77改为7D。使用命令eb 04edd3b1 7d。
+    现在将dll文件在内容的数据修改了，如何保存到文件呢，windbg给我们准备了一个命令：.writemem。首先知道dll加载的内存地址：lm m WinMTExt,得到dll文件在内存加载的地址。
+start    end        module name
+04ed0000 04f14000   WinMTExt   (export symbols)       WinMTExt.dll
+    然后到文件大小：？ 04f14000-04ed0000，
+    Evaluate expression: 278528 = 00044000
+    如何想把dll文件保存到C:\winMTExt.dll, 现在可以执行.writemem C:\winMTExt.dll 04ed0000 L44000。
+    将修改好的winMTExt.dll替换原来的dll文件，重启explorer之后，右键点击文件名长度为a的文件夹，explorer就不再崩溃了。 

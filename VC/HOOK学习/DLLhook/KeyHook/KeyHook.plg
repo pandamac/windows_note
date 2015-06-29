@@ -1,0 +1,32 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: KeyHook - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Debug/KeyHook.res" /d "_DEBUG" "Z:\G\Books\Virus\Windows黑客技术揭秘与攻防I——C语言篇\AutoPlay\Docs\第8章\键盘记录\KeyHook\KeyHook.rc"" 
+Creating temporary file "C:\DOCUME~1\panda\LOCALS~1\Temp\RSPE3.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /FR"Debug/" /Fp"Debug/KeyHook.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"Z:\G\Books\Virus\Windows黑客技术揭秘与攻防I——C语言篇\AutoPlay\Docs\第8章\键盘记录\KeyHook\KeyHook.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\panda\LOCALS~1\Temp\RSPE3.tmp" 
+Creating command line "link.exe /nologo /subsystem:windows /incremental:yes /pdb:"Debug/KeyHook.pdb" /debug /machine:I386 /out:"Debug/KeyHook.exe" /pdbtype:sept  ".\Debug\KeyHook.obj" ".\Debug\KeyHook.res" ".\HookDll.lib" "
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+KeyHook.cpp
+Linking...
+Creating command line "bscmake.exe /nologo /o"Debug/KeyHook.bsc"  ".\Debug\KeyHook.sbr""
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+KeyHook.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

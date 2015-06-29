@@ -1,0 +1,39 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: 服务管理 - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP1B1E.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/服务管理.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"Z:\E\Books\黑客防线VC\黑客防线源码part1\mmhml\木马编程DIY之系统服务\服务管理\服务管理.cpp"
+"Z:\E\Books\黑客防线VC\黑客防线源码part1\mmhml\木马编程DIY之系统服务\服务管理\服务管理Dlg.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP1B1E.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP1B1F.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/服务管理.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"Z:\E\Books\黑客防线VC\黑客防线源码part1\mmhml\木马编程DIY之系统服务\服务管理\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP1B1F.tmp" 
+Creating command line "link.exe /nologo /subsystem:windows /incremental:no /pdb:"Release/服务管理.pdb" /machine:I386 /out:"Release/服务管理.exe"  ".\Release\StdAfx.obj" ".\Release\服务管理.obj" ".\Release\服务管理Dlg.obj" ".\Release\服务管理.res" "
+<h3>Output Window</h3>
+Compiling...
+StdAfx.cpp
+Compiling...
+服务管理.cpp
+服务管理Dlg.cpp
+Generating Code...
+Z:\E\Books\黑客防线VC\黑客防线源码part1\mmhml\木马编程DIY之系统服务\服务管理\服务管理Dlg.cpp(798) : warning C4715: 'EnablePriv' : not all control paths return a value
+Linking...
+
+
+
+<h3>Results</h3>
+服务管理.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

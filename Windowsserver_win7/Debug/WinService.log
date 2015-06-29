@@ -1,0 +1,42 @@
+﻿  Processing .\WinService.idl
+  WinService.idl
+  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\oaidl.idl
+  oaidl.idl
+  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\objidl.idl
+  objidl.idl
+  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\unknwn.idl
+  unknwn.idl
+  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\shared\wtypes.idl
+  wtypes.idl
+  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\shared\wtypesbase.idl
+  wtypesbase.idl
+  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\shared\basetsd.h
+  basetsd.h
+  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\shared\guiddef.h
+  guiddef.h
+  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\ocidl.idl
+  ocidl.idl
+  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\oleidl.idl
+  oleidl.idl
+  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\servprov.idl
+  servprov.idl
+  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\urlmon.idl
+  urlmon.idl
+  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\msxml.idl
+  msxml.idl
+  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\oaidl.acf
+  oaidl.acf
+  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\ocidl.acf
+  ocidl.acf
+  StdAfx.cpp
+  WinService.cpp
+g:\beiyong\biancheng\windowsserver_win7\winservice.cpp(65): warning C4996: 'ATL::CRegKey::SetValue': CRegKey::SetValue(TCHAR *value, TCHAR *valueName) has been superseded by CRegKey::SetStringValue and CRegKey::SetMultiStringValue
+          e:\microsoft visual studio 12.0\vc\atlmfc\include\atlbase.h(5555) : 参见“ATL::CRegKey::SetValue”的声明
+g:\beiyong\biancheng\windowsserver_win7\winservice.cpp(66): warning C4996: 'ATL::CRegKey::SetValue': CRegKey::SetValue(TCHAR *value, TCHAR *valueName) has been superseded by CRegKey::SetStringValue and CRegKey::SetMultiStringValue
+          e:\microsoft visual studio 12.0\vc\atlmfc\include\atlbase.h(5555) : 参见“ATL::CRegKey::SetValue”的声明
+g:\beiyong\biancheng\windowsserver_win7\winservice.cpp(267): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          e:\microsoft visual studio 12.0\vc\include\stdio.h(356) : 参见“vsprintf”的声明
+g:\beiyong\biancheng\windowsserver_win7\winservice.cpp(444): warning C4996: 'ATL::CRegKey::QueryValue': CRegKey::QueryValue(TCHAR *value, TCHAR *valueName) has been superseded by CRegKey::QueryStringValue and CRegKey::QueryMultiStringValue
+          e:\microsoft visual studio 12.0\vc\atlmfc\include\atlbase.h(5592) : 参见“ATL::CRegKey::QueryValue”的声明
+StdAfx.obj : warning LNK4075: 忽略“/EDITANDCONTINUE”(由于“/SAFESEH”规范)
+  WinService.vcxproj -> G:\beiyong\biancheng\Windowsserver_win7\Debug\WinService.exe

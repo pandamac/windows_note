@@ -1,0 +1,387 @@
+PLIST_ENTRY  ÏµÍ³ÓÐ¶¨Òå£¡£¡£¡£¡
+// _PEB_LDR_DATAÉùÃ÷
+typedef struct _PEB_LDR_DATA
+{
+    DWORD Length; // +0x00
+    bool Initialized; // +0x04
+    PVOID SsHandle; // +0x08
+    LIST_ENTRY InLoadOrderModuleList; // +0x0c
+    LIST_ENTRY InMemoryOrderModuleList; // +0x14
+    LIST_ENTRY InInitializationOrderModuleList;// +0x1c
+} PEB_LDR_DATA,*PPEB_LDR_DATA; // +0x24
+
+typedef struct _LDR_DATA_TABLE_ENTRY
+{
+    LIST_ENTRY          InLoadOrderModuleList;
+    LIST_ENTRY          InMemoryOrderModuleList;
+    LIST_ENTRY          InInitializationOrderModuleList;
+    void*               BaseAddress;
+    void*               EntryPoint;  
+    ULONG               SizeOfImage;
+    UNICODE_STRING   FullDllName;
+    UNICODE_STRING      BaseDllName;
+    ULONG               Flags;
+    SHORT               LoadCount;
+    SHORT               TlsIndex;
+    HANDLE              SectionHandle;
+    ULONG               CheckSum;
+    ULONG               TimeDateStamp;
+} LDR_DATA_TABLE_ENTRY, *PLDR_DATA_TABLE_ENTRY;
+
+typedef struct _LDR_MODULE
+{
+    LIST_ENTRY          InLoadOrderModuleList;   //+0x00
+    LIST_ENTRY          InMemoryOrderModuleList; //+0x08  
+    LIST_ENTRY          InInitializationOrderModuleList; //+0x10
+    void*               BaseAddress;  //+0x18
+    void*               EntryPoint;   //+0x1c
+    ULONG               SizeOfImage;
+    UNICODE_STRING      FullDllName;
+    UNICODE_STRING      BaseDllName;
+    ULONG               Flags;
+    SHORT               LoadCount;
+    SHORT               TlsIndex;
+    HANDLE              SectionHandle;
+    ULONG               CheckSum;
+    ULONG               TimeDateStamp;
+} LDR_MODULE, *PLDR_MODULE;
+
+typedef struct _KSYSTEM_TIME // 3 elements, 0xC bytes (sizeof)
+{
+	/*0x000*/     ULONG32      LowPart;
+	/*0x004*/     LONG32       High1Time;
+	/*0x008*/     LONG32       High2Time;
+}KSYSTEM_TIME, *PKSYSTEM_TIME;
+
+typedef struct _UNICODE_STRING { 
+	USHORT Length; 
+	USHORT MaximumLength; 
+	PWSTR  Buffer;                 //×¢Òâ£¬ÕâÀïÎªUnicodeÀàÐÍ
+} UNICODE_STRING, *PUNICODE_STRING;
+
+typedef enum _SYSTEM_INFORMATION_CLASS {
+	SystemBasicInformation,
+		SystemProcessorInformation,
+		SystemPerformanceInformation,
+		SystemTimeOfDayInformation,
+		SystemNotImplemented1,
+		SystemProcessesAndThreadsInformation,
+		SystemCallCounts,
+		SystemConfigurationInformation,
+		SystemProcessorTimes,
+		SystemGlobalFlag,
+		SystemNotImplemented2,
+		SystemModuleInformation,
+		SystemLockInformation,
+		SystemNotImplemented3,
+		SystemNotImplemented4,
+		SystemNotImplemented5,
+		SystemHandleInformation,
+		SystemObjectInformation,
+		SystemPagefileInformation,
+		SystemInstructionEmulationCounts,
+		SystemInvalidInfoClass1,
+		SystemCacheInformation,
+		SystemPoolTagInformation,
+		SystemProcessorStatistics,
+		SystemDpcInformation,
+		SystemNotImplemented6,
+		SystemLoadImage,
+		SystemUnloadImage,
+		SystemTimeAdjustment,
+		SystemNotImplemented7,
+		SystemNotImplemented8,
+		SystemNotImplemented9,
+		SystemCrashDumpInformation,
+		SystemExceptionInformation,
+		SystemCrashDumpStateInformation,
+		SystemKernelDebuggerInformation,
+		SystemContextSwitchInformation,
+		SystemRegistryQuotaInformation,
+		SystemLoadAndCallImage,
+		SystemPrioritySeparation,
+		SystemNotImplemented10,
+		SystemNotImplemented11,
+		SystemInvalidInfoClass2,
+		SystemInvalidInfoClass3,
+		SystemTimeZoneInformation,
+		SystemLookasideInformation,
+		SystemSetTimeSlipEvent,
+		SystemCreateSession,
+		SystemDeleteSession,
+		SystemInvalidInfoClass4,
+		SystemRangeStartInformation,
+		SystemVerifierInformation,
+		SystemAddVerifier,
+		SystemSessionProcessesInformation
+} SYSTEM_INFORMATION_CLASS;
+
+typedef struct _SYSTEM_PROCESS_INFORMATION  
+{  
+    DWORD NextEntryDelta;  
+    DWORD dThreadCount;  
+    DWORD dReserved01;  
+    DWORD dReserved02;  
+    DWORD dReserved03;  
+    DWORD dReserved04;  
+    DWORD dReserved05;  
+    DWORD dReserved06;  
+    FILETIME ftCreateTime; /* relative to 01-01-1601 */  
+    FILETIME ftUserTime; /* 100 nsec units */  
+    FILETIME ftKernelTime; /* 100 nsec units */  
+    UNICODE_STRING ProcessName;      //Õâ¾ÍÊÇ½ø³ÌÃû
+    DWORD BasePriority;  
+    DWORD dUniqueProcessId;            //½ø³ÌID
+    DWORD dParentProcessID;  
+    DWORD dHandleCount;  
+    DWORD dReserved07;  
+    DWORD dReserved08;  
+    DWORD VmCounters;  
+    DWORD dCommitCharge;  
+    PVOID ThreadInfos[1]; 
+} SYSTEM_PROCESS_INFORMATION, *PSYSTEM_PROCESS_INFORMATION;
+typedef struct _CLIENT_ID       // 2 elements, 0x8 bytes (sizeof)
+{
+	/*0x000*/     VOID*        UniqueProcess;
+	/*0x004*/     VOID*        UniqueThread;
+}CLIENT_ID, *PCLIENT_ID;
+
+typedef struct _PEB { // Size: 0x1D8
+/*000*/ UCHAR InheritedAddressSpace;
+/*001*/ UCHAR ReadImageFileExecOptions;
+/*002*/ UCHAR BeingDebugged;
+/*003*/ UCHAR SpareBool; // Allocation size
+/*004*/ HANDLE Mutant;
+/*008*/ HINSTANCE ImageBaseAddress; // Instance
+/*00C*/ VOID *DllList;
+/*010*/ PPROCESS_PARAMETERS *ProcessParameters;
+/*014*/ ULONG SubSystemData;
+/*018*/ HANDLE DefaultHeap;
+/*01C*/ KSPIN_LOCK FastPebLock;
+/*020*/ ULONG FastPebLockRoutine;
+/*024*/ ULONG FastPebUnlockRoutine;
+/*028*/ ULONG EnvironmentUpdateCount;
+/*02C*/ ULONG KernelCallbackTable;
+/*030*/ LARGE_INTEGER SystemReserved;
+/*038*/ ULONG FreeList;
+/*03C*/ ULONG TlsExpansionCounter;
+/*040*/ ULONG TlsBitmap;
+/*044*/ LARGE_INTEGER TlsBitmapBits;
+/*04C*/ ULONG ReadOnlySharedMemoryBase;
+/*050*/ ULONG ReadOnlySharedMemoryHeap;
+/*054*/ ULONG ReadOnlyStaticServerData;
+/*058*/ ULONG AnsiCodePageData;
+/*05C*/ ULONG OemCodePageData;
+/*060*/ ULONG UnicodeCaseTableData;
+/*064*/ ULONG NumberOfProcessors;
+/*068*/ LARGE_INTEGER NtGlobalFlag; // Address of a local copy
+/*070*/ LARGE_INTEGER CriticalSectionTimeout;
+/*078*/ ULONG HeapSegmentReserve;
+/*07C*/ ULONG HeapSegmentCommit;
+/*080*/ ULONG HeapDeCommitTotalFreeThreshold;
+/*084*/ ULONG HeapDeCommitFreeBlockThreshold;
+/*088*/ ULONG NumberOfHeaps;
+/*08C*/ ULONG MaximumNumberOfHeaps;
+/*090*/ ULONG ProcessHeaps;
+/*094*/ ULONG GdiSharedHandleTable;
+/*098*/ ULONG ProcessStarterHelper;
+/*09C*/ ULONG GdiDCAttributeList;
+/*0A0*/ KSPIN_LOCK LoaderLock;
+/*0A4*/ ULONG OSMajorVersion;
+/*0A8*/ ULONG OSMinorVersion;
+/*0AC*/ USHORT OSBuildNumber;
+/*0AE*/ USHORT OSCSDVersion;
+/*0B0*/ ULONG OSPlatformId;
+/*0B4*/ ULONG ImageSubsystem;
+/*0B8*/ ULONG ImageSubsystemMajorVersion;
+/*0BC*/ ULONG ImageSubsystemMinorVersion;
+/*0C0*/ ULONG ImageProcessAffinityMask;
+/*0C4*/ ULONG GdiHandleBuffer[0x22];
+/*14C*/ ULONG PostProcessInitRoutine;
+/*150*/ ULONG TlsExpansionBitmap;
+/*154*/ UCHAR TlsExpansionBitmapBits[0x80];
+/*1D4*/ ULONG SessionId;
+} PEB, *PPEB;
+
+typedef struct _NT_TEB
+{
+NT_TIB Tib; // 00h
+PVOID EnvironmentPointer; // 1Ch
+CLIENT_ID Cid; // 20h
+PVOID ActiveRpcInfo; // 28h
+PVOID ThreadLocalStoragePointer; // 2Ch
+PPEB Peb; // 30h
+ULONG LastErrorValue; // 34h
+ULONG CountOfOwnedCriticalSections; // 38h
+PVOID CsrClientThread; // 3Ch
+PVOID Win32ThreadInfo; // 40h
+ULONG Win32ClientInfo[0x1F]; // 44h
+PVOID WOW32Reserved; // C0h
+ULONG CurrentLocale; // C4h
+ULONG FpSoftwareStatusRegister; // C8h
+PVOID SystemReserved1[0x36]; // CCh
+PVOID Spare1; // 1A4h
+LONG ExceptionCode; // 1A8h
+ULONG SpareBytes1[0x28]; // 1ACh
+PVOID SystemReserved2[0xA]; // 1D4h
+GDI_TEB_BATCH GdiTebBatch; // 1FCh
+ULONG gdiRgn; // 6DCh
+ULONG gdiPen; // 6E0h
+ULONG gdiBrush; // 6E4h
+CLIENT_ID RealClientId; // 6E8h
+PVOID GdiCachedProcessHandle; // 6F0h
+ULONG GdiClientPID; // 6F4h
+ULONG GdiClientTID; // 6F8h
+PVOID GdiThreadLocaleInfo; // 6FCh
+PVOID UserReserved[5]; // 700h
+PVOID glDispatchTable[0x118]; // 714h
+ULONG glReserved1[0x1A]; // B74h
+PVOID glReserved2; // BDCh
+PVOID glSectionInfo; // BE0h
+PVOID glSection; // BE4h
+PVOID glTable; // BE8h
+PVOID glCurrentRC; // BECh
+PVOID glContext; // BF0h
+NTSTATUS LastStatusValue; // BF4h
+UNICODE_STRING StaticUnicodeString; // BF8h
+WCHAR StaticUnicodeBuffer[0x105]; // C00h
+PVOID DeallocationStack; // E0Ch
+PVOID TlsSlots[0x40]; // E10h
+LIST_ENTRY TlsLinks; // F10h
+PVOID Vdm; // F18h
+PVOID ReservedForNtRpc; // F1Ch
+PVOID DbgSsReserved[0x2]; // F20h
+ULONG HardErrorDisabled; // F28h
+PVOID Instrumentation[0x10]; // F2Ch
+PVOID WinSockData; // F6Ch
+ULONG GdiBatchCount; // F70h
+ULONG Spare2; // F74h
+ULONG Spare3; // F78h
+ULONG Spare4; // F7Ch
+PVOID ReservedForOle; // F80h
+ULONG WaitingOnLoaderLock; // F84h
+
+PVOID StackCommit; // F88h
+PVOID StackCommitMax; // F8Ch
+PVOID StackReserve; // F90h
+
+PVOID MessageQueue; // ???
+} NT_TEB, *PNT_TEB; 
+
+/*
+ÔÚ User ²ãºÍ Kernel ²ã·Ö±ð¶¨ÒåÁËÒ»¸ö _KUSER_SHARED_DATA ½á¹¹ÇøÓò£¬ÓÃÓÚ User ²ãºÍ Kernel ²ã¹²ÏíÄ³Ð©Êý¾Ý£¬ÔÚ sysenter ¿ìËÙÇÐÈë»úÖÆÀï¾ÍÊ¹ÓÃÁËÕâ¸öÇøÓò¡£
+
+ËüÃÇÊ¹ÓÃ¹Ì¶¨µÄµØÖ·ÖµÓ³Éä£¬_KUSER_SHARED_DATA ½á¹¹ÇøÓòÔÚ User ºÍ Kernel ²ãµØÖ··Ö±ðÎª£º
+
+User ²ãµØÖ·Îª£º0x7ffe0000
+Kernnel ²ãµØÖ·Îª£º0xffdf0000
+*/
+typedef struct _KUSER_SHARED_DATA                                // 39 elements, 0x338 bytes (sizeof)
+{
+	/*0x000*/     ULONG32      TickCountLow;
+	/*0x004*/     ULONG32      TickCountMultiplier;
+	/*0x008*/     KSYSTEM_TIME InterruptTime;                          // 3 elements, 0xC bytes (sizeof)
+	/*0x014*/     KSYSTEM_TIME SystemTime;                             // 3 elements, 0xC bytes (sizeof)
+	/*0x020*/     KSYSTEM_TIME TimeZoneBias;                           // 3 elements, 0xC bytes (sizeof)
+	/*0x02C*/     WCHAR       ImageNumberLow;
+	/*0x02E*/     WCHAR       ImageNumberHigh;
+	/*0x030*/     WCHAR       NtSystemRoot[260];
+	/*0x238*/     ULONG32      MaxStackTraceDepth;
+	/*0x23C*/     ULONG32      CryptoExponent;
+	/*0x240*/     ULONG32      TimeZoneId;
+	/*0x244*/     ULONG32      Reserved2[8];
+	/*0x264*/     DWORD __b1;//NT_PRODUCT_TYPE NtProductType;
+	/*0x268*/     UCHAR        ProductTypeIsValid;
+	/*0x269*/     UCHAR        _PADDING0_[0x3];
+	/*0x26C*/     ULONG32      NtMajorVersion;
+	/*0x270*/     ULONG32      NtMinorVersion;
+	/*0x274*/     UCHAR        ProcessorFeatures[64];
+	/*0x2B4*/     ULONG32      Reserved1;
+	/*0x2B8*/     ULONG32      Reserved3;
+	/*0x2BC*/     ULONG32      TimeSlip;
+	/*0x2C0*/     DWORD __b2;//ALTERNATIVE_ARCHITECTURE_TYPE AlternativeArchitecture;
+	/*0x2C4*/     UCHAR        _PADDING1_[0x4];
+	/*0x2C8*/     LARGE_INTEGER SystemExpirationDate;                   // 4 elements, 0x8 bytes (sizeof)
+	/*0x2D0*/     ULONG32      SuiteMask;
+	/*0x2D4*/     UCHAR        KdDebuggerEnabled;
+	/*0x2D5*/     UCHAR        NXSupportPolicy;
+	/*0x2D6*/     UCHAR        _PADDING2_[0x2];
+	/*0x2D8*/     ULONG32      ActiveConsoleId;
+	/*0x2DC*/     ULONG32      DismountCount;
+	/*0x2E0*/     ULONG32      ComPlusPackage;
+	/*0x2E4*/     ULONG32      LastSystemRITEventTickCount;
+	/*0x2E8*/     ULONG32      NumberOfPhysicalPages;
+	/*0x2EC*/     UCHAR        SafeBootMode;
+	/*0x2ED*/     UCHAR        _PADDING3_[0x3];
+	/*0x2F0*/     ULONG32      TraceLogging;
+	/*0x2F4*/     UCHAR        _PADDING4_[0x4];
+	/*0x2F8*/     UINT64       TestRetInstruction;
+	/*0x300*/     ULONG32      SystemCall;
+	/*0x304*/     ULONG32      SystemCallReturn;
+}KUSER_SHARED_DATA, *PKUSER_SHARED_DATA;
+
+/////////////////////////////////////////////////////////////////////////////////////
+typedef enum _PROCESS_INFORMATION_CLASS {
+    ProcessBasicInformation,
+    ProcessQuotaLimits,
+    ProcessIoCounters,
+    ProcessVmCounters,
+    ProcessTimes,
+    ProcessBasePriority,
+    ProcessRaisePriority,
+    ProcessDebugPort,
+    ProcessExceptionPort,
+    ProcessAccessToken,
+    ProcessLdtInformation,
+    ProcessLdtSize,
+    ProcessDefaultHardErrorMode,
+    ProcessIoPortHandlers,
+    ProcessPooledUsageAndLimits,
+    ProcessWorkingSetWatch,
+    ProcessUserModeIOPL,
+    ProcessEnableAlignmentFaultFixup,
+    ProcessPriorityClass,
+    ProcessWx86Information,
+    ProcessHandleCount,
+    ProcessAffinityMask,
+    ProcessPriorityBoost,
+    MaxProcessInfoClass
+} PROCESS_INFORMATION_CLASS, *PPROCESS_INFORMATION_CLASS;
+
+typedef struct _KERNEL_USER_TIMES {
+	LONGLONG  CreateTime;
+	LONGLONG  ExitTime;
+	LONGLONG  KernelTime;
+	LONGLONG  UserTime;
+}KERNEL_USER_TIMES, *PKERNEL_USER_TIMES;
+
+typedef enum _THREAD_INFORMATION_CLASS {
+    ThreadBasicInformation,
+    ThreadTimes,
+    ThreadPriority,
+    ThreadBasePriority,
+    ThreadAffinityMask,
+    ThreadImpersonationToken,
+    ThreadDescriptorTableEntry,
+    ThreadEnableAlignmentFaultFixup,
+    ThreadEventPair,
+    ThreadQuerySetWin32StartAddress,
+    ThreadZeroTlsCell,
+    ThreadPerformanceCount,
+    ThreadAmILastThread,
+    ThreadIdealProcessor,
+    ThreadPriorityBoost,
+    ThreadSetTlsArrayAddress,
+    ThreadIsIoPending,
+    ThreadHideFromDebugger
+} THREAD_INFORMATION_CLASS, *PTHREAD_INFORMATION_CLASS;
+
+
+typedef enum _MEMORY_INFORMATION_CLASS
+{
+    MemoryBasicInformation,
+		MemoryWorkingSetList,
+		MemorySectionName,
+		MemoryBasicVlmInformation
+} MEMORY_INFORMATION_CLASS;
+

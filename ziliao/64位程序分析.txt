@@ -1,0 +1,92 @@
+windbg  +  ida
+
+binwalk 查询  是否程序包含了程序
+X64且加了壳,网上找到UPXShell.exe把壳给脱了,在崩溃点向上找，发现一段代码:
+
+img
+
+很明显,程序显示加载DecryptDll.dll,然后寻找dll中的RSADecrypt函数,最后意图调用它.
+
+但是没有DecryptDll.dll,自然就寻找不到RSADecrypt函数,就会发生一个错误的调用.
+
+找来找去费了好长时间,就试了下是否在程序里面,果段拉进binwalk
+
+img
+
+提取出来后拉进IDA一看,就导出了RSADecrypt函数
+
+在执行时修改下R8寄存器的值使其指向一块可写内存,调用后flag就会出现在R8寄存器指向的地方.
+
+DecryptDll!RSADecrypt:
+000007fe`e9fd13e0 4055            push    rbp
+000007fe`e9fd13e2 56              push    rsi
+000007fe`e9fd13e3 4154            push    r12
+000007fe`e9fd13e5 4155            push    r13
+000007fe`e9fd13e7 4881ec780c0000  sub     rsp,0C78h
+000007fe`e9fd13ee 488b05c3370b00  mov     rax,qword ptr [DecryptDll!RSADecrypt+0xb37d8 (000007fe`ea084bb8)]
+000007fe`e9fd13f5 4833c4          xor     rax,rsp
+000007fe`e9fd13f8 48898424600c0000 mov     qword ptr [rsp+0C60h],rax
+000007fe`e9fd1400 488be9          mov     rbp,rcx
+000007fe`e9fd1403 4d8be8          mov     r13,r8               R8 为存储 明文的内存地址 也是一个参数
+000007fe`e9fd1406 448be2          mov     r12d,edx
+000007fe`e9fd1409 33f6            xor     esi,esi
+000007fe`e9fd140b 488d4c2460      lea     rcx,[rsp+60h]
+000007fe`e9fd1410 33d2            xor     edx,edx
+000007fe`e9fd1412 41b8000c0000    mov     r8d,0C00h
+000007fe`e9fd1418 48c74424500f000000 mov   qword ptr [rsp+50h],0Fh
+
+
+rax=000007fee9fd13e0 rbx=0000000000000100 rcx=0000000000358920
+rdx=0000000000000100 rsi=0000000000358920 rdi=000007fee9fd0000
+rip=000007fee9fd13e0 rsp=000000000012f908 rbp=0000000000000000
+ r8=0000000000000000  r9=0000000000000040 r10=0000000000194d40
+r11=000000000012f802 r12=0000000000000000 r13=0000000000000111
+r14=0000000000000000 r15=00000000000c0444
+
+Child-SP          RetAddr           : Args to Child                                                           : Call Site
+00000000`0012f908 00000001`40001943 : 00000000`00000100 000007fe`e9fd13e0 00000000`00358920 00000000`00000064 : DecryptDll!RSADecrypt
+00000000`0012f910 00000001`400016d7 : 00000000`00000111 00000000`000c0444 00000000`000504c2 80000000`00000001 : image00000001_40000000+0x1943
+
+
+eq 可以修改内存地址  
+r @eax = 1
+ed(esp+8) 0xffffffff
+修改8字节为可写地址
+
+00000000`00028f20  ee fe ee fe ee fe ee fe-ee fe ee fe ee fe ee fe  ................
+00000000`00028f30  ee fe ee fe ee fe ee fe-ee fe ee fe ee fe ee fe  ................
+00000000`00028f40  ee fe ee fe ee fe ee fe-ee fe ee fe ee fe ee fe  ................
+00000000`00028f50  ee fe ee fe ee fe ee fe-ee fe ee fe ee fe ee fe  ................
+00000000`00028f60  ee fe ee fe ee fe ee fe-ee fe ee fe ee fe ee fe  ................
+00000000`00028f70  ee fe ee fe ee fe ee fe-ee fe ee fe ee fe ee fe  ................
+00000000`00028f80  ee fe ee fe ee fe ee fe-ee fe ee fe ee fe ee fe  ................
+00000000`00028f90  ee fe ee fe ee fe ee fe-ee fe ee fe ee fe ee fe  ................
+-----END RSA PRIVATE KEY-----."
+0:000> d 00000000`00028f20
+00000000`00028f20  "k*&>(da30_q-(pkd23@,"
+0:000> d
+00000000`00028f35  "gYEAwC1q.lZaQTHEBvrYWWGps90MUHJX"
+00000000`00028f55  "UvsQHNZGMid+XTKiRoksTiQDubxtN+BF"
+00000000`00028f75  "sG6sWI3C1.lqfGftQvrGPCD4hPhcbAav"
+00000000`00028f95  "RdNgB0VNsjM5wLzUPGGFGRYID0gLvq1Z"
+00000000`00028fb5  "gmvko2/FPR.VeSZVcfP1KKJLgTaLhg6W"
+00000000`00028fd5  "7DaYJ0isQwxytI3QfkCgYEAiS1Xdpl8k"
+00000000`00028ff5  "9apo7SRL6qV.p4IsnHe7F2b68iWqgFoH"
+00000000`00029015  "0A0Xc7GdhixASEpOc4AEimzjDriAF+jI"
+00000000`00029035  "doTKPFzz0/xp.dAaai7lqHE4WwX4aGOv"
+00000000`00029055  "1QZwY5Jyi+HU6xV6jYccQ+RoQh9c4D5t"
+00000000`00029075  "asXMfcTF8cCKq.fa6w0X0urZtbFdxe8o"
+00000000`00029095  "7CRYUCgYBynSOKH4fj7ynpQdPF24MtXL"
+0:000> d
+00000000`000290b5  "Yr7jg5pdPe4PV+.bPlhYM+qiTgXZ5TMc"
+00000000`000290d5  "u5nWoytW7YSYPAL7/f0QDxGhiCA/vzef"
+00000000`000290f5  "hDYOPE2ecLnsOIn.r5NiUl9ctZkMgxxP"
+00000000`00029115  "gsOlq96/cqekiaC5p2LDxC1xVZaW+ZHe"
+00000000`00029135  "F9kGQk2bfVvpV6qC.mikWkQKBgF8qbcY"
+00000000`00029155  "KtWBkQdP4ZhNbuqMbDyS3IuVRo1Gzx8A"
+00000000`00029175  "QDR8FQPM+ecSVOhvU.hXxAUNoAEdbj6G"
+00000000`00029195  "pW5TpmTIEI62ZOMOmGInNbJgGj2MOxcB"
+00000000`000291b5  "e4GOtDxieXRaUu1e7W.S0Qy8ZFm8C6fo"
+00000000`000291d5  "Roae6lvpAsbZPgVABKUsVNsYt//s+xHG"
+00000000`000291f5  "xc1I15t.-----END RSA PRIVATE KEY"
+00000000`00029215  "-----."

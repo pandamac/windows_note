@@ -1,0 +1,54 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: ChangeIcon - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Debug/ChangeIcon.res" /d "_DEBUG" /d "_AFXDLL" "D:\Documents\Downloads\ChangeIcon\ChangeIcon.rc"" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP3F2D.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/ChangeIcon.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\Documents\Downloads\ChangeIcon\ChangeIcon.cpp"
+"D:\Documents\Downloads\ChangeIcon\ChangeIconDlg.cpp"
+"D:\Documents\Downloads\ChangeIcon\IconListBox.cpp"
+]
+Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP3F2D.tmp" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP3F2E.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/ChangeIcon.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\Documents\Downloads\ChangeIcon\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP3F2E.tmp" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP3F2F.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/ChangeIcon.pdb" /debug /machine:I386 /out:"Debug/ChangeIcon.exe" /pdbtype:sept 
+.\Debug\ChangeIcon.obj
+.\Debug\ChangeIconDlg.obj
+.\Debug\IconListBox.obj
+.\Debug\StdAfx.obj
+.\Debug\ChangeIcon.res
+]
+Creating command line "link.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP3F2F.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+ChangeIcon.cpp
+ChangeIconDlg.cpp
+IconListBox.cpp
+Generating Code...
+Linking...
+Creating command line "bscmake.exe /nologo /o"Debug/ChangeIcon.bsc"  .\Debug\StdAfx.sbr .\Debug\ChangeIcon.sbr .\Debug\ChangeIconDlg.sbr .\Debug\IconListBox.sbr"
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+ChangeIcon.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

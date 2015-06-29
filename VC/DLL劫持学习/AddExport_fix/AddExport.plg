@@ -1,0 +1,168 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: AddExport - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP9465.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Debug/AddExport.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\AddExport.c"
+"G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\AddSection.c"
+"G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CalExportLength.c"
+"G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CopyExportToBuffer.c"
+"G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\ExpandLastSetion.c"
+"G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\FreeMap.c"
+"G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\MapFile.c"
+"G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\RvaToOffset.c"
+]
+Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP9465.tmp" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP9466.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/AddExport.pdb" /debug /machine:I386 /out:"Debug/AddExport.exe" /pdbtype:sept 
+".\Debug\AddExport.obj"
+".\Debug\AddSection.obj"
+".\Debug\CalExportLength.obj"
+".\Debug\CopyExportToBuffer.obj"
+".\Debug\ExpandLastSetion.obj"
+".\Debug\FreeMap.obj"
+".\Debug\MapFile.obj"
+".\Debug\RvaToOffset.obj"
+".\Debug\AddExport.res"
+]
+Creating command line "link.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP9466.tmp"
+<h3>Output Window</h3>
+Compiling...
+AddExport.c
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(29) : warning C4047: 'initializing' : 'struct STPARAM *' differs in levels of indirection from 'int '
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(89) : warning C4022: 'RvaToOffset' : pointer mismatch for actual parameter 2
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(98) : warning C4022: 'RvaToOffset' : pointer mismatch for actual parameter 2
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(98) : warning C4047: '=' : 'unsigned long ' differs in levels of indirection from 'void *'
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(101) : warning C4047: 'function' : 'unsigned long ' differs in levels of indirection from 'struct _IMAGE_EXPORT_DIRECTORY *'
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(101) : warning C4024: 'CopyExportToBuffer' : different types for formal and actual parameter 2
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(136) : warning C4047: '=' : 'struct HWND__ *' differs in levels of indirection from 'int '
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(141) : warning C4047: 'function' : 'struct HWND__ *' differs in levels of indirection from 'int '
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(141) : warning C4024: 'SetDlgItemTextA' : different types for formal and actual parameter 1
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(147) : warning C4047: '=' : 'struct HWND__ *' differs in levels of indirection from 'int '
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(152) : warning C4047: 'function' : 'struct HWND__ *' differs in levels of indirection from 'int '
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(152) : warning C4024: 'SetDlgItemTextA' : different types for formal and actual parameter 1
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(157) : warning C4047: 'function' : 'struct HWND__ *' differs in levels of indirection from 'int '
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(157) : warning C4024: 'CheckRadioButton' : different types for formal and actual parameter 1
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(160) : warning C4047: 'function' : 'struct HWND__ *' differs in levels of indirection from 'int '
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(160) : warning C4024: 'CheckRadioButton' : different types for formal and actual parameter 1
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(164) : warning C4047: 'function' : 'struct HWND__ *' differs in levels of indirection from 'int '
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(164) : warning C4024: 'GetDlgItemTextA' : different types for formal and actual parameter 1
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(165) : warning C4047: 'function' : 'struct HWND__ *' differs in levels of indirection from 'int '
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(165) : warning C4024: 'GetDlgItemTextA' : different types for formal and actual parameter 1
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(166) : warning C4047: 'function' : 'struct HWND__ *' differs in levels of indirection from 'int '
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(166) : warning C4024: 'GetDlgItemTextA' : different types for formal and actual parameter 1
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(167) : warning C4047: 'function' : 'struct HWND__ *' differs in levels of indirection from 'int '
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(167) : warning C4024: 'MessageBoxA' : different types for formal and actual parameter 1
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(171) : warning C4047: 'function' : 'struct HWND__ *' differs in levels of indirection from 'int '
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(171) : warning C4024: 'MessageBoxA' : different types for formal and actual parameter 1
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(177) : warning C4047: '=' : 'struct HWND__ *' differs in levels of indirection from 'int '
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(185) : warning C4047: 'function' : 'struct HWND__ *' differs in levels of indirection from 'int '
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(185) : warning C4024: 'IsDlgButtonChecked' : different types for formal and actual parameter 1
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(189) : warning C4047: '=' : 'void *' differs in levels of indirection from 'int '
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(191) : warning C4047: 'function' : 'unsigned long ' differs in levels of indirection from 'void *'
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(191) : warning C4024: 'CreateThread' : different types for formal and actual parameter 2
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(191) : warning C4113: 'unsigned long (__stdcall *)()' differs in parameter lists from 'unsigned long (__stdcall *)(void *)'
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(192) : warning C4022: 'CloseHandle' : pointer mismatch for actual parameter 1
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(196) : warning C4047: 'function' : 'struct HWND__ *' differs in levels of indirection from 'int '
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(196) : warning C4024: 'EndDialog' : different types for formal and actual parameter 1
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(196) : warning C4047: 'function' : 'int ' differs in levels of indirection from 'void *'
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(196) : warning C4024: 'EndDialog' : different types for formal and actual parameter 2
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(202) : warning C4047: 'function' : 'struct HWND__ *' differs in levels of indirection from 'int '
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(202) : warning C4024: 'SendMessageA' : different types for formal and actual parameter 1
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(202) : warning C4047: 'function' : 'const char *' differs in levels of indirection from 'const int '
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(202) : warning C4024: 'LoadIconA' : different types for formal and actual parameter 2
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(202) : warning C4047: 'function' : 'long ' differs in levels of indirection from 'struct HICON__ *'
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(202) : warning C4024: 'SendMessageA' : different types for formal and actual parameter 4
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(203) : warning C4047: 'function' : 'struct HWND__ *' differs in levels of indirection from 'int '
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(203) : warning C4024: 'SendDlgItemMessageA' : different types for formal and actual parameter 1
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(203) : warning C4047: 'function' : 'long ' differs in levels of indirection from 'void *'
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(203) : warning C4024: 'SendDlgItemMessageA' : different types for formal and actual parameter 5
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(204) : warning C4047: 'function' : 'struct HWND__ *' differs in levels of indirection from 'int '
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(204) : warning C4024: 'SendDlgItemMessageA' : different types for formal and actual parameter 1
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(204) : warning C4047: 'function' : 'long ' differs in levels of indirection from 'void *'
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(204) : warning C4024: 'SendDlgItemMessageA' : different types for formal and actual parameter 5
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(205) : warning C4047: 'function' : 'struct HWND__ *' differs in levels of indirection from 'int '
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(205) : warning C4024: 'SendDlgItemMessageA' : different types for formal and actual parameter 1
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(205) : warning C4047: 'function' : 'long ' differs in levels of indirection from 'void *'
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(205) : warning C4024: 'SendDlgItemMessageA' : different types for formal and actual parameter 5
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(206) : warning C4047: 'function' : 'struct HWND__ *' differs in levels of indirection from 'int '
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(206) : warning C4024: 'CheckDlgButton' : different types for formal and actual parameter 1
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(210) : warning C4047: 'function' : 'struct HWND__ *' differs in levels of indirection from 'int '
+g:\beiyong\biancheng\vc\dll劫
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(210) : warning C4047: 'function' : 'int ' differs in levels of indirection from 'void *'
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(210) : warning C4024: 'EndDialog' : different types for formal and actual parameter 2
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(223) : warning C4047: 'function' : 'const char *' differs in levels of indirection from 'const int '
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(223) : warning C4024: 'DialogBoxParamA' : different types for formal and actual parameter 2
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(223) : warning C4113: 'int (__stdcall *)()' differs in parameter lists from 'int (__stdcall *)(struct HWND__ *,unsigned int ,unsigned int ,long )'
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(223) : warning C4047: 'function' : 'long ' differs in levels of indirection from 'void *'
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(223) : warning C4024: 'DialogBoxParamA' : different types for formal and actual parameter 5
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(224) : warning C4047: 'function' : 'unsigned int ' differs in levels of indirection from 'void *'
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addexport.c(224) : warning C4024: 'ExitProcess' : different types for formal and actual parameter 1
+AddSection.c
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addsection.c(43) : warning C4133: '=' : incompatible types - from 'unsigned char *' to 'struct _IMAGE_NT_HEADERS *'
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addsection.c(46) : warning C4133: '=' : incompatible types - from 'unsigned char *' to 'struct _IMAGE_OPTIONAL_HEADER *'
+g:\beiyong\biancheng\vc\dll劫持学习\addexport_fix\addsection.c(57) : warning C4133: '=' : incompatible types - from 'unsigned char *' to 'struct _IMAGE_SECTION_HEADER *'
+CalExportLength.c
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CalExportLength.c(43) : warning C4022: 'RvaToOffset' : pointer mismatch for actual parameter 2
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CalExportLength.c(45) : warning C4022: 'RvaToOffset' : pointer mismatch for actual parameter 2
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CalExportLength.c(46) : warning C4047: 'function' : 'const char *' differs in levels of indirection from 'unsigned long '
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CalExportLength.c(46) : warning C4024: 'lstrlenA' : different types for formal and actual parameter 1
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CalExportLength.c(56) : warning C4022: 'RvaToOffset' : pointer mismatch for actual parameter 2
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CalExportLength.c(60) : warning C4022: 'RvaToOffset' : pointer mismatch for actual parameter 2
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CalExportLength.c(60) : warning C4047: 'function' : 'const char *' differs in levels of indirection from 'unsigned long '
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CalExportLength.c(60) : warning C4024: 'lstrlenA' : different types for formal and actual parameter 1
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CalExportLength.c(71) : warning C4022: 'RvaToOffset' : pointer mismatch for actual parameter 2
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CalExportLength.c(84) : warning C4018: '<' : signed/unsigned mismatch
+CopyExportToBuffer.c
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CopyExportToBuffer.c(44) : warning C4047: '=' : 'struct _IMAGE_EXPORT_DIRECTORY *' differs in levels of indirection from 'unsigned long '
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CopyExportToBuffer.c(45) : warning C4047: '=' : 'struct _IMAGE_EXPORT_DIRECTORY *' differs in levels of indirection from 'unsigned long '
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CopyExportToBuffer.c(51) : warning C4133: '=' : incompatible types - from 'struct _IMAGE_EXPORT_DIRECTORY *' to 'char *'
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CopyExportToBuffer.c(53) : warning C4133: '=' : incompatible types - from 'char *' to 'unsigned long *'
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CopyExportToBuffer.c(54) : warning C4133: '-' : incompatible types - from 'struct _IMAGE_EXPORT_DIRECTORY *' to 'char *'
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CopyExportToBuffer.c(56) : warning C4133: '=' : incompatible types - from 'char *' to 'unsigned long *'
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CopyExportToBuffer.c(57) : warning C4133: '-' : incompatible types - from 'struct _IMAGE_EXPORT_DIRECTORY *' to 'char *'
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CopyExportToBuffer.c(59) : warning C4133: '=' : incompatible types - from 'char *' to 'unsigned short *'
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CopyExportToBuffer.c(60) : warning C4133: '-' : incompatible types - from 'struct _IMAGE_EXPORT_DIRECTORY *' to 'char *'
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CopyExportToBuffer.c(64) : warning C4022: 'RvaToOffset' : pointer mismatch for actual parameter 2
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CopyExportToBuffer.c(65) : warning C4022: 'RvaToOffset' : pointer mismatch for actual parameter 2
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CopyExportToBuffer.c(66) : warning C4022: 'RvaToOffset' : pointer mismatch for actual parameter 2
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CopyExportToBuffer.c(84) : warning C4133: '-' : incompatible types - from 'struct _IMAGE_EXPORT_DIRECTORY *' to 'char *'
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CopyExportToBuffer.c(93) : warning C4133: '-' : incompatible types - from 'struct _IMAGE_EXPORT_DIRECTORY *' to 'char *'
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CopyExportToBuffer.c(94) : warning C4022: 'RvaToOffset' : pointer mismatch for actual parameter 2
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CopyExportToBuffer.c(94) : warning C4047: '=' : 'unsigned long ' differs in levels of indirection from 'void *'
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CopyExportToBuffer.c(104) : warning C4133: '-' : incompatible types - from 'struct _IMAGE_EXPORT_DIRECTORY *' to 'char *'
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CopyExportToBuffer.c(105) : warning C4022: 'RvaToOffset' : pointer mismatch for actual parameter 2
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CopyExportToBuffer.c(105) : warning C4047: '=' : 'unsigned long ' differs in levels of indirection from 'void *'
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CopyExportToBuffer.c(107) : warning C4047: 'function' : 'const char *' differs in levels of indirection from 'unsigned long '
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CopyExportToBuffer.c(107) : warning C4024: 'lstrcpyA' : different types for formal and actual parameter 2
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CopyExportToBuffer.c(108) : warning C4047: 'function' : 'const char *' differs in levels of indirection from 'unsigned long '
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CopyExportToBuffer.c(108) : warning C4024: 'lstrlenA' : different types for formal and actual parameter 1
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CopyExportToBuffer.c(116) : warning C4022: 'RvaToOffset' : pointer mismatch for actual parameter 2
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CopyExportToBuffer.c(116) : warning C4047: '=' : 'unsigned long ' differs in levels of indirection from 'void *'
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CopyExportToBuffer.c(117) : warning C4047: 'function' : 'const char *' differs in levels of indirection from 'unsigned long '
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CopyExportToBuffer.c(117) : warning C4024: 'lstrcpyA' : different types for formal and actual parameter 2
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\CopyExportToBuffer.c(118) : warning C4133: '-' : incompatible types - from 'struct _IMAGE_EXPORT_DIRECTORY *' to 'char *'
+ExpandLastSetion.c
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\ExpandLastSetion.c(46) : warning C4133: '=' : incompatible types - from 'unsigned char *' to 'struct _IMAGE_NT_HEADERS *'
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\ExpandLastSetion.c(49) : warning C4133: '=' : incompatible types - from 'unsigned char *' to 'struct _IMAGE_OPTIONAL_HEADER *'
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\ExpandLastSetion.c(60) : warning C4133: '=' : incompatible types - from 'unsigned char *' to 'struct _IMAGE_SECTION_HEADER *'
+FreeMap.c
+MapFile.c
+RvaToOffset.c
+G:\beiyong\biancheng\VC\DLL劫持学习\AddExport_fix\RvaToOffset.c(27) : warning C4133: '=' : incompatible types - from 'unsigned char *' to 'struct _IMAGE_SECTION_HEADER *'
+Linking...
+
+
+
+<h3>Results</h3>
+AddExport.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

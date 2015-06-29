@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+<OACRDEFECTCOUNT>3</OACRDEFECTCOUNT>
+<OACRERRORCOUNT>0</OACRERRORCOUNT>
+<DEFECT _seq="1"><SFA><LINE>51</LINE><COLUMN>8</COLUMN><FILENAME>hook.c</FILENAME><FILEPATH>g:\beiyong\biancheng\test\ganran_pe\hide\</FILEPATH></SFA><DEFECTCODE>6067</DEFECTCODE><DESCRIPTION>Parameter '2' in call to 'DbgPrint' must be the address of the string</DESCRIPTION><FUNCTION>DriverEntry</FUNCTION><FUNCLINE>25</FUNCLINE><PATH/></DEFECT>
+<DEFECT _seq="2"><SFA><LINE>25</LINE><COLUMN>0</COLUMN><FILENAME>hook.c</FILENAME><FILEPATH>g:\beiyong\biancheng\test\ganran_pe\hide\</FILEPATH></SFA><DEFECTCODE>28101</DEFECTCODE><DESCRIPTION>The Drivers module has inferred that the current function is a DRIVER_INITIALIZE function:  This is informational only. No problem has been detected.</DESCRIPTION><FUNCTION>DriverEntry</FUNCTION><FUNCLINE>25</FUNCLINE><PATH/></DEFECT>
+<DEFECT _seq="3"><SFA><LINE>37</LINE><COLUMN>25</COLUMN><FILENAME>hook.c</FILENAME><FILEPATH>g:\beiyong\biancheng\test\ganran_pe\hide\</FILEPATH></SFA><DEFECTCODE>28155</DEFECTCODE><DESCRIPTION>The function being assigned or passed should be a DRIVER_UNLOAD function:  Add the declaration 'DRIVER_UNLOAD UnloadDriver;' before the current first declaration of UnloadDriver.</DESCRIPTION><FUNCTION>DriverEntry</FUNCTION><FUNCLINE>25</FUNCLINE><PATH/></DEFECT>
+</DEFECTS>

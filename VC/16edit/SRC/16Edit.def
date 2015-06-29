@@ -1,0 +1,6 @@
+
+LIBRARY 16Edit
+EXPORTS
+    HESpecifySettings
+	HEEnterWindowLoop
+	HEEnterWindowLoopInNewThread

@@ -1,0 +1,32 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: s - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\panda\AppData\Local\Temp\RSPF1FB.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"G:\beiyong\biancheng\test\s\s.cpp"
+]
+Creating command line "cl.exe @C:\Users\panda\AppData\Local\Temp\RSPF1FB.tmp" 
+Creating command line "link.exe /nologo /subsystem:console /incremental:yes /pdb:"Debug/s.pdb" /debug /machine:I386 /out:"Debug/s.exe" /pdbtype:sept  .\Debug\s.obj .\Debug\StdAfx.obj "
+<h3>Output Window</h3>
+Compiling...
+s.cpp
+g:\beiyong\biancheng\test\s\s.cpp(442) : warning C4244: '=' : conversion from 'unsigned long' to 'unsigned short', possible loss of data
+g:\beiyong\biancheng\test\s\s.cpp(454) : warning C4244: '=' : conversion from 'unsigned long' to 'unsigned short', possible loss of data
+g:\beiyong\biancheng\test\s\s.cpp(572) : warning C4018: '<=' : signed/unsigned mismatch
+g:\beiyong\biancheng\test\s\s.cpp(1454) : warning C4018: '<=' : signed/unsigned mismatch
+g:\beiyong\biancheng\test\s\s.cpp(1558) : warning C4018: '!=' : signed/unsigned mismatch
+Linking...
+
+
+
+<h3>Results</h3>
+s.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

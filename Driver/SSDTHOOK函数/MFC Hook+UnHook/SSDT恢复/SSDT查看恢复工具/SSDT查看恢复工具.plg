@@ -1,0 +1,49 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: SSDT查看恢复工具 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\xd_hack\LOCALS~1\Temp\RSP1D.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/SSDT查看恢复工具.pdb" /debug /machine:I386 /out:"Debug/SSDT查看恢复工具.exe" /pdbtype:sept 
+".\Debug\SSDT.obj"
+".\Debug\SSDT查看恢复工具.obj"
+".\Debug\SSDT查看恢复工具Dlg.obj"
+".\Debug\StdAfx.obj"
+".\Debug\SSDT查看恢复工具.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\xd_hack\LOCALS~1\Temp\RSP1D.tmp"
+<h3>Output Window</h3>
+Linking...
+LINK : warning LNK4044: unrecognized option '/pdbtype:sept'; ignored
+nafxcwd.lib(afxmem.obj) : error LNK2005: "void __cdecl operator delete(void *)" (??3@YAXPAX@Z) already defined in LIBCMTD.lib(dbgdel.obj)
+SSDT.obj : error LNK2019: unresolved external symbol @_RTC_CheckStackVars@8 referenced in function "void * __cdecl LoadDriver(char const *)" (?LoadDriver@@YAPAXPBD@Z)
+SSDT查看恢复工具.obj : error LNK2001: unresolved external symbol @_RTC_CheckStackVars@8
+SSDT查看恢复工具Dlg.obj : error LNK2001: unresolved external symbol @_RTC_CheckStackVars@8
+SSDT.obj : error LNK2019: unresolved external symbol __RTC_CheckEsp referenced in function "void * __cdecl LoadDriver(char const *)" (?LoadDriver@@YAPAXPBD@Z)
+SSDT查看恢复工具.obj : error LNK2001: unresolved external symbol __RTC_CheckEsp
+SSDT查看恢复工具Dlg.obj : error LNK2001: unresolved external symbol __RTC_CheckEsp
+SSDT.obj : error LNK2001: unresolved external symbol __RTC_Shutdown
+SSDT查看恢复工具.obj : error LNK2001: unresolved external symbol __RTC_Shutdown
+SSDT查看恢复工具Dlg.obj : error LNK2001: unresolved external symbol __RTC_Shutdown
+SSDT.obj : error LNK2001: unresolved external symbol __RTC_InitBase
+SSDT查看恢复工具.obj : error LNK2001: unresolved external symbol __RTC_InitBase
+SSDT查看恢复工具Dlg.obj : error LNK2001: unresolved external symbol __RTC_InitBase
+Debug/SSDT查看恢复工具.exe : fatal error LNK1120: 4 unresolved externals
+执行 link.exe 时出错.
+Creating command line "bscmake.exe /nologo /o"Debug/SSDT查看恢复工具.bsc"  ".\Debug\StdAfx.sbr" ".\Debug\SSDT.sbr" ".\Debug\SSDT查看恢复工具.sbr" ".\Debug\SSDT查看恢复工具Dlg.sbr""
+Creating browse info file...
+BSCMAKE: error BK1510 : corrupt .SBR file '.\Debug\StdAfx.sbr'
+执行 bscmake.exe 时出错.
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+SSDT查看恢复工具.exe - 1 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,27 @@
+//该函数用于将二进制数据转换成字符串，并返回一个string对象
+std::string HexToString(PBYTE pByte, long lLength)
+{
+	std::string strResult;
+	const char cCharTable[16]={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};	
+	int iPos=28;
+	std::string strTemp;	
+	for(int i=0;i<lLength;i++)
+	{
+		iPos=28;
+		strTemp.erase();
+		while(!((pByte[i]>>iPos) & 0xf) && iPos>0)
+		{
+			iPos-=4;
+		}		
+		for(int j=1;j<2-iPos/4;j++)
+		{
+			strTemp+=_T('0');
+		}		
+		for(;iPos>=0;iPos-=4)
+		{
+			strTemp+=cCharTable[(pByte[i]>>iPos) & 0xf];
+		}		
+		strResult+=strTemp;
+	}
+	return strResult;
+}

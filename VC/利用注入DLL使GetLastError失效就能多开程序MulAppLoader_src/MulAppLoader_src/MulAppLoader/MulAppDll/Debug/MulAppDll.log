@@ -1,0 +1,47 @@
+﻿生成启动时间为 2014/4/9 10:11:54。
+     1>项目“G:\beiyong\biancheng\121114138MulAppLoader_src\MulAppLoader_src\MulAppLoader\MulAppDll\MulAppDll.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Debug\MulAppDll.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         E:\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D DETOURS_X86 /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D MULAPPDLL_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt dllmain.cpp
+         dllmain.cpp
+         E:\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D DETOURS_X86 /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D MULAPPDLL_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt detour\creatwth.cpp detour\detoured.cpp detour\detours.cpp detour\disasm.cpp detour\image.cpp detour\modules.cpp
+         modules.cpp
+         image.cpp
+         disasm.cpp
+         detours.cpp
+         detoured.cpp
+         creatwth.cpp
+         正在生成代码...
+       ManifestResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\MulAppDll.dll.embed.manifest.res" Debug\MulAppDll_manifest.rc 
+       Link:
+         E:\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"G:\beiyong\biancheng\121114138MulAppLoader_src\MulAppLoader_src\MulAppLoader\Debug\MulAppDll.dll" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\MulAppDll.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"G:\beiyong\biancheng\121114138MulAppLoader_src\MulAppLoader_src\MulAppLoader\Debug\MulAppDll.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"G:\beiyong\biancheng\121114138MulAppLoader_src\MulAppLoader_src\MulAppLoader\Debug\MulAppDll.lib" /MACHINE:X86 /DLL Debug\MulAppDll.dll.embed.manifest.res
+         Debug\dllmain.obj
+         Debug\creatwth.obj
+         Debug\detoured.obj
+         Debug\detours.obj
+         Debug\disasm.obj
+         Debug\image.obj
+         Debug\modules.obj
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\MulAppDll.dll.embed.manifest" /manifest Debug\MulAppDll.dll.intermediate.manifest
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\MulAppDll.dll.embed.manifest.res" Debug\MulAppDll_manifest.rc 
+       LinkEmbedManifest:
+         E:\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"G:\beiyong\biancheng\121114138MulAppLoader_src\MulAppLoader_src\MulAppLoader\Debug\MulAppDll.dll" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\MulAppDll.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"G:\beiyong\biancheng\121114138MulAppLoader_src\MulAppLoader_src\MulAppLoader\Debug\MulAppDll.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"G:\beiyong\biancheng\121114138MulAppLoader_src\MulAppLoader_src\MulAppLoader\Debug\MulAppDll.lib" /MACHINE:X86 /DLL Debug\MulAppDll.dll.embed.manifest.res
+         Debug\dllmain.obj
+         Debug\creatwth.obj
+         Debug\detoured.obj
+         Debug\detours.obj
+         Debug\disasm.obj
+         Debug\image.obj
+         Debug\modules.obj
+         MulAppDll.vcxproj -> G:\beiyong\biancheng\121114138MulAppLoader_src\MulAppLoader_src\MulAppLoader\Debug\MulAppDll.dll
+       FinalizeBuildStatus:
+         正在删除文件“Debug\MulAppDll.unsuccessfulbuild”。
+         正在对“Debug\MulAppDll.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“G:\beiyong\biancheng\121114138MulAppLoader_src\MulAppLoader_src\MulAppLoader\MulAppDll\MulAppDll.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:06.30

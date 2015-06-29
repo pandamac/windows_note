@@ -1,0 +1,45 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: CrackMe - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPFE.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/CrackMe.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"Z:\E\虚拟机文件\biancheng\VC\crackme_自校验 非明码\CrackMe_源代码\CrackMeDlg.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPFE.tmp" 
+Creating command line "link.exe /nologo /subsystem:windows /incremental:yes /pdb:"Debug/CrackMe.pdb" /debug /machine:I386 /out:"Debug/CrackMe.exe" /pdbtype:sept  ".\Debug\CrackMe.obj" ".\Debug\CrackMeDlg.obj" ".\Debug\StdAfx.obj" ".\Debug\CrackMe.res" "
+<h3>Output Window</h3>
+Compiling...
+CrackMeDlg.cpp
+Z:\E\虚拟机文件\biancheng\VC\crackme_自校验 非明码\CrackMe_源代码\CrackMeDlg.cpp(113) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+Z:\E\虚拟机文件\biancheng\VC\crackme_自校验 非明码\CrackMe_源代码\CrackMeDlg.cpp(113) : warning C4309: 'initializing' : truncation of constant value
+Z:\E\虚拟机文件\biancheng\VC\crackme_自校验 非明码\CrackMe_源代码\CrackMeDlg.cpp(113) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+Z:\E\虚拟机文件\biancheng\VC\crackme_自校验 非明码\CrackMe_源代码\CrackMeDlg.cpp(113) : warning C4309: 'initializing' : truncation of constant value
+Z:\E\虚拟机文件\biancheng\VC\crackme_自校验 非明码\CrackMe_源代码\CrackMeDlg.cpp(113) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+Z:\E\虚拟机文件\biancheng\VC\crackme_自校验 非明码\CrackMe_源代码\CrackMeDlg.cpp(113) : warning C4309: 'initializing' : truncation of constant value
+Z:\E\虚拟机文件\biancheng\VC\crackme_自校验 非明码\CrackMe_源代码\CrackMeDlg.cpp(113) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+Z:\E\虚拟机文件\biancheng\VC\crackme_自校验 非明码\CrackMe_源代码\CrackMeDlg.cpp(113) : warning C4309: 'initializing' : truncation of constant value
+Z:\E\虚拟机文件\biancheng\VC\crackme_自校验 非明码\CrackMe_源代码\CrackMeDlg.cpp(113) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+Z:\E\虚拟机文件\biancheng\VC\crackme_自校验 非明码\CrackMe_源代码\CrackMeDlg.cpp(113) : warning C4309: 'initializing' : truncation of constant value
+Z:\E\虚拟机文件\biancheng\VC\crackme_自校验 非明码\CrackMe_源代码\CrackMeDlg.cpp(113) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+Z:\E\虚拟机文件\biancheng\VC\crackme_自校验 非明码\CrackMe_源代码\CrackMeDlg.cpp(113) : warning C4309: 'initializing' : truncation of constant value
+Z:\E\虚拟机文件\biancheng\VC\crackme_自校验 非明码\CrackMe_源代码\CrackMeDlg.cpp(108) : warning C4101: 'RegKey' : unreferenced local variable
+Z:\E\虚拟机文件\biancheng\VC\crackme_自校验 非明码\CrackMe_源代码\CrackMeDlg.cpp(287) : warning C4101: 'CodeSectionRVA' : unreferenced local variable
+Z:\E\虚拟机文件\biancheng\VC\crackme_自校验 非明码\CrackMe_源代码\CrackMeDlg.cpp(287) : warning C4101: 'CodeSectionSize' : unreferenced local variable
+Linking...
+Creating command line "bscmake.exe /nologo /o"Debug/CrackMe.bsc"  ".\Debug\StdAfx.sbr" ".\Debug\CrackMe.sbr" ".\Debug\CrackMeDlg.sbr""
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+CrackMe.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

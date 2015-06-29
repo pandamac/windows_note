@@ -1,0 +1,7 @@
+HKEY_CURRENT_USER\Control Panel\Desktop
+注册表下  有BMP图片
+////////////////////////////////////////////////////
+
+C:\Documents and Settings\Administrator\Local Settings\Application Data\Microsoft\Wallpaper1.bmp
+
+为桌面设置过后保存的桌面

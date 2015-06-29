@@ -1,0 +1,16 @@
+﻿生成启动时间为 2013/11/18 11:36:25。
+     1>项目“G:\虚拟机文件\biancheng\VC\枚举进程演示\ZwQueryVirtualMemory 枚举进程模块\test\test.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在对“Debug\test.unsuccessfulbuild”执行 Touch 任务。
+       ClCompile:
+         所有输出均为最新。
+         E:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _MBCS /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt test.cpp
+         test.cpp
+     1>g:\虚拟机文件\biancheng\vc\枚举进程演示\zwqueryvirtualmemory 枚举进程模块\test\test.cpp(5): error C2065: “_comm_SubPaPoint”: 未声明的标识符
+     1>g:\虚拟机文件\biancheng\vc\枚举进程演示\zwqueryvirtualmemory 枚举进程模块\test\test.cpp(5): error C2065: “req”: 未声明的标识符
+     1>g:\虚拟机文件\biancheng\vc\枚举进程演示\zwqueryvirtualmemory 枚举进程模块\test\test.cpp(5): fatal error C1903: 无法从以前的错误中恢复；正在停止编译
+     1>已完成生成项目“G:\虚拟机文件\biancheng\VC\枚举进程演示\ZwQueryVirtualMemory 枚举进程模块\test\test.vcxproj”(build 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:01.14

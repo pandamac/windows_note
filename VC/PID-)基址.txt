@@ -1,0 +1,27 @@
+BYTE* GetBase(int Pid)
+{
+    BYTE *result = NULL;
+    HANDLE hSnap = CreateToolhelp32Snapshot(TH32CS_SNAPMODULE, Pid);
+    if (hSnap == INVALID_HANDLE_VALUE)
+    {
+        printf("CreateToolhelp32Snapshot failed\n");
+    }
+	
+    MODULEENTRY32 Me32;
+    Me32.dwSize = sizeof(MODULEENTRY32);
+	
+    BOOL bRet = Module32First(hSnap, &Me32);
+    while(bRet)
+    {
+        if (Me32.th32ProcessID == Pid)
+        {
+            printf("Have Found!\n");
+            result = Me32.modBaseAddr;    //返回主模块的基地址
+            break;
+        }
+        bRet = Module32Next(hSnap, &Me32);
+    }
+	
+    CloseHandle(hSnap);
+    return result;
+}

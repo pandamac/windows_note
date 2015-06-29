@@ -1,0 +1,67 @@
+#include "stdafx.h"
+#include <windows.h>
+#include <shlobj.h>
+//#pragma comment( lib, "shell32.lib")
+//#include <iostream>
+#include <Shellapi.h>
+
+int main(int argc, char* argv[])
+{/*
+	char m_lpszDefaultDir[MAX_PATH];
+	char   szDocument[MAX_PATH]={0};   
+	memset(m_lpszDefaultDir,0,_MAX_PATH);   
+
+	LPITEMIDLIST pidl=NULL;   
+	SHGetSpecialFolderLocation(NULL,   CSIDL_PERSONAL,   &pidl);   
+	if   (pidl   &&   SHGetPathFromIDList(pidl,   szDocument))
+		//功能是把项目标志符列表转换为文档系统路径：
+	{   //+	szDocument	0x0012fd78 "C:\Documents and Settings\panda\My Documents"
+		GetShortPathName(szDocument,m_lpszDefaultDir,_MAX_PATH);   //获取指定路径的短路径形式
+	}//+	m_lpszDefaultDir	0x0012fe7c "C:\DOCUME~1\panda\MYDOCU~1"
+
+	std::cout<<m_lpszDefaultDir<<std::endl;
+	printf("Hello World!/n");*/
+	
+LPITEMIDLIST pidl; 
+	TCHAR szPath [MAX_PATH]; 
+	LPMALLOC pMalloc; 
+
+/*	if ( SUCCEEDED( SHGetSpecialFolderLocation ( NULL, CSIDL_DESKTOP , &pidl ))) 
+	{ //这种方式不对桌面有效
+		SHELLEXECUTEINFO sei; 
+		ZeroMemory(&sei, sizeof(sei)); 
+		sei.cbSize = sizeof(sei); 
+		sei.fMask = SEE_MASK_IDLIST; 
+		sei.lpIDList = pidl; 
+		sei.lpVerb = "open"; 
+		sei.hwnd = NULL;
+		sei.nShow = SW_SHOWNORMAL; 
+		ShellExecuteEx(&sei); //alt + e
+		if ( SUCCEEDED( SHGetMalloc ( &pMalloc ))) 
+		{ 
+			pMalloc->Free ( pidl ); 
+			pMalloc->Release(); 
+		} 
+	} 
+	*/
+	//由于“我的电脑”是虚拟文件夹，所以必须使用ShellExecuteEx函数，如果是普通文件夹，
+	//则可以使用SHGetPathFromIDList获得文件名，然后利用ShellExecute函数打开。
+	//例如要打开“发送到”文件夹，可以这样： 
+	if ( SUCCEEDED( SHGetSpecialFolderLocation ( NULL, CSIDL_DESKTOP, &pidl ))) 
+	{ 
+		if ( SHGetPathFromIDList ( pidl, szPath )) 
+		{ 
+			ShellExecute(NULL, 
+				"open", szPath, NULL, NULL, 
+				SW_SHOWNORMAL); 
+		} 
+		
+		/*if ( SUCCEEDED( SHGetMalloc ( &pMalloc ))) 
+		{ 
+			pMalloc->Free ( pidl ); 
+			pMalloc->Release(); 
+		} */
+	}     
+	
+	return 0;
+}

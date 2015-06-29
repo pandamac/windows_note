@@ -1,0 +1,55 @@
+﻿  64 bit Processing .\WinService.idl
+  WinService.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\oaidl.idl
+  oaidl.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\objidl.idl
+  objidl.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\unknwn.idl
+  unknwn.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\8.1\Include\shared\wtypes.idl
+  wtypes.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\8.1\Include\shared\wtypesbase.idl
+  wtypesbase.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\8.1\Include\shared\basetsd.h
+  basetsd.h
+  64 bit Processing C:\Program Files (x86)\Windows Kits\8.1\Include\shared\guiddef.h
+  guiddef.h
+  64 bit Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\ocidl.idl
+  ocidl.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\oleidl.idl
+  oleidl.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\servprov.idl
+  servprov.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\urlmon.idl
+  urlmon.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\msxml.idl
+  msxml.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\oaidl.acf
+  oaidl.acf
+  64 bit Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\ocidl.acf
+  ocidl.acf
+  StdAfx.cpp
+  WinService.cpp
+WinService.cpp(65): warning C4996: 'ATL::CRegKey::SetValue': CRegKey::SetValue(TCHAR *value, TCHAR *valueName) has been superseded by CRegKey::SetStringValue and CRegKey::SetMultiStringValue
+          E:\Microsoft Visual Studio 12.0\VC\atlmfc\include\atlbase.h(5555) : 参见“ATL::CRegKey::SetValue”的声明
+WinService.cpp(66): warning C4996: 'ATL::CRegKey::SetValue': CRegKey::SetValue(TCHAR *value, TCHAR *valueName) has been superseded by CRegKey::SetStringValue and CRegKey::SetMultiStringValue
+          E:\Microsoft Visual Studio 12.0\VC\atlmfc\include\atlbase.h(5555) : 参见“ATL::CRegKey::SetValue”的声明
+WinService.cpp(267): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          E:\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“vsprintf”的声明
+WinService.cpp(444): warning C4996: 'ATL::CRegKey::QueryValue': CRegKey::QueryValue(TCHAR *value, TCHAR *valueName) has been superseded by CRegKey::QueryStringValue and CRegKey::QueryMultiStringValue
+          E:\Microsoft Visual Studio 12.0\VC\atlmfc\include\atlbase.h(5592) : 参见“ATL::CRegKey::QueryValue”的声明
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1186,5): warning MSB8012: TargetPath(G:\beiyong\biancheng\Windowsserver_win7\x64\Unicode Release MinDependency\WinService.exe) does not match the Linker's OutputFile property value (G:\beiyong\biancheng\Windowsserver_win7\ReleaseUMinDependency\WinService.exe). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+  WinService.vcxproj -> G:\beiyong\biancheng\Windowsserver_win7\x64\Unicode Release MinDependency\WinService.exe
+  '"G:\beiyong\biancheng\Windowsserver_win7\x64\Unicode Release MinDependency\WinService.exe"' 不是内部或外部命令，也不是可运行的程序
+  或批处理文件。
+  Server registration done! 
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets(202,5): error MSB3073: 命令“if "%OS%"=="" goto NOTNT 
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets(202,5): error MSB3073: if not "%OS%"=="Windows_NT" goto NOTNT 
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets(202,5): error MSB3073: "G:\beiyong\biancheng\Windowsserver_win7\x64\Unicode Release MinDependency\WinService.exe" /RegServer 
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets(202,5): error MSB3073: echo regsvr32 exec. time > "G:\beiyong\biancheng\Windowsserver_win7\x64\Unicode Release MinDependency\regsvr32.trg" 
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets(202,5): error MSB3073: echo Server registration done! 
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets(202,5): error MSB3073: goto end 
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets(202,5): error MSB3073: :NOTNT 
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets(202,5): error MSB3073: echo Warning : Cannot register Unicode EXE on Windows 95 
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets(202,5): error MSB3073: :end 
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets(202,5): error MSB3073: :VCEnd”已退出，代码为 9009。

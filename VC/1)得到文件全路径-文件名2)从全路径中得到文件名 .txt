@@ -1,0 +1,40 @@
+	char DirBuffer[MAX_PATH],TempBuffer[MAX_PATH];
+	char temp[MAX_PATH];
+	HMODULE hModule = GetModuleHandle(NULL);
+	GetModuleFileName(hModule,DirBuffer,sizeof(DirBuffer));
+	
+	GetFileTitle(DirBuffer,TempBuffer,MAX_PATH);
+	
+	char *str = strrchr(DirBuffer,'\\');
+	int result = str - DirBuffer + 1;
+	for (int i=0;i<result;i++)
+	{
+		temp[i] = DirBuffer[i];
+	}
+	temp[i] = '\0';
+//temp = 得到文件全路径-文件名
+MFC~~~
+//得到文件名~~
+int SplitFilePath(CString strFilePath, CString &strOutFileName)
+{
+	CString sSplitFlag = "\\";
+	
+	int nPos = -1;
+	
+	int nIndex = -1;
+	
+	while(((nPos=strFilePath.Find(sSplitFlag,nPos + 1)) != -1))
+	{
+		nIndex = nPos;
+	}
+	
+	if(nIndex == -1) return -1;
+	
+	int nFilePathLen = strFilePath.GetLength();
+	
+	if( nFilePathLen - nIndex < 4) return -2;
+	
+	strOutFileName = strFilePath.Right(nFilePathLen - nIndex - 1);	
+	
+	return 0;
+}

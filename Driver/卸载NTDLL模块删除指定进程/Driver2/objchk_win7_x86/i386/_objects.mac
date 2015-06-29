@@ -1,0 +1,17 @@
+
+
+386_OBJECTS=\
+ $(OBJ_PATH)\$O\driver2.obj \
+
+
+_RES_FILE=$(OBJ_PATH)\$O\drvversion.res
+
+
+
+# lowercased
+BASEDIR=c:\winddk\760016~1.1
+OBJECT_ROOT=c:\winddk\760016~1.1
+MAKEDIR_LOWERCASE=z:\desktop\driver2\driver2
+OBJ_PATH=z:\desktop\driver2\driver2
+CONCURRENT_MIDL=0
+CONCURRENT_MANIFEST_BUILD=0

@@ -1,0 +1,8 @@
+
+
+EXPORTS
+   SetKeyHook
+
+
+SECTIONS
+	YCIShared   Read Write Shared

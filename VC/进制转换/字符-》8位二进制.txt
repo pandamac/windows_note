@@ -1,0 +1,17 @@
+#include "stdafx.h"
+
+void Bytes2Bits(char *srcBytes, char* dstBits, unsigned int sizeBits)
+{
+	for(unsigned int i=0; i < sizeBits; i++)
+		dstBits[i] = ((srcBytes[i>>3]<<(i&7)) & 128)>>7;
+}
+int _tmain(int argc, _TCHAR* argv[])
+{
+
+	char str[] = "1";
+	char dump[8];
+
+	Bytes2Bits(str,dump,8);
+	
+	printf("%d%d%d%d%d%d%d%d",dump[0],dump[1],dump[2],dump[3],dump[4],dump[5],dump[6],dump[7]);
+	return 0;

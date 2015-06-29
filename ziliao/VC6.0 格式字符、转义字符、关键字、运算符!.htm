@@ -1,0 +1,979 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0054)http://www.niyuan8.com/forum.php?mod=viewthread&tid=22 -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=GBK">
+
+<title>VC6.0 格式字符、转义字符、关键字、运算符  — 【编程天地】  逆缘论坛[C.L.G]|软件安全|软件逆向|加密解密 -  Powered by Discuz!</title>
+<link href="./VC6.0 格式字符、转义字符、关键字、运算符!_files/VC6.0 格式字符、转义字符、关键字、运算符!.htm" rel="canonical">
+<meta name="keywords" content="软件安全|破解软件|软件加密|破解版|破解技术|软件逆向|加密解密|软件破解|逆缘破解|逆缘|逆缘安全|逆缘论坛|逆缘技术|逆缘软件">
+<meta name="description" content="软件安全|破解软件|软件加密|破解版|破解技术|软件逆向|加密解密|软件破解|逆缘破解|逆缘|逆缘安全|逆缘论坛|逆缘技术|逆缘软件 ">
+<meta name="generator" content="Discuz! X3">
+<meta name="author" content="Discuz! Team and Comsenz UI Team">
+<meta name="copyright" content="2001-2013 Comsenz Inc.">
+<meta name="MSSmartTagsPreventParsing" content="True">
+<meta http-equiv="MSThemeCompatible" content="Yes">
+<!--<base href="http://www.niyuan8.com/">--><base href="."><link rel="stylesheet" type="text/css" href="./VC6.0 格式字符、转义字符、关键字、运算符!_files/style_1_common.css"><link rel="stylesheet" type="text/css" href="./VC6.0 格式字符、转义字符、关键字、运算符!_files/style_1_forum_viewthread.css"><script type="text/javascript" charset="utf-8" src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/MjM0NzE4NDQ=.js"></script><script type="text/javascript">var STYLEID = '1', STATICURL = 'static/', IMGDIR = 'static/image/common', VERHASH = 'R8F', charset = 'gbk', discuz_uid = '0', cookiepre = 'UNxt_2132_', cookiedomain = '', cookiepath = '/', showusercard = '1', attackevasive = '0', disallowfloat = 'newthread', creditnotice = '1|威望|,2|逆缘币|,3|贡献|,4|好评|,5|下载点|', defaultstyle = '', REPORTURL = 'aHR0cDovL3d3dy5uaXl1YW44LmNvbS9mb3J1bS5waHA/bW9kPXZpZXd0aHJlYWQmdGlkPTIy', SITEURL = 'http://www.niyuan8.com/', JSPATH = 'static/js/', DYNAMICURL = '';</script>
+<script src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/common.js" type="text/javascript"></script>
+<meta name="application-name" content="逆缘论坛[C.L.G]|软件安全|软件逆向|加密解密">
+<meta name="msapplication-tooltip" content="逆缘论坛[C.L.G]|软件安全|软件逆向|加密解密">
+<meta name="msapplication-task" content="name=论坛首页;action-uri=http://www.niyuan8.com/forum.php;icon-uri=http://www.niyuan8.com/static/image/common/bbs.ico">
+<link rel="archives" title="逆缘论坛[C.L.G]|软件安全|软件逆向|加密解密" href="http://www.niyuan8.com/archiver/">
+<script src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/forum.js" type="text/javascript"></script>
+<script src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/getdzjs" ime-cfg="lt=2"></script><script type="text/javascript" src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/hu"></script><link type="text/css" rel="stylesheet" href="./VC6.0 格式字符、转义字符、关键字、运算符!_files/relate_subject.css"></head>
+
+<body id="nv_forum" class="pg_viewthread" onkeydown="if(event.keyCode==27) return false;">
+<div id="append_parent"><div id="ls_fastloginfield_ctrl_menu" class="sltm" style="display: none; width: 40px;"><ul><li class="current">用户名</li><li>Email</li></ul></div></div><div id="ajaxwaitid"></div>
+<div id="toptb" class="cl">
+<div class="wp">
+<div class="z"><a href="javascript:;" onclick="setHomepage(&#39;http://niyuan8.com/&#39;);">设为首页</a><a href="http://niyuan8.com/" onclick="addFavorite(this.href, &#39;逆缘论坛[C.L.G]|软件安全|软件逆向|加密解密&#39;);return false;">收藏本站</a><script type="text/javascript">var _speedMark = new Date();</script></div>
+<div class="y">
+<a id="switchblind" href="javascript:;" onclick="toggleBlind(this)" title="开启辅助访问" class="switchblind">开启辅助访问</a>
+<a href="javascript:;" id="switchwidth" onclick="widthauto(this)" title="切换到宽版" class="switchwidth">切换到宽版</a>
+</div>
+</div>
+</div>
+
+<div id="qmenu_menu" class="p_pop blk" style="display: none;">
+<div class="ptm pbw hm">
+请 <a href="javascript:;" class="xi2" onclick="lsSubmit()"><strong>登录</strong></a> 后使用快捷导航<br>没有帐号？<a href="http://www.niyuan8.com/member.php?mod=register" class="xi2 xw1">加入逆缘</a>
+</div>
+<div id="fjump_menu" class="btda"></div></div><div id="hd">
+<div class="wp">
+<div class="hdc cl"><h2><a href="http://www.niyuan8.com/" title="逆缘论坛[C.L.G]|软件安全|软件逆向|加密解密"><img src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/logo.png" alt="逆缘论坛[C.L.G]|软件安全|软件逆向|加密解密" border="0"></a></h2><script src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/logging.js" type="text/javascript"></script>
+<form method="post" autocomplete="off" id="lsform" action="http://www.niyuan8.com/member.php?mod=logging&action=login&loginsubmit=yes&infloat=yes&lssubmit=yes" onsubmit="return lsSubmit();">
+<div class="fastlg cl">
+<span id="return_ls" style="display:none"></span>
+<div class="y pns">
+<table cellspacing="0" cellpadding="0">
+<tbody><tr>
+<td>
+<span class="ftid">
+<select name="fastloginfield" id="ls_fastloginfield" width="40" tabindex="900" selecti="0" style="display: none;">
+
+
+<option value="username"></option></select><a href="javascript:;" id="ls_fastloginfield_ctrl" style="width:40px" tabindex="900">用户名</a>
+</span>
+<script type="text/javascript">simulateSelect('ls_fastloginfield')</script>
+</td>
+<td><input type="text" name="username" id="ls_username" autocomplete="off" class="px vm" tabindex="901"></td>
+<td class="fastlg_l"><label for="ls_cookietime"><input type="checkbox" name="cookietime" id="ls_cookietime" class="pc" value="2592000" tabindex="903">自动登录</label></td>
+<td>&nbsp;<a href="javascript:;" onclick="showWindow(&#39;login&#39;, &#39;member.php?mod=logging&amp;action=login&amp;viewlostpw=1&#39;)">找回密码</a></td>
+</tr>
+<tr>
+<td><label for="ls_password" class="z psw_w">密码</label></td>
+<td><input type="password" name="password" id="ls_password" class="px vm" autocomplete="off" tabindex="902"></td>
+<td class="fastlg_l"><button type="submit" class="pn vm" tabindex="904" style="width: 75px;"><em>登录</em></button></td>
+<td>&nbsp;<a href="http://www.niyuan8.com/member.php?mod=register" class="xi2 xw1">加入逆缘</a></td>
+</tr>
+</tbody></table>
+<input type="hidden" name="quickforward" value="yes">
+<input type="hidden" name="handlekey" value="ls">
+</div>
+
+<div class="fastlg_fm y" style="margin-right: 10px; padding-right: 10px">
+<p><a href="http://www.niyuan8.com/connect.php?mod=login&op=init&referer=forum.php%3Fmod%3Dviewthread%26tid%3D22&statfrom=login_simple"><img src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/qq_login.gif" class="vm" alt="QQ登录"></a></p>
+<p class="hm xg1" style="padding-top: 2px;">只需一步，快速开始</p>
+</div>
+</div>
+</form>
+
+</div>
+
+<div id="nv" style="top: 0px; left: 193.5px; z-index: 199; border-left-width: 0px; border-right-width: 0px; height: 33px; width: 960px; position: fixed; opacity: 0.85;">
+<a href="javascript:;" id="qmenu" onmouseover="delayShow(this, function () {showMenu({&#39;ctrlid&#39;:&#39;qmenu&#39;,&#39;pos&#39;:&#39;34!&#39;,&#39;ctrlclass&#39;:&#39;a&#39;,&#39;duration&#39;:2});showForummenu(38);})">快捷导航</a>
+<ul><li class="a" id="mn_forum"><a href="http://www.niyuan8.com/forum.php" hidefocus="true" title="BBS">论坛首页<span>BBS</span></a></li><li id="mn_Nd342"><a href="http://niyuan8.com/forum.php?mod=viewthread&tid=77&extra=page%3D1" hidefocus="true">申请版主</a></li></ul>
+</div>
+<div class="p_pop h_pop" id="mn_userapp_menu" style="display: none"></div><div id="mu" class="cl">
+</div><div id="scbar" class="cl">
+<form id="scbar_form" method="post" autocomplete="off" onsubmit="searchFocus($(&#39;scbar_txt&#39;))" action="http://www.niyuan8.com/search.php?searchsubmit=yes" target="_blank">
+<input type="hidden" name="mod" id="scbar_mod" value="forum">
+<input type="hidden" name="formhash" value="611ff21c">
+<input type="hidden" name="srchtype" value="title">
+<input type="hidden" name="srhfid" value="38">
+<input type="hidden" name="srhlocality" value="forum::viewthread">
+<table cellspacing="0" cellpadding="0">
+<tbody><tr>
+<td class="scbar_icon_td"></td>
+<td class="scbar_txt_td"><input type="text" name="srchtxt" id="scbar_txt" value="请输入搜索内容" autocomplete="off" x-webkit-speech="" speech="" class=" xg1" placeholder="请输入搜索内容"></td>
+<td class="scbar_type_td"><a href="javascript:;" id="scbar_type" class="xg1" onclick="showMenu(this.id)" hidefocus="true">帖子</a></td>
+<td class="scbar_btn_td"><button type="submit" name="searchsubmit" id="scbar_btn" sc="1" class="pn pnc" value="true" mid="lVUTkRUmgWWWWWWWWWWWWWWWWWWWWWWW"><strong class="xi2">搜索</strong></button></td>
+<td class="scbar_hot_td">
+<div id="scbar_hot">
+</div>
+</td>
+</tr>
+</tbody></table>
+</form>
+</div>
+<ul id="scbar_type_menu" class="p_pop" style="display: none;"><li><a href="javascript:;" rel="curforum" fid="38">本版</a></li><li><a href="javascript:;" rel="forum" class="curtype">帖子</a></li><li><a href="javascript:;" rel="user">用户</a></li></ul>
+<script type="text/javascript">
+initSearchmenu('scbar', '');
+</script>
+</div>
+</div>
+
+
+<div id="wp" class="wp">
+<script type="text/javascript">var fid = parseInt('38'), tid = parseInt('22');</script>
+
+<script src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/forum_viewthread.js" type="text/javascript"></script>
+<script type="text/javascript">zoomstatus = parseInt(1);var imagemaxwidth = '600';var aimgcount = new Array();</script>
+
+<style id="diy_style" type="text/css"></style>
+<!--[diy=diynavtop]--><div id="diynavtop" class="area"></div><!--[/diy]-->
+<div id="pt" class="bm cl">
+<div class="z">
+<a href="http://www.niyuan8.com/" class="nvhm" title="首页">逆缘论坛[C.L.G]|软件安全|软件逆向|加密解密</a><em>&#187;</em><a href="http://www.niyuan8.com/forum.php">论坛首页</a> <em>&#8250;</em> <a href="http://www.niyuan8.com/forum.php?gid=1">〖 技术交流 〗</a> <em>&#8250;</em> <a href="http://www.niyuan8.com/forum.php?mod=forumdisplay&fid=38">【编程天地】</a> <em>&#8250;</em> <a href="./VC6.0 格式字符、转义字符、关键字、运算符!_files/VC6.0 格式字符、转义字符、关键字、运算符!.htm">VC6.0 格式字符、转义字符、关键字、运算符</a>
+</div>
+</div>
+
+<script src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/jquery-1.4.4.min.js" type="text/javascript"></script><script type="text/javascript">jQuery.noConflict();</script><script type="text/javascript">(function(d){j=d.createElement('script');j.src='//openapi.guanjia.qq.com/fcgi-bin/getdzjs?cmd=urlquery_gbk_zh_cn';j.setAttribute('ime-cfg','lt=2');d.getElementsByTagName('head')[0].appendChild(j)})(document)</script><link rel="stylesheet" type="text/css" href="./VC6.0 格式字符、转义字符、关键字、运算符!_files/style.css"><style id="diy_style" type="text/css"></style>
+<div class="wp">
+<!--[diy=diy1]--><div id="diy1" class="area"></div><!--[/diy]-->
+</div>
+
+<div id="ct" class="wp cl">
+<div id="pgt" class="pgs mbm cl ">
+<div class="pgt"></div>
+<span class="y pgb" id="visitedforums" onmouseover="$(&#39;visitedforums&#39;).id = &#39;visitedforumstmp&#39;;this.id = &#39;visitedforums&#39;;showMenu({&#39;ctrlid&#39;:this.id,&#39;pos&#39;:&#39;34&#39;})" initialized="true"><a href="http://www.niyuan8.com/forum.php?mod=forumdisplay&fid=38">返回列表</a></span>
+<a id="newspecial" onmouseover="$(&#39;newspecial&#39;).id = &#39;newspecialtmp&#39;;this.id = &#39;newspecial&#39;;showMenu({&#39;ctrlid&#39;:this.id})" onclick="showWindow(&#39;newthread&#39;, &#39;forum.php?mod=post&amp;action=newthread&amp;fid=38&#39;)" href="javascript:;" title="发新帖"><img src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/pn_post.png" alt="发新帖"></a></div>
+
+
+
+<div id="postlist" class="pl bm">
+<table cellspacing="0" cellpadding="0">
+<tbody><tr>
+<td class="pls ptn pbn">
+<div class="hm ptn">
+<span class="xg1">查看:</span> <span class="xi1">507</span><span class="pipe">|</span><span class="xg1">回复:</span> <span class="xi1">6</span>
+</div>
+</td>
+<td class="plc ptm pbn vwthd">
+<div class="y">
+<a href="http://www.niyuan8.com/forum.php?mod=viewthread&action=printable&tid=22" title="打印" target="_blank"><img src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/print.png" alt="打印" class="vm"></a>
+<a href="http://www.niyuan8.com/forum.php?mod=redirect&goto=nextoldset&tid=22" title="上一主题"><img src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/thread-prev.png" alt="上一主题" class="vm"></a>
+<a href="http://www.niyuan8.com/forum.php?mod=redirect&goto=nextnewset&tid=22" title="下一主题"><img src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/thread-next.png" alt="下一主题" class="vm"></a>
+</div>
+<h1 class="ts">
+<a href="http://www.niyuan8.com/forum.php?mod=forumdisplay&fid=38&filter=typeid&typeid=14">[MFC/SDK]</a>
+<span id="thread_subject">VC6.0 格式字符、转义字符、关键字、运算符</span>
+</h1>
+<span class="xg1">
+<a href="./VC6.0 格式字符、转义字符、关键字、运算符!_files/VC6.0 格式字符、转义字符、关键字、运算符!.htm" onclick="return copyThreadUrl(this, &#39;逆缘论坛[C.L.G]|软件安全|软件逆向|加密解密&#39;)">[复制链接]</a>
+</span>
+</td>
+</tr>
+</tbody></table>
+
+
+<table cellspacing="0" cellpadding="0" class="ad">
+<tbody><tr>
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</tbody></table><div id="post_52"><table id="pid52" class="plhin" summary="pid52" cellspacing="0" cellpadding="0">
+<tbody><tr>
+<td class="pls" rowspan="2">
+<div id="favatar52" class="pls favatar" style="top: 33px; position: fixed;">
+ <div class="pi">
+<div class="authi"><a href="http://www.niyuan8.com/home.php?mod=space&uid=6" target="_blank" class="xw1" style="color: #FF0000">Rookietp</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo52" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo52_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="http://www.niyuan8.com/home.php?mod=space&uid=6" target="_blank" class="xi2" style="color: #FF0000">Rookietp</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+<dt>积分</dt><dd><a href="http://www.niyuan8.com/home.php?mod=space&uid=6&do=profile" target="_blank" class="xi2">190</a></dd>
+</dl><div class="imicn">
+<a href="http://www.niyuan8.com/home.php?mod=space&uid=6&do=profile" target="_blank" title="查看详细资料"><img src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/userinfo.gif" alt="查看详细资料"></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="http://www.niyuan8.com/home.php?mod=space&uid=6" class="avtm" target="_blank"><img src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/avatar.php"></a></div>
+</div>
+</div>
+</td>
+	
+<td class="plc">
+<div class="pi">
+<div id="fj" class="y">
+<label class="z">电梯直达</label>
+<input type="text" class="px p_fre z" size="2" onkeyup="$(&#39;fj_btn&#39;).href=&#39;forum.php?mod=redirect&amp;ptid=22&amp;authorid=0&amp;postno=&#39;+this.value" onkeydown="if(event.keyCode==13) {window.location=$(&#39;fj_btn&#39;).href;return false;}" title="跳转到指定楼层">
+<a href="javascript:;" id="fj_btn" class="z" title="跳转到指定楼层"><img src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/fj_btn.png" alt="跳转到指定楼层" class="vm"></a>
+</div>
+<strong>
+<a href="./VC6.0 格式字符、转义字符、关键字、运算符!_files/VC6.0 格式字符、转义字符、关键字、运算符!.htm" id="postnum52" onclick="setCopy(this.href, &#39;帖子地址复制成功&#39;);return false;">
+楼主</a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon52" src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/online_member.gif">
+<em id="authorposton52">发表于 2013-4-4 20:07:11</em>
+<span class="pipe">|</span>
+<a href="http://www.niyuan8.com/forum.php?mod=viewthread&tid=22&page=1&authorid=6" rel="nofollow">只看该作者</a>
+<span class="none"><img src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/arw_r.gif" class="vm" alt="回帖奖励"></span>
+<span class="pipe show">|</span><a href="http://www.niyuan8.com/forum.php?mod=viewthread&tid=22&extra=&ordertype=1" class="show">倒序浏览</a>
+<span class="pipe show">|</span><a href="javascript:;" onclick="readmode($(&#39;thread_subject&#39;).innerHTML, 52);" class="show">阅读模式</a>
+</div>
+</div>
+</div><div class="pct"><style type="text/css">.pcb{margin-right:0}</style><div class="pcb">
+ 
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tbody><tr><td class="t_f" id="postmessage_52">
+不懂或陌生的东东先混个脸儿熟，这个表格供平时编程查阅,这个表格不需要记忆，如果看过《VC实战视频》的朋友可以把以下<font color="#ff0000">红颜色</font>的那些看 一边，做到心中有数即可。到时候遇到问题可以来这里查看，或者你把直接拷贝到自己的电脑上。<br>
+&nbsp; &nbsp;&nbsp;&nbsp;<br>
+<font size="6">一、格式字符</font><br>
+<font color="#ff0000">关于格式字符应用背景如下(之前在做《VC实战视频》的第一部的时候就有用到，以后也会经常用到的)：</font><br>
+<font color="#800080">[整数转化为字符串]用%d&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;如果是浮点数转化为字符串的话用%f</font><br>
+<font color="#0000ff">char </font>z[260];<br>
+<font color="#0000ff">int</font> c=999;<br>
+<font color="#8b0000">sprintf</font>(z,"进程PID数值等于%d",c);<font color="#008000">//整数c转化为字符串保存到z字符串变量里面</font><br>
+<font color="#8b0000">MessageBox</font><font color="#000000">(z,"提示",0); </font><br>
+然后就弹出提示框：&nbsp;&nbsp;"进程PID数值等于999"<br>
+<br>
+<font color="#800080">[整数转化为字符串，以16进制形式显示] 用%x</font><br>
+<font color="#0000ff">char </font>z[260];<br>
+<font color="#0000ff">int</font> c=10;<font color="#008000">//10进制数值10 的16进制等于0xa</font><br>
+<font color="#8b0000">sprintf</font>(z,"进程PID数值等于%x",c);<font color="#008000">//整数c转化为字符串保存到z字符串变量里面</font><br>
+<font color="#8b0000">MessageBox</font><font color="#000000">(z,"提示",0); </font><br>
+然后就弹出提示框：&nbsp;&nbsp;"进程PID数值等于0xa" <br>
+<br>
+<br>
+<font color="#800080">[字符串转化为字符串（其实没转化）] 用 %s</font><br>
+<font color="#0000ff">char </font>z[260];<br>
+<font color="#8b0000">sprintf</font>(z,"进程名为%s","计算器.exe");<font color="#008000">//整数c转化为字符串保存到z字符串变量里面</font><br>
+<font color="#8b0000">MessageBox</font><font color="#000000">(z,"提示",0); </font><br>
+然后就弹出一个提示框： "进程名为计算器.exe" <br>
+-------------------------------------------------------------------------------------------------<br>
+<br>
+<font color="#000">1</font><font color="#ff0000">．%d格式符。它的作用是将其对应的表达式的值按照十进制整数方式输出。（这个符号）</font><font color="#000000"><br>
+2．%o格式符。它的作用是将其对应的表达式的值按照八进制整数方式输出。 <br>
+<br>
+</font><font color="#ff0000">3．%x格式符。它的作用是将其对应的表达式的值按照十六进制整数方式输出。 </font><font color="#000000"><br>
+<br>
+4.&nbsp; &nbsp;%u格式符。它的作用是将其对应的表达式的值按照十进制无符号整数方式输出。 <br>
+<br>
+5．%c格式符。它的作用是将其对应的表达式的值按照字符方式进行输出。 <br>
+<br>
+</font><font color="#ff0000">6.&nbsp; &nbsp;%s格式符。它的作用是输出一个字符串。 </font><font color="#000000"><br>
+<br>
+7.&nbsp; &nbsp;%f格式符。它的作用是将其对应的表达式的值按照</font><font color="#0000ff">浮点小数</font><font color="#000000">方式进行输出。 <br>
+<br>
+8．%e格式符。它的作用是将其对应的表达式的值按照指数方式进行输出。 <br>
+<br>
+9.&nbsp; &nbsp; %g格式符。它的作用是将其对应的表达式的值按照实数与指数方式中较短的一种方式进行输出。 <br>
+<br>
+10． %%格式符。它的作用是输出一个百分号。</font><br>
+<br>
+<strong><font size="5">二、转义字符</font></strong><br>
+C语言 特殊字符的表示：<br>
+<font color="#ff0000">&nbsp; &nbsp;&nbsp;&nbsp;应用背景：比如 字符串 "c:\1\3\xx.text" 在VC6.0里面表示会报错的，因为里面有特殊的字符单斜杠\，这个字符必须要写成\\才能表示 即修改为 "c:\\1\\3\\xx.text" </font><br>
+<br>
+<p style="line-height:19px;text-indent:nullem;text-align:left"><font color="#4b4b4b"><font face="Verdana, Geneva, Arial, Helvetica, sans-serif"><font style="font-size:13px">\a:蜂鸣，响铃</font></font></font></p><p style="line-height:19px;text-indent:nullem;text-align:left"><font color="#4b4b4b"><font face="Verdana, Geneva, Arial, Helvetica, sans-serif"><font style="font-size:13px">\b:回退：向后退一格</font></font></font></p><p style="line-height:19px;text-indent:nullem;text-align:left"><font color="#4b4b4b"><font face="Verdana, Geneva, Arial, Helvetica, sans-serif"><font style="font-size:13px">\f:换页</font></font></font></p><p style="line-height:19px;text-indent:nullem;text-align:left"><font color="#4b4b4b"><font face="Verdana, Geneva, Arial, Helvetica, sans-serif"><font style="font-size:13px">\n:换行，光标到下行行首</font></font></font></p><p style="line-height:19px;text-indent:nullem;text-align:left"><font color="#4b4b4b"><font face="Verdana, Geneva, Arial, Helvetica, sans-serif"><font style="font-size:13px">\r:回车，光标到本行行首</font></font></font></p><p style="line-height:19px;text-indent:nullem;text-align:left"><font color="#4b4b4b"><font face="Verdana, Geneva, Arial, Helvetica, sans-serif"><font style="font-size:13px">\t:水平制表</font></font></font></p><p style="line-height:19px;text-indent:nullem;text-align:left"><font color="#4b4b4b"><font face="Verdana, Geneva, Arial, Helvetica, sans-serif"><font style="font-size:13px">\v:垂直制表</font></font></font></p><p style="line-height:19px;text-indent:nullem;text-align:left"><font color="#4b4b4b"><font face="Verdana, Geneva, Arial, Helvetica, sans-serif"><font style="font-size:13px">\\:反斜杠</font></font></font></p><p style="line-height:19px;text-indent:nullem;text-align:left"><font color="#4b4b4b"><font face="Verdana, Geneva, Arial, Helvetica, sans-serif"><font style="font-size:13px">\':单引号</font></font></font></p><p style="line-height:19px;text-indent:nullem;text-align:left"><font color="#4b4b4b"><font face="Verdana, Geneva, Arial, Helvetica, sans-serif"><font style="font-size:13px">\":双引号</font></font></font></p><p style="line-height:19px;text-indent:nullem;text-align:left"><font color="#4b4b4b"><font face="Verdana, Geneva, Arial, Helvetica, sans-serif"><font style="font-size:13px">\?:问号</font></font></font></p><p style="line-height:19px;text-indent:nullem;text-align:left"><font color="#4b4b4b"><font face="Verdana, Geneva, Arial, Helvetica, sans-serif"><font style="font-size:13px">\ddd:三位八进制</font></font></font></p><p style="line-height:19px;text-indent:nullem;text-align:left"><font color="#4b4b4b"><font face="Verdana, Geneva, Arial, Helvetica, sans-serif"><font style="font-size:13px">\xhh:二位十六进制</font></font></font></p><p style="line-height:19px;text-indent:nullem;text-align:left"><font color="#4b4b4b"><font face="Verdana, Geneva, Arial, Helvetica, sans-serif"><font style="font-size:13px">\0:空字符(NULL),什么都不做</font></font></font></p><br>
+<font size="6">三、关键字</font><br>
+<table cellspacing="0" class="t_table"><tbody><tr><td width="99"><div align="center"><font style="background-color:white"><font color="#008000">关键字</font></font></div></td><td colspan="2" width="199"><div align="left"><div align="left"><font style="background-color:white"><font color="#008000">用　途</font></font></div></div></td><td colspan="2" width="395"><div align="left"><div align="left"><font style="background-color:white"><font color="#008000">　说明</font></font></div></div></td></tr><tr><td width="99"><div align="left"><div align="left"><font color="#0000ff">auto</font></div></div></td><td colspan="2" width="199"><div align="left"><div align="left">存储种类说明</div></div></td><td colspan="2" width="395"><div align="left"><div align="left">用以说明局部变量，缺省值为此</div></div></td></tr><tr><td width="99"><div align="left"><div align="left"><font color="#0000ff">break</font></div></div></td><td colspan="2" width="199"><div align="left"><div align="left">程序语句</div></div></td><td colspan="2" width="395"><div align="left"><div align="left">退出最内层循环</div></div></td></tr><tr><td width="99"><div align="left"><div align="left"><font color="#0000ff">case</font></div></div></td><td colspan="2" width="199"><div align="left"><div align="left">程序语句</div></div></td><td colspan="2" width="395"><div align="left"><div align="left">Switch语句中的选择项</div></div></td></tr><tr><td width="99"><div align="left"><div align="left"><font color="#ff0000">char</font></div></div></td><td colspan="2" width="199"><div align="left"><div align="left"><font color="#ff0000">数据类型说明</font></div></div></td><td colspan="2" width="395"><div align="left"><div align="left"><font color="#ff0000">单字节整型数或字符型数据-字符串 chan b[260];字符串声明</font></div></div></td></tr><tr><td width="99"><div align="left"><div align="left"><font color="#0000ff">const</font></div></div></td><td colspan="2" width="199"><div align="left"><div align="left">存储类型说明</div></div></td><td colspan="2" width="395"><div align="left"><div align="left">在程序执行过程中不可更改的常量值</div></div></td></tr><tr><td width="99"><div align="left"><div align="left"><font color="#0000ff">continue</font></div></div></td><td colspan="2" width="199"><div align="left"><div align="left">程序语句</div></div></td><td colspan="2" width="395"><div align="left"><div align="left">转向下一次循环</div></div></td></tr><tr><td width="99"><div align="left"><div align="left"><font color="#0000ff">default</font></div></div></td><td colspan="2" width="199"><div align="left"><div align="left">程序语句</div></div></td><td colspan="2" width="395"><div align="left"><div align="left">Switch语句中的失败选择项</div></div></td></tr><tr><td width="99"><div align="left"><div align="left"><font color="#0000ff">do</font></div></div></td><td colspan="2" width="199"><div align="left"><div align="left">程序语句</div></div></td><td colspan="2" width="395"><div align="left"><div align="left">构成do..while循环结构</div></div></td></tr><tr><td width="99"><div align="left"><div align="left"><font color="#0000ff">double</font></div></div></td><td colspan="2" width="199"><div align="left"><div align="left">数据类型说明</div></div></td><td colspan="2" width="395"><div align="left"><div align="left">双精度浮点数</div></div></td></tr><tr><td width="99"><div align="left"><div align="left"><font color="#ff0000">else</font></div></div></td><td colspan="2" width="199"><div align="left"><div align="left"><font color="#ff0000">程序语句</font></div></div></td><td colspan="2" width="395"><div align="left"><div align="left"><font color="#ff0000">构成if..else选择结构</font></div></div></td></tr><tr><td width="99"><div align="left"><div align="left"><font color="#0000ff">enum</font></div></div></td><td colspan="2" width="199"><div align="left"><div align="left">数据类型说明</div></div></td><td colspan="2" width="395"><div align="left"><div align="left">枚举</div></div></td></tr><tr><td width="99"><div align="left"><div align="left"><font color="#0000ff">extern</font></div></div></td><td colspan="2" width="199"><div align="left"><div align="left">存储种类说明</div></div></td><td colspan="2" width="395"><div align="left"><div align="left">在其他程序模块中说明了的全局变量</div></div></td></tr><tr><td width="99"><div align="left"><div align="left"><font color="#0000ff">flost</font></div></div></td><td colspan="2" width="199"><div align="left"><div align="left">数据类型说明</div></div></td><td colspan="2" width="395"><div align="left"><div align="left">单精度浮点数</div></div></td></tr><tr><td width="99"><div align="left"><div align="left"><font color="#0000ff">for</font></div></div></td><td colspan="2" width="199"><div align="left"><div align="left">程序语句</div></div></td><td colspan="2" width="395"><div align="left"><div align="left">构成for循环结构</div></div></td></tr><tr><td width="99"><div align="left"><div align="left"><font color="#0000ff">goto</font></div></div></td><td colspan="2" width="199"><div align="left"><div align="left">程序语句</div></div></td><td colspan="2" width="395"><div align="left"><div align="left">构成goto转移结构</div></div></td></tr><tr><td width="99"><div align="left"><div align="left"><font color="#ff0000">if</font></div></div></td><td colspan="2" width="199"><div align="left"><div align="left"><font color="#ff0000">程序语句</font></div></div></td><td colspan="2" width="395"><div align="left"><div align="left"><font color="#ff0000">构成if..else选择结构</font></div></div></td></tr><tr><td width="99"><div align="left"><div align="left"><font color="#ff0000">int</font></div></div></td><td colspan="2" width="199"><div align="left"><div align="left"><font color="#ff0000">数据类型说明</font></div></div></td><td colspan="2" width="395"><div align="left"><div align="left"><font color="#ff0000">基本整型数</font></div></div></td></tr><tr><td width="99"><div align="left"><div align="left"><font color="#0000ff">long</font></div></div></td><td colspan="2" width="199"><div align="left"><div align="left">数据类型说明</div></div></td><td colspan="2" width="395"><div align="left"><div align="left">长整型数</div></div></td></tr><tr><td width="99"><div align="left"><div align="left"><font color="#0000ff">register</font></div></div></td><td colspan="2" width="199"><div align="left"><div align="left">存储种类说明</div></div></td><td colspan="2" width="395"><div align="left"><div align="left">使用CPU内部寄存的变量</div></div></td></tr><tr><td width="99"><div align="left"><div align="left"><font color="#0000ff">return</font></div></div></td><td colspan="2" width="199"><div align="left"><div align="left">程序语句</div></div></td><td colspan="2" width="395"><div align="left"><div align="left">函数返回</div></div></td></tr><tr><td width="99"><div align="left"><div align="left"><font color="#0000ff">short</font></div></div></td><td colspan="2" width="199"><div align="left"><div align="left">数据类型说明</div></div></td><td colspan="2" width="395"><div align="left"><div align="left">短整型数</div></div></td></tr><tr><td width="99"><div align="left"><div align="left"><font color="#0000ff">signed</font></div></div></td><td colspan="2" width="199"><div align="left"><div align="left">数据类型说明</div></div></td><td colspan="2" width="395"><div align="left"><div align="left">有符号数，二进制数据的最高位为符号位</div></div></td></tr><tr><td width="99"><div align="left"><div align="left"><font color="#ff0000">sizeof</font></div></div></td><td colspan="2" width="199"><div align="left"><div align="left"><font color="#ff0000">运算符</font></div></div></td><td colspan="2" width="395"><div align="left"><div align="left"><font color="#ff0000">计算表达式或数据类型的字节数</font></div></div></td></tr><tr><td width="99"><div align="left"><div align="left"><font color="#ff0000">static</font></div></div></td><td colspan="2" width="199"><div align="left"><div align="left"><font color="#ff0000">存储种类说明</font></div></div></td><td colspan="2" width="395"><div align="left"><div align="left"><font color="#ff0000">静态变量</font></div></div></td></tr><tr><td width="99"><div align="left"><div align="left"><font color="#0000ff">struct</font></div></div></td><td colspan="2" width="199"><div align="left"><div align="left">数据类型说明</div></div></td><td colspan="2" width="395"><div align="left"><div align="left">结构类型数据</div></div></td></tr><tr><td width="99"><div align="left"><div align="left"><font color="#0000ff">swicth</font></div></div></td><td colspan="2" width="199"><div align="left"><div align="left">程序语句</div></div></td><td colspan="2" width="395"><div align="left"><div align="left">构成switch选择结构</div></div></td></tr><tr><td width="99"><div align="left"><div align="left"><font color="#ff0000">typedef</font></div></div></td><td colspan="2" width="199"><div align="left"><div align="left"><font color="#ff0000">数据类型说明</font></div></div></td><td colspan="2" width="395"><div align="left"><div align="left"><font color="#ff0000">重新进行数据类型定义</font></div></div></td></tr><tr><td width="99"><div align="left"><div align="left"><font color="#0000ff">union</font></div></div></td><td colspan="2" width="199"><div align="left"><div align="left">数据类型说明</div></div></td><td colspan="2" width="395"><div align="left"><div align="left">联合类型数据</div></div></td></tr><tr><td width="99"><div align="left"><div align="left"><font color="#0000ff">unsigned</font></div></div></td><td colspan="2" width="199"><div align="left"><div align="left">数据类型说明</div></div></td><td colspan="2" width="395"><div align="left"><div align="left">无符号数数据</div></div></td></tr><tr><td width="99"><div align="left"><div align="left"><font color="#ff0000">void</font></div></div></td><td colspan="2" width="199"><div align="left"><div align="left"><font color="#ff0000">数据类型说明</font></div></div></td><td colspan="2" width="395"><div align="left"><div align="left"><font color="#ff0000">无类型数据</font></div></div></td></tr><tr><td width="99"><div align="left"><div align="left"><font color="#0000ff">volatile</font></div></div></td><td colspan="2" width="199"><div align="left"><div align="left">数据类型说明</div></div></td><td colspan="2" width="395"><div align="left"><div align="left">该变量在程序执行中可被隐含地改变</div></div></td></tr><tr><td width="99"><div align="left"><div align="left"><font color="#ff0000">while</font></div></div></td><td colspan="2" width="199"><div align="left"><div align="left"><font color="#ff0000">程序语句</font></div></div></td><td colspan="2" width="395"><div align="left"><div align="left"><font color="#ff0000">构成while和do..while循环结构</font></div></div></td></tr></tbody></table><div align="left"><font color="#464646"><font face="楷体_GB2312"><font size="6"><strong>四、运算符</strong></font></font></font></div><br>
+<table cellspacing="0" class="t_table"><tbody><tr><td width="142"><div align="left"><font color="#008000">符号</font></div></td><td width="552"><div align="left"><div align="left"><font color="#008000">说&nbsp;&nbsp;明</font></div></div></td></tr><tr><td colspan="2" width="694"><div align="left"><div align="left"><font color="#8b0000">算 术 运 算 符 </font></div></div></td></tr><tr><td width="142"><div align="left"><div align="left">+</div></div></td><td width="552"><div align="left"><div align="left">加法运算符，或正值符号</div></div></td></tr><tr><td width="142"><div align="left"><div align="left">—</div></div></td><td width="552"><div align="left"><div align="left">减法运算符，或负值符号</div></div></td></tr><tr><td width="142"><div align="left"><div align="left">*</div></div></td><td width="552"><div align="left"><div align="left">乘法运算符</div></div></td></tr><tr><td width="142"><div align="left"><div align="left">/</div></div></td><td width="552"><div align="left"><div align="left">除法运算符</div></div></td></tr><tr><td width="142"><div align="left"><div align="left">%</div></div></td><td width="552"><div align="left"><div align="left">模（求余）运算符；如5%3结果得2</div></div></td></tr><tr><td colspan="2" width="694"><div align="left"><div align="left"><font color="#8b0000">关 系 运 算符</font></div></div></td></tr><tr><td width="142"><div align="left"><div align="left">&lt;</div></div></td><td width="552"><div align="left"><div align="left">小于</div></div></td></tr><tr><td width="142"><div align="left"><div align="left">&gt;</div></div></td><td width="552"><div align="left"><div align="left">大于</div></div></td></tr><tr><td width="142"><div align="left"><div align="left">&lt;=</div></div></td><td width="552"><div align="left"><div align="left">小于或等于</div></div></td></tr><tr><td width="142"><div align="left"><div align="left">&gt;=</div></div></td><td width="552"><div align="left"><div align="left">大于或等于</div></div></td></tr><tr><td width="142"><div align="left"><div align="left"><font color="#ff0000">= =</font></div></div></td><td width="552"><div align="left"><div align="left"><font color="#ff0000">等于</font><font color="#ff00">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; 比如 if(a==1 ){.....} 如果a等于1 那么就....</font></div></div></td></tr><tr><td width="142"><div align="left"><div align="left"><font color="#ff0000">!=</font></div></div></td><td width="552"><div align="left"><div align="left"><font color="#ff0000">不等于</font><font color="#ff00">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; 比如 if(a!=1 ){.....} 如果a不等于1 那么就....</font></div></div></td></tr><tr><td colspan="2" width="694"><div align="left"><div align="left"><font color="#8b0000">逻 辑 运 算符</font></div></div></td></tr><tr><td width="142"><div align="left"><div align="left"><font color="#ff0000">&amp;&amp;</font></div></div></td><td width="552"><div align="left"><div align="left"><font color="#ff0000">逻辑与&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;比如 if(a==1 &amp;&amp;&nbsp;&nbsp;b==1){.....}如果a等于1并且b也等于1那么就....</font></div></div></td></tr><tr><td width="142"><div align="left"><div align="left"><font color="#ff0000">||</font></div></div></td><td width="552"><div align="left"><div align="left"><font color="#ff0000">逻辑或&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;</font><font color="#ff00">比如 if(a==1 ||&nbsp;&nbsp;b==1){.....}如果a等于1或者b等于1那么就....</font></div></div></td></tr><tr><td width="142"><div align="left"><div align="left">！</div></div></td><td width="552"><div align="left"><div align="left">逻辑非</div></div></td></tr><tr><td colspan="2" width="694"><div align="left"><div align="left"><font color="#8b0000">位&nbsp;&nbsp;运&nbsp;&nbsp;算符 到目前为止，</font><font color="#808080">位运算在写调试器和键盘钩子的时候会用到的</font></div></div></td></tr><tr><td width="142"><div align="left"><div align="left"><font color="#ff0000">&amp;</font></div></div></td><td width="552"><div align="left"><div align="left"><font color="#ff0000">按位与&nbsp; &nbsp;&nbsp;&nbsp;</font></div><div align="left"><font color="#0000ff">此符号如果是 获取变量的内存地址，此刻它就不是位运算符了</font><font color="#ff0000">。</font></div><div align="left"><font color="#ff0000">比如 int&nbsp;&nbsp;b;&nbsp; &nbsp; 那么 &amp;b就是变量b的内存地址了，一般是指针操作的时候会用到。</font></div></div></td></tr><tr><td width="142"><div align="left"><div align="left">|</div></div></td><td width="552"><div align="left"><div align="left">按位或</div></div></td></tr><tr><td width="142"><div align="left"><div align="left">^</div></div></td><td width="552"><div align="left"><div align="left">按位异或</div></div></td></tr><tr><td width="142"><div align="left"><div align="left">~</div></div></td><td width="552"><div align="left"><div align="left">按位取反</div></div></td></tr><tr><td width="142"><div align="left"><div align="left">&lt;&lt;</div></div></td><td width="552"><div align="left"><div align="left">位左移</div></div></td></tr><tr><td width="142"><div align="left"><div align="left">&gt;&gt;</div></div></td><td width="552"><div align="left"><div align="left">位右移</div></div></td></tr><tr><td colspan="2" width="694"><div align="left"><div align="left"><font color="#8b0000">自 增 减 运 算符</font></div></div></td></tr><tr><td width="142"><div align="left"><div align="left"><font color="#ff0000">++i</font></div></div></td><td width="552"><div align="left"><div align="left"><font color="#ff0000">在使用i之前，先使i值加1&nbsp; &nbsp;++i其实就是i=i+1</font></div></div></td></tr><tr><td width="142"><div align="left"><div align="left">--i</div></div></td><td width="552"><div align="left"><div align="left">在使用i之前，先使i减加1&nbsp;&nbsp;--i其实就是i=i-1</div></div></td></tr><tr><td width="142"><div align="left"><div align="left">i++</div></div></td><td width="552"><div align="left"><div align="left">在使用i之后，先使i值加1</div></div></td></tr><tr><td width="142"><div align="left"><div align="left">i--</div></div></td><td width="552"><div align="left"><div align="left">在使用i之后，先使i减加1</div></div></td></tr></tbody></table><div align="left"><font face="simsun"><strong><font size="6"><font color="#464646">五、复合运算符 </font></font><font size="4"><font color="#464646">（</font><font color="#ff0000">比如a+=2是a=a+2的简写</font><font color="#464646">）</font></font></strong></font></div><table cellspacing="0" class="t_table"><tbody><tr><td colspan="6" width="694"><div align="left"><font color="#2e8b57">复 合 运 算</font></div></td></tr><tr><td width="99"><div align="left"><div align="left">+=</div></div></td><td width="151"><div align="left"><div align="left">加法赋值</div></div></td><td width="99"><div align="left"><div align="left">%=</div></div></td><td width="142"><div align="left"><div align="left">取模赋值</div></div></td><td width="55"><div align="left"><div align="left">|=</div></div></td><td width="146"><div align="left"><div align="left">逻辑或赋值</div></div></td></tr><tr><td width="99"><div align="left"><div align="left">-=</div></div></td><td width="151"><div align="left"><div align="left">减法赋值</div></div></td><td width="99"><div align="left"><div align="left">&lt;&lt;=</div></div></td><td width="142"><div align="left"><div align="left">左移赋值</div></div></td><td width="55"><div align="left"><div align="left">^=</div></div></td><td width="146"><div align="left"><div align="left">逻辑异或赋值</div></div></td></tr><tr><td width="99"><div align="left"><div align="left">*=</div></div></td><td width="151"><div align="left"><div align="left">乘发赋值</div></div></td><td width="99"><div align="left"><div align="left">&gt;&gt;=</div></div></td><td width="142"><div align="left"><div align="left">右移赋值</div></div></td><td width="55"><div align="left"><div align="left">~=</div></div></td><td width="146"><div align="left"><div align="left">逻辑非赋值</div></div></td></tr><tr><td width="99"><div align="left"><div align="left">/=</div></div></td><td width="151"><div align="left"><div align="left">除法赋值</div></div></td><td width="99"><div align="left"><div align="left">&amp;=</div></div></td><td width="142"><div align="left"><div align="left">逻辑与赋值</div></div></td><td width="55"><br>
+</td></tr></tbody></table></td></tr></tbody></table>
+
+<div class="ptg mbm mtn">
+<a title="关键字" href="http://www.niyuan8.com/misc.php?mod=tag&id=16" target="_blank">关键字</a>, <a title="字符串" href="http://www.niyuan8.com/misc.php?mod=tag&id=17" target="_blank">字符串</a></div>
+<div class="modact"><a href="http://www.niyuan8.com/forum.php?mod=misc&action=viewthreadmod&tid=22" title="帖子模式" onclick="showWindow(&#39;viewthreadmod&#39;, this.href)">本主题由 admin 于 2013-4-4 21:07 设置高亮</a></div>
+</div>
+<div id="comment_52" class="cm">
+</div>
+
+<div id="post_rate_div_52"></div>
+
+<div id="relate_subject"><div class="rs_main"><div class="rs_head"><h3 class="has_adv">相关帖子</h3></div><ul id="rel_list"><li class="right_item"><a href="http://www.niyuan8.com/forum.php?mod=viewthread&tid=29&reltid=22&pre_thread_id=0&pre_pos=1&ext=CB" target="_blank" title="shielden升级小助手" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">shielden升级小助手</a></li><li class="left_item"><a href="http://www.niyuan8.com/forum.php?mod=viewthread&tid=92&reltid=22&pre_thread_id=0&pre_pos=2&ext=CB" target="_blank" title="通用拦截ip转向工具" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;" style="text-decoration: none;">通用拦截ip转向工具</a></li><li class="right_item"><a href="http://www.niyuan8.com/forum.php?mod=viewthread&tid=87&reltid=22&pre_thread_id=0&pre_pos=3&ext=CB" target="_blank" title="飘零商业3.5一键读密码" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">飘零商业3.5一键读密码</a></li></ul></div></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+<div id="p_btn" class="mtw mbm hm cl">
+<div class="tshare cl">
+<b>分享到:&nbsp;</b>
+
+
+<a href="http://www.niyuan8.com/home.php?mod=spacecp&ac=plugin&id=qqconnect:spacecp&pluginop=share&sh_type=4&thread_id=22" id="k_share_to_qq" title="QQ好友和群" target="_blank"><i><img src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/qq_share.png" alt="QQ好友和群">QQ好友和群</i></a>
+<a href="javascript:void(0);" id="k_qqshare" onclick="postToQzone();" title="QQ空间"><i><img src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/qzone.gif" alt="QQ空间">QQ空间</i></a>
+<a href="javascript:void(0)" onclick="postToWb();" id="k_weiboshare" title="腾讯微博"><i><img src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/weibo.png" alt="腾讯微博">腾讯微博</i></a>
+<a href="javascript:void(0);" onclick="postToPengyou();" id="k_pengyoushare" title="腾讯朋友"><i><img src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/pengyou.png" alt="腾讯朋友">腾讯朋友</i></a>
+<script type="text/javascript">
+function postToWb(){
+var _t = encodeURI(document.title);
+var _url = encodeURIComponent(document.location);
+var _appkey = encodeURI("801364066");
+var _pic = "";
+var _site = encodeURIComponent("逆缘论坛[C.L.G]|软件安全|软件逆向|加密解密");
+var _from = 'discuz';
+var _u = 'http://v.t.qq.com/share/share.php?url='+_url+'&appkey='+_appkey+'&site='+_site+'&pic='+_pic+'&title='+_t+'&from='+_from;
+window.open( _u,'', 'width=700, height=680, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, location=yes, resizable=no, status=no' );
+}
+function postToPengyou(){
+var _url = encodeURIComponent(document.location.href);
+var _site = encodeURIComponent("逆缘论坛[C.L.G]|软件安全|软件逆向|加密解密");
+var _title = encodeURIComponent("VC6.0 格式字符、转义字符、关键字、运算符");
+var _pics = "";
+var _from = 'discuz';
+var _u = 'http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?to=pengyou&url='+_url+'&site='+_site+'&title='+_title+'&pics='+_pics+'&from='+_from;
+window.open(_u);
+}
+</script>
+
+<script type="text/javascript">
+function postToQzone(){
+var _url = encodeURIComponent(document.location.href);
+var _site = encodeURIComponent("逆缘论坛[C.L.G]|软件安全|软件逆向|加密解密");
+var _title = encodeURIComponent("VC6.0 格式字符、转义字符、关键字、运算符");
+var _pics = "";
+var _from = 'discuz';
+var _u = 'http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url='+_url+'&site='+_site+'&title='+_title+'&pics='+_pics+'&from='+_from;
+window.open(_u);
+}
+</script>
+
+</div>
+
+<a href="http://www.niyuan8.com/home.php?mod=spacecp&ac=favorite&type=thread&id=22" id="k_favorite" onclick="showWindow(this.id, this.href, &#39;get&#39;, 0);" onmouseover="this.title = $(&#39;favoritenumber&#39;).innerHTML + &#39; 人收藏&#39;" title="收藏本帖"><i><img src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/fav.gif" alt="收藏">收藏<span id="favoritenumber">1</span></i></a>
+</div>
+<div class="mtw mbw">
+<h3 class="pbm mbm bbda">相关帖子</h3>
+<ul class="xl xl2 cl"><li>&#8226; <a href="http://www.niyuan8.com/forum.php?mod=viewthread&tid=33" title="飘零金盾1.5 2.0通用传输密码找法" target="_blank">飘零金盾1.5 2.0通用传输密码找法</a></li>
+<li>&#8226; <a href="http://www.niyuan8.com/forum.php?mod=viewthread&tid=137" title="分析并模拟某程序服务端" target="_blank">分析并模拟某程序服务端</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr id="_postposition52"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="http://www.niyuan8.com/forum.php?mod=post&action=reply&fid=38&tid=22&reppost=52&extra=&page=1" onclick="showWindow(&#39;reply&#39;, this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_52" onmouseover="showMenu(this.id)" class="showmenu">使用道具</a>
+<a href="javascript:;" onclick="showWindow(&#39;miscreport52&#39;, &#39;misc.php?mod=report&amp;rtype=post&amp;rid=52&amp;tid=22&amp;fid=38&#39;, &#39;get&#39;, -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_52_menu" class="p_pop mgcmn" style="display: none;">
+<li><a href="http://www.niyuan8.com/home.php?mod=magic&mid=bump&idtype=tid&id=22" id="a_bump" onclick="showWindow(this.id, this.href)"><img src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/bump.small.gif">提升卡</a></li>
+<li><a href="http://www.niyuan8.com/home.php?mod=magic&mid=highlight&idtype=tid&id=22" id="a_stick" onclick="showWindow(this.id, this.href)"><img src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/highlight.small.gif">变色卡</a></li>
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_52')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</tbody></table>
+</div><div id="post_432"><table id="pid432" class="plhin" summary="pid432" cellspacing="0" cellpadding="0">
+<tbody><tr>
+<td class="pls" rowspan="2">
+<div id="favatar432" class="pls favatar">
+ <div class="pi">
+<div class="authi"><a href="http://www.niyuan8.com/home.php?mod=space&uid=34" target="_blank" class="xw1">tigel1986</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo432" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo432_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="http://www.niyuan8.com/home.php?mod=space&uid=34" target="_blank" class="xi2">tigel1986</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+<dt>积分</dt><dd><a href="http://www.niyuan8.com/home.php?mod=space&uid=34&do=profile" target="_blank" class="xi2">9</a></dd>
+</dl><div class="imicn">
+<a href="http://www.niyuan8.com/home.php?mod=space&uid=34&do=profile" target="_blank" title="查看详细资料"><img src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/userinfo.gif" alt="查看详细资料"></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="http://www.niyuan8.com/home.php?mod=space&uid=34" class="avtm" target="_blank"><img src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/avatar(1).php"></a></div>
+</div>
+</div>
+</td>
+	
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="http://www.niyuan8.com/forum.php?mod=redirect&goto=findpost&ptid=22&pid=432" id="postnum432" onclick="setCopy(this.href, &#39;帖子地址复制成功&#39;);return false;">
+沙发</a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon432" src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/online_member.gif">
+<em id="authorposton432">发表于 2013-4-13 16:00:34</em>
+<span class="pipe">|</span>
+<a href="http://www.niyuan8.com/forum.php?mod=viewthread&tid=22&page=1&authorid=34" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tbody><tr><td class="t_f" id="postmessage_432">
+<img src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/lol.gif" smilieid="12" border="0" alt="">保存一份用来查好了。</td></tr></tbody></table>
+
+
+</div>
+<div id="comment_432" class="cm">
+</div>
+
+<div id="post_rate_div_432"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition432"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="http://www.niyuan8.com/forum.php?mod=post&action=reply&fid=38&tid=22&repquote=432&extra=&page=1" onclick="showWindow(&#39;reply&#39;, this.href)">回复</a>
+<a class="replyadd" href="http://www.niyuan8.com/forum.php?mod=misc&action=postreview&do=support&tid=22&pid=432&hash=611ff21c" onclick="showWindow(&#39;login&#39;, this.href)" onmouseover="this.title = ($(&#39;review_support_432&#39;).innerHTML ? $(&#39;review_support_432&#39;).innerHTML : 0) + &#39; 人 支持&#39;">支持 <span id="review_support_432"></span></a>
+<a class="replysubtract" href="http://www.niyuan8.com/forum.php?mod=misc&action=postreview&do=against&tid=22&pid=432&hash=611ff21c" onclick="showWindow(&#39;login&#39;, this.href)" onmouseover="this.title = ($(&#39;review_against_432&#39;).innerHTML ? $(&#39;review_against_432&#39;).innerHTML : 0) + &#39; 人 反对&#39;">反对 <span id="review_against_432"></span></a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_432" onmouseover="showMenu(this.id)" class="showmenu" style="display: none;"></a>
+<a href="javascript:;" onclick="showWindow(&#39;miscreport432&#39;, &#39;misc.php?mod=report&amp;rtype=post&amp;rid=432&amp;tid=22&amp;fid=38&#39;, &#39;get&#39;, -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_432_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_432')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</tbody></table>
+</div><div id="post_433"><table id="pid433" class="plhin" summary="pid433" cellspacing="0" cellpadding="0">
+<tbody><tr>
+<td class="pls" rowspan="2">
+<div id="favatar433" class="pls favatar">
+ <div class="pi">
+<div class="authi"><a href="http://www.niyuan8.com/home.php?mod=space&uid=28" target="_blank" class="xw1">a070458</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo433" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo433_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="http://www.niyuan8.com/home.php?mod=space&uid=28" target="_blank" class="xi2">a070458</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+<dt>积分</dt><dd><a href="http://www.niyuan8.com/home.php?mod=space&uid=28&do=profile" target="_blank" class="xi2">44</a></dd>
+</dl><div class="imicn">
+<a href="http://www.niyuan8.com/home.php?mod=space&uid=28&do=profile" target="_blank" title="查看详细资料"><img src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/userinfo.gif" alt="查看详细资料"></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="http://www.niyuan8.com/home.php?mod=space&uid=28" class="avtm" target="_blank"><img width="120" src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/140"></a></div>
+</div>
+</div>
+</td>
+	
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="http://www.niyuan8.com/forum.php?mod=redirect&goto=findpost&ptid=22&pid=433" id="postnum433" onclick="setCopy(this.href, &#39;帖子地址复制成功&#39;);return false;">
+板凳</a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon433" src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/online_member.gif">
+<em id="authorposton433">发表于 2013-4-13 19:17:01</em>
+<span class="pipe">|</span>
+<a href="http://www.niyuan8.com/forum.php?mod=viewthread&tid=22&page=1&authorid=28" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tbody><tr><td class="t_f" id="postmessage_433">
+<img src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/lol.gif" smilieid="12" border="0" alt="">很实用</td></tr></tbody></table>
+
+
+</div>
+<div id="comment_433" class="cm">
+</div>
+
+<div id="post_rate_div_433"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition433"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="http://www.niyuan8.com/forum.php?mod=post&action=reply&fid=38&tid=22&repquote=433&extra=&page=1" onclick="showWindow(&#39;reply&#39;, this.href)">回复</a>
+<a class="replyadd" href="http://www.niyuan8.com/forum.php?mod=misc&action=postreview&do=support&tid=22&pid=433&hash=611ff21c" onclick="showWindow(&#39;login&#39;, this.href)" onmouseover="this.title = ($(&#39;review_support_433&#39;).innerHTML ? $(&#39;review_support_433&#39;).innerHTML : 0) + &#39; 人 支持&#39;">支持 <span id="review_support_433"></span></a>
+<a class="replysubtract" href="http://www.niyuan8.com/forum.php?mod=misc&action=postreview&do=against&tid=22&pid=433&hash=611ff21c" onclick="showWindow(&#39;login&#39;, this.href)" onmouseover="this.title = ($(&#39;review_against_433&#39;).innerHTML ? $(&#39;review_against_433&#39;).innerHTML : 0) + &#39; 人 反对&#39;">反对 <span id="review_against_433"></span></a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_433" onmouseover="showMenu(this.id)" class="showmenu" style="display: none;"></a>
+<a href="javascript:;" onclick="showWindow(&#39;miscreport433&#39;, &#39;misc.php?mod=report&amp;rtype=post&amp;rid=433&amp;tid=22&amp;fid=38&#39;, &#39;get&#39;, -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_433_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_433')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</tbody></table>
+</div><div id="post_434"><table id="pid434" class="plhin" summary="pid434" cellspacing="0" cellpadding="0">
+<tbody><tr>
+<td class="pls" rowspan="2">
+<div id="favatar434" class="pls favatar">
+ <div class="pi">
+<div class="authi"><a href="http://www.niyuan8.com/home.php?mod=space&uid=8" target="_blank" class="xw1" style="color: #FF0000">Sound</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo434" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo434_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="http://www.niyuan8.com/home.php?mod=space&uid=8" target="_blank" class="xi2" style="color: #FF0000">Sound</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+<dt>积分</dt><dd><a href="http://www.niyuan8.com/home.php?mod=space&uid=8&do=profile" target="_blank" class="xi2">141</a></dd>
+</dl><div class="imicn">
+<a href="http://www.niyuan8.com/home.php?mod=space&uid=8&do=profile" target="_blank" title="查看详细资料"><img src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/userinfo.gif" alt="查看详细资料"></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="http://www.niyuan8.com/home.php?mod=space&uid=8" class="avtm" target="_blank"><img src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/avatar(2).php"></a></div>
+</div>
+</div>
+</td>
+	
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="http://www.niyuan8.com/forum.php?mod=redirect&goto=findpost&ptid=22&pid=434" id="postnum434" onclick="setCopy(this.href, &#39;帖子地址复制成功&#39;);return false;">
+地板</a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon434" src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/online_member.gif">
+<em id="authorposton434">发表于 2013-4-13 19:29:06</em>
+<span class="pipe">|</span>
+<a href="http://www.niyuan8.com/forum.php?mod=viewthread&tid=22&page=1&authorid=8" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tbody><tr><td class="t_f" id="postmessage_434">
+打我pg我不乖<br>
+<br>
+要对Vc有爱啊<br>
+</td></tr></tbody></table>
+
+
+</div>
+<div id="comment_434" class="cm">
+</div>
+
+<div id="post_rate_div_434"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition434"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="http://www.niyuan8.com/forum.php?mod=post&action=reply&fid=38&tid=22&repquote=434&extra=&page=1" onclick="showWindow(&#39;reply&#39;, this.href)">回复</a>
+<a class="replyadd" href="http://www.niyuan8.com/forum.php?mod=misc&action=postreview&do=support&tid=22&pid=434&hash=611ff21c" onclick="showWindow(&#39;login&#39;, this.href)" onmouseover="this.title = ($(&#39;review_support_434&#39;).innerHTML ? $(&#39;review_support_434&#39;).innerHTML : 0) + &#39; 人 支持&#39;">支持 <span id="review_support_434"></span></a>
+<a class="replysubtract" href="http://www.niyuan8.com/forum.php?mod=misc&action=postreview&do=against&tid=22&pid=434&hash=611ff21c" onclick="showWindow(&#39;login&#39;, this.href)" onmouseover="this.title = ($(&#39;review_against_434&#39;).innerHTML ? $(&#39;review_against_434&#39;).innerHTML : 0) + &#39; 人 反对&#39;">反对 <span id="review_against_434"></span></a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_434" onmouseover="showMenu(this.id)" class="showmenu" style="display: none;"></a>
+<a href="javascript:;" onclick="showWindow(&#39;miscreport434&#39;, &#39;misc.php?mod=report&amp;rtype=post&amp;rid=434&amp;tid=22&amp;fid=38&#39;, &#39;get&#39;, -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_434_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_434')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</tbody></table>
+</div><div id="post_909"><table id="pid909" class="plhin" summary="pid909" cellspacing="0" cellpadding="0">
+<tbody><tr>
+<td class="pls" rowspan="2">
+<div id="favatar909" class="pls favatar">
+ <div class="pi">
+<div class="authi"><a href="http://www.niyuan8.com/home.php?mod=space&uid=285" target="_blank" class="xw1">liyizhu</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo909" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo909_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="http://www.niyuan8.com/home.php?mod=space&uid=285" target="_blank" class="xi2">liyizhu</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+<dt>积分</dt><dd><a href="http://www.niyuan8.com/home.php?mod=space&uid=285&do=profile" target="_blank" class="xi2">130</a></dd>
+</dl><div class="imicn">
+<a href="http://www.niyuan8.com/home.php?mod=space&uid=285&do=profile" target="_blank" title="查看详细资料"><img src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/userinfo.gif" alt="查看详细资料"></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="http://www.niyuan8.com/home.php?mod=space&uid=285" class="avtm" target="_blank"><img src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/avatar(3).php"></a></div>
+</div>
+</div>
+</td>
+	
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="http://www.niyuan8.com/forum.php?mod=redirect&goto=findpost&ptid=22&pid=909" id="postnum909" onclick="setCopy(this.href, &#39;帖子地址复制成功&#39;);return false;">
+<em>5</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon909" src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/online_member.gif">
+<em id="authorposton909">发表于 2013-5-15 20:19:45</em>
+<span class="pipe">|</span>
+<a href="http://www.niyuan8.com/forum.php?mod=viewthread&tid=22&page=1&authorid=285" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tbody><tr><td class="t_f" id="postmessage_909">
+很实用 保存备用 <img src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/lol.gif" smilieid="12" border="0" alt=""></td></tr></tbody></table>
+
+
+</div>
+<div id="comment_909" class="cm">
+</div>
+
+<div id="post_rate_div_909"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition909"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="http://www.niyuan8.com/forum.php?mod=post&action=reply&fid=38&tid=22&repquote=909&extra=&page=1" onclick="showWindow(&#39;reply&#39;, this.href)">回复</a>
+<a class="replyadd" href="http://www.niyuan8.com/forum.php?mod=misc&action=postreview&do=support&tid=22&pid=909&hash=611ff21c" onclick="showWindow(&#39;login&#39;, this.href)" onmouseover="this.title = ($(&#39;review_support_909&#39;).innerHTML ? $(&#39;review_support_909&#39;).innerHTML : 0) + &#39; 人 支持&#39;">支持 <span id="review_support_909"></span></a>
+<a class="replysubtract" href="http://www.niyuan8.com/forum.php?mod=misc&action=postreview&do=against&tid=22&pid=909&hash=611ff21c" onclick="showWindow(&#39;login&#39;, this.href)" onmouseover="this.title = ($(&#39;review_against_909&#39;).innerHTML ? $(&#39;review_against_909&#39;).innerHTML : 0) + &#39; 人 反对&#39;">反对 <span id="review_against_909"></span></a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_909" onmouseover="showMenu(this.id)" class="showmenu" style="display: none;"></a>
+<a href="javascript:;" onclick="showWindow(&#39;miscreport909&#39;, &#39;misc.php?mod=report&amp;rtype=post&amp;rid=909&amp;tid=22&amp;fid=38&#39;, &#39;get&#39;, -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_909_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_909')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</tbody></table>
+</div><div id="postlistreply" class="pl"><div id="post_new" class="viewthread_table" style="display: none"></div></div>
+</div>
+
+
+<form method="post" autocomplete="off" name="modactions" id="modactions">
+<input type="hidden" name="formhash" value="611ff21c">
+<input type="hidden" name="optgroup">
+<input type="hidden" name="operation">
+<input type="hidden" name="listextra" value="">
+<input type="hidden" name="page" value="1">
+</form>
+
+
+
+<div class="pgs mtm mbm cl">
+<span class="pgb y" id="visitedforumstmp" onmouseover="$(&#39;visitedforums&#39;).id = &#39;visitedforumstmp&#39;;this.id = &#39;visitedforums&#39;;showMenu({&#39;ctrlid&#39;:this.id,&#39;pos&#39;:&#39;21&#39;})"><a href="http://www.niyuan8.com/forum.php?mod=forumdisplay&fid=38">返回列表</a></span>
+<a id="newspecialtmp" onmouseover="$(&#39;newspecial&#39;).id = &#39;newspecialtmp&#39;;this.id = &#39;newspecial&#39;;showMenu({&#39;ctrlid&#39;:this.id})" onclick="showWindow(&#39;newthread&#39;, &#39;forum.php?mod=post&amp;action=newthread&amp;fid=38&#39;)" href="javascript:;" title="发新帖"><img src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/pn_post.png" alt="发新帖"></a>
+</div>
+
+<!--[diy=diyfastposttop]--><div id="diyfastposttop" class="area"></div><!--[/diy]-->
+<script type="text/javascript">
+var postminchars = parseInt('10');
+var postmaxchars = parseInt('10000');
+var disablepostctrl = parseInt('0');
+</script>
+
+<div id="f_pst" class="pl bm bmw">
+<form method="post" autocomplete="off" id="fastpostform" action="http://www.niyuan8.com/forum.php?mod=post&action=reply&fid=38&tid=22&extra=&replysubmit=yes&infloat=yes&handlekey=fastpost" onsubmit="return fastpostvalidate(this)">
+<table cellspacing="0" cellpadding="0">
+<tbody><tr>
+<td class="pls">
+</td>
+<td class="plc">
+
+<span id="fastpostreturn"></span>
+
+
+<div class="cl">
+<div id="fastsmiliesdiv" class="y"><div id="fastsmiliesdiv_data"><div id="fastsmilies"></div></div></div><div class="hasfsl" id="fastposteditor">
+<div class="tedt mtn">
+<div class="bar">
+<span class="y">
+<a href="http://www.niyuan8.com/forum.php?mod=post&action=reply&fid=38&tid=22" onclick="return switchAdvanceMode(this.href)">高级模式</a>
+</span><script src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/seditor.js" type="text/javascript"></script>
+<div class="fpd">
+<a href="javascript:;" title="文字加粗" class="fbld">B</a>
+<a href="javascript:;" title="设置文字颜色" class="fclr" id="fastpostforecolor">Color</a>
+<a id="fastpostimg" href="javascript:;" title="图片" class="fmg">Image</a>
+<a id="fastposturl" href="javascript:;" title="添加链接" class="flnk">Link</a>
+<a id="fastpostquote" href="javascript:;" title="引用" class="fqt">Quote</a>
+<a id="fastpostcode" href="javascript:;" title="代码" class="fcd">Code</a>
+<a href="javascript:;" class="fsml" id="fastpostsml">Smilies</a>
+</div></div>
+<div class="area">
+<div class="pt hm">
+您需要登录后才可以回帖 <a href="http://www.niyuan8.com/member.php?mod=logging&action=login" onclick="showWindow(&#39;login&#39;, this.href)" class="xi2">登录</a> | <a href="http://www.niyuan8.com/member.php?mod=register" class="xi2">加入逆缘</a>
+
+
+<a href="http://www.niyuan8.com/connect.php?mod=login&op=init&referer=forum.php%3Fmod%3Dviewthread%26tid%3D22&statfrom=login" target="_top" rel="nofollow"><img src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/qq_login.gif" class="vm"></a>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<input type="hidden" name="formhash" value="611ff21c">
+<input type="hidden" name="usesig" value="">
+<input type="hidden" name="subject" value="  ">
+<p class="ptm pnpost">
+<a href="http://www.niyuan8.com/home.php?mod=spacecp&ac=credit&op=rule&fid=38" class="y" target="_blank">本版积分规则</a>
+<button type="button" onclick="showWindow(&#39;login&#39;, &#39;member.php?mod=logging&amp;action=login&amp;guestmessage=yes&#39;)" name="replysubmit" id="fastpostsubmit" class="pn pnc vm" value="replysubmit" tabindex="5"><strong>发表回复</strong></button>
+<label for="fastpostrefresh"><input id="fastpostrefresh" type="checkbox" class="pc">回帖后跳转到最后一页</label>
+<script type="text/javascript">if(getcookie('fastpostrefresh') == 1) {$('fastpostrefresh').checked=true;}</script>
+</p>
+</td>
+</tr>
+</tbody></table>
+</form>
+</div>
+
+<script type="text/javascript">
+var connect_qzone_share_url = 'http://www.niyuan8.com/home.php?mod=spacecp&ac=plugin&id=qqconnect:spacecp&pluginop=share&sh_type=1&thread_id=22';
+var connect_weibo_share_url = 'http://www.niyuan8.com/home.php?mod=spacecp&ac=plugin&id=qqconnect:spacecp&pluginop=share&sh_type=2&thread_id=22';
+var connect_thread_info = {
+thread_url: 'http://www.niyuan8.com/forum.php?mod=viewthread&tid=22',
+thread_id: '22',
+post_id: '52',
+forum_id: '38',
+author_id: '6',
+author: 'Rookietp'
+};
+
+connect_autoshare = '0';
+connect_isbind = '';
+if(connect_autoshare == 1 && connect_isbind) {
+_attachEvent(window, 'load', function(){
+connect_share(connect_weibo_share_url, connect_openid);
+});
+}
+</script>
+
+
+<div id="visitedforums_menu" class="p_pop blk cl" style="position: absolute; z-index: 301; left: 993.5px; top: 280px; display: none;" initialized="true">
+<table cellspacing="0" cellpadding="0">
+<tbody><tr>
+<td id="v_forums">
+<h3 class="mbn pbn bbda xg1">浏览过的版块</h3>
+<ul class="xl xl1">
+<li><a href="http://www.niyuan8.com/forum.php?mod=forumdisplay&fid=37" class="">【视频教程】</a></li></ul>
+</td>
+</tr>
+</tbody></table>
+</div>
+<script type="text/javascript">document.onkeyup = function(e){keyPageScroll(e, 0, 0, 'forum.php?mod=viewthread&tid=22', 1);}</script>
+</div>
+
+<div class="wp mtn">
+<!--[diy=diy3]--><div id="diy3" class="area"></div><!--[/diy]-->
+</div>
+
+<script type="text/javascript">
+function succeedhandle_followmod(url, msg, values) {
+var fObj = $('followmod_'+values['fuid']);
+if(values['type'] == 'add') {
+fObj.innerHTML = '不收听';
+fObj.href = 'home.php?mod=spacecp&ac=follow&op=del&fuid='+values['fuid'];
+} else if(values['type'] == 'del') {
+fObj.innerHTML = '收听TA';
+fObj.href = 'home.php?mod=spacecp&ac=follow&op=add&hash=611ff21c&fuid='+values['fuid'];
+}
+}
+fixed_avatar([52,432,433,434,909], 1);
+</script>	</div>
+
+
+
+
+<script type="text/javascript">
+var rel_tid = "22";
+var rel_title = "VC6.0+%B8%F1%CA%BD%D7%D6%B7%FB%A1%A2%D7%AA%D2%E5%D7%D6%B7%FB%A1%A2%B9%D8%BC%FC%D7%D6%A1%A2%D4%CB%CB%E3%B7%FB";
+var rel_reltid = "0";
+var rel_prepos = "";
+var my_siteid = "23471844";
+var rel_uid = "0";
+var rel_views = "507";
+var rel_replies = "6";
+var rel_page = "1";
+var rel_show = "0";
+</script>
+<script src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/relate_subject.js" type="text/javascript" charset="GBK"></script>
+
+
+
+<script type="text/javascript">
+_attachEvent(window, 'load', getForbiddenFormula, document);
+function getForbiddenFormula() {
+var toGetForbiddenFormulaFIds = function () {
+ajaxget('plugin.php?id=cloudsearch&formhash=611ff21c');
+};
+var a = document.body.getElementsByTagName('a');
+for(var i = 0;i < a.length;i++){
+if(a[i].getAttribute('sc')) {
+a[i].setAttribute('mid', hash(a[i].href));
+a[i].onmousedown = function() {toGetForbiddenFormulaFIds();};
+}
+}
+var btn = document.body.getElementsByTagName('button');
+for(var i = 0;i < btn.length;i++){
+if(btn[i].getAttribute('sc')) {
+btn[i].setAttribute('mid', hash(btn[i].id));
+btn[i].onmousedown = function() {toGetForbiddenFormulaFIds();};
+}
+}
+}
+</script>
+
+<div id="ft" class="wp cl">
+<div id="flk" class="y">
+<p>
+<a href="http://www.niyuan8.com/plugin.php?id=wq_links:main">申请友链</a><span class="pipe">|</span><a href="http://www.niyuan8.com/forum.php?mod=misc&action=showdarkroom">小黑屋</a><span class="pipe">|</span><a href="http://www.niyuan8.com/forum.php?mobile=yes">手机版</a><span class="pipe">|</span><a href="http://www.niyuan8.com/archiver/">Archiver</a><span class="pipe">|</span><strong><a href="http://www.niyuan8.com/" target="_blank">逆缘论坛[C.L.G]</a></strong>
+&nbsp;<a href="http://discuz.qq.com/service/security" target="_blank" title="防水墙保卫网站远离侵害"><img src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/security.png"></a>&nbsp;&nbsp;<span id="tcss"></span><script type="text/javascript" src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/ping.js" charset="utf-8"></script><script type="text/javascript" reload="1">pgvMain({"discuzParams":{"r2":"23471844","ui":0,"rt":"forum","md":"viewthread","fi":"38","ti":"22","pn":1,"qq":"000"},"extraParams":""});</script><script src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/stat.php" language="JavaScript"></script><script src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/cnzz_core.php" charset="utf-8" type="text/javascript"></script><a href="http://www.cnzz.com/stat/website.php?web_id=5406512" target="_blank" title="站长统计"><img border="0" hspace="0" vspace="0" src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/pic.gif"></a></p>
+<p class="xs0">
+GMT+8, 2013-7-4 21:59<span id="debuginfo">
+, Processed in 0.165018 second(s), 23 queries
+.
+</span>
+</p>
+</div>
+<div id="frt">
+<p>Powered by <strong><a href="http://www.discuz.net/" target="_blank">Discuz!</a></strong> <em>X3</em></p>
+<p class="xs0">&#169; 2001-2013 <a href="http://www.comsenz.com/" target="_blank">Comsenz Inc.</a></p>
+</div></div>
+<div id="scrolltop" style="left: 1153px; visibility: visible;">
+<span><a href="http://www.niyuan8.com/forum.php?mod=post&action=reply&fid=38&tid=22&extra=&page=1" onclick="showWindow(&#39;reply&#39;, this.href)" class="replyfast" title="快速回复"><b>快速回复</b></a></span>
+<span hidefocus="true"><a title="返回顶部" onclick="window.scrollTo(&#39;0&#39;,&#39;0&#39;)" class="scrolltopa"><b>返回顶部</b></a></span>
+<span>
+<a href="http://www.niyuan8.com/forum.php?mod=forumdisplay&fid=38" hidefocus="true" class="returnlist" title="返回列表"><b>返回列表</b></a>
+</span>
+</div>
+<script type="text/javascript">_attachEvent(window, 'scroll', function () { showTopLink(); });checkBlind();</script>
+			<div id="discuz_tips" style="display:none;"></div>
+			<script type="text/javascript">
+				var tipsinfo = '23471844|X3|0.6||0||0|7|1372946377|d64f4b36c4c3862c7674b65cd1c6a549|2';
+			</script>
+			<script src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/discuz_tips.js" type="text/javascript" charset="UTF-8"></script>
+
+<div class="safe_statu" style="text-decoration:none;display:none;"><div><div class="gj_tri"><img src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/header_tri.png"></div><div><div class="gj_body"><div class="gj_statu"><div style="display:block;float:left;position: relative; top: -3px;"><img id="gj_show_statu" class="gj_ie6png" src="./VC6.0 格式字符、转义字符、关键字、运算符!_files/saved_resource"></div><div class="safe_statu_wording" style="margin-top: 3px;"><span><a id="gj_show_wording" style="text-decoration:none;">safe_statu_wording</a></span></div></div><div style="display:block;clear:both;margin-top:0px;"></div><div id="gj_operate" style="position:relative; top: 4px;"></div></div><div class="gj_bottom"><!-- <div id="gj_show_info">show_info</div> --><div id="gj_show_gj" style="display:block;clear:both;padding-top:3px;">show_gj<a style="text-decoration:none;color:#373737"> 从此上网不被骗！ </a>show_operate</div></div></div></div></div></body></html>

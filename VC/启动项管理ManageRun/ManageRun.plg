@@ -1,0 +1,53 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: ManageRun - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\panda\LOCALS~1\Temp\RSP2B9.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/ManageRun.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Documents and Settings\panda\桌面\ManageRun\ManageRun.cpp"
+"C:\Documents and Settings\panda\桌面\ManageRun\ManageRunDlg.cpp"
+"C:\Documents and Settings\panda\桌面\ManageRun\RegAdd.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\panda\LOCALS~1\Temp\RSP2B9.tmp" 
+Creating temporary file "C:\DOCUME~1\panda\LOCALS~1\Temp\RSP2BA.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/ManageRun.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Documents and Settings\panda\桌面\ManageRun\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\panda\LOCALS~1\Temp\RSP2BA.tmp" 
+<h3>Output Window</h3>
+Compiling...
+StdAfx.cpp
+Compiling...
+ManageRun.cpp
+ManageRunDlg.cpp
+RegAdd.cpp
+Generating Code...
+Creating temporary file "C:\DOCUME~1\panda\LOCALS~1\Temp\RSP2BB.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/ManageRun.pdb" /debug /machine:I386 /out:"Debug/ManageRun.exe" /pdbtype:sept 
+".\Debug\ManageRun.obj"
+".\Debug\ManageRunDlg.obj"
+".\Debug\RegAdd.obj"
+".\Debug\StdAfx.obj"
+".\Debug\ManageRun.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\panda\LOCALS~1\Temp\RSP2BB.tmp"
+<h3>Output Window</h3>
+Linking...
+Creating command line "bscmake.exe /nologo /o"Debug/ManageRun.bsc"  ".\Debug\StdAfx.sbr" ".\Debug\ManageRun.sbr" ".\Debug\ManageRunDlg.sbr" ".\Debug\RegAdd.sbr""
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+ManageRun.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

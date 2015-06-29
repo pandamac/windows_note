@@ -1,0 +1,40 @@
+-----------------------------------------------------------------------------
+Microsoft (R) PREfast Version 9.0.21022.100208.
+Copyright (C) Microsoft Corporation. All rights reserved.
+-----------------------------------------------------------------------------
+Contents of defect log: PREfast_defects_chk_win7_x86.xml
+-----------------------------------------------------------------------------
+z:\desktop\driver2\driver2\driver2.cpp (127): warning 28175: The 'NextDevice' member of _DEVICE_OBJECT should not be accessed by a driver:  Access to this member may be permitted for certain classes of drivers. See the documentation for this warning for more information.
+	FUNCTION: DRIVER2_DriverUnload (116)
+
+z:\desktop\driver2\driver2\driver2.cpp (160): warning 6067: Parameter '2' in call to 'DbgPrint' must be the address of the string
+	FUNCTION: ScanProcessModule (138)
+
+z:\desktop\driver2\driver2\driver2.cpp (258): warning 28101: The Drivers module has inferred that the current function is a DRIVER_INITIALIZE function:  This is informational only. No problem has been detected.
+	FUNCTION: DriverEntry (258)
+
+z:\desktop\driver2\driver2\driver2.cpp (269): warning 6014: (PFD)Leaking memory 'pdoDeviceObj'.
+	FUNCTION: DriverEntry (258)
+	PATH: 263 264 265 267 269 284 296 298 299 302 304 
+
+z:\desktop\driver2\driver2\driver2.cpp (297): warning 28155: The function being assigned or passed should be a DRIVER_DISPATCH function:  Add the declaration 'DRIVER_DISPATCH DRIVER2_DispatchCreateClose;' before the current first declaration of DRIVER2_DispatchCreateClose.
+	FUNCTION: DriverEntry (258)
+
+z:\desktop\driver2\driver2\driver2.cpp (297): warning 28169: The dispatch function 'DRIVER2_DispatchCreateClose' does not have any __drv_dispatchType annotations:  This can be corrected by adding appropriate __drv_dispatchType annotations to the function. Unnecessary casts can cause this warning.
+	FUNCTION: DriverEntry (258)
+
+z:\desktop\driver2\driver2\driver2.cpp (298): warning 28155: The function being assigned or passed should be a DRIVER_DISPATCH function:  Add the declaration 'DRIVER_DISPATCH DRIVER2_DispatchDeviceControl;' before the current first declaration of DRIVER2_DispatchDeviceControl.
+	FUNCTION: DriverEntry (258)
+
+z:\desktop\driver2\driver2\driver2.cpp (298): warning 28169: The dispatch function 'DRIVER2_DispatchDeviceControl' does not have any __drv_dispatchType annotations:  This can be corrected by adding appropriate __drv_dispatchType annotations to the function. Unnecessary casts can cause this warning.
+	FUNCTION: DriverEntry (258)
+
+z:\desktop\driver2\driver2\driver2.cpp (299): warning 28155: The function being assigned or passed should be a DRIVER_UNLOAD function:  Add the declaration 'DRIVER_UNLOAD DRIVER2_DriverUnload;' before the current first declaration of DRIVER2_DriverUnload.
+	FUNCTION: DriverEntry (258)
+
+-----------------------------------------------------------------------------
+9 of 9 Defects Listed
+Filter in effect: drivers_recommended
+-----------------------------------------------------------------------------
+You can change the filter and sort options from the user interface.
+Enter PREFAST VIEW to display the defect log user interface.

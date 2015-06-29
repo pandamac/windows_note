@@ -1,0 +1,12 @@
+﻿  StdAfx.cpp
+  WinService.cpp
+g:\beiyong\biancheng\windowsserver\winservice.cpp(71): warning C4996: 'ATL::CRegKey::SetValue': CRegKey::SetValue(TCHAR *value, TCHAR *valueName) has been superseded by CRegKey::SetStringValue and CRegKey::SetMultiStringValue
+          e:\microsoft visual studio 12.0\vc\atlmfc\include\atlbase.h(5555) : 参见“ATL::CRegKey::SetValue”的声明
+g:\beiyong\biancheng\windowsserver\winservice.cpp(72): warning C4996: 'ATL::CRegKey::SetValue': CRegKey::SetValue(TCHAR *value, TCHAR *valueName) has been superseded by CRegKey::SetStringValue and CRegKey::SetMultiStringValue
+          e:\microsoft visual studio 12.0\vc\atlmfc\include\atlbase.h(5555) : 参见“ATL::CRegKey::SetValue”的声明
+g:\beiyong\biancheng\windowsserver\winservice.cpp(273): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          e:\microsoft visual studio 12.0\vc\include\stdio.h(356) : 参见“vsprintf”的声明
+g:\beiyong\biancheng\windowsserver\winservice.cpp(450): warning C4996: 'ATL::CRegKey::QueryValue': CRegKey::QueryValue(TCHAR *value, TCHAR *valueName) has been superseded by CRegKey::QueryStringValue and CRegKey::QueryMultiStringValue
+          e:\microsoft visual studio 12.0\vc\atlmfc\include\atlbase.h(5592) : 参见“ATL::CRegKey::QueryValue”的声明
+StdAfx.obj : warning LNK4075: 忽略“/EDITANDCONTINUE”(由于“/SAFESEH”规范)
+  WinService.vcxproj -> G:\beiyong\biancheng\Windowsserver\Debug\WinService.exe

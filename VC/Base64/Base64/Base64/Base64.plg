@@ -1,0 +1,138 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Base64 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP24AD.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/Base64.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"G:\beiyong\biancheng\VC\Base64\Base64\Base64\base64.cpp"
+]
+Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP24AD.tmp" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP24AE.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/Base64.pdb" /debug /machine:I386 /out:"Debug/Base64.exe" /pdbtype:sept 
+.\Debug\base64.obj
+]
+Creating command line "link.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP24AE.tmp"
+<h3>Output Window</h3>
+Compiling...
+base64.cpp
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(6) : warning C4786: 'std::reverse_bidirectional_iterator<std::_Tree<char,std::pair<char const ,int>,std::map<char,int,std::less<char>,std::allocator<int> >::_Kfn,std::less<char>,std::allocator<int> >::iterator,std::pair<char const ,int>,std::pair<char const ,int> &,std::pair<char const ,int> *,int>' : identifier was truncated to '255' characters in the debug information
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(6) : warning C4786: 'std::reverse_bidirectional_iterator<std::_Tree<char,std::pair<char const ,int>,std::map<char,int,std::less<char>,std::allocator<int> >::_Kfn,std::less<char>,std::allocator<int> >::const_iterator,std::pair<char const ,int>,std::pair<char const ,int> const &,std::pair<char const ,int> const *,int>' : identifier was truncated to '255' characters in the debug information
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(6) : warning C4786: 'std::pair<std::_Tree<char,std::pair<char const ,int>,std::map<char,int,std::less<char>,std::allocator<int> >::_Kfn,std::less<char>,std::allocator<int> >::iterator,std::_Tree<char,std::pair<char const ,int>,std::map<char,int,std::less<char>,std::allocator<int> >::_Kfn,std::less<char>,std::allocator<int> >::iterator>' : identifier was truncated to '255' characters in the debug information
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(6) : warning C4786: 'std::pair<std::_Tree<char,std::pair<char const ,int>,std::map<char,int,std::less<char>,std::allocator<int> >::_Kfn,std::less<char>,std::allocator<int> >::const_iterator,std::_Tree<char,std::pair<char const ,int>,std::map<char,int,std::less<char>,std::allocator<int> >::_Kfn,std::less<char>,std::allocator<int> >::const_iterator>' : identifier was truncated to '255' characters in the debug information
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(143) : error C2001: newline in constant
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(145) : error C2146: syntax error : missing ')' before identifier 'vR9d1V39ILubnNGMRzOr0UjyRGtbiCxbsmwljuR1YEubBFhg4Q2wG9tBNsEiGwOLAGsHwSKwg3Vs'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(145) : error C2660: 'DBase64' : function does not take 1 parameters
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(145) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(145) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(146) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(149) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(149) : error C2041: illegal digit '8' for base '8'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(149) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(151) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(156) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(156) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(159) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(160) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(161) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(161) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(164) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(164) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(166) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(166) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(167) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(167) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(169) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(170) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(170) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(172) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(174) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(175) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(175) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(175) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(176) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(176) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(180) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(180) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(180) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(181) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(185) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(186) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(188) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(189) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(190) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(191) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(191) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(193) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(194) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(195) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(195) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(195) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(196) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(196) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(196) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(196) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(197) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(197) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(198) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(198) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(198) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(199) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(200) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(206) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(206) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(210) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(211) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(212) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(212) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(212) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(213) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(213) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(213) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(216) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(217) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(224) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(226) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(230) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(231) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(232) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(233) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(233) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(238) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(239) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(241) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(243) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(244) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(245) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(253) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(254) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(256) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(257) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(258) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(260) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(266) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(267) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(268) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(268) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(269) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(269) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(269) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(271) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(272) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(276) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(278) : error C2059: syntax error : 'bad suffix on number'
+g:\beiyong\biancheng\vc\base64\base64\base64\base64.cpp(278) : fatal error C1003: error count exceeds 100; stopping compilation
+Ö´ÐÐ cl.exe Ê±³ö´í.
+
+
+
+<h3>Results</h3>
+Base64.exe - 1 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

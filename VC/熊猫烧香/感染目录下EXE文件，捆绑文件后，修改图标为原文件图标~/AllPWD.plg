@@ -1,0 +1,36 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: AllPWD - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x411 /fo"Debug/Script1.res" /d "_DEBUG" "G:\beiyong\biancheng\VC\熊猫烧香\感染目录下EXE文件，捆绑文件后，修改图标为原文件图标~\Script1.rc"" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSPED99.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /FR"Debug/" /Fp"Debug/AllPWD.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"G:\beiyong\biancheng\VC\熊猫烧香\感染目录下EXE文件，捆绑文件后，修改图标为原文件图标~\Bind.cpp"
+"G:\beiyong\biancheng\VC\熊猫烧香\感染目录下EXE文件，捆绑文件后，修改图标为原文件图标~\Main.cpp"
+"G:\beiyong\biancheng\VC\熊猫烧香\感染目录下EXE文件，捆绑文件后，修改图标为原文件图标~\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSPED99.tmp" 
+Creating command line "link.exe /nologo /subsystem:windows /incremental:yes /pdb:"Debug/AllPWD.pdb" /debug /machine:I386 /out:"Debug/AllPWD.exe" /pdbtype:sept  ".\Debug\Bind.obj" ".\Debug\Main.obj" ".\Debug\StdAfx.obj" ".\Debug\Script1.res" "
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+Bind.cpp
+Main.cpp
+StdAfx.cpp
+Linking...
+Creating command line "bscmake.exe /nologo /o"Debug/AllPWD.bsc"  ".\Debug\Bind.sbr" ".\Debug\Main.sbr" ".\Debug\StdAfx.sbr""
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+AllPWD.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,77 @@
+#include "stdafx.h"
+#include <windows.h>
+
+void WINAPI HookOneAPI(LPCTSTR ModuleName,LPCTSTR ApiName,PROC NewFuction,PROC&OldFuction)
+{
+	// HookOneAPI("kernel32.dll","WaitForDebugEvent",(PROC)MyWaitForDebugEvent,(PROC)OriProcAddress);
+    // HookOneAPI("kernel32.dll","ContinueDebugEvent",(PROC)MyContinueDebugEvent,(PROC)OriProcAddress);
+    DWORD size ;
+    HMODULE hInstance=GetModuleHandle(NULL);
+    PROC HookAPIAddr=GetProcAddress(GetModuleHandle(ModuleName),ApiName);
+    OldFuction=HookAPIAddr ;
+
+    PIMAGE_IMPORT_DESCRIPTOR pImportDesc=(PIMAGE_IMPORT_DESCRIPTOR)ImageDirectoryEntryToData (hInstance,TRUE,IMAGE_DIRECTORY_ENTRY_IMPORT,&size);
+    if(pImportDesc==NULL)
+		return ;//																				Import directory
+    for(;pImportDesc->Name;
+pImportDesc++)
+    {
+        LPSTR pszDllName=(LPSTR)((PBYTE)hInstance+pImportDesc->Name);
+        if(lstrcmpiA(pszDllName,ModuleName)==0)
+			break ;
+    }
+    if(pImportDesc->Name==NULL)
+		return ;
+    PIMAGE_THUNK_DATA pThunk = (PIMAGE_THUNK_DATA)((PBYTE)hInstance+pImportDesc->FirstThunk);
+    for(;pThunk->u1.Function;pThunk++)
+    {
+        PROC*ppfn = (PROC*)&pThunk->u1.Function ;
+        if(*ppfn==HookAPIAddr)
+        {
+            MEMORY_BASIC_INFORMATION mbi ;
+            ZeroMemory(&mbi,sizeof(MEMORY_BASIC_INFORMATION));
+            VirtualQuery(ppfn,&mbi,sizeof(MEMORY_BASIC_INFORMATION));
+            VirtualProtect(mbi.BaseAddress,mbi.RegionSize,PAGE_READWRITE,&mbi.Protect);
+            *ppfn = *NewFuction ;//hook º¯Êý
+            DWORD dwOldProtect ;
+            VirtualProtect(mbi.BaseAddress,mbi.RegionSize,mbi.Protect,&dwOldProtect);
+            return ;
+        }
+    }
+}
+
+
+
+BOOL (WINAPI *OriWaitForDebugEvent)(
+					   LPDEBUG_EVENT lpDebugEvent,  // debug event information
+					   DWORD dwMilliseconds         // time-out value
+);
+OriWaitForDebugEvent pWaitForDebugEvent;
+
+BOOL (WINAPI * OriContinueDebugEvent)(
+						DWORD dwProcessId,       // process to continue
+						DWORD dwThreadId,        // thread to continue
+						DWORD dwContinueStatus   // continuation status
+);
+OriContinueDebugEvent pContinueDebugEvent;
+
+void HOOKIAT()
+{
+        PROC OriProcAddress = NULL;
+        HookOneAPI("kernel32.dll","WaitForDebugEvent",(PROC)MyWaitForDebugEvent,(PROC)OriProcAddress);
+        pWaitForDebugEvent = (OriWaitForDebugEvent)OriProcAddress;
+        HookOneAPI("kernel32.dll","ContinueDebugEvent",(PROC)MyContinueDebugEvent,(PROC)OriProcAddress);
+        pContinueDebugEvent = (OriContinueDebugEvent)OriProcAddress;
+} 
+ 
+
+
+
+int main(int argc, char* argv[])
+{
+	
+	return 0;
+}
+
+
+

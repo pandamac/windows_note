@@ -1,0 +1,41 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: SendToAsp - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Debug/SendToAsp.res" /d "_DEBUG" /d "_AFXDLL" "Z:\G\Books\Virus\Windows黑客技术揭秘与攻防I——C语言篇\AutoPlay\Docs\第8章\ASP收信\SendToAsp.rc"" 
+Creating temporary file "C:\DOCUME~1\panda\LOCALS~1\Temp\RSP102.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/SendToAsp.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"Z:\G\Books\Virus\Windows黑客技术揭秘与攻防I——C语言篇\AutoPlay\Docs\第8章\ASP收信\SendToAsp.cpp"
+"Z:\G\Books\Virus\Windows黑客技术揭秘与攻防I——C语言篇\AutoPlay\Docs\第8章\ASP收信\SendToAspDlg.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\panda\LOCALS~1\Temp\RSP102.tmp" 
+Creating temporary file "C:\DOCUME~1\panda\LOCALS~1\Temp\RSP103.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/SendToAsp.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"Z:\G\Books\Virus\Windows黑客技术揭秘与攻防I——C语言篇\AutoPlay\Docs\第8章\ASP收信\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\panda\LOCALS~1\Temp\RSP103.tmp" 
+Creating command line "link.exe /nologo /subsystem:windows /incremental:yes /pdb:"Debug/SendToAsp.pdb" /debug /machine:I386 /out:"Debug/SendToAsp.exe" /pdbtype:sept  ".\Debug\SendToAsp.obj" ".\Debug\SendToAspDlg.obj" ".\Debug\StdAfx.obj" ".\Debug\SendToAsp.res" "
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+SendToAsp.cpp
+SendToAspDlg.cpp
+Z:\G\Books\Virus\Windows黑客技术揭秘与攻防I——C语言篇\AutoPlay\Docs\第8章\ASP收信\SendToAspDlg.cpp(125) : warning C4101: 'e' : unreferenced local variable
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+SendToAsp.exe - 0 error(s), 1 warning(s)
+</pre>
+</body>
+</html>

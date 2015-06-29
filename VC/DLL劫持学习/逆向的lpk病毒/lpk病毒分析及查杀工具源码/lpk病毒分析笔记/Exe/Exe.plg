@@ -1,0 +1,45 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Exe - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Release/Exe.res" /d "NDEBUG" /d "_AFXDLL" "C:\Users\Administrator\Desktop\挖洞任务\lpk\lpk病毒分析及查杀工具源码\lpk病毒分析笔记\Exe\Exe.rc"" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP1403.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Release/" /Fp"Release/Exe.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Users\Administrator\Desktop\挖洞任务\lpk\lpk病毒分析及查杀工具源码\lpk病毒分析笔记\Exe\Exe.cpp"
+"C:\Users\Administrator\Desktop\挖洞任务\lpk\lpk病毒分析及查杀工具源码\lpk病毒分析笔记\Exe\ExeDlg.cpp"
+"C:\Users\Administrator\Desktop\挖洞任务\lpk\lpk病毒分析及查杀工具源码\lpk病毒分析笔记\Exe\md5.cpp"
+]
+Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP1403.tmp" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP1404.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Release/" /Fp"Release/Exe.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Users\Administrator\Desktop\挖洞任务\lpk\lpk病毒分析及查杀工具源码\lpk病毒分析笔记\Exe\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP1404.tmp" 
+Creating command line "link.exe /nologo /subsystem:windows /incremental:no /pdb:"Release/Exe.pdb" /machine:I386 /out:"Release/Exe.exe"  ".\Release\Exe.obj" ".\Release\ExeDlg.obj" ".\Release\md5.obj" ".\Release\StdAfx.obj" ".\Release\Exe.res" "
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+Exe.cpp
+ExeDlg.cpp
+md5.cpp
+Generating Code...
+Linking...
+Creating command line "bscmake.exe /nologo /o"Release/Exe.bsc"  ".\Release\StdAfx.sbr" ".\Release\Exe.sbr" ".\Release\ExeDlg.sbr" ".\Release\md5.sbr""
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+Exe.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

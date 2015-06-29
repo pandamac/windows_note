@@ -1,0 +1,22 @@
+00402490 >/$  55                           PUSH EBP
+00402491  |.  8BEC                         MOV EBP,ESP
+00402493  |.  6A FF                        PUSH -1
+00402495  |.  68 C0544100                  PUSH PeParse.004154C0
+0040249A  |.  68 F8264000                  PUSH <JMP.&MSVCRTD._except_handler3>     ;  SE 处理程序安装
+0040249F  |.  64:A1 00000000               MOV EAX,DWORD PTR FS:[0]
+004024A5  |.  50                           PUSH EAX
+004024A6  |.  64:8925 00000000             MOV DWORD PTR FS:[0],ESP
+004024AD  |.  83C4 94                      ADD ESP,-6C
+004024B0  |.  53                           PUSH EBX
+004024B1  |.  56                           PUSH ESI
+004024B2  |.  57                           PUSH EDI
+004024B3  |.  8965 E8                      MOV DWORD PTR SS:[EBP-18],ESP
+004024B6  |.  C745 FC 00000000             MOV DWORD PTR SS:[EBP-4],0
+004024BD  |.  6A 02                        PUSH 2
+
+
+
+"\x55\x8B\xEC\x6A\xFF\x68\xC0\x54\x41\x00"
+"\x68\xF8\x26\x40\x00\x64\xA1\x00\x00\x00"
+"\x00\x50\x64\x89\x25\x00\x00\x00\x00\x83"
+"\xC4\x94\"

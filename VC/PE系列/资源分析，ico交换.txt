@@ -1,0 +1,271 @@
+/*本代码段功能：实现两个PE可执行文件图标的替换。
+*冒险王
+*QQ:43755979
+*博客：http://hi.baidu.com/43755979
+*/
+
+DWORD dwSize1[256],dwSize2[256];
+DWORD dwPos1[256],dwPos2[256];
+int count1,count2;
+/***************************************************************************
+函数：获取文件中图标所在位置
+****************************************************************************/
+bool GetPos(TCHAR m_path[MAX_PATH],int a)
+{
+
+	DWORD dwIconSize=0;
+	DWORD dwWritePos=0;
+
+	_IMAGE_DOS_HEADER dosHead;
+	_IMAGE_NT_HEADERS ntHead;
+	_IMAGE_SECTION_HEADER secHead;
+
+	//读取PE Header
+	DWORD dwBytesRead;
+	HANDLE fp = CreateFile(m_path, GENERIC_READ, 
+		0,
+		NULL,
+		OPEN_EXISTING,
+		FILE_ATTRIBUTE_NORMAL,
+		NULL);
+	if(fp==NULL)
+	{
+		printf("文件不存在\n");
+		return false;
+	}
+	ReadFile(fp,&dosHead,sizeof(_IMAGE_DOS_HEADER), &dwBytesRead, NULL);
+	SetFilePointer(fp,dosHead.e_lfanew,NULL,FILE_BEGIN);
+	ReadFile(fp,&ntHead,sizeof(_IMAGE_NT_HEADERS),&dwBytesRead,NULL);
+
+	/*查找.rsrc节，移动文件指针到.rsrc节开始的位置*/
+	for(int i=0;i<ntHead.FileHeader.NumberOfSections;i++)
+	{
+		ReadFile(fp,&secHead,sizeof(_IMAGE_SECTION_HEADER),&dwBytesRead,NULL);
+		if(strcmp((char*)secHead.Name,".rsrc")==0)
+		{
+
+			break;
+		}
+	}
+	_IMAGE_RESOURCE_DIRECTORY dirResource;
+	//读取指针指向资源根节点开始的位置
+	SetFilePointer(fp,secHead.PointerToRawData,NULL,FILE_BEGIN);
+	//读取资源根节点开始的位置(在文件中的位置 )
+	DWORD pos = secHead.PointerToRawData;
+	ReadFile(fp,&dirResource,sizeof(_IMAGE_RESOURCE_DIRECTORY),&dwBytesRead,NULL);
+
+	_IMAGE_RESOURCE_DIRECTORY_ENTRY entryResource;
+	_IMAGE_RESOURCE_DIRECTORY dirTemp; 
+	_IMAGE_RESOURCE_DIRECTORY_ENTRY entryTemp;
+	_IMAGE_RESOURCE_DIRECTORY dirTempICON; 
+	_IMAGE_RESOURCE_DIRECTORY_ENTRY entryTempICON;
+	_IMAGE_RESOURCE_DATA_ENTRY entryData; 
+
+	for(i=0;i < dirResource.NumberOfIdEntries + dirResource.NumberOfNamedEntries; i++)
+	{
+		ReadFile(fp,&entryResource,sizeof(_IMAGE_RESOURCE_DIRECTORY_ENTRY),&dwBytesRead,NULL);
+		if(entryResource.Name==3)//该资源是图标
+		{
+			//读取指针指向下一层的IMAGE_RESOURCE_DIRECTORY结构
+			SetFilePointer(fp, pos + entryResource.OffsetToDirectory, NULL,FILE_BEGIN);
+			ReadFile(fp,&dirTemp,sizeof(_IMAGE_RESOURCE_DIRECTORY),&dwBytesRead,NULL);
+			if(dirTemp.NumberOfIdEntries>256)
+			{
+				printf(">256失败");
+				return false;
+			}
+			//遍历各个入口点指示的目录
+			for(int k=0;k < dirTemp.NumberOfIdEntries;k++)
+			{ 
+				ReadFile(fp,&entryTemp,sizeof(_IMAGE_RESOURCE_DIRECTORY_ENTRY),&dwBytesRead,NULL);
+				//如果还有子目录
+				if(entryTemp.DataIsDirectory>0) 
+				{
+					//读取指针指向下一层的IMAGE_RESOURCE_DIRECTORY结构
+					SetFilePointer(fp,pos+entryTemp.OffsetToDirectory,NULL,FILE_BEGIN);
+					ReadFile(fp,&dirTempICON,sizeof(_IMAGE_RESOURCE_DIRECTORY),&dwBytesRead,NULL);
+					ReadFile(fp,&entryTempICON,sizeof(_IMAGE_RESOURCE_DIRECTORY_ENTRY),&dwBytesRead,NULL);
+					SetFilePointer(fp,pos+entryTempICON.OffsetToData,NULL,FILE_BEGIN);
+					ReadFile(fp,&entryData,sizeof(_IMAGE_RESOURCE_DATA_ENTRY),&dwBytesRead,NULL);
+					//列出该目录下所有图标资源
+					for(i=0;i<dirTemp.NumberOfIdEntries;i++)
+					{
+						//列出其中符合条件的图标
+						if(entryData.Size >=44)
+						{
+
+							//图标大小
+							dwIconSize=entryData.Size;
+							//图标起始位置
+							dwWritePos=pos+entryData.OffsetToData - secHead.VirtualAddress;
+
+							//将图标资源信息存入全局数组
+							if(a==1)
+							{
+								dwSize1[i]=dwIconSize;
+								dwPos1[i]=dwWritePos;
+							}
+							if(a==2)
+							{
+								dwSize2[i]=dwIconSize;
+								dwPos2[i]=dwWritePos;
+							}
+
+
+						}
+						SetFilePointer(fp,pos+entryTempICON.OffsetToData+
+							(i+1)*sizeof(_IMAGE_RESOURCE_DATA_ENTRY),NULL,FILE_BEGIN);
+						ReadFile(fp,&entryData,sizeof(_IMAGE_RESOURCE_DATA_ENTRY),&dwBytesRead,NULL);
+					}
+				}
+
+			}
+
+		}
+
+	}
+	CloseHandle(fp);
+	//将图标资源个数存入全局数组
+	if(a==1)
+	{
+		count1=dirTemp.NumberOfIdEntries;
+		if(count1>256)
+			return false;
+		//实现按从大到小排序
+		int i,j;
+		DWORD tempS,tempP;
+		for(i=0;i<count1-1;i++)
+			for(j=count1-1;j>i;j--)
+				if(dwSize1[j]>dwSize1[j-1])
+				{
+					tempS=dwSize1[j];
+					tempP=dwPos1[j];
+					dwSize1[j]=dwSize1[j-1];
+					dwPos1[j]=dwPos1[j-1];
+					dwSize1[j-1]=tempS;
+					dwPos1[j-1]=tempP;
+
+				}
+
+	}
+	if(a==2)
+	{
+		count2=dirTemp.NumberOfIdEntries;
+		if(count2>256)
+			return false;
+		//实现按从大到小排序
+		int i,j;
+		DWORD tempS,tempP;
+		for(i=0;i<count2-1;i++)
+			for(j=count2-1;j>i;j--)
+				if(dwSize2[j]>dwSize2[j-1])
+				{
+					tempS=dwSize2[j];
+					tempP=dwPos2[j];
+					dwSize2[j]=dwSize2[j-1];
+					dwPos2[j]=dwPos2[j-1];
+					dwSize2[j-1]=tempS;
+					dwPos2[j-1]=tempP;
+
+				}
+	}
+
+	return true;
+}
+
+/***************************************************************************
+函数：修改图标
+将szSrc的图标写入szDst内
+****************************************************************************/
+bool ModifyIcon(TCHAR szDst[256],TCHAR szSrc[256])
+{
+	DWORD SrcWritePos,SrcWriteSize,DstWritePos,DstWriteSize;
+	char* SrcBuf;
+	int sum;
+	if(!GetPos(szSrc,1))
+	{
+		printf("if(!GetPos(szSrc,1))处失败");
+		return false;
+	}
+
+	if(!GetPos(szDst,2))
+	{
+		printf("2失败");
+		return false;
+	}
+	if(dwSize2[0] < dwSize1[count1-1])
+	{
+		printf("都不合适!");
+		return false;
+	}
+	//多数服从少数
+	if(count1>count2||count1==count2)
+	{
+		sum=count2;
+		for(int i=0;i<sum;i++)
+		{
+			for(int a=0;(a+i)<count1;a++)
+			{
+				if(dwSize1[a+i]==dwSize2[i]||dwSize1[a+i]<dwSize2[i])
+				{
+
+					/*读取宿主文件图标数据*/
+					DWORD dwBytesRead , dwByteWritten;
+					HANDLE fp = CreateFile(szSrc, GENERIC_READ, 
+						0,
+						NULL,
+						OPEN_EXISTING,
+						FILE_ATTRIBUTE_NORMAL,
+						NULL);
+					SetFilePointer(fp,dwPos1[a+i],NULL,FILE_BEGIN);
+					SrcBuf = new char [dwSize1[a+i]];
+					ReadFile(fp,SrcBuf,dwSize1[a+i],&dwBytesRead,NULL);
+					CloseHandle(fp);
+					//写入
+					HANDLE ff = CreateFile(szDst,GENERIC_WRITE|GENERIC_READ,
+						0,NULL,OPEN_EXISTING,FILE_ATTRIBUTE_NORMAL,NULL);
+					SetFilePointer(ff,dwPos2[i],NULL,FILE_BEGIN);
+					WriteFile(ff,SrcBuf,dwSize1[a+i],&dwByteWritten,NULL);
+					CloseHandle(ff);
+					return true;
+				}
+			}
+		}
+	}
+	else
+	{
+
+		sum=count1;
+		for(int i=0;i<sum;i++)
+		{
+			for(int a=0;(a+i)<count2;a++)
+			{
+				if(dwSize2[a+i]==dwSize1[i]||dwSize2[a+i]>dwSize1[i])
+
+				{
+					/*读取宿主文件图标数据*/
+					DWORD dwBytesRead , dwByteWritten;
+					HANDLE fp = CreateFile(szSrc, GENERIC_READ, 
+						0,
+						NULL,
+						OPEN_EXISTING,
+						FILE_ATTRIBUTE_NORMAL,
+						NULL);
+					SetFilePointer(fp,dwPos1[i],NULL,FILE_BEGIN);
+					SrcBuf = new char [dwSize1[i]];
+					ReadFile(fp,SrcBuf,dwSize1[i],&dwBytesRead,NULL);
+					CloseHandle(fp);
+					//写入
+					HANDLE ff = CreateFile(szDst,GENERIC_WRITE|GENERIC_READ,
+						0,NULL,OPEN_EXISTING,FILE_ATTRIBUTE_NORMAL,NULL);
+					SetFilePointer(ff,dwPos2[a+i],NULL,FILE_BEGIN);
+					WriteFile(ff,SrcBuf,dwSize1[i],&dwByteWritten,NULL);
+					CloseHandle(ff);
+					return true;
+				}
+			}
+		}
+
+	}
+	return true;
+}

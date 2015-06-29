@@ -1,0 +1,44 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: 进程注入 - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\panda\LOCALS~1\Temp\RSP2029.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Release/" /Fp"Release/进程注入.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"Z:\G\虚拟机文件\biancheng\VC\注入学习\进程注入\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\panda\LOCALS~1\Temp\RSP2029.tmp" 
+Creating temporary file "C:\DOCUME~1\panda\LOCALS~1\Temp\RSP202A.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Release/" /Fp"Release/进程注入.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"Z:\G\虚拟机文件\biancheng\VC\注入学习\进程注入\进程注入.cpp"
+"Z:\G\虚拟机文件\biancheng\VC\注入学习\进程注入\进程注入Dlg.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\panda\LOCALS~1\Temp\RSP202A.tmp" 
+<h3>Output Window</h3>
+Compiling...
+StdAfx.cpp
+Compiling...
+进程注入.cpp
+进程注入Dlg.cpp
+Generating Code...
+Creating command line "link.exe /nologo /subsystem:windows /incremental:no /pdb:"Release/进程注入.pdb" /machine:I386 /out:"Release/进程注入.exe"  ".\Release\StdAfx.obj" ".\Release\进程注入.obj" ".\Release\进程注入Dlg.obj" ".\Release\进程注入.res" "
+<h3>Output Window</h3>
+Linking...
+Creating command line "bscmake.exe /nologo /o"Release/进程注入.bsc"  ".\Release\StdAfx.sbr" ".\Release\进程注入.sbr" ".\Release\进程注入Dlg.sbr""
+Creating browse info file...
+BSCMAKE: error BK1506 : cannot open file '.\Release\进程注入Dlg.sbr': Invalid argument
+Error executing bscmake.exe.
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+进程注入.exe - 1 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

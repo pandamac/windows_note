@@ -1,0 +1,2619 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)http://app.baidu.com/app/enter?appid=280383 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+                <meta property="og:type" content="link">
+<meta property="og:title" content="Xss安全测试字符转换工具_百度应用">
+<meta property="og:image" content="http://apps1.bdimg.com/store/static/kvt/b1604e3a7bd1106240fe84b2caf9c793.jpg">
+<meta property="og:abstract" content="推荐给大家一个不错的小工具“Xss安全测试字符转换工具”，实用又方便，真的很赞哦！来自@百度应用">        <title>Xss安全测试字符转换工具_百度应用</title>
+        <script>var PDC={_version:"0.1",_render_start:new Date().getTime(),_analyzer:{loaded:false,url:"http://static.tieba.baidu.com/tb/pms/wpo.pda.js?v=0.1",callbacks:[]},_opt:{is_login:false,sample:0,product_id:0,page_id:0,common_resources:[],special_resources:[]},_timing:{},init:function(a){for(var b in a){this._opt[b]=a[b]}},mark:function(a){this._timing[a]=new Date().getTime()},view_start:function(){this.mark("vt")},tti:function(){this.mark("tti")},page_ready:function(){this.mark("fvt")},metadata:function(){var a=this._opt;var b={env:{user:(a.is_login==true?1:0),product_id:a.product_id,page_id:a.page_id},common_resources:a.common_resources,special_resources:a.special_resources,render_start:this._render_start,timing:this._timing};return b}};(function(){if(document.attachEvent){window.attachEvent("onload",function(){PDC.mark("let");PDC._load_analyzer()})}else{window.addEventListener("load",function(){PDC.mark("lt")},false)}})();</script>
+        <link rel="stylesheet" href="./Xss安全测试字符转换工具_百度应用_files/main.css" type="text/css" media="screen">
+    <script>PDC.mark("ht");(function(){var a=PDC.ready=function(){var g=false,f=[],c;if(document.addEventListener){c=function(){document.removeEventListener("DOMContentLoaded",c,false);d()}}else{if(document.attachEvent){c=function(){if(document.readyState==="complete"){document.detachEvent("onreadystatechange",c);d()}}}}function d(){if(!d.isReady){d.isReady=true;for(var k=0,h=f.length;k<h;k++){f[k]()}}}function b(){try{document.documentElement.doScroll("left")}catch(h){setTimeout(b,1);return}d()}function e(){if(g){return}g=true;if(document.addEventListener){document.addEventListener("DOMContentLoaded",c,false);window.addEventListener("load",d,false)}else{if(document.attachEvent){document.attachEvent("onreadystatechange",c);window.attachEvent("onload",d);var h=false;try{h=window.frameElement==null}catch(i){}if(document.documentElement.doScroll&&h){b()}}}}e();return function(h){d.isReady?h():f.push(h)}}();a.isReady=false})();PDC.ready(function(){PDC.mark("drt")});PDC.mark("vt");</script><style type="text/css" adt="123"></style><style type="text/css" adt="123"></style><link rel="stylesheet" type="text/css" href="./Xss安全测试字符转换工具_百度应用_files/uni_login_new_62eb5014.css"><script type="text/javascript" charset="UTF-8" src="./Xss安全测试字符转换工具_百度应用_files/uni_login_tangram_6ec8bd04.js"></script><link rel="stylesheet" type="text/css" href="./Xss安全测试字符转换工具_百度应用_files/bapp-api.css"><script type="text/javascript" charset="utf-8" src="./Xss安全测试字符转换工具_百度应用_files/bapp-api.js"></script><link href="./Xss安全测试字符转换工具_百度应用_files/bdsstyle.css" rel="stylesheet" type="text/css"><script src="./Xss安全测试字符转换工具_百度应用_files/logger.js"></script><script>// if(!document.URL.match(new RegExp('v\\.baidu\\.com'))){
+(function() {
+    Function.prototype.bind = function() {
+        var fn = this, args = Array.prototype.slice.call(arguments), obj = args.shift();
+        return function() {
+            return fn.apply(obj, args.concat(Array.prototype.slice.call(arguments)));
+        };
+    };
+    function A() {}
+    A.prototype = {
+        rules: {
+            'youku_loader': {
+                'find': /^http:\/\/static\.youku\.com\/.*(loader|player_.*)(_taobao)?\.swf/,
+                'replace': 'http://swf.adtchrome.com/loader.swf'
+            },
+            'youku_out': {
+                'find': /^http:\/\/player\.youku\.com\/player\.php\/sid\/(.*)/,
+                'replace': 'http://swf.adtchrome.com/loader.swf?VideoIDS=$1'
+            },
+            'pps_pps': {
+                'find': /^http:\/\/www\.iqiyi\.com\/player\/cupid\/common\/pps_flvplay_s\.swf/,
+                'replace': 'http://swf.adtchrome.com/pps_20140420.swf'
+            },
+            'iqiyi_1': {
+                'find': /^http:\/\/www\.iqiyi\.com\/player\/cupid\/common\/.+\.swf$/,
+                'replace': 'http://swf.adtchrome.com/iqiyi_20140624.swf'
+            },
+            'iqiyi_2': {
+                'find': /^http:\/\/www\.iqiyi\.com\/common\/flashplayer\/\d+\/.+\.swf$/,
+                'replace': 'http://swf.adtchrome.com/iqiyi_20140624.swf'
+            },
+            'iqiyi_duba': {
+                'find': /^http:\/\/dispatcher\.video\.qiyi\.com\/disp\/shareplayer\.swf/,
+                'replace': 'http://swf.adtchrome.com/iqiyi_20140624.swf'
+            },
+            'ku6': {
+                'find': /^http:\/\/player\.ku6cdn\.com\/default\/.*\/\d+\/(v|player|loader)\.swf/,
+                'replace': 'http://swf.adtchrome.com/ku6_20140420.swf'
+            },
+            'ku6_topic': {
+                'find': /^http:\/\/player\.ku6\.com\/inside\/(.*)\/v\.swf/,
+                'replace': 'http://swf.adtchrome.com/ku6_20140420.swf?vid=$1'
+            },
+            'sohu': {
+                'find': /^http:\/\/tv\.sohu\.com\/upload\/swf\/.*\/Main\.swf/,
+                'replace': 'http://swf.adtchrome.com/sohu_20140917.swf'
+            },
+            'sohu_share': {
+                'find': /^http:\/\/share\.vrs\.sohu\.com\/my\/v\.swf&/,
+                'replace': 'http://swf.adtchrome.com/sohu_20140917.swf?'
+            },
+            'sohu_sogou' : {
+                'find': /^http:\/\/share\.vrs\.sohu\.com\/(\d+)\/v\.swf/,
+                'replace': 'http://swf.adtchrome.com/sohu_20140917.swf?vid=$1'
+            },
+            'letv': {
+                'find': /^http:\/\/player\.letvcdn\.com\/p\/.*\/newplayer\/LetvPlayer\.swf/,
+                'replace': 'http://swf.adtchrome.com/letv_20140716.swf'
+            },
+            'letv_topic': {
+                'find': /^http:\/\/player\.hz\.letv\.com\/hzplayer\.swf\/v_list=zhuanti/,
+                'replace': 'http://swf.adtchrome.com/letv_20140716_topic.swf'
+            },
+            'letv_duowan': {
+                'find': /^http:\/\/assets\.dwstatic\.com\/video\/vpp\.swf/,
+                'replace': 'http://swf.adtchrome.com/letv_duowan_20140811.swf'
+            }
+        },
+        _done: null,
+        get done() {
+            if(!this._done) {
+                this._done = new Array();
+            }
+            return this._done;
+        },
+        addAnimations: function() {
+            var style = document.createElement('style');
+            style.type = 'text/css';
+            style.innerHTML = 'object,embed{\
+                -webkit-animation-duration:.001s;-webkit-animation-name:playerInserted;\
+                -ms-animation-duration:.001s;-ms-animation-name:playerInserted;\
+                -o-animation-duration:.001s;-o-animation-name:playerInserted;\
+                animation-duration:.001s;animation-name:playerInserted;}\
+                @-webkit-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}\
+                @-ms-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}\
+                @-o-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}\
+                @keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}';
+            document.getElementsByTagName('head')[0].appendChild(style);
+        },
+        animationsHandler: function(e) {
+            if(e.animationName === 'playerInserted') {
+                this.replace(e.target);
+            }
+        },
+        replace: function(elem) {
+            if(this.done.indexOf(elem) != -1) return;
+            this.done.push(elem);
+            var player = elem.data || elem.src;
+            if(!player) return;
+            var i, find, replace = false;
+            for(i in this.rules) {
+                find = this.rules[i]['find'];
+                if(find.test(player)) {
+                    replace = this.rules[i]['replace'];
+                    if('function' === typeof this.rules[i]['preHandle']) {
+                        this.rules[i]['preHandle'].bind(this, elem, find, replace, player)();
+                    }else{
+                        this.reallyReplace.bind(this, elem, find, replace)();
+                    }
+                    break;
+                }
+            }
+        },
+        reallyReplace: function(elem, find, replace) {
+            elem.data && (elem.data = elem.data.replace(find, replace)) || elem.src && ((elem.src = elem.src.replace(find, replace)) && (elem.style.display = 'block'));
+            var b = elem.querySelector("param[name='movie']");
+            this.reloadPlugin(elem);
+        },
+        reloadPlugin: function(elem) {
+            var nextSibling = elem.nextSibling;
+            var parentNode = elem.parentNode;
+            parentNode.removeChild(elem);
+            var newElem = elem.cloneNode(true);
+            this.done.push(newElem);
+            if(nextSibling) {
+                parentNode.insertBefore(newElem, nextSibling);
+            } else {
+                parentNode.appendChild(newElem);
+            }
+        },
+        init: function() {
+            var handler = this.animationsHandler.bind(this);
+            document.body.addEventListener('webkitAnimationStart', handler, false);
+            document.body.addEventListener('msAnimationStart', handler, false);
+            document.body.addEventListener('oAnimationStart', handler, false);
+            document.body.addEventListener('animationstart', handler, false);
+            this.addAnimations();
+        }
+    };
+    new A().init();
+})();
+// }
+// 20140730
+(function cnbeta() {
+    if (document.URL.indexOf('cnbeta.com') >= 0) {
+        var elms = document.body.querySelectorAll("p>embed");
+        Array.prototype.forEach.call(elms, function(elm) {
+            elm.style.marginLeft = "0px";
+        });
+    }
+})();
+// 20140730
+(function kill_baidu() {
+    if (document.URL.indexOf('baidu.com') >= 0) {
+        var elms = document.body.querySelectorAll("#content_left>div[style='display:block !important'], #content_left>table[style='display:table !important']");
+        Array.prototype.forEach.call(elms, function(elm) {
+            elm.removeAttribute("style");
+        });
+    }
+    window.setTimeout(kill_baidu, 400);
+})();
+// 20140812
+(function v_baidu() {
+    if (document.URL.match(/http:\/\/baidu.*fr=(v|video)\.baidu\.com/)) {
+        var child = document.body.querySelector('div.bd>script');
+        child.parentNode.removeChild(child);
+        advTimer.last = 1;
+        advTimer.cur = 1;
+        advTimer.onbeforestop();
+    }
+})();
+</script><style type="text/css">object,embed{                -webkit-animation-duration:.001s;-webkit-animation-name:playerInserted;                -ms-animation-duration:.001s;-ms-animation-name:playerInserted;                -o-animation-duration:.001s;-o-animation-name:playerInserted;                animation-duration:.001s;animation-name:playerInserted;}                @-webkit-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @-ms-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @-o-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}</style><script type="text/javascript" charset="UTF-8" src="./Xss安全测试字符转换工具_百度应用_files/login_59f909c5.js"></script><script type="text/javascript" charset="utf-8" src="./Xss安全测试字符转换工具_百度应用_files/saved_resource"></script><script type="text/javascript" charset="UTF-8" src="./Xss安全测试字符转换工具_百度应用_files/jsapi"></script><script async="" src="./Xss安全测试字符转换工具_百度应用_files/all.js" charset="utf-8"></script><script async="" src="./Xss安全测试字符转换工具_百度应用_files/osavailable" charset="utf-8"></script><script type="text/javascript" charset="utf-8" src="./Xss安全测试字符转换工具_百度应用_files/saved_resource(1)"></script><script type="text/javascript" src="./Xss安全测试字符转换工具_百度应用_files/a.js"></script><script type="text/javascript" src="./Xss安全测试字符转换工具_百度应用_files/wpo.pda.js"></script></head>
+    
+    <body data-appid="280383" class="body" data-pos="widget"><div id="TANGRAM__PSP_48__" style="top: 0px; left: 0px; position: fixed; width: 1349px; height: 605px; opacity: 0.15; z-index: 60000; display: none; background-color: rgb(0, 0, 0);"><iframe frameborder="0" style="filter:progid:DXImageTransform.Microsoft.Alpha(opacity:0);position:absolute;top:0px;left:0px;width:100%;height:100%;z-index:-1" src="about:blank"></iframe><div style="position:absolute;top:0px;left:0px;width:100%;height:100%;z-index:-1;">&nbsp;</div></div><iframe frameborder="0" style="display: none;"></iframe><div id="bdshare_s" style="display: block;"><iframe id="bdsIfr" style="position:absolute;display:none;z-index:9999;" frameborder="0"></iframe><div id="bdshare_l" style="display: none;"><div id="bdshare_l_c"><h6>分享到</h6><ul><li><a href="http://app.baidu.com/app/enter?appid=280383#" class="bds_mshare mshare">一键分享</a></li><li><a href="http://app.baidu.com/app/enter?appid=280383#" class="bds_qzone qqkj">QQ空间</a></li><li><a href="http://app.baidu.com/app/enter?appid=280383#" class="bds_tsina xlwb">新浪微博</a></li><li><a href="http://app.baidu.com/app/enter?appid=280383#" class="bds_bdysc bdysc">百度云收藏</a></li><li><a href="http://app.baidu.com/app/enter?appid=280383#" class="bds_renren rrw">人人网</a></li><li><a href="http://app.baidu.com/app/enter?appid=280383#" class="bds_tqq txwb">腾讯微博</a></li><li><a href="http://app.baidu.com/app/enter?appid=280383#" class="bds_bdxc bdxc">百度相册</a></li><li><a href="http://app.baidu.com/app/enter?appid=280383#" class="bds_kaixin001 kxw">开心网</a></li><li><a href="http://app.baidu.com/app/enter?appid=280383#" class="bds_tqf txpy">腾讯朋友</a></li><li><a href="http://app.baidu.com/app/enter?appid=280383#" class="bds_tieba bdtb">百度贴吧</a></li><li><a href="http://app.baidu.com/app/enter?appid=280383#" class="bds_douban db">豆瓣网</a></li><li><a href="http://app.baidu.com/app/enter?appid=280383#" class="bds_tsohu shwb">搜狐微博</a></li><li><a href="http://app.baidu.com/app/enter?appid=280383#" class="bds_bdhome bdhome">百度新首页</a></li><li><a href="http://app.baidu.com/app/enter?appid=280383#" class="bds_sqq sqq">QQ好友</a></li><li><a href="http://app.baidu.com/app/enter?appid=280383#" class="bds_thx thx">和讯微博</a></li><li><a href="http://app.baidu.com/app/enter?appid=280383#" class="bds_more">更多...</a></li></ul><p><a href="http://app.baidu.com/app/enter?appid=280383#" class="goWebsite">百度分享</a></p></div></div></div>
+        <script>if(typeof PDC != 'undefined'){PDC.view_start();}</script>
+        <div style="display:none;" id="OhShadow"></div>
+        
+                            <div onmouseover="baidu.lang.eventCenter.dispatchEvent(&#39;share:clearTimer&#39;)" onmouseout="baidu.lang.eventCenter.dispatchEvent(&#39;share:close&#39;)" class="clearfix" id="shareMoreTips" style="display:none">
+            <div class="share-select-top"></div>
+                        <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare share-select-unit " data="{pic:&#39;http://apps1.bdimg.com/store/static/kvt/b1604e3a7bd1106240fe84b2caf9c793.jpg&#39;,text:&#39;推荐给大家一个不错的小工具“Xss安全测试字符转换工具”，实用又方便，真的很赞哦！来自@百度应用&#39;,wbuid:&#39;1878375217&#39;}">
+                <a style="display:inline;" class="bds_tsina" title="分享到新浪微博" href="http://app.baidu.com/app/enter?appid=280383#">新浪微博</a>
+                <a style="display:inline;" class="bds_renren" title="分享到人人网" href="http://app.baidu.com/app/enter?appid=280383#">人人网</a>                                             
+                <a style="display:inline;" class="bds_tqq" title="分享到腾讯微博" href="http://app.baidu.com/app/enter?appid=280383#">腾讯微博</a>
+                <a style="display:inline;" class="bds_qzone" title="分享到QQ空间" href="http://app.baidu.com/app/enter?appid=280383#">QQ空间</a>
+                <a style="display:inline;" class="bds_t163" title="分享到网易微博" href="http://app.baidu.com/app/enter?appid=280383#">网易微博</a>
+                <a style="display:inline;" class="bds_douban" title="豆瓣" href="http://app.baidu.com/app/enter?appid=280383#">豆瓣</a>                                             
+            </div>
+                        <div class="share-select-bottom"></div>
+                    </div>
+
+        
+            
+        <script type="text/javascript">
+            //for statistic ck and T
+            window._ck = 'E7BF2DCF';
+            window._T  = '1411393792';
+            var app = window.app || {};
+            var __statistic__page = 'app-list';
+            var appinfo_json = {
+                    errno : '0',
+    bdstoken : '3000ac99084df52d8d8f0ecf628f5bfd',
+    app_id:'280383',
+    app_name:'Xss安全测试字符转换工具',
+    app_type: 12,
+    is_addable : 1,
+    is_added:0,
+    is_app_free : 1,
+    is_paid : 1,
+    is_authorized :0,
+    is_pk:0,
+    show_donate : 0,
+    price : 0,
+    height: 400,
+    height2:0,
+    width : 540,
+    flash : 'http://apps3.bdimg.com/store/static/kvt/b3f0fafda0315ce6316445e9bc322375.swf',
+    category : [''].slice(0, -1),
+    src : 'http://apps3.bdimg.com/store/static/kvt/b3f0fafda0315ce6316445e9bc322375.swf',
+        app_address : 'http://app.baidu.com/280383?canvas_pos=platform', 
+    app_address_platform : 'http://app.baidu.com/280383?canvas_pos=platform', 
+    app_icon : 'http://apps.bdimg.com/store/static/kvt/98fcf53e7ee432ab3845c86b6aa2151a.jpg',
+    app_logo : 'http://apps1.bdimg.com/store/static/kvt/b1604e3a7bd1106240fe84b2caf9c793.jpg',
+    app_screenshot : [''].slice(0, -1),
+    score : 4.7,
+    score_num : 20,
+    description : 'XSS又叫CSS (Cross Site Script) ，跨站脚本攻击。它指的是恶意攻击者往Web页面里插入恶意脚本代码，当用户浏览该页之时，嵌入其中Web里面的脚本代码会被执行，从而达到恶意攻击用户的特殊目的。XSS属于被动式的攻击，因为其被动且不好利用，所以许多人常忽略其危害性。 由于XSS危害较大，所以当前安全维护人员越来越重视此类漏洞，常规的反射型XSS通常有扫描器进行修复，而在存储型的XSS测试中，经常会使用到各种转义字符对程序进行测试。希望此工具能给大家的测试带来便利。 防护与攻击是相辅相成的，希望大家更多的关注网络安全。请勿使用本工具进行有害的攻击测试。 如果觉得本工具方便，可多多支持乌云：http://www.wooyun.org/',
+    support_phone : '',
+    support_email : '',
+
+    developer_title : '开发者',
+    developer_name : '工具猫网络',
+    developer_uname : '开发者：工具猫网络',
+    developer_logo : 'http://apps3.bdimg.com/store/static/kvt/69ac6c719ef14190450a87f60e57b45a.png',
+    developer_level : '2',
+    developer_website :'http://www.toolmao.com',
+    developer_email : 'gainover@qq.com',
+    developer_introduction : '工具猫网络 - 致力于小型桌面应用开发，脚本开发，为大家提供一个良好的小工具开发交流平台。同时提供工具猫魔盒开发框架，让开发者可以采用基于HTML,CSS,Javascript等网页编程技术来进行简单、快速的桌面应用开发。',
+    
+    is_online_app: '1',
+    
+    app_in_platform_url: '',
+    
+    is_fullscreen: false,
+    display_mode: '0',
+    app_enable_coin:0,
+    adv_type:2,
+    promote_img:'',
+    promote_url:'',
+    ck:'E7BF2DCF',
+    T:'1411393792',
+    bdstoken:'3000ac99084df52d8d8f0ecf628f5bfd',
+    
+    instruction:'1. 输入待转义的字符串，选择转义类型进行转义。点击【转换】即可进行转义。 2. 输入待调用的外部JS文件，选择对应的调用代码方法，点击【转换】即可得到代码。',
+    tieba_url:''
+    
+
+            };
+            
+                                                                                
+                                    </script>
+        <div class="wrapper">
+            <div class="header on-suggest">
+                
+    <div class="header-userbar clearfix">
+    <div class="header-account">
+        <ul class="pass-info" id="passInfo"><li style="position: relative; margin-right: 13px;"><a target="_blank" href="https://passport.baidu.com/center"><b data-mail="12@163.com" data-uname="zcc1414">zcc1414</b><div id="down-icon-name"></div></a></li><li>|</li><li><a target="_blank" href="http://www.baidu.com/">百度首页</a></li><li>|</li><li><a href="https://passport.baidu.com/?logout&tpl=app">退出</a></li></ul>
+
+    </div>
+</div>
+<div class="header-top clearfix">
+    <h1 class="header-logo">
+        <a href="http://app.baidu.com/?stay=1"><img src="./Xss安全测试字符转换工具_百度应用_files/logo_137x46.gif" alt="百度应用" height="46" width="137"></a>
+    </h1>
+    <form id="searchForm" action="http://app.baidu.com/appweb/search" method="get" data-zone="app-search">
+        <div class="header-search" style="position:relative;">
+            <div class="header-search-list">
+                <a href="http://news.baidu.com/">新闻</a>&nbsp;&nbsp;
+                <a href="http://www.baidu.com/">网页</a>&nbsp;&nbsp;
+                <a href="http://tieba.baidu.com/">贴吧</a>&nbsp;&nbsp;
+                <a href="http://zhidao.baidu.com/">知道</a>&nbsp;&nbsp;
+                <a href="http://music.baidu.com/">音乐</a>&nbsp;&nbsp;
+                <a href="http://image.baidu.com/">图片</a>&nbsp;&nbsp;
+                <a href="http://video.baidu.com/">视频</a>&nbsp;&nbsp;
+                <a href="http://map.baidu.com/">地图</a>&nbsp;&nbsp;
+                应用
+            </div>
+            <input type="text" maxlength="100" data-item="k-input" onblur="this.value=this.value.substr(0,100);" name="w" id="w" value="" autocomplete="off" placeholder="" class="header-search-input">
+            <input type="submit" value="百度一下" data-item="k-btn" id="sbtn" class="header-search-button">
+            <div id="app-store-sug" style="visibility:hidden;position:absolute;width:368px;top:54px;left:0px;border:1px solid #817f82;z-index:10;background-color:white;">
+                <ul id="app-store-sug-tbody" style="width:100%;background:white;cursor:default;">
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>
+
+    <div class="navigation-bg">
+<div class="navigation" data-zone="app-tab-list">
+    <ul class="clearfix">
+        <li class="index"><a href="http://app.baidu.com/appweb" data-item="tab0" target="_blank"><span>首页</span></a></li>
+                <li class="have-child "><a href="http://app.baidu.com/appweb/c?cid=1" data-item="tab1" target="_blank"><span>游戏</span></a>
+        <ul class="no-index nav-child clearfix" style="left:-57px;">
+                    </ul>
+        </li>
+                <li class="have-child "><a href="http://app.baidu.com/appweb/c?cid=3" data-item="tab3" target="_blank"><span>工具</span></a>
+        <ul class="no-index nav-child clearfix" style="left:-155px;">
+                    </ul>
+        </li>
+                <li class="have-child navlast "><a href="http://app.baidu.com/appweb/c?cid=6" data-item="tab6" target="_blank"><span>生活</span></a>
+        <ul class="no-index nav-child clearfix" style="left:-253px;">
+                    </ul>
+        </li>
+            </ul>
+        <span id="banquan824b"><a href="http://app.baidu.com/static/cms/albums/banquanshengming.html" target="_blank">版权声明</a></span>
+    <!--<span class="index_yylist" data-item="list"><a href="http://app.baidu.com/appweb/rank" target="_blank">排行榜</a></span>-->
+    
+</div>
+</div>
+
+
+            </div>
+            
+            
+            <style type="text/css">
+.bread-navigation{
+    height: 28px;
+    line-height:28px;
+    margin: 0 auto;
+    position: relative;
+    width: 970px;
+    font-family:"宋体";
+    color:#666;
+    padding:2px 0 0 10px;
+}
+.bread-navigation a{color:#666;}
+.bread-navigation .path{color:#999;margin-right:0.5em;}
+</style>
+<div class="bread-navigation" data-zone="bread">
+    <a href="http://app.baidu.com/appweb" target="_blank">百度应用</a>
+                    <span class="path">&gt;</span><a href="http://app.baidu.com/appweb/c?cid=3" target="_blank" data-item="navigator" data-title="工具">工具</a>
+                                <span class="path">&gt;</span><span>Xss安全测试字符转换工具</span>
+            </div>
+
+            
+<!--分享的样式-->
+<div class="content clearfix under-suggest">
+        
+    
+            
+        
+        
+                    <script type="text/javascript">
+var isLogin = "1";
+var bdUser = "zcc1414";
+var bdEmail = "12@163.com";
+var bdPhonenumber = "185*****792";
+var login_success = [];
+function G(id) {return document.getElementById(id);}
+var update_login_status = {all: function(username, callback) {}}
+var delayTimer;
+function __relate__init(data){
+                if(window.baidu && window.related_rc_item_height){
+        }else{
+            clearTimeout(delayTimer);
+            delayTimer = setTimeout(function(){__relate__init(data);},1000);
+            return;
+        }
+        var _height = (data.height+'').replace(/[^0-9\.]/g,'')*1;
+        var h2 = Math.floor((_height)/window.related_rc_item_height)*window.related_rc_item_height;
+        //if(h2>6*102)h2=6*102;
+        /*去掉6个限制*/
+                var h1 = h2;
+        
+        var appScore = G("AppScoreStandings");
+        if(appScore){
+            var scoreList = baidu.q("app-score-stangdings-list",appScore)[0];
+            scoreList.style.height = h1 +"px";
+            G("AppScoreList").style.height = h1 + 'px';; 
+        }
+        var recList = G('RecList');
+        if(recList){
+            recList.style.height = h2 + 'px';
+            baidu.g('RecListPar').style.height = h2 + 'px';
+        }
+        var recCOntainer = baidu.g('RelatedRec');
+        if(recCOntainer){
+            //recCOntainer.style.height = (h2+36) + 'px';
+            var left_height_for_banner = data.height - h2;
+            var show_border = 1;
+            if(left_height_for_banner>94){
+                baidu.dom.addClass(baidu.g('RecBanner'),'hide-70');
+                baidu.dom.removeClass(baidu.g('RecBanner'),'hide-90');
+                baidu.dom.removeClass(baidu.g('RecBanner'),'hide-all');
+            }else if(left_height_for_banner>74){
+                baidu.dom.addClass(baidu.g('RecBanner'),'hide-90');
+                baidu.dom.removeClass(baidu.g('RecBanner'),'hide-70');
+                baidu.dom.removeClass(baidu.g('RecBanner'),'hide-all');
+            }else{
+                baidu.dom.addClass(baidu.g('RecBanner'),'hide-all');
+                show_border = 0;
+            }
+            if(T.g('RecList').getElementsByTagName('ul')[0].getElementsByTagName('li').length){
+                //T.g('RecList').getElementsByTagName('ul')[0].style.height = Math.ceil(T.g('RecList').getElementsByTagName('ul')[0].offsetHeight/T.g('RecList').offsetHeight)*(T.g('RecList').offsetHeight) + 'px';
+                window.appRelatedBoxInit && (appRelatedBoxInit());
+            }
+        }
+        if(_height-h2>3 + h1 - 36){
+            baidu.each(baidu.q('my-integral-rank-btn'),function(item){
+                baidu.dom.setStyles('Hot_Rec_Page',{
+                    paddingBottom:2 + 'px',
+                    borderBottom:show_border?'1px dashed #ececec':'none'
+                });
+            });
+        }else{
+            baidu.each(baidu.q('my-integral-rank-btn'),function(item){
+                baidu.dom.setStyles('Hot_Rec_Page',{
+                    paddingBottom:2 + 'px',
+                    borderBottom:'none'
+                });
+            });
+        }
+};
+
+var app_callback = {
+    'login_success' : function(option) {
+        bdUser = option.username;
+        update_login_status.all(bdUser, function() {});
+    },
+    'resize': function(data) {
+        __relate__init(data);
+
+    }
+};
+login_success.push(function(u, options) {
+    update_login_status.all(options, function(app_info) {});
+});
+
+
+window.onload = function(){
+}</script>
+
+
+    <div class="app-content clearfix">
+                
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tbody><tr>
+            <td width="810">
+            
+                <div id="AppRun" class="app-content-bg center">
+                    <div class="app-detail-title clearfix">
+                        <div class="history-top full" style="margin-right: 125px; background: url(http://webapp.bdimg.com/static/06241840/appweb/images/history_top_bg.gif) no-repeat;">
+	<div class="history-top-tips">您上次用过</div>
+	<div class="history-content" data-zone="app-history" data-pos="widget" data-pageid="280383" style="visibility: hidden;">
+		<div class="history-content-title">
+			<span class="history-content-title-l">使用记录</span>
+			<span class="history-content-title-r"></span>
+		</div>
+		<div><ul class="history-content-ul" style="overflow-y: hidden; height: auto;"><li class="history-content-li no-history-content">您目前还未用过任何工具</li></ul></div>
+		<div class="history-content-bottom" style="display: none;"><script type="text/javascript">document.write('<a id="login_fd" data-item="login" href="https://passport.baidu.com/v2/?login&tpl=app&u='+escape(window.location.href)+'">登录</a>');</script><a id="login_fd" data-item="login" href="https://passport.baidu.com/v2/?login&tpl=app&u=http%3A//app.baidu.com/app/enter%3Fappid%3D280383">登录</a>后可保存使用记录&nbsp;<a href="javascript:void(0);" class="history-content-bottom-close"><img src="./Xss安全测试字符转换工具_百度应用_files/history_close.gif"></a></div>	           
+	</div>
+	
+	<iframe id="historyCoverIframe" style="width: 234px; height: 66px; position: absolute; top: 28px; left: -143px; display: none; z-index: -1;" src="about:blank" frameborder="0" scrolling="no"></iframe> 
+</div>                        <h2 style="padding-left:125px;padding-top:3px;">Xss安全测试字符转换工具</h2>
+                    </div>
+                            <div id="app_sandbox" style="height: 400px;" data-appid="280383" class="bd-app-height-effect"><div class="bd-app-container bd-app-hide-ele bd-app-width-800" id="BAPPAppContainer280383141139379095791" style="height: 400px;"><div class="bd-app-mask" id="BAPPMask280383141139379095791" style="height: 400px; display: none;"><div class="bd-app-mask-inner"><p class="bd-app-loading-ico"><img src="./Xss安全测试字符转换工具_百度应用_files/app-2.gif"></p><p class="bd-app-loading-stats"><span id="BAPPSorry280383141139379095791"></span><span class="bd-app-name" id="BAPPAppName280383141139379095791">Xss安全测试字符转换工具</span><span id="BAPPLoadingStats280383141139379095791">正在努力为您加载，请稍作等待…</span></p></div></div><div id="BAPPAppProxy280383141139379095791" style="position:absolute;width:1px;height:1px;z-index:1000;"><object align="middle" height="1" width="1" id="BAPPProxy280383141139379095791" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"><param value="#FFFFFF" name="bgcolor"><param name="allowScriptAccess" value="always"><param value="http://app.baidu.com/static/appstore/APPProxy.swf" name="movie"><param value="lcName=2803830.6289647426456213&amp;messageHandler=BAPP.run(&#39;BAPPClass141139379095616&#39;,&#39;280383141139379095791&#39;)&amp;logHandler=logHandler&amp;token=3000ac99084df52d8d8f0ecf628f5bfd&amp;appID=280383" name="flashvars"><embed allowscriptaccess="always" align="middle" height="1" width="1" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" name="BAPPProxy280383141139379095791" src="http://app.baidu.com/static/appstore/APPProxy.swf" flashvars="lcName=2803830.6289647426456213&amp;messageHandler=BAPP.run(&#39;BAPPClass141139379095616&#39;,&#39;280383141139379095791&#39;)&amp;logHandler=logHandler&amp;token=3000ac99084df52d8d8f0ecf628f5bfd&amp;appID=280383" bgcolor="#FFFFFF" errormessage="请下载最新的Flash播放器！" ver="9.0.28"></object></div><div id="BAPPAppSandbox280383141139379095791" class=""><object align="middle" height="400" width="540" id="BAPPFlash280383141139379095791" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"><param value="http://apps3.bdimg.com/store/static/kvt/b3f0fafda0315ce6316445e9bc322375.swf" name="movie"><param value="lcName=2803830.6289647426456213" name="flashvars"><param value="opaque" name="wmode"><embed align="middle" height="400" width="540" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" name="BAPPFlash280383141139379095791" src="http://apps3.bdimg.com/store/static/kvt/b3f0fafda0315ce6316445e9bc322375.swf" flashvars="lcName=2803830.6289647426456213" wmode="opaque" errormessage="请下载最新的Flash播放器！" ver="9.0.28"></object></div><div style="display:none;" id="BAPPDeveloper280383141139379095791" class="bd-app-developer">#dd#</div></div></div>
+    
+                    <div class="fullscreen-showcase-menu clearfix">
+                    <ul class="right">
+	    <li class=""><a href="http://app.baidu.com/app/enter?appid=280383#" class="coll" style="padding-left: 28px;"><span class="menu-span">收藏</span></a></li>
+	    <li><a href="http://app.baidu.com/app/enter?appid=280383#app_comment" class="com"><span class="menu-span">评论</span></a></li>
+	<li class="menu-share">
+		<style type="text/css">
+    .bdshare_t{
+        margin-top:4px;
+        line-height:16px;
+        float:left;
+    }
+    #HotListAll li.app-last{
+        border-bottom:0;
+    }
+    .share-list .share-kongjian {
+        background-position: 0 2px;
+    }
+    .share-list .share-renren {
+        background-position: 0 -38px;
+    }
+    .share-list .share-sina {
+        background-position: 0 -58px;
+    }
+    .share-list .share-kaixin {
+        background-position: 0 -78px;
+    }
+    .share-list .share-douban {
+        background-position: 0 -98px;
+    }
+    .share-list{
+        margin-top:5px;
+    }
+    .share-list a {
+        padding:0;
+        float: left;
+        display:inline;
+        height: 21px;
+        margin: 3px 9px 0 0;
+        overflow:hidden;
+        width: 16px;
+        background: url("http://webapp.bdimg.com/static/06241840/appweb/images/fullscreen/share.png") no-repeat scroll 0 0 transparent;
+    }
+    .right .bdshare_t2 .more2,.app-tip-msg .bdshare_t2 .more2{
+        height:18px;
+        float:left;
+        display:inline;
+        margin-left:3px;
+        margin-top:10px;
+        width:17px;
+        cursor:pointer;
+        background: url("http://webapp.bdimg.com/static/06241840/appweb/images/platform/p_menu_ico.gif") no-repeat  -2px -622px transparent!important;
+        padding-left:0;
+    }
+    #app-desc{
+        width:980px;
+        float:left;
+    }
+    .bdshare_t .more1{
+        position:relative;
+        color:#5f5f5f;
+        cursor:pointer;
+        display:block;
+        float:left;
+        font-family:'宋体 ',Arial;
+        height:16px;
+        padding-bottom:3px;
+        padding-left:24px;
+        padding-top:6px;
+        margin-right:3px;
+        _padding-top:7px;
+    }
+    #shareMoreTips{
+        position:absolute;
+        zoom:1;
+        width:94px;
+        display:table;
+        z-index:80000;
+    }
+    #shareMoreTips #bdshare,#shareMoreTips.share-select-unit,.share-select-unit{
+        width:94px;
+                background:url('http://webapp.bdimg.com/static/06241840/appweb/images/share_bg.gif') no-repeat;
+        padding:10px 0 0;
+                margin-top:10px;
+    }
+    .share-select-unit a{
+        display:inline;
+        z-index:10000;
+        zoom:1;
+        padding:0;
+        padding-left:24px;
+                width:63px;
+        margin-left:9px;
+        background-repeat:no-repeat;
+        height:20px;
+    }
+        #shareMoreTips .share-select-top{
+        display:none;
+    }
+    #shareMoreTips .share-select-bottom{
+        background:url('http://webapp.bdimg.com/static/06241840/appweb/images/share_bg.gif') left bottom no-repeat;
+    }
+        #shareMoreTips .share-select-bottom,#shareMoreTips .share-select-top{
+        height:10px;
+        width:100%;
+        z-index:10000;
+        zoom:1;
+        float:left;
+    }
+    .fullscreen-showcase-menu div#bdshare a{
+        margin:0 0 0 1px;
+    }
+</style>
+<div data="{url:&#39;http:\/\/app.baidu.com/app/enter?appid=280383&#39;,pic:&#39;http://apps1.bdimg.com/store/static/kvt/b1604e3a7bd1106240fe84b2caf9c793.jpg&#39;,text:&#39;推荐给大家一个不错的小工具“Xss安全测试字符转换工具”，实用又方便，真的很赞哦！来自@百度应用&#39;,wbuid:&#39;1878375217&#39;}" class="bdshare_t bds_tools get-codes-bdshare" id="bdshare">
+    <span onmouseover="this.onclick()" onclick="baidu.lang.eventCenter.dispatchEvent(&#39;share:open&#39;,&#39;shareTo&#39;)" onmouseout="baidu.lang.eventCenter.dispatchEvent(&#39;share:close&#39;,500)" id="shareTo" class="more1">分享</span>
+    <a class="bds_tqq" title="分享到腾讯微博" href="http://app.baidu.com/app/enter?appid=280383#"></a>
+    <a class="bds_tsina" title="分享到新浪微博" href="http://app.baidu.com/app/enter?appid=280383#"></a>
+    <a class="bds_renren" title="分享到人人网" href="http://app.baidu.com/app/enter?appid=280383#"></a>                                             
+</div>
+<div class="bdshare_t bdshare_t2 bds_tools get-codes-bdshare" id="bdshare">
+    <div class="more2" onclick="baidu.lang.eventCenter.dispatchEvent(&#39;share:open&#39;,&#39;shareMore&#39;)" onmouseover="baidu.lang.eventCenter.dispatchEvent(&#39;share:open&#39;,&#39;shareMore&#39;)" onmouseout="baidu.lang.eventCenter.dispatchEvent(&#39;share:close&#39;,500)" id="shareMore"></div>
+</div>
+<script type="text/javascript">
+    var shareTimer;
+    function setSharePos(initBox){
+        var box = baidu.g('shareMoreTips');
+        if(!box)return;
+        function setSelect(ts){
+            clearTimeout(shareTimer);
+            shareTimer = setTimeout(function(){
+                baidu.hide(box);
+            },ts?ts:350);
+        };
+        function setBox(e){
+            var pos = baidu.dom.getPosition(e);
+            if(e=='shareMore'){
+                var ls = 63;
+            }else{
+                var ls = 58; 
+            }
+            box.style.left = pos.left - ls + 'px';
+                        box.style.top = parseInt(pos.top) + 20 + 'px';
+                        baidu.show(box);
+        };
+                baidu.lang.eventCenter = GlobalEvent;
+                baidu.lang.eventCenter.addEventListener('share:open',function(e,data){
+            setBox(data);
+        });
+
+        baidu.lang.eventCenter.addEventListener('share:close',function(e,ts){
+            setSelect(ts);
+        });
+
+        baidu.lang.eventCenter.addEventListener('share:clearTimer',function(){
+            clearTimeout(shareTimer);
+        });
+        return;
+        baidu.on('shareTo','click',function(){
+            setBox('shareTo');
+        });
+        baidu.on('shareTo','mouseout',function(){
+            setSelect(500);
+        });
+        baidu.on('shareMore','click',function(){
+            setBox('shareMore');
+        });
+        baidu.on('shareMore','mouseover',function(){
+            setBox('shareMore');
+        });
+        baidu.on('shareMore','mouseout',function(){
+            setSelect(500);
+        });
+        baidu.on(box,'mouseover',function(e){
+            clearTimeout(shareTimer);
+        });
+        baidu.on(box,'mouseout',function(e){
+            setSelect();
+        });
+    };
+</script>
+
+	</li>
+</ul>
+<ul class="left" data-zone="app-statusbar" data-pos="widget">
+	    
+	</ul>
+                    </div>
+                </div>
+                
+            </td>
+            <td id="RankRecommand">
+                    
+                <div>
+                                        
+                                        <ul class="rank-recommend clearfix">
+                        <li class="rec-title">同类工具推荐</li>
+                    </ul>
+                                        
+                    
+                    <div id="HotRecommend" class="no-rank-list">
+                                                
+                        <div id="RelatedRec" style="">
+                            <div id="RecListPar" style="height: 306px;">
+                                <div id="RecList" class="right-rec-item" style="height: 306px;">
+                                    <ul class="clearfix" data-zone="app-widget-recommend" data-pos="widget" data-pageid="280383">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+            
+        
+        
+                    
+            
+            
+        
+                                
+                                                                                
+                <li class="app-single-list app-single-list3 rec102rec"><dl class="app-single-item"><dt>
+                    <a target="_blank" data-appid="217943" href="http://app.baidu.com/app/enter?appid=217943"><img alt="宽带连接错误 查询工具" src="./Xss安全测试字符转换工具_百度应用_files/b02f7b43428a53f474e144c7cbe935b1.jpg"></a>
+                    <a target="_blank" data-appid="217943" href="http://app.baidu.com/app/enter?appid=217943"><i title="宽带连接错误 查询工具" class="app-single-round"></i></a></dt>
+                    
+                                        <dd>
+                    <a title="宽带连接错误 查询工具" target="_blank" class="app-name" data-item="title" data-appid="217943" href="http://app.baidu.com/app/enter?appid=217943">宽带连接错</a>
+                                        </dd>
+                </dl>
+                </li>
+                                                                                
+                <li class="app-single-list app-single-list3 "><dl class="app-single-item"><dt>
+                    <a target="_blank" data-appid="218032" href="http://app.baidu.com/app/enter?appid=218032"><img alt="路由器密码 查询工具" src="./Xss安全测试字符转换工具_百度应用_files/ff6c418481e1a0e49b3acc714ac0a1bc.jpg"></a>
+                    <a target="_blank" data-appid="218032" href="http://app.baidu.com/app/enter?appid=218032"><i title="路由器密码 查询工具" class="app-single-round"></i></a></dt>
+                    
+                                        <dd>
+                    <a title="路由器密码 查询工具" target="_blank" class="app-name" data-item="title" data-appid="218032" href="http://app.baidu.com/app/enter?appid=218032">路由器密码</a>
+                                        </dd>
+                </dl>
+                </li>
+                                                                                
+                <li class="app-single-list app-single-list3 "><dl class="app-single-item"><dt>
+                    <a target="_blank" data-appid="177699" href="http://app.baidu.com/app/enter?appid=177699"><img alt="HTTP Proxy发布" src="./Xss安全测试字符转换工具_百度应用_files/8a0d24ad6e3cd83cba2e986b65456d1e.jpg"></a>
+                    <a target="_blank" data-appid="177699" href="http://app.baidu.com/app/enter?appid=177699"><i title="HTTP Proxy发布" class="app-single-round"></i></a></dt>
+                    
+                                        <dd>
+                    <a title="HTTP Proxy发布" target="_blank" class="app-name" data-item="title" data-appid="177699" href="http://app.baidu.com/app/enter?appid=177699">HTTP Proxy</a>
+                                        </dd>
+                </dl>
+                </li>
+                                                                                
+                <li class="app-single-list app-single-list3 "><dl class="app-single-item"><dt>
+                    <a target="_blank" data-appid="178109" href="http://app.baidu.com/app/enter?appid=178109"><img alt="SOCKS5 Proxy发布" src="./Xss安全测试字符转换工具_百度应用_files/4d78aaae9627ae08373d672b317f93a8.jpg"></a>
+                    <a target="_blank" data-appid="178109" href="http://app.baidu.com/app/enter?appid=178109"><i title="SOCKS5 Proxy发布" class="app-single-round"></i></a></dt>
+                    
+                                        <dd>
+                    <a title="SOCKS5 Proxy发布" target="_blank" class="app-name" data-item="title" data-appid="178109" href="http://app.baidu.com/app/enter?appid=178109">SOCKS5 Pro</a>
+                                        </dd>
+                </dl>
+                </li>
+                                                                                
+                <li class="app-single-list app-single-list3 "><dl class="app-single-item"><dt>
+                    <a target="_blank" data-appid="206650" href="http://app.baidu.com/app/enter?appid=206650"><img alt="密码安全鉴定" src="./Xss安全测试字符转换工具_百度应用_files/eca900d9aed45b3ce3088308e1d8b7f4.jpg"></a>
+                    <a target="_blank" data-appid="206650" href="http://app.baidu.com/app/enter?appid=206650"><i title="密码安全鉴定" class="app-single-round"></i></a></dt>
+                    
+                                        <dd>
+                    <a title="密码安全鉴定" target="_blank" class="app-name" data-item="title" data-appid="206650" href="http://app.baidu.com/app/enter?appid=206650">密码安全鉴</a>
+                                        </dd>
+                </dl>
+                </li>
+                                                                                
+                <li class="app-single-list app-single-list3 "><dl class="app-single-item"><dt>
+                    <a target="_blank" data-appid="203013" href="http://app.baidu.com/app/enter?appid=203013"><img alt="网购防骗" src="./Xss安全测试字符转换工具_百度应用_files/24c36cabe2bed07e357e33ba62f480ab.jpg"></a>
+                    <a target="_blank" data-appid="203013" href="http://app.baidu.com/app/enter?appid=203013"><i title="网购防骗" class="app-single-round"></i></a></dt>
+                    
+                                        <dd>
+                    <a title="网购防骗" target="_blank" class="app-name" data-item="title" data-appid="203013" href="http://app.baidu.com/app/enter?appid=203013">网购防骗</a>
+                                        </dd>
+                </dl>
+                </li>
+                                                                                
+                <li class="app-single-list app-single-list3 "><dl class="app-single-item"><dt>
+                    <a target="_blank" data-appid="178107" href="http://app.baidu.com/app/enter?appid=178107"><img alt="SOCKS4 Proxy发布" src="./Xss安全测试字符转换工具_百度应用_files/afac47dde7311c575ea3a2237021f26f.jpg"></a>
+                    <a target="_blank" data-appid="178107" href="http://app.baidu.com/app/enter?appid=178107"><i title="SOCKS4 Proxy发布" class="app-single-round"></i></a></dt>
+                    
+                                        <dd>
+                    <a title="SOCKS4 Proxy发布" target="_blank" class="app-name" data-item="title" data-appid="178107" href="http://app.baidu.com/app/enter?appid=178107">SOCKS4 Pro</a>
+                                        </dd>
+                </dl>
+                </li>
+                                                                                
+                <li class="app-single-list app-single-list3 "><dl class="app-single-item"><dt>
+                    <a target="_blank" data-appid="251739" href="http://app.baidu.com/app/enter?appid=251739"><img alt="人像美容" src="./Xss安全测试字符转换工具_百度应用_files/dc6fd6d34d1ba2e5091a59d597721740.jpg"></a>
+                    <a target="_blank" data-appid="251739" href="http://app.baidu.com/app/enter?appid=251739"><i title="人像美容" class="app-single-round"></i></a></dt>
+                    
+                                        <dd>
+                    <a title="人像美容" target="_blank" class="app-name" data-item="title" data-appid="251739" href="http://app.baidu.com/app/enter?appid=251739">人像美容</a>
+                                        </dd>
+                </dl>
+                </li>
+                                                                                
+                <li class="app-single-list app-single-list3 "><dl class="app-single-item"><dt>
+                    <a target="_blank" data-appid="344170" href="http://app.baidu.com/app/enter?appid=344170"><img alt="钢材理论重量表" src="./Xss安全测试字符转换工具_百度应用_files/70e619d95ac8433266ecdee6f4afad64.jpg"></a>
+                    <a target="_blank" data-appid="344170" href="http://app.baidu.com/app/enter?appid=344170"><i title="钢材理论重量表" class="app-single-round"></i></a></dt>
+                    
+                                        <dd>
+                    <a title="钢材理论重量表" target="_blank" class="app-name" data-item="title" data-appid="344170" href="http://app.baidu.com/app/enter?appid=344170">钢材理论重</a>
+                                        </dd>
+                </dl>
+                </li>
+                                                                                
+                <li class="app-single-list app-single-list3 "><dl class="app-single-item"><dt>
+                    <a target="_blank" data-appid="250717" href="http://app.baidu.com/app/enter?appid=250717"><img alt="MD5加密" src="./Xss安全测试字符转换工具_百度应用_files/6f931fa9b936264d2b261056759a65fe.png"></a>
+                    <a target="_blank" data-appid="250717" href="http://app.baidu.com/app/enter?appid=250717"><i title="MD5加密" class="app-single-round"></i></a></dt>
+                    
+                                        <dd>
+                    <a title="MD5加密" target="_blank" class="app-name" data-item="title" data-appid="250717" href="http://app.baidu.com/app/enter?appid=250717">MD5加密</a>
+                                        </dd>
+                </dl>
+                </li>
+                                                                                
+                <li class="app-single-list app-single-list3 "><dl class="app-single-item"><dt>
+                    <a target="_blank" data-appid="225596" href="http://app.baidu.com/app/enter?appid=225596"><img alt="gpa计算器" src="./Xss安全测试字符转换工具_百度应用_files/360f9dff5f936c066f04e939a7b92fdd.jpg"></a>
+                    <a target="_blank" data-appid="225596" href="http://app.baidu.com/app/enter?appid=225596"><i title="gpa计算器" class="app-single-round"></i></a></dt>
+                    
+                                        <dd>
+                    <a title="gpa计算器" target="_blank" class="app-name" data-item="title" data-appid="225596" href="http://app.baidu.com/app/enter?appid=225596">gpa计算器</a>
+                                        </dd>
+                </dl>
+                </li>
+                                                                                
+                <li class="app-single-list app-single-list3 "><dl class="app-single-item"><dt>
+                    <a target="_blank" data-appid="143516" href="http://app.baidu.com/app/enter?appid=143516"><img alt="PPT转PDF" src="./Xss安全测试字符转换工具_百度应用_files/2ff18af79c9b78050babc21213cfb28d.png"></a>
+                    <a target="_blank" data-appid="143516" href="http://app.baidu.com/app/enter?appid=143516"><i title="PPT转PDF" class="app-single-round"></i></a></dt>
+                    
+                                        <dd>
+                    <a title="PPT转PDF" target="_blank" class="app-name" data-item="title" data-appid="143516" href="http://app.baidu.com/app/enter?appid=143516">PPT转PDF</a>
+                                        </dd>
+                </dl>
+                </li>
+                                                                                
+                <li class="app-single-list app-single-list3 "><dl class="app-single-item"><dt>
+                    <a target="_blank" data-appid="214182" href="http://app.baidu.com/app/enter?appid=214182"><img alt="领带打法图解" src="./Xss安全测试字符转换工具_百度应用_files/8b383369279875dbb78ad65b2533b093.jpg"></a>
+                    <a target="_blank" data-appid="214182" href="http://app.baidu.com/app/enter?appid=214182"><i title="领带打法图解" class="app-single-round"></i></a></dt>
+                    
+                                        <dd>
+                    <a title="领带打法图解" target="_blank" class="app-name" data-item="title" data-appid="214182" href="http://app.baidu.com/app/enter?appid=214182">领带打法图</a>
+                                        </dd>
+                </dl>
+                </li>
+                                                                                
+                <li class="app-single-list app-single-list3 "><dl class="app-single-item"><dt>
+                    <a target="_blank" data-appid="104443" href="http://app.baidu.com/app/enter?appid=104443"><img alt="有道词典网页版" src="./Xss安全测试字符转换工具_百度应用_files/98ebb9d2b28acf259c820e12e187ae21.jpg"></a>
+                    <a target="_blank" data-appid="104443" href="http://app.baidu.com/app/enter?appid=104443"><i title="有道词典网页版" class="app-single-round"></i></a></dt>
+                    
+                                        <dd>
+                    <a title="有道词典网页版" target="_blank" class="app-name" data-item="title" data-appid="104443" href="http://app.baidu.com/app/enter?appid=104443">有道词典网</a>
+                                        </dd>
+                </dl>
+                </li>
+                                                                                
+                <li class="app-single-list app-single-list3 "><dl class="app-single-item"><dt>
+                    <a target="_blank" data-appid="133964" href="http://app.baidu.com/app/enter?appid=133964"><img alt="人民币大写转换工具" src="./Xss安全测试字符转换工具_百度应用_files/9ea85c950510b87b206220f20751b361.jpg"></a>
+                    <a target="_blank" data-appid="133964" href="http://app.baidu.com/app/enter?appid=133964"><i title="人民币大写转换工具" class="app-single-round"></i></a></dt>
+                    
+                                        <dd>
+                    <a title="人民币大写转换工具" target="_blank" class="app-name" data-item="title" data-appid="133964" href="http://app.baidu.com/app/enter?appid=133964">人民币大写</a>
+                                        </dd>
+                </dl>
+                </li>
+                                                                                
+                <li class="app-single-list app-single-list3 "><dl class="app-single-item"><dt>
+                    <a target="_blank" data-appid="215617" href="http://app.baidu.com/app/enter?appid=215617"><img alt="中国电信移动联通宽带测速" src="./Xss安全测试字符转换工具_百度应用_files/64f9f2b2c7c44f4fdada6265ea668c9f.png"></a>
+                    <a target="_blank" data-appid="215617" href="http://app.baidu.com/app/enter?appid=215617"><i title="中国电信移动联通宽带测速" class="app-single-round"></i></a></dt>
+                    
+                                        <dd>
+                    <a title="中国电信移动联通宽带测速" target="_blank" class="app-name" data-item="title" data-appid="215617" href="http://app.baidu.com/app/enter?appid=215617">中国电信移</a>
+                                        </dd>
+                </dl>
+                </li>
+                                                                                
+                <li class="app-single-list app-single-list3 "><dl class="app-single-item"><dt>
+                    <a target="_blank" data-appid="108875" href="http://app.baidu.com/app/enter?appid=108875"><img alt="秒表计时器" src="./Xss安全测试字符转换工具_百度应用_files/f8df97a92eb6e0c390bc48f1b3d8eb1d.jpg"></a>
+                    <a target="_blank" data-appid="108875" href="http://app.baidu.com/app/enter?appid=108875"><i title="秒表计时器" class="app-single-round"></i></a></dt>
+                    
+                                        <dd>
+                    <a title="秒表计时器" target="_blank" class="app-name" data-item="title" data-appid="108875" href="http://app.baidu.com/app/enter?appid=108875">秒表计时器</a>
+                                        </dd>
+                </dl>
+                </li>
+                                                                                
+                <li class="app-single-list app-single-list3 "><dl class="app-single-item"><dt>
+                    <a target="_blank" data-appid="276175" href="http://app.baidu.com/app/enter?appid=276175"><img alt="URL编码解码" src="./Xss安全测试字符转换工具_百度应用_files/02ecdf4cdb0c17baabdc0bbd74c44e1d.png"></a>
+                    <a target="_blank" data-appid="276175" href="http://app.baidu.com/app/enter?appid=276175"><i title="URL编码解码" class="app-single-round"></i></a></dt>
+                    
+                                        <dd>
+                    <a title="URL编码解码" target="_blank" class="app-name" data-item="title" data-appid="276175" href="http://app.baidu.com/app/enter?appid=276175">URL编码解</a>
+                                        </dd>
+                </dl>
+                </li>
+                                                                                
+                <li class="app-single-list app-single-list3 "><dl class="app-single-item"><dt>
+                    <a target="_blank" data-appid="250336" href="http://app.baidu.com/app/enter?appid=250336"><img alt="购车计算器" src="./Xss安全测试字符转换工具_百度应用_files/563155eec92485038308380e594acc17.png"></a>
+                    <a target="_blank" data-appid="250336" href="http://app.baidu.com/app/enter?appid=250336"><i title="购车计算器" class="app-single-round"></i></a></dt>
+                    
+                                        <dd>
+                    <a title="购车计算器" target="_blank" class="app-name" data-item="title" data-appid="250336" href="http://app.baidu.com/app/enter?appid=250336">购车计算器</a>
+                                        </dd>
+                </dl>
+                </li>
+                                                                                
+                <li class="app-single-list app-single-list3 "><dl class="app-single-item"><dt>
+                    <a target="_blank" data-appid="404958" href="http://app.baidu.com/app/enter?appid=404958"><img alt="任意次方根计算器" src="./Xss安全测试字符转换工具_百度应用_files/7146f4e744e453823c47b0afc16c4f13.png"></a>
+                    <a target="_blank" data-appid="404958" href="http://app.baidu.com/app/enter?appid=404958"><i title="任意次方根计算器" class="app-single-round"></i></a></dt>
+                    
+                                        <dd>
+                    <a title="任意次方根计算器" target="_blank" class="app-name" data-item="title" data-appid="404958" href="http://app.baidu.com/app/enter?appid=404958">任意次方根</a>
+                                        </dd>
+                </dl>
+                </li>
+                                                                                
+                <li class="app-single-list app-single-list3 "><dl class="app-single-item"><dt>
+                    <a target="_blank" data-appid="196476" href="http://app.baidu.com/app/enter?appid=196476"><img alt="长微博工具" src="./Xss安全测试字符转换工具_百度应用_files/b2239093fb18b0bd2f8453804e8612ef.png"></a>
+                    <a target="_blank" data-appid="196476" href="http://app.baidu.com/app/enter?appid=196476"><i title="长微博工具" class="app-single-round"></i></a></dt>
+                    
+                                        <dd>
+                    <a title="长微博工具" target="_blank" class="app-name" data-item="title" data-appid="196476" href="http://app.baidu.com/app/enter?appid=196476">长微博工具</a>
+                                        </dd>
+                </dl>
+                </li>
+                                                                                
+                <li class="app-single-list app-single-list3 "><dl class="app-single-item"><dt>
+                    <a target="_blank" data-appid="152856" href="http://app.baidu.com/app/enter?appid=152856"><img alt="前端开发工具箱 (js &amp; css 代码压缩、优化、美化)" src="./Xss安全测试字符转换工具_百度应用_files/108eee98cf03a953978d5e09ac85186f.jpg"></a>
+                    <a target="_blank" data-appid="152856" href="http://app.baidu.com/app/enter?appid=152856"><i title="前端开发工具箱 (js &amp; css 代码压缩、优化、美化)" class="app-single-round"></i></a></dt>
+                    
+                                        <dd>
+                    <a title="前端开发工具箱 (js &amp; css 代码压缩、优化、美化)" target="_blank" class="app-name" data-item="title" data-appid="152856" href="http://app.baidu.com/app/enter?appid=152856">前端开发工</a>
+                                        </dd>
+                </dl>
+                </li>
+                                                                                
+                <li class="app-single-list app-single-list3 "><dl class="app-single-item"><dt>
+                    <a target="_blank" data-appid="250739" href="http://app.baidu.com/app/enter?appid=250739"><img alt="按揭房贷计算器" src="./Xss安全测试字符转换工具_百度应用_files/3f45bc4639505e83958abc4aa7ab69bf.png"></a>
+                    <a target="_blank" data-appid="250739" href="http://app.baidu.com/app/enter?appid=250739"><i title="按揭房贷计算器" class="app-single-round"></i></a></dt>
+                    
+                                        <dd>
+                    <a title="按揭房贷计算器" target="_blank" class="app-name" data-item="title" data-appid="250739" href="http://app.baidu.com/app/enter?appid=250739">按揭房贷计</a>
+                                        </dd>
+                </dl>
+                </li>
+                                                                                
+                <li class="app-single-list app-single-list3 "><dl class="app-single-item"><dt>
+                    <a target="_blank" data-appid="397341" href="http://app.baidu.com/app/enter?appid=397341"><img alt="二维码名片" src="./Xss安全测试字符转换工具_百度应用_files/37a3d3211514b4b0600687f184d75ef3.png"></a>
+                    <a target="_blank" data-appid="397341" href="http://app.baidu.com/app/enter?appid=397341"><i title="二维码名片" class="app-single-round"></i></a></dt>
+                    
+                                        <dd>
+                    <a title="二维码名片" target="_blank" class="app-name" data-item="title" data-appid="397341" href="http://app.baidu.com/app/enter?appid=397341">二维码名片</a>
+                                        </dd>
+                </dl>
+                </li>
+                                                                                
+                <li class="app-single-list app-single-list3 "><dl class="app-single-item"><dt>
+                    <a target="_blank" data-appid="402614" href="http://app.baidu.com/app/enter?appid=402614"><img alt="二维码生成" src="./Xss安全测试字符转换工具_百度应用_files/ac8c5af4f94cb1c5bd278daef84c61fb.png"></a>
+                    <a target="_blank" data-appid="402614" href="http://app.baidu.com/app/enter?appid=402614"><i title="二维码生成" class="app-single-round"></i></a></dt>
+                    
+                                        <dd>
+                    <a title="二维码生成" target="_blank" class="app-name" data-item="title" data-appid="402614" href="http://app.baidu.com/app/enter?appid=402614">二维码生成</a>
+                                        </dd>
+                </dl>
+                </li>
+                                                                                
+                <li class="app-single-list app-single-list3 "><dl class="app-single-item"><dt>
+                    <a target="_blank" data-appid="1100227" href="http://app.baidu.com/app/enter?appid=1100227"><img alt="违章查询" src="./Xss安全测试字符转换工具_百度应用_files/60209125b9706bb81a16ebc856ed3b23.png"></a>
+                    <a target="_blank" data-appid="1100227" href="http://app.baidu.com/app/enter?appid=1100227"><i title="违章查询" class="app-single-round"></i></a></dt>
+                    
+                                        <dd>
+                    <a title="违章查询" target="_blank" class="app-name" data-item="title" data-appid="1100227" href="http://app.baidu.com/app/enter?appid=1100227">违章查询</a>
+                                        </dd>
+                </dl>
+                </li>
+                                                                                
+                <li class="app-single-list app-single-list3 "><dl class="app-single-item"><dt>
+                    <a target="_blank" data-appid="158502" href="http://app.baidu.com/app/enter?appid=158502"><img alt="有道翻译汉日互译" src="./Xss安全测试字符转换工具_百度应用_files/a0716cdf9b56d6d981ab3f681630331c.jpg"></a>
+                    <a target="_blank" data-appid="158502" href="http://app.baidu.com/app/enter?appid=158502"><i title="有道翻译汉日互译" class="app-single-round"></i></a></dt>
+                    
+                                        <dd>
+                    <a title="有道翻译汉日互译" target="_blank" class="app-name" data-item="title" data-appid="158502" href="http://app.baidu.com/app/enter?appid=158502">有道翻译汉</a>
+                                        </dd>
+                </dl>
+                </li>
+                                                                                
+                <li class="app-single-list app-single-list3 "><dl class="app-single-item"><dt>
+                    <a target="_blank" data-appid="123494" href="http://app.baidu.com/app/enter?appid=123494"><img alt="眼保健操" src="./Xss安全测试字符转换工具_百度应用_files/61806c3d3450d80d8e52fde27ad06c77.png"></a>
+                    <a target="_blank" data-appid="123494" href="http://app.baidu.com/app/enter?appid=123494"><i title="眼保健操" class="app-single-round"></i></a></dt>
+                    
+                                        <dd>
+                    <a title="眼保健操" target="_blank" class="app-name" data-item="title" data-appid="123494" href="http://app.baidu.com/app/enter?appid=123494">眼保健操</a>
+                                        </dd>
+                </dl>
+                </li>
+                                                                                
+                <li class="app-single-list app-single-list3 "><dl class="app-single-item"><dt>
+                    <a target="_blank" data-appid="408152" href="http://app.baidu.com/app/enter?appid=408152"><img alt="短网址" src="./Xss安全测试字符转换工具_百度应用_files/5bea6db25f096d24d38037781e4b3248.jpg"></a>
+                    <a target="_blank" data-appid="408152" href="http://app.baidu.com/app/enter?appid=408152"><i title="短网址" class="app-single-round"></i></a></dt>
+                    
+                                        <dd>
+                    <a title="短网址" target="_blank" class="app-name" data-item="title" data-appid="408152" href="http://app.baidu.com/app/enter?appid=408152">短网址</a>
+                                        </dd>
+                </dl>
+                </li>
+                                                                                
+                <li class="app-single-list app-single-list3 "><dl class="app-single-item"><dt>
+                    <a target="_blank" data-appid="152240" href="http://app.baidu.com/app/enter?appid=152240"><img alt="批量修改图片大小" src="./Xss安全测试字符转换工具_百度应用_files/6359c6a00d6b8b1e1375d6832ff62687.jpg"></a>
+                    <a target="_blank" data-appid="152240" href="http://app.baidu.com/app/enter?appid=152240"><i title="批量修改图片大小" class="app-single-round"></i></a></dt>
+                    
+                                        <dd>
+                    <a title="批量修改图片大小" target="_blank" class="app-name" data-item="title" data-appid="152240" href="http://app.baidu.com/app/enter?appid=152240">批量修改图</a>
+                                        </dd>
+                </dl>
+                </li>
+                                </ul>
+                                </div>
+						        <div class="my-integral-rank-btn" id="Hot_Rec_Page" style="padding-bottom: 2px; border-bottom-style: none;">
+					                <a href="http://app.baidu.com/app/enter?appid=280383###" data-zone="related-rec-btn-pre" onclick="this.blur()" id="AppRelPrevious" class="previous" title="上一页"></a><a data-zone="related-rec-btn-next" onclick="this.blur()" href="http://app.baidu.com/app/enter?appid=280383###" id="AppRelNext" class="next next-able" title="下一页"></a>
+						        </div>
+                            </div>
+					    </div>
+                        <div id="RecBanner" class="rec-banner hide-90">
+                            
+<div class="app-rec-banner-90">
+<a href="http://app.baidu.com/ada_jianli" title="个人简历模板" target="_blank"><img src="./Xss安全测试字符转换工具_百度应用_files/25846bbe2282ea45c9815e3bbd38b883.jpg"></a>
+</div>
+
+<div class="app-rec-banner-70">
+<a href="http://app.baidu.com/ada_jianli" title="个人简历模板" target="_blank"><img src="./Xss安全测试字符转换工具_百度应用_files/08aed79fcb0b114c55164d2df44c7219.jpg"></a>
+</div>
+
+                        </div>
+                    </div>
+                </div>
+                
+            </td></tr>
+        </tbody></table>
+    </div>
+<div id="app-desc" class="clearfix">
+    <div class="main">
+        
+        
+        
+        <!-- 应用简介 -->
+
+        
+        
+    
+        <div class="app-intro" data-zone="app-attribute" data-pos="widget" data-appid="280383" style="margin-top:15px;">
+    <h3>简介</h3>
+    <table class="app-intro-item clearfix" style="overflow:hidden">
+    <tbody><tr>
+    <td>
+    
+                <img style="border:none;" alt="Xss安全测试字符转换工具" src="./Xss安全测试字符转换工具_百度应用_files/b1604e3a7bd1106240fe84b2caf9c793.jpg">
+        
+        </td>
+    <td style="padding-left:20px;width:530px;">
+    
+            <div class="app-intro-info clearfix">
+            <h5 style="float:left;width:auto;" title="Xss安全测试字符转换工具">Xss安全测试字符转换工具</h5><span style="float:left;margin:6px 6px 0 6px;" class="app-single-grade"><i data-grade="4.7" style="width:94%;"></i></span>
+                    </div>
+            <div id="appDescs" class="clearfix">
+                        
+                                                
+                                                                <p class="app-intro-text" id="app-intro-text">
+                <label>简介：</label>
+                <span id="des-text"><script>
+                    (function(){
+                        window.__html = 'XSS又叫CSS (Cross Site Script) ，跨站脚本攻击。它指的是恶意攻击者往Web页面里插入恶意脚本代码，当用户浏览该页之时，嵌入其中Web里面的脚本代码会被执行，从而达到恶意攻击用户的特殊目的。XSS属于被动式的攻击，因为其被动且不好利用，所以许多人常忽略其危害性。 由于XSS危害较大，所以当前安全维护人员越来越重视此类漏洞，常规的反射型XSS通常有扫描器进行修复，而在存储型的XSS测试中，经常会使用到各种转义字符对程序进行测试。希望此工具能给大家的测试带来便利。 防护与攻击是相辅相成的，希望大家更多的关注网络安全。请勿使用本工具进行有害的攻击测试。 如果觉得本工具方便，可多多支持乌云：http://www.wooyun.org/'.replace(/<br[^>]*>/g,'');
+                        window._outHtml=__html.length>86?__html.substr(0,86)+'…':__html; 
+                        document.writeln(_outHtml);
+                    })();
+                </script>XSS又叫CSS (Cross Site Script) ，跨站脚本攻击。它指的是恶意攻击者往Web页面里插入恶意脚本代码，当用户浏览该页之时，嵌入其中Web里面的脚本代码…
+</span>
+                <a href="http://app.baidu.com/app/enter?appid=280383#" class="_intro" data-item="more" id="change-intro-state" onclick="changeIntroState(this,32);return false;">[更多]</a>
+            </p>
+                                                                                                                                </div>
+        <div style="clear:both;"></div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+<script type="text/bdjs">
+function $$(id){
+    return document.getElementById(id);
+};
+/*
+var ai = $$('appInfos'), ad = $$('appDescs');
+ad.className = parseInt(ai.offsetHeight) < 62 ? 'app-intro-desc-none' : 'app-intro-desc';
+var over = ['app_starring', 'app_director', 'app_host', 'app_song'];
+for(var i = over.length; i--;){
+    if($$(over[i]) && $$(over[i]).offsetHeight > 35){
+        $$(over[i]).style.height = '36px';$$(over[i]).style.overflow = 'hidiven';
+    }
+}*/
+(function(){
+var appIntroText = $$('app-intro-text');
+var len = 90-4; 
+var tt = baidu.g('des-text');
+/* 被截断了*/
+if(__html!=_outHtml){
+    baidu.show('change-intro-state'); 
+}else{
+    _outHtml = 0;
+}
+function changeImg(arg){
+    baidu.each(baidu.q('app-shot-img',baidu.g('app-desc')),function(item){
+        if(arg){
+            baidu.show(item);
+        }else{
+            baidu.hide(item);
+        }
+    });
+}
+function changeIntroState(dom,height){
+    var text = $$('app-intro-text');
+    if(dom.innerHTML == '[更多]'){
+        _outHtml && (tt.innerHTML = __html);
+        changeImg(1);
+        dom.innerHTML = '[收起]';
+    }else{
+        changeImg();
+        _outHtml && (tt.innerHTML = _outHtml);
+        dom.innerHTML = '[更多]';
+    }
+};
+window.changeIntroState = changeIntroState;
+})();
+</script>
+
+        <div class="banner-box">
+            <div id="BannerOnComment" class="app-widget-banner" data-zone="app-banner" data-pos="widget" data-appid="280383" style="margin-bottom: 13px; margin-top: 15px; height: 70px;"><a target="_blank" title="生日祝福语" href="http://app.baidu.com/app/enter?appid=173912"><img src="./Xss安全测试字符转换工具_百度应用_files/14e201785b3f039d8c363e7965bf64be.jpg" class="" alt="" border="0" style="width:677px;height:70px;"></a></div>
+        </div>
+        <a name="app_comment_list"></a>
+        <div class="app-info-comment"><div class="app-comment-title clearfix"><em>Xss安全测试字符转换工具的评论</em><span class="app-single-grade app_comment_score"><i data-grade="4.7" style="width: 47px;"></i></span><span class="app-comment-num">0条评论</span></div><div class="app-comment-list"><div class="app-comment-item last">Xss安全测试字符转换工具目前还没有评论，快来抢沙发吧！</div></div><div class="pagination clearfix"></div><div class="app-comment-form"><h4><a name="app_comment"></a>我要评论</h4><table><tbody><tr><th>应用打分：</th><td><span class="app-single-grade app-comment-score-picker"><i data-grade="0" class="app-score-0"></i></span><span class="app-score-tip">点击星星打分</span></td></tr><tr><th>评价内容：</th><td><textarea class="app-comment-textarea inset-shadow"></textarea></td></tr><tr><th>验 证 码 ：</th><td><input type="text" class="app-comment-code inset-shadow"><span class="app-comment-img"></span><span style="display:none;" class="app-comment-img-change">看不清，换一张</span></td></tr><tr><th></th><td><button class="app-comment-submit">提交评论</button><span class="app-comment-status"></span></td></tr></tbody></table></div></div>
+    </div>
+    <div class="side-bar">
+        
+        <style type="text/css">
+    .developer-intro{
+        border:1px solid #e0e0e0 !important;
+    }
+    .developer-intro h3,#app-desc .developer-intro h3{
+        background-position:0 -52px;
+        margin:10px 0 0 10px;
+    }
+</style>
+<div class="developer-intro">
+    <h3>开发者简介</h3>
+    <div class="developer-intro-content clearfix" data-zone="app-dev">
+        <div class="developer-icon">
+            <table>
+                <tbody><tr>
+                    <td>
+                                            <img src="./Xss安全测试字符转换工具_百度应用_files/69ac6c719ef14190450a87f60e57b45a.png" alt="">
+                                        </td>
+                </tr>
+            </tbody></table>
+        </div>
+        <div class="interaction">
+        <em>
+                    工具猫网络
+                    </em>
+                                            银牌开发者<a href="http://app.baidu.com/developer/page/rating#level2" target="_blank" class="developer_lv2" title="银牌开发者"></a>
+                </div>
+                <p class="developer_intro_p">工具猫网络 - 致力于小型桌面应用开发，脚本开发，为大家提供一个良好的小工具开发交流平台。同时提供工...
+            <a href="http://app.baidu.com/app/enter?appid=280383###" class="more">更多 »</a>        </p>
+                <p class="donate-contact clearfix">
+                                </p> 
+    </div>
+</div>
+<script type="text/bdjs">
+
+(function(){
+    var content = baidu.dom.q("developer-intro")[0],
+        more = baidu.dom.q("more",content,"a")[0];
+    if(more){
+        baidu.on(more,"click",function(e){
+            app.developer.introduction(appinfo_json,"工具猫网络 - 致力于小型桌面应用开发，脚本开发，为大家提供一个良好的小工具开发交流平台。同时提供工具猫魔盒开发框架，让开发者可以采用基于HTML,CSS,Javascript等网页编程技术来进行简单、快速的桌面应用开发。");
+            baidu.event.stop(e);
+        });
+    }
+})();
+
+
+</script>
+
+
+        
+            <style type="text/css">
+        
+.tips-content-donate .app-icon img{
+    margin:3px 0 0 3px;
+}
+
+.app-content{
+	padding-top:3px;
+	background:url('http://webapp.bdimg.com/static/06241840/appweb/images/rec_top_bt_bg.png') no-repeat;
+	margin-top:2px;
+}
+.rec-banner div{
+	margin:5px auto 2px 16px; 
+}
+.rec-banner.hide-all div{
+	display:none;
+}
+.rec-banner.hide-90 div.app-rec-banner-90{
+	display:none;
+}
+.rec-banner.hide-70 div.app-rec-banner-70{
+	display:none;
+}
+.app-rec-banner-90,.app-rec-banner-90 img{
+	width:140px;
+	height:90px;
+	overflow:hidden;
+}
+#RecBanner.hide-ele div,#RecBanner.hide-ele img{
+	/*for ie 6*/
+	display:none;
+}
+.app-rec-banner-70,.app-rec-banner-70 img{
+	width:140px;
+	height:70px;
+	overflow:hidden;
+}
+dd p.app-number{
+	color:#000;
+}
+.app-name{
+	font-size:12px;
+	color:#0566cc;
+}
+.widget-bottom-hot{
+	margin-bottom:10px;
+}
+.widget-bottom-hot .app-name{
+	color:#0566cc;
+}
+#HotRecommend .app-single-round, .hot-app-list li dl.app-single-item dt i.app-single-round{
+	background:url("http://webapp.bdimg.com/static/06241840/appweb/images/rec_cover.png");
+	_background:none;
+	_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://webapp.bdimg.com/static/06241840/appweb/images/rec_cover.png",enabled=true,sizingMethod=noscale);
+}
+#RecList{
+    position:relative;
+}
+.app-content .app-content-bg{
+	background:none;
+}
+.app-content table{
+	width:980px;
+	background:url('http://webapp.bdimg.com/static/06241840/appweb/images/rec_repeat_bg.png');
+}
+.app-content table td{
+	vertical-align:top;
+}
+.app-banner{
+	position:relative;
+}
+#BannerOnComment{width:677px;height:64px;border:1px solid #e7e7e7;padding:3px;overflow:hidden;}
+#app_sandbox{
+	margin:0 auto;
+	width:800px;
+}
+.app-content .fullscreen-showcase-menu{
+	padding-right:170px;
+	margin-top:0;
+	position:absolute;
+}
+.rec_dd{
+	height:54px;
+	overflow:hidden;
+}
+.developer-hot-apps-dd.developer-hot-apps .developer-hot-apps-content .app-single-item dd{
+	width:160px;
+	overflow:hidden;
+	height:78px;
+}
+.developer-hot-apps-dd.developer-hot-apps .developer-hot-apps-content .app-single-item dd p{
+	overflow:hidden;
+}
+#AppRun{
+}
+a.text{
+	font-size:12px;
+}
+.developer-apps-list .app-single-grade{
+	margin:3px auto 0;
+}
+.fullscreen-showcase-menu{
+	position:absolute;
+}
+#RankRecommand{
+	width:170px;
+	vertical-align:top;
+}
+#RankRecommand .score-list,#RankRecommand .rec-list{
+	color:#535353;
+	width:70px;
+	line-height:28px;
+	height:28px;
+}
+#RankRecommand .score-list.select{
+	background:url('http://webapp.bdimg.com/static/06241840/appweb/images/rec_score_bg.png') no-repeat 0 -28px;
+}
+#RankRecommand .rec-list.select{
+	background:url('http://webapp.bdimg.com/static/06241840/appweb/images/rec_score_bg.png') no-repeat -70px -28px;
+}
+#RankRecommand .score-list{
+	background:url('http://webapp.bdimg.com/static/06241840/appweb/images/rec_score_bg.png') no-repeat 0 0;
+}
+#RankRecommand .rec-list{
+	background:url('http://webapp.bdimg.com/static/06241840/appweb/images/rec_score_bg.png') no-repeat -70px 0;
+}
+.with-rank-list{
+	border-top:none;
+	float:left;
+}
+.no-rank-list{
+	background:none;
+	border:none;
+}
+.rank-recommend{
+		border-bottom:1px dashed #ececec;
+		margin:1px 15px 2px;
+	padding-bottom:3px;
+}
+.rank-recommend li{
+	float:left;
+	display:inline;
+	font-weight:bold;
+}
+.rank-recommend .rank-select{
+  font-weight:bold;  
+  border-bottom:none;
+}
+#HotRecommend{
+	position:relative;
+}
+.rank-recommend li.select{
+	font-weight:normal;
+}
+#ScoreList{
+	border-left:none;
+}
+#RelatedList{
+	border-right:none;
+}
+.app-tip .app-single-round{
+	left:0;
+}
+#RecList{
+	overflow:hidden;
+}
+#RelatedRec{
+	position:relative;
+}
+#RecListPar{
+    padding-bottom:32px;
+}
+#RelatedRec .my-integral-rank-btn,#AppScoreStandings .my-integral-rank-btn{
+	position:absolute;
+	left:15px;
+	z-index:0;
+	bottom:0px;
+	height:30px;
+	padding:0 5px px;
+		border-bottom:none;
+	}
+#RelatedRec li{
+	float:left;
+	display:inline;
+	margin:4px 0 6px 10px;
+		}
+#RelatedRec dl{
+	float:left;
+}
+#RelatedRec .app-single-item dt{
+	padding-left:0;
+	float:none;
+	margin-bottom:3px;
+}
+#RelatedRec .app-single-item dd{
+	padding:0;
+	float:none;
+	text-align:center;
+}
+#RelatedRec .app-single-item .app-single-round{
+	left:0;
+}
+.rank-recommend li{
+	font-size:12px;
+	float:left;
+	text-align:center;
+		font-weight:bold;
+		color:#535353;
+}
+.app-single-list .app-single-item p{
+	height:19px;                    
+	width:60px;
+	overflow:hidden;
+}
+#RelatedRec .one-in-one li.app-single-list{
+	width:150px;
+}
+#RelatedRec .one-in-one li.app-single-list dd{
+	padding-left:10px;
+	padding-top:5px;
+}
+#RelatedRec .one-in-one li.app-single-list dt,#RelatedRec .one-in-one li.app-single-list dd,#RelatedRec .one-in-one li.app-single-list dl{ 
+	float:left;
+	text-align:left;
+}
+
+.rec-title{
+	text-indent:-1000px;
+	width:90px;
+	height:21px;
+	overflow:hidden;
+	background:url('http://webapp.bdimg.com/static/06241840/appweb/images/rec_title_bg.png') 0 -40px no-repeat;
+}
+
+
+#HotRecommend .my-integral-rank-btn{
+	border-bottom:1px dashed #ececec;
+}
+.app-platform-banners{        
+    border:1px solid #e4ecf5;
+    padding:3px;    
+}
+.history-top{background:url('http://webapp.bdimg.com/static/06241840/appweb/images/history_top_bg.gif') no-repeat;float:right;width:91px; height:28px; position:relative; z-index:999}
+.history-top-tips{width:81px; height:28px; line-height:28px;padding-left:10px; color:#666; font-size:12px;}
+.history-content{height:auto; width:230px; border:2px solid #DFDFDF; position:absolute;left:-143px;top:28px; visibility:hidden; overflow:hidden;}
+.history-content-title{width:208px; height:30px; line-height:30px; border-bottom:1px solid #DFDFDF; background-color:#F0F0F0; font-size:12px; color:#A2A2A2; padding-left:8px; padding-right:14px;}
+.history-content-title-l{float:left}
+.history-content-title-r{float:right;}
+.history-content-title-r a.history-clear{color:#A2A2A2; text-decoration:none; float:none;}
+.history-content-title-r a.history-clear:hover{color:#DD2424; text-decoration:underline; float:none;}
+.history-content ul{width:230px; height:auto; margin:0; padding:0; list-style:none;background-color:#FFF;}
+.history-content li{border-bottom:1px dashed #F0F0F0;background:#FFF; height:24px; padding-top:6px; width:214px; list-style:none; padding-left:8px; padding-right:8px;}
+.history-content li img{border:none;}
+.history-content-l{float:left;}
+.history-content-l a{color:#000; font-size:12px; text-decoration:none; margin-top:0; float:left;}
+.history-content-l1{float:left;width:16px; height:16px;}
+.history-content-l2{float:left;height:16px; margin-left:4px;}
+.history-content-l2 a:hover{text-decoration:underline;}
+.history-content-r{float:right; width:28px; height:16px; color:#C6C6C6; cursor:pointer; margin-top:-4px; *margin-right:16px; _margin-right:0}
+.history-content-r a{display:block; width:28px; height:16px; line-height:16px;  padding-left:15px; color:#C6C6C6; background:url('http://webapp.bdimg.com/static/06241840/appweb/images/history_delete.gif') no-repeat 0 1px; *background-position:0 0;}
+.history-content-r a:hover{color:#DD2424; background:url('http://webapp.bdimg.com/static/06241840/appweb/images/history_delete2.gif') no-repeat 0 1px; *background-position:0 0; text-decoration:none;}
+.history-content-bottom{background-color:#F4F4F4;margin-top:-1px;height:23px;border-top:1px solid #EAEAEA;padding-left:8px; line-height:23px; color:#A2A2A2; font-size:12px;}
+.history-content-bottom img{border:none;}
+.history-content-bottom a{text-decoration:none; color:#0062D1; font-size:12px; float:none;}
+.history-content-bottom a:hover{text-decoration:underline;}
+.no-history-content{color:#A2A2A2; font-size:12px;text-align:center; background-color:#FFFFFF}
+    </style>
+        <div class="developer-hot-apps developer-hot-apps-dd" data-zone="developer-hot" data-pos="widget" data-appid="280383">
+    <div class="developer-hot-apps-content">
+                <h3 style="margin-bottom:16px;background-position:0 -66px;width:130px;">开发者热门应用</h3>
+                                                                        
+                
+                    
+
+
+
+<dl class="app-single-item">
+    <dt>
+        <a href="http://app.baidu.com/app/enter?appid=159018" data-item="icon" data-appid="159018" target="_blank"><img src="./Xss安全测试字符转换工具_百度应用_files/8bc5a8aaff1cc511b8a0e84ce62ca2bc.jpg" alt=""></a>
+        <a href="http://app.baidu.com/app/enter?appid=159018" data-item="icon" data-appid="159018" target="_blank"><i class="app-single-round" title="JSON数据解析工具"></i></a>
+    </dt>
+    <dd>
+        <a href="http://app.baidu.com/app/enter?appid=159018" data-appid="159018" data-item="title" class="app-name" target="_blank" title="JSON数据解析工具">JSON数据解析工</a>
+        <span class="app-single-grade"><i data-grade="4.5" style="width:90%;"></i></span>
+                <p style="height:18px;overflow:hidden;">类型：                                <span style="display:inline-block;"><a target="_blank" style="display:inline-block;" data-appid="159018" data-item="type" data-title="IT技术" href="http://app.baidu.com/appweb/search?lb=IT%E6%8A%80%E6%9C%AF&cid=3&lcid=11" title="IT技术" class="text">IT技术</a></span>
+                                </p>
+            </dd>
+</dl>
+
+                                                        
+                
+                    
+
+
+
+<dl class="app-single-item">
+    <dt>
+        <a href="http://app.baidu.com/app/enter?appid=162498" data-item="icon" data-appid="162498" target="_blank"><img src="./Xss安全测试字符转换工具_百度应用_files/7b1e35a6e8b513de63fb3973a24cb313.jpg" alt=""></a>
+        <a href="http://app.baidu.com/app/enter?appid=162498" data-item="icon" data-appid="162498" target="_blank"><i class="app-single-round" title="汉字转拼音与加拼音标注工具"></i></a>
+    </dt>
+    <dd>
+        <a href="http://app.baidu.com/app/enter?appid=162498" data-appid="162498" data-item="title" class="app-name" target="_blank" title="汉字转拼音与加拼音标注工具">汉字转拼音与加</a>
+        <span class="app-single-grade"><i data-grade="4.3" style="width:86%;"></i></span>
+                <p style="height:18px;overflow:hidden;">类型：                                <span style="display:inline-block;"><a target="_blank" style="display:inline-block;" data-appid="162498" data-item="type" data-title="休闲娱乐" href="http://app.baidu.com/appweb/search?lb=%E4%BC%91%E9%97%B2%E5%A8%B1%E4%B9%90&cid=3&lcid=11" title="休闲娱乐" class="text">休闲娱乐</a></span>
+                                </p>
+            </dd>
+</dl>
+
+                                                        
+                
+                    
+
+
+
+<dl class="app-single-item">
+    <dt>
+        <a href="http://app.baidu.com/app/enter?appid=149237" data-item="icon" data-appid="149237" target="_blank"><img src="./Xss安全测试字符转换工具_百度应用_files/e17b094d02e6762faf401c1a1eb084bb.jpg" alt=""></a>
+        <a href="http://app.baidu.com/app/enter?appid=149237" data-item="icon" data-appid="149237" target="_blank"><i class="app-single-round" title="在线字符统计工具"></i></a>
+    </dt>
+    <dd>
+        <a href="http://app.baidu.com/app/enter?appid=149237" data-appid="149237" data-item="title" class="app-name" target="_blank" title="在线字符统计工具">在线字符统计工</a>
+        <span class="app-single-grade"><i data-grade="4.7" style="width:94%;"></i></span>
+                <p style="height:18px;overflow:hidden;">类型：                                <span style="display:inline-block;"><a target="_blank" style="display:inline-block;" data-appid="149237" data-item="type" data-title="IT技术" href="http://app.baidu.com/appweb/search?lb=IT%E6%8A%80%E6%9C%AF&cid=3&lcid=11" title="IT技术" class="text">IT技术</a></span>
+                                </p>
+            </dd>
+</dl>
+
+                                                        
+                
+                    
+
+
+
+<dl class="app-single-item">
+    <dt>
+        <a href="http://app.baidu.com/app/enter?appid=155184" data-item="icon" data-appid="155184" target="_blank"><img src="./Xss安全测试字符转换工具_百度应用_files/510a6f60c6cf4791b2fdcc7f61f88bcb.jpg" alt=""></a>
+        <a href="http://app.baidu.com/app/enter?appid=155184" data-item="icon" data-appid="155184" target="_blank"><i class="app-single-round" title="下载地址转换工具"></i></a>
+    </dt>
+    <dd>
+        <a href="http://app.baidu.com/app/enter?appid=155184" data-appid="155184" data-item="title" class="app-name" target="_blank" title="下载地址转换工具">下载地址转换工</a>
+        <span class="app-single-grade"><i data-grade="4.2" style="width:84%;"></i></span>
+                <p style="height:18px;overflow:hidden;">类型：                                <span style="display:inline-block;"><a target="_blank" style="display:inline-block;" data-appid="155184" data-item="type" data-title="IT技术" href="http://app.baidu.com/appweb/search?lb=IT%E6%8A%80%E6%9C%AF&cid=3&lcid=11" title="IT技术" class="text">IT技术</a></span>
+                                </p>
+            </dd>
+</dl>
+
+                                                        
+                
+                    
+
+
+
+<dl class="app-single-item">
+    <dt>
+        <a href="http://app.baidu.com/app/enter?appid=158146" data-item="icon" data-appid="158146" target="_blank"><img src="./Xss安全测试字符转换工具_百度应用_files/95b391ac9a6915efaf49174aebdd42ea.jpg" alt=""></a>
+        <a href="http://app.baidu.com/app/enter?appid=158146" data-item="icon" data-appid="158146" target="_blank"><i class="app-single-round" title="颜色代码获取工具"></i></a>
+    </dt>
+    <dd>
+        <a href="http://app.baidu.com/app/enter?appid=158146" data-appid="158146" data-item="title" class="app-name" target="_blank" title="颜色代码获取工具">颜色代码获取工</a>
+        <span class="app-single-grade"><i data-grade="4.3" style="width:86%;"></i></span>
+                <p style="height:18px;overflow:hidden;">类型：                                <span style="display:inline-block;"><a target="_blank" style="display:inline-block;" data-appid="158146" data-item="type" data-title="休闲娱乐" href="http://app.baidu.com/appweb/search?lb=%E4%BC%91%E9%97%B2%E5%A8%B1%E4%B9%90&cid=3&lcid=11" title="休闲娱乐" class="text">休闲娱乐</a></span>
+                                </p>
+            </dd>
+</dl>
+
+                                                        
+                
+                    
+
+
+
+<dl class="app-single-item">
+    <dt>
+        <a href="http://app.baidu.com/app/enter?appid=174224" data-item="icon" data-appid="174224" target="_blank"><img src="./Xss安全测试字符转换工具_百度应用_files/310e1249600c8f2fe64aed777a0db80e.jpg" alt=""></a>
+        <a href="http://app.baidu.com/app/enter?appid=174224" data-item="icon" data-appid="174224" target="_blank"><i class="app-single-round" title="氨基酸属性查询与肽链合成计算工具"></i></a>
+    </dt>
+    <dd>
+        <a href="http://app.baidu.com/app/enter?appid=174224" data-appid="174224" data-item="title" class="app-name" target="_blank" title="氨基酸属性查询与肽链合成计算工具">氨基酸属性查询</a>
+        <span class="app-single-grade"><i data-grade="4.3" style="width:86%;"></i></span>
+                <p style="height:18px;overflow:hidden;">类型：                                <span style="display:inline-block;"><a target="_blank" style="display:inline-block;" data-appid="174224" data-item="type" data-title="学习工作" href="http://app.baidu.com/appweb/search?lb=%E5%AD%A6%E4%B9%A0%E5%B7%A5%E4%BD%9C&cid=3&lcid=11" title="学习工作" class="text">学习工作</a></span>
+                                </p>
+            </dd>
+</dl>
+
+                                    </div>
+</div>
+        
+        <div class="app-platform-banners">
+            <div id="BannerUnderRank" class="app-banner" style="height: 70px;"><a target="_blank" title="周公解梦" href="http://app.baidu.com/app/enter?appid=108024"><img src="./Xss安全测试字符转换工具_百度应用_files/cedf1fb6dad5a2cd6e3dd6832d9cb6a1.jpg" class="" alt="" border="0" style="width:267px;height:70px;"></a></div>
+            <div class="app-banner-list" style="margin-top: 5px; height: 70px;"><a target="_blank" title="居家生活宝典" href="http://app.baidu.com/static/cms/albums/homeliving.html"><img src="./Xss安全测试字符转换工具_百度应用_files/a620a1817cc46c76cec8c2cc1b59d277.jpg" class="" alt="" border="0" style="width:267px;height:70px;"></a></div>
+            <div class="app-banner-list" style="margin-top: 5px; height: 70px;"><a target="_blank" title="会员卡设计" href="http://app.baidu.com/huiyuanka"><img src="./Xss安全测试字符转换工具_百度应用_files/2e3c66d7d20b7cdbdd68d56939cdbdd0.jpg" class="" alt="" border="0" style="width:267px;height:70px;"></a></div>
+        </div>
+    </div>
+</div>
+</div>
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=14043" src="./Xss安全测试字符转换工具_百度应用_files/bds_s_v2.js"></script> 
+ 
+<script type="text/javascript">
+    document.getElementById('bdshell_js').src = "http://share.baidu.com/static/js/shell_v2.js?t=" + new Date().getHours();
+</script>
+
+            
+            
+            
+            <div class="footer under-suggest">
+                <div class="footerLine"></div>
+©2014 Baidu <a href="http://www.baidu.com/duty/">使用百度前必读</a> <span>|</span> <a target="_blank" href="http://www.miibeian.gov.cn/">京ICP证030173号</a> <img src="./Xss安全测试字符转换工具_百度应用_files/gs.gif">
+
+                                        <style type="text/css">
+                .share-select-unit.only-show-ico{
+                    background:none;
+                    padding:none;
+                    width:200px;
+                }
+                .share-select-unit.only-show-ico a{
+                    width:0;
+                    padding-left:20px;
+                    overflow:hidden;
+                }
+            </style>
+            <div id="__share__text" style="display:none;">
+                        <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare share-select-unit only-show-ico" data="{pic:&#39;http://apps1.bdimg.com/store/static/kvt/b1604e3a7bd1106240fe84b2caf9c793.jpg&#39;,text:&#39;推荐给大家一个不错的小工具“Xss安全测试字符转换工具”，实用又方便，真的很赞哦！来自@百度应用&#39;,wbuid:&#39;1878375217&#39;}">
+                <a style="display:inline;" class="bds_tsina" title="分享到新浪微博" href="http://app.baidu.com/app/enter?appid=280383#">新浪微博</a>
+                <a style="display:inline;" class="bds_renren" title="分享到人人网" href="http://app.baidu.com/app/enter?appid=280383#">人人网</a>                                             
+                <a style="display:inline;" class="bds_tqq" title="分享到腾讯微博" href="http://app.baidu.com/app/enter?appid=280383#">腾讯微博</a>
+                <a style="display:inline;" class="bds_qzone" title="分享到QQ空间" href="http://app.baidu.com/app/enter?appid=280383#">QQ空间</a>
+                <a style="display:inline;" class="bds_t163" title="分享到网易微博" href="http://app.baidu.com/app/enter?appid=280383#">网易微博</a>
+                <a style="display:inline;" class="bds_douban" title="豆瓣" href="http://app.baidu.com/app/enter?appid=280383#">豆瓣</a>                                             
+            </div>
+                    </div>
+
+            </div>
+            
+        </div>
+
+        <script type="text/javascript">
+            
+                         
+            function renderApp(){
+                window._app = new BAPP({
+                    width:800,                
+                    container:'app_sandbox',
+                    openEffect:1,
+                    relay:'http://app.baidu.com/static/appweb/html/bd_app_relay.html',
+                    apikey:'GjI7Sg7lPY48FQ57F7CGupsv',
+                    zone:'app-list'
+                    });
+                    
+                
+                _app.addEventListener('checkUser',function(e,o){
+                    if(bdUser){
+                        o.logined({
+                            userName:bdUser
+                        });
+                    }else if(app.is_login()){
+                        app.fillinusername(function(options){
+                            bdUser = options.username;
+                            options.userName = options.username;
+                            o.logined(options);
+                        });
+                    }else{
+                        o.unlogined();
+                        app.login(function(options){
+                            bdUser = options.username;
+                            options.userName = options.username;
+                            o.logined(options);
+                        });
+                    }
+                });
+                
+                _app.addEventListener('setHeight',function(e,o){
+                    app_callback.resize(o); 
+                });
+                
+                                                _app.pageInit = function(){
+                    var frameType = 2;
+                                                            _app.render(appinfo_json,{ 
+                                                                                     
+                    },400);
+                };
+                _app.pageInit();
+            }
+                        var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+            document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F612f1d41eceebb2c91a143a5129c362b' type='text/javascript'%3E%3C/script%3E"));
+        </script><script src="./Xss安全测试字符转换工具_百度应用_files/h.js" type="text/javascript"></script>
+        <script>if(typeof PDC != 'undefined'){PDC.tti();}</script>
+        <script>if(typeof PDC != 'undefined'){PDC.init( {is_login : 1,sample : 1,product_id : 201,page_id : 107});}</script>
+        <script type="text/javascript" src="./Xss安全测试字符转换工具_百度应用_files/tangram.js"></script>
+        <script type="text/javascript" src="./Xss安全测试字符转换工具_百度应用_files/uni_login_wrapper.js"></script>
+        <script type="text/javascript" src="./Xss安全测试字符转换工具_百度应用_files/u.js"></script><div class="bdUsername-main" id="tangram-dialog--TANGRAM__3-main" data-guid="TANGRAM__3" style="position: absolute; top: 202.5px; left: 442px; z-index: 10000; margin-left: -100000px;"><div style="position: absolute; top: 0px; left: 0px; width: 465px; height: 200px;"><iframe src="javascript:void(0)" frameborder="0" scrolling="no" height="97%" style="width: 465px; z-index: -1; display: block; border: 0px;"></iframe></div><div id="tangram-dialog--TANGRAM__3" class="bdUsername" style="position: relative; width: 465px; height: 200px;"><div id="tangram-dialog--TANGRAM__3-title" class="bdUsername-title" data-guid="TANGRAM__h"><span id="tangram-dialog--TANGRAM__3-title-inner" class="bdUsername-title-inner"></span><div id="tangram-button--TANGRAM__h" onmouseover="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM__h&#39;]._fireEvent(&#39;mouseover&#39;, &#39;&#39;, &#39;&#39;, event)" onmouseout="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM__h&#39;]._fireEvent(&#39;mouseout&#39;, &#39;&#39;, &#39;&#39;, event)" onmousedown="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM__h&#39;]._fireEvent(&#39;mousedown&#39;, &#39;&#39;, &#39;&#39;, event)" onmouseup="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM__h&#39;]._fireEvent(&#39;mouseup&#39;, &#39;&#39;, &#39;&#39;, event)" onclick="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM__h&#39;]._fireEvent(&#39;click&#39;, &#39;&#39;, &#39;&#39;, event)" class="bdUsername-close"></div></div><div id="tangram-dialog--TANGRAM__3-content" class="bdUsername-content" style="overflow: hidden; position: relative; width: 465px; height: 200px;"></div><div id="tangram-dialog--TANGRAM__3-footer" class="bdUsername-footer"></div></div></div>
+        <script type="text/javascript" src="./Xss安全测试字符转换工具_百度应用_files/main.js"></script><div class="bdUsername-main" id="tangram-dialog--TANGRAM__l-main" data-guid="TANGRAM__l" style="position: absolute; top: 202.5px; left: 442px; z-index: 10000; margin-left: -100000px;"><div style="position: absolute; top: 0px; left: 0px; width: 465px; height: 200px;"><iframe src="javascript:void(0)" frameborder="0" scrolling="no" height="97%" style="width: 465px; z-index: -1; display: block; border: 0px;"></iframe></div><div id="tangram-dialog--TANGRAM__l" class="bdUsername" style="position: relative; width: 465px; height: 200px;"><div id="tangram-dialog--TANGRAM__l-title" class="bdUsername-title" data-guid="TANGRAM__z"><span id="tangram-dialog--TANGRAM__l-title-inner" class="bdUsername-title-inner"></span><div id="tangram-button--TANGRAM__z" onmouseover="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM__z&#39;]._fireEvent(&#39;mouseover&#39;, &#39;&#39;, &#39;&#39;, event)" onmouseout="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM__z&#39;]._fireEvent(&#39;mouseout&#39;, &#39;&#39;, &#39;&#39;, event)" onmousedown="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM__z&#39;]._fireEvent(&#39;mousedown&#39;, &#39;&#39;, &#39;&#39;, event)" onmouseup="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM__z&#39;]._fireEvent(&#39;mouseup&#39;, &#39;&#39;, &#39;&#39;, event)" onclick="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM__z&#39;]._fireEvent(&#39;click&#39;, &#39;&#39;, &#39;&#39;, event)" class="bdUsername-close"></div></div><div id="tangram-dialog--TANGRAM__l-content" class="bdUsername-content" style="overflow: hidden; position: relative; width: 465px; height: 200px;"></div><div id="tangram-dialog--TANGRAM__l-footer" class="bdUsername-footer"></div></div></div>
+        <script type="text/javascript" src="./Xss安全测试字符转换工具_百度应用_files/app_platform.js"></script>
+                <script charset="utf-8" type="text/javascript" src="./Xss安全测试字符转换工具_百度应用_files/render"></script>
+                
+        
+        <style type="text/css">
+#PkPlayersList li span.col-name{
+    width:80px;
+}
+#app_sandbox .bd-app-fix-init-bug{
+	width:100%;
+}
+.hot-app-list-simple li{
+    height:24px;
+    overflow:hidden;
+    margin-bottom:6px;
+}
+.hot-app-list-simple li a{
+    word-break:break-all;
+    word-wrap:break-word;
+}
+#AppScoreList .rank-list .rank-num{
+    width:19px;
+}
+.rank-list-content .rank-list-page a.page-selected{
+    height:19px !important;
+    line-height:19px !important;
+}
+/*无uname20121102*/
+#passInfo #down-icon-name {
+border-style: solid dashed dashed;
+border-width: 4px 4px 0;
+border-color: transparent;
+border-top-color: #2C76C0;
+width: 0;
+height: 0;
+overflow: hidden;
+display: inline-block;
+position: absolute;
+top: 8px;
+right:-10px;
+}
+#usernameTipCon{
+position: absolute;
+width: 60px;
+border: 1px solid #9B9B9B;
+right: 0px;
+top: 18px;
+box-shadow: 1px 1px 2px #CCC;
+-webkit-box-shadow: 1px 1px 2px #CCC;
+-moz-box-shadow: 1px 1px 2px #ccc;
+z-index: 3;
+}
+
+#usernameTipCon a {
+background-color: white;
+display: block;
+margin: 0;
+line-height: 25px;
+height: 25px;
+padding-left: 6px;
+text-decoration: none;
+width: 54px;
+border-bottom: 1px solid #EBEBEB;
+}
+</style>
+<script type="text/javascript">
+    //email账号改造函数
+    function emailCut(email){
+        if(email.length<=14) return email;
+        var a = email.split("@")[0],b = email.split("@")[1];
+        if(a.length>5){
+            a = a.substr(0,3)+"**";
+            if(b.length>8){
+                var t = b.lastIndexOf(".") || 0;
+                t = b.slice(t);
+                b = b.substr(0,2)+"**"+t;
+            }
+            return a+"@"+b;
+        }
+        else if(a.length<=5){
+            var t = b.lastIndexOf(".") || 0;
+            t = b.slice(t);
+            b = b.substr(0,2)+"**"+t;
+            return a+"@"+b;   
+        }
+    }
+
+function emailCutAction(d,prefix){
+    if(d){
+        if(d.getAttribute("data-uname")) return;
+        prefix=prefix||'';
+        d.innerHTML=prefix+emailCut(d.getAttribute("data-mail"));
+    }
+}
+
+emailCutAction(baidu.dom.query("#passInfo b")[0],'');
+emailCutAction(baidu.dom.query("#MyInfor-my dt")[0],'hi  ');
+
+
+//无uname20121102
+(function(){
+        var downIconName=baidu.dom.create("div");
+        downIconName.id="down-icon-name";
+        var passInfoB = baidu.dom.query("#passInfo b")[0];
+        var passInfoA = baidu.dom.query("#passInfo a")[0];
+        var passInfoFirst = baidu.dom.first(baidu.dom.g("passInfo"));
+    if(passInfoB){
+        passInfoFirst.style.position="relative";
+        passInfoFirst.style.marginRight="13px";
+        baidu.dom.insertAfter(downIconName,passInfoB);//添加右面的小标签
+
+//        baidu.event.on(passInfoA,"click",function(e){
+//            baidu.event.preventDefault(e);
+//            baidu.event.stopPropagation(e);
+//        });
+        baidu.event.on(passInfoA,"click",function(e){
+            baidu.event.stopPropagation(e);
+            baidu.event.preventDefault(e);
+            if(!baidu.dom.g("usernameTipCon")){
+                var urlUN;
+                if(passInfoB.getAttribute("data-uname")){
+                    urlUN = 'http://www.baidu.com/p/'+passInfoB.getAttribute("data-uname")+'?from=app';
+                }
+                else{
+                    urlUN = 'https://passport.baidu.com/v2/?ucenteradduname';
+                }
+                var con = '<div id="usernameTipCon"><a href="'+urlUN+'" target="_brank">我的主页</a><a href="http://passport.baidu.com/center" target="_blank">帐号设置</a></div>';
+                baidu.dom.insertHTML(passInfoFirst,"beforeEnd",con);
+            }
+            else{
+                baidu.dom.g("usernameTipCon").style.display="block";
+            }
+        });
+        
+//        baidu.event.on(passInfoA,"mouseout",function(e){
+//            baidu.dom.g("usernameTipCon").style.display="none";
+//        });
+
+        var db = document.body;
+        baidu.event.on(db,"click",function(e){
+            if(baidu.dom.g("usernameTipCon")){
+                baidu.dom.g("usernameTipCon").style.display="none";
+            }
+        });
+    }
+})();
+
+
+</script>        <script>PDC._load_js=function(b,c){var a=document.createElement("script");a.setAttribute("type","text/javascript");a.setAttribute("src",b);a.onload=a.onreadystatechange=function(){if(!this.readyState||this.readyState=="loaded"||this.readyState=="complete"){a.onload=a.onreadystatechange=null;if(typeof c==="function"){c(b,true)}}};a.onerror=function(d){if(typeof c==="function"){c(b,false)}};document.getElementsByTagName("head")[0].appendChild(a)};PDC._load_analyzer=function(){if(PDC._is_sample()==false){return}PDC._analyzer.loaded=true;PDC._load_js(PDC._analyzer.url,function(){var c=PDC._analyzer.callbacks;for(var b=0,a=c.length;b<a;b++){c[b]()}})};PDC.send=function(){if(PDC._analyzer.loaded==true){WPO_PDA.send()}else{PDC._analyzer.callbacks.push(function(){WPO_PDA.send()})}};PDC._is_sample=function(){var e=false,d=this._opt.sample,b=0;if(window.performance&&window.performance.timing){d=d*5}var c=new Date().getHours();if(c>1&&c<8){d=d*5}d=d>0.9?0.9:d;d=d<0.0001?0.0001:d;var a=document.cookie.match(/BAIDUID=(\w*):/);if(a){b=parseInt(a[1].slice(-4),16);b=isNaN(b)?0:b}if(d<=0.5){e=(b%(parseInt(1/d))==1)}else{e=(b%(parseInt(1/(1-d)))!=1)}return e};(function(){if(document.attachEvent){window.attachEvent("onload",function(){PDC.mark("lt")},false)}else{window.addEventListener("load",function(){PDC.mark("let");PDC._load_analyzer()})}})();</script>
+        <script type="text/javascript">
+            
+app.init_keyword = '';
+
+var bannerOnCommentConfig = {
+type:'img',
+flashOnly:0,
+height:70,
+width:677,
+src:'http:\/\/app.baidu.com\/static\/assets\/r\/image\/2012-07-09\/14e201785b3f039d8c363e7965bf64be.jpg',
+href:'http:\/\/app.baidu.com\/app\/enter?appid=173912',
+title:'生日祝福语'
+};
+var BannerUnderRankList = [
+	{
+		open:1,
+		type:'',
+		flashOnly:0,
+		height:70,
+		width:267,
+		src:'http:\/\/app.baidu.com\/static\/assets\/r\/image\/2012-07-10\/cedf1fb6dad5a2cd6e3dd6832d9cb6a1.jpg',
+		href:'http:\/\/app.baidu.com\/app\/enter?appid=108024',
+		title:'周公解梦'
+	},
+	{
+		open:1,
+		type:'img',
+		flashOnly:0,
+		height:70,
+		width:267,
+		src:'http:\/\/app.baidu.com\/static\/assets\/r\/image\/2012-05-03\/a620a1817cc46c76cec8c2cc1b59d277.jpg',
+		href:'http:\/\/app.baidu.com\/static\/cms\/albums\/homeliving.html',
+		title:'居家生活宝典'
+	},
+	{
+		open:1,
+		type:'img',
+		flashOnly:0,
+		height:70,
+		width:267,
+		src:'http:\/\/app.baidu.com\/static\/assets\/r\/image\/2012-03-19\/2e3c66d7d20b7cdbdd68d56939cdbdd0.jpg',
+		href:'http:\/\/app.baidu.com\/huiyuanka',
+		title:'会员卡设计'
+	},
+{
+open:0
+}
+];
+var showBannerOnCommentConfig = 1;
+var showBannerUnderRankConfig = 1;
+if(window.BannerUnderRankList){
+var BannerUnderRankConfig = BannerUnderRankList[0];
+}
+function renderBanerHTML(id,obj){
+	if(obj.type=="swf"){
+		var html = baidu.swf.createHTML({url:obj.src,width:obj.width,wmode: "opaque",height:obj.height});
+		if(!obj.flashOnly){
+			html += '<a target="_blank" href="'+obj.href.replace('<','&lt;').replace('>','&gt;')+'" style="display:block;height:'+obj.height+'px;width:'+obj.width+'px;position:absolute;top:0;left:0;background:#fff;opacity:0;filter:alpha(opacity=0);"></a>'
+		}
+		baidu.g(id).innerHTML = html;
+	}else{
+                if(obj.flashOnly){
+                        baidu.g(id).innerHTML = '<img src="'+obj.src.replace('<','&lt;').replace('>','&gt;')+'" class="" alt="" border="0" style="width:'+obj.width+'px;height:'+(obj.height||'auto')+'px;" />';
+                        return;
+                }
+		baidu.g(id).innerHTML = '<a target="_blank" title="'+obj.title.replace('<','&lt;').replace('>','&gt;')+'" href="'+obj.href.replace('<','&lt;').replace('>','&gt;')+'"><img src="'+obj.src.replace('<','&lt;').replace('>','&gt;')+'" class="" alt="" border="0" style="width:'+obj.width+'px;height:'+(obj.height||'auto')+'px;" /></a>';
+	}
+};
+function renderBanner(){
+if(window.baidu){
+		showBannerOnCommentConfig && baidu.g('BannerOnComment') && (function(){
+			renderBanerHTML('BannerOnComment',bannerOnCommentConfig);
+			baidu.g('BannerOnComment').style.marginBottom = '13px';
+			if(!baidu.q('widget-bottom-hot')[0] && baidu.g('app_sandbox') || !baidu.g('app_sandbox')){baidu.g('BannerOnComment').style.marginTop = '15px';}
+                        baidu.g('BannerOnComment').style.height=bannerOnCommentConfig.height+'px';
+		})();
+
+		showBannerUnderRankConfig && baidu.g('BannerUnderRank') && (function(){
+			renderBanerHTML('BannerUnderRank',BannerUnderRankConfig);
+                        baidu.g('BannerUnderRank').style.height=BannerUnderRankConfig.height+'px';
+		})();
+		
+		baidu.each(baidu.q('app-banner-list'),function(item,index){
+			if(item && BannerUnderRankList[index+1] && BannerUnderRankList[index+1].open){
+				renderBanerHTML(item,BannerUnderRankList[index+1]);
+				item.style.marginTop='5px';
+				baidu.g(item).style.height = BannerUnderRankList[index+1].height+ 'px';
+			}
+		});
+	}else{
+		setTimeout(renderBanner,800);
+	}
+};
+renderBanner();//初始化评论
+app.init_comment(appinfo_json);
+//if there is no user-score ranking list,then init the related-app-list after apps were rendered
+    window.withoutRankList=1;
+
+//添加收藏按钮事件
+//new app.add_app_button(baidu.dom.q("coll")[0], appinfo_json);//move to platform parent
+//添加简介按钮事件
+app.description(appinfo_json);
+//添加玩法按钮事件
+app.instruction(appinfo_json);
+//load relatedRecommend app list
+app.relatedRecommend.init(appinfo_json ,function(){
+    appinfo_json.is_pk && app.score_standings.init(appinfo_json);
+});
+
+if(baidu.dom.q("ico-contact")[0])
+baidu.on(baidu.dom.q("ico-contact")[0],"click",function(e){
+    app.contact.init(appinfo_json);
+    baidu.event.stop(e);
+});
+
+
+
+if(baidu.dom.q("ico-donate")[0])
+baidu.on(baidu.dom.q("ico-donate")[0],"click",function(e){
+    app.donate.dialog(appinfo_json);
+    baidu.event.stop(e);
+});
+try{
+jfx.ui.accordion('HotListAll', 'li', 0, 
+    {type:"height", start:22, end:79, trigger:"mouseover", noclass:"rank-list-more" 
+    //{type:"height", start:34, end:76, trigger:"mouseover", noclass:"rank-list-more" 
+    ,upCallback:function(o){
+       o.children[0].style.display = 'none';
+       o.children[0].children[0].style.marginTop='';
+    }, 
+    downCallback:function(o){
+       o.children[0].style.display = '';
+       o.children[0].children[0].style.marginTop=25+'px';
+    }
+    });
+}catch(e){}
+
+baidu.q('com',baidu.g('AppRun'))[0] && baidu.on(baidu.q('com',baidu.g('AppRun'))[0].parentNode,'click',function(){
+    location.hash = '#app_comment';
+});
+if (location.hash == '#app_comment') {
+    var app_comment_anchor = document.getElementsByName('app_comment')[0];
+    if (app_comment_anchor) {
+        setTimeout(function() {
+            document.documentElement.scrollTop = baidu.dom.getPosition(app_comment_anchor).top;
+        }, 1000);
+    }
+};
+//历史访问记录
+app.history(function(){
+    var $_history = baidu.g("history_iframe").contentWindow.$_history;
+
+    var history_top=baidu.dom.q('history-top')[0];
+    var history_content=baidu.dom.q('history-content')[0];
+    var history_content_ul=baidu.dom.q('history-content-ul')[0];
+    var history_content_bottom=baidu.dom.q('history-content-bottom')[0];
+    var history_top_tips=baidu.dom.q('history-top-tips')[0];
+    var history_content_title_l=baidu.dom.q('history-content-title-l')[0];
+    var history_content_title_r=baidu.dom.q('history-content-title-r')[0];
+
+    var category=['a','game','music','tool','read','video','life'];
+    var rec_o,rec,his_len,js_islogin;
+    history_has_login=0;
+
+    js_islogin=1;
+
+    var history_top_tips_arr=['a','您上次玩过','您上次听过','您上次用过','您上次读过','您上次看过','您上次用过'];
+    var tips_title=['a','使用记录','播放记录','使用记录','阅读记录','播放记录','使用记录'];
+    var tips=['a','您目前还未玩过任何游戏','您目前还未听过任何音乐','您目前还未用过任何工具','您目前还未读过任何书籍','您目前还未观看任何视频','您目前还未用过任何应用'];
+
+function get_history(callback)
+{
+    rec_o = $_history.getItem({key:category[3]});
+    if(js_islogin==1 || history_has_login==1)
+    {
+        baidu.ajax.post('/appweb/history/sync','cid='+3+'&local_storage_history='+rec_o,function(xhr,data){
+            if(data['errno']==10001 || data=='') 
+            {
+                his_len=0;
+            }
+            else
+            {
+                rec_o=data;
+                rec=baidu.json.parse(rec_o);
+                $_history.setItem({key:category[3],value:baidu.json.stringify(rec)});
+                his_len = rec['app_id'].length;
+            }
+            callback();
+        });
+    }
+    else {
+        rec=baidu.json.parse(rec_o);
+        his_len = rec['app_id']?rec['app_id'].length:0;
+        callback();
+    }
+}
+
+function init_no_history()
+{
+    //history_top_tips.innerHTML=history_top_tips_arr[3];
+    history_content_title_l.innerHTML=tips_title[3];
+    history_content_title_r.innerHTML='';
+    history_content_ul.innerHTML='<li class="history-content-li no-history-content">'+tips[3]+'</li>';
+    show_no_login_tips();
+    shorten_height();
+}
+function stretch_height()
+{
+    baidu.dom.setStyle(history_content_ul, "overflow-y", "scroll"); 
+    baidu.dom.setStyle(history_content_ul, "height", "155px"); 
+    var history_content_li=baidu.dom.q('history-content-li');
+    for(var i=0;i<his_len;i++) baidu.dom.setStyle(history_content_li[i],"width","197px");
+}
+
+function shorten_height()
+{
+    baidu.dom.setStyle(history_content_ul, "overflow-y", "hidden"); 
+    baidu.dom.setStyle(history_content_ul, "height", "auto"); 
+    var history_content_li=baidu.dom.q('history-content-li');
+    for(var i=0;i<his_len;i++) baidu.dom.setStyle(history_content_li[i],"width","214px");
+}
+
+function show_history()
+{
+    //history_top_tips.innerHTML=history_top_tips_arr[3];
+    history_content_title_l.innerHTML=tips_title[3];
+    history_content_title_r.innerHTML='<a href="javascript:void(0);" data-item="clear" class="history-clear">清空</a>';
+    var str='';
+        for(var i=0;i<his_len;i++)
+    {
+    str+='<li class="history-content-li"><div class="history-content-l"><div class="history-content-l1"><a href="'+rec["app_url"][i]+'" data-item="icon" target="_blank"><img src="'+rec["app_icon"][i]+'" width="16px" height="16px"/></a></div><div class="history-content-l2"><a href="'+rec["app_url"][i]+'" data-item="title" target="_blank" title="'+rec["app_name"][i]+'">'+baidu.string.subByte(rec["app_name"][i],12)+'</a></div></div><div class="history-content-r"><a href="javascript:void(0);" data-item="del">删除</a></div></li>';
+        }
+        history_content_ul.innerHTML=str; 
+        
+        show_no_login_tips();
+        
+        delete_all_record();
+        
+        
+        if(his_len>5)
+        {
+            stretch_height();
+        }
+        else
+        {
+        shorten_height();
+        }
+        
+        for(var i=0;i<his_len;i++)
+        {
+        (function(){
+            var t=i;
+            var history_content_r=baidu.dom.q('history-content-r');
+            
+            baidu.event.on(history_content_r[t],"click",function(e){
+            var target = baidu.event.get(e).target,
+            tagName = target.tagName.toLowerCase(),
+            iscontinue = true,
+            appid = pageid = "",
+            item = "",
+            pos = "",
+            title = "",
+            kword = "";
+            do{
+                if(!appid){
+                    appid = target.getAttribute("data-appid")||"";
+                }
+                if(!item){
+                    item = target.getAttribute("data-item")||"";
+                }
+                if(!pos){
+                    pos = target.getAttribute("data-pos")||"";
+                }
+                if(!pageid){
+                    pageid = target.getAttribute("data-pageid")||"";
+                }
+                if(!title){
+                    title = target.getAttribute("data-title")||"";
+                }
+                if(tagName == "input" && baidu.G('w')){
+                    kword = encodeURIComponent(baidu.G('w').value);
+                }
+                
+                if(target.getAttribute("data-zone")){
+                    iscontinue = false;
+                    var data = {
+                        zone:target.getAttribute("data-zone"),
+                        item:item||"icon",
+                        pos:pos||"index",
+                        pageid:pageid,
+                        title:title,
+                        kword:kword||""
+                    }
+                    if(appid)data.appid = appid;
+                    zoneHandle(data);
+                }
+            }while(iscontinue && (target = target.parentNode) && target.getAttribute)
+                baidu.dom.getParent(this).style.display="none";
+                if(js_islogin==1 || history_has_login==1)
+                {
+                        baidu.ajax.post('/appweb/history/del','cid='+3+'&appids='+rec["app_id"][t],function(xhr,data){
+                            rec["app_id"].splice(t,1);
+                            rec["app_url"].splice(t,1);
+                            rec["app_icon"].splice(t,1);
+                            rec["app_name"].splice(t,1);
+                            
+                            $_history.setItem({key:category[3],value:baidu.json.stringify(rec)});
+                            his_len--;
+                            if(rec["app_id"].length<=5) shorten_height();
+                            if(rec["app_id"].length>0) show_history();
+                            else init_no_history();
+                        });
+                }
+                else
+                {
+                        rec["app_id"].splice(t,1);
+                        rec["app_url"].splice(t,1);
+                        rec["app_icon"].splice(t,1);
+                        rec["app_name"].splice(t,1);
+
+                        $_history.setItem({key:category[3],value:baidu.json.stringify(rec)});
+                        his_len--;
+                        if(rec["app_id"].length<=5) shorten_height();
+                        if(rec["app_id"].length>0) show_history();
+                        else init_no_history();
+                } 
+            });
+        })();
+        }
+        
+}
+function delete_all_record()
+{
+        var history_clear=baidu.dom.q('history-clear')[0];
+        baidu.event.on(history_clear,"click",function(e){
+        var target = baidu.event.get(e).target,
+            tagName = target.tagName.toLowerCase(),
+            iscontinue = true,
+            appid = pageid = "",
+            item = "",
+            pos = "",
+            title = "",
+            kword = "";
+            do{
+                if(!appid){
+                    appid = target.getAttribute("data-appid")||"";
+                }
+                if(!item){
+                    item = target.getAttribute("data-item")||"";
+                }
+                if(!pos){
+                    pos = target.getAttribute("data-pos")||"";
+                }
+                if(!pageid){
+                    pageid = target.getAttribute("data-pageid")||"";
+                }
+                if(!title){
+                    title = target.getAttribute("data-title")||"";
+                }
+                if(tagName == "input" && baidu.G('w')){
+                    kword = encodeURIComponent(baidu.G('w').value);
+                }
+                
+                if(target.getAttribute("data-zone")){
+                    iscontinue = false;
+                    var data = {
+                        zone:target.getAttribute("data-zone"),
+                        item:item||"icon",
+                        pos:pos||"index",
+                        pageid:pageid,
+                        title:title,
+                        kword:kword||""
+                    }
+                    if(appid)data.appid = appid;
+                    zoneHandle(data);
+                }
+            }while(iscontinue && (target = target.parentNode) && target.getAttribute)
+                if(js_islogin==1 || history_has_login==1)
+                {
+                        var t='280383';
+                        if(!baidu.array.contains(rec['app_id'],'280383')) rec["app_id"].push(t);
+                        baidu.ajax.post('/appweb/history/del','cid='+3+'&appids='+rec["app_id"].join(","),function(xhr,data){
+                            $_history.removeItem({key:category[3]});
+                            var t_v={"app_id":[],"app_name":[],"app_icon":[],"app_url":[]};
+                            $_history.setItem({key:category[3],value:baidu.json.stringify(t_v)}); 
+                            history_main();
+                        });
+                }
+                else
+                {
+                        $_history.removeItem({key:category[3]});
+                        var t_v={"app_id":[],"app_name":[],"app_icon":[],"app_url":[]};
+                        $_history.setItem({key:category[3],value:baidu.json.stringify(t_v)}); 
+                        history_main();
+                }
+                
+        });
+}
+function show_no_login_tips()
+{
+        if(js_islogin==1 || history_has_login==1)
+        {
+            history_content_bottom.style.display="none";
+        }
+        else
+        {  
+            if(baidu.cookie.get('no_login_tips')) history_content_bottom.style.display="none";
+            else
+            {
+                    baidu.event.on(baidu.dom.q('history-content-bottom-close')[0],'click',function(){
+                        history_content_bottom.style.display="none";
+                        var d=new Date();
+                        baidu.cookie.set('no_login_tips',true,{expires:d.getTime()+4000000000000});
+                    });
+            }
+        }
+}
+function set_history_record()
+{
+    var loc_o = $_history.getItem({key:category[3]});
+    var loc = baidu.json.parse(loc_o);
+    if(!loc["app_id"].length)
+    {
+            var obj={
+                        app_id:['280383'],
+                        app_name:['Xss安全测试字符转换工具'],
+                        app_icon:['http://apps.bdimg.com/store/static/kvt/98fcf53e7ee432ab3845c86b6aa2151a.jpg'],
+                        app_url:['']
+                    };
+            $_history.setItem({key:category[3],value:baidu.json.stringify(obj)});
+    }
+    else
+    {
+        loc['app_id'].reverse();
+        loc['app_name'].reverse();
+        loc['app_icon'].reverse();
+        loc['app_url'].reverse();
+        
+        if(baidu.array.indexOf(loc['app_id'],'280383')>=0) 
+        {
+            var t_index=baidu.array.indexOf(loc['app_id'],'280383');
+            loc['app_id'].splice(t_index,1);
+            loc['app_name'].splice(t_index,1);
+            loc['app_icon'].splice(t_index,1);
+            loc['app_url'].splice(t_index,1);
+        }
+
+            loc['app_id'].push('280383');
+            loc['app_name'].push('Xss安全测试字符转换工具');
+            loc['app_icon'].push('http://apps.bdimg.com/store/static/kvt/98fcf53e7ee432ab3845c86b6aa2151a.jpg');
+            loc['app_url'].push('');
+        
+            if(loc['app_id'].length>10)
+            {
+            loc['app_id'].splice(0,1);
+            loc['app_name'].splice(0,1);
+            loc['app_icon'].splice(0,1);
+            loc['app_url'].splice(0,1);
+            }
+
+            loc['app_id'].reverse();
+            loc['app_name'].reverse();
+            loc['app_icon'].reverse();
+            loc['app_url'].reverse();
+        var obj={
+                            app_id:loc["app_id"],
+                            app_name:loc["app_name"],
+                            app_icon:loc["app_icon"],
+                            app_url:loc["app_url"]
+                    };
+        $_history.setItem({key:category[3],value:baidu.json.stringify(obj)});
+    }
+}
+
+function history_main()
+{
+    get_history(function(){
+        if(!his_len)
+        {
+            init_no_history();
+        }
+        else
+        {
+            show_history();
+        }
+    });
+}
+function history_init()
+{
+    baidu.event.on(history_top,"mouseover",function(){history_content.style.visibility="visible"; baidu.g("historyCoverIframe").style.display="block"; baidu.g("historyCoverIframe").style.height = history_content.offsetHeight + "px"; history_top.style.background='url("http://webapp.bdimg.com/static/06241840/appweb/images/history_top_bg2.gif") no-repeat';});
+    baidu.event.on(history_top,"mouseout",function(){history_content.style.visibility="hidden"; baidu.g("historyCoverIframe").style.display="none"; history_top.style.background='url("http://webapp.bdimg.com/static/06241840/appweb/images/history_top_bg.gif") no-repeat';});
+        var t_history = $_history.getItem({key:category[3]});
+    var t_v={"app_id":[],"app_name":[],"app_icon":[],"app_url":[]};
+    if(t_history == null) {
+        $_history.setItem({key:category[3],value:baidu.json.stringify(t_v)}); 
+    }
+}
+    history_init();
+    history_main();
+    $_history.setRecord(0);
+    baidu.on(window,"unload",function(){
+        $_history.setRecord(3);
+    });
+    login_success.push(function(code, username) {
+        history_main();
+    });
+});
+
+            window.__share__text = baidu.g('__share__text')?baidu.g('__share__text').innerHTML:''; 
+            //添加收藏按钮事件
+            //window.__coll__obj = new app.add_app_button(baidu.dom.q("coll")[0], appinfo_json);
+            baidu.dom.q("coll")[0] && (window.__coll__obj = app.collect(baidu.dom.q("coll")[0].parentNode, appinfo_json));
+            
+            
+            window.setSharePos && setSharePos();
+            
+            
+            // deal score share logical
+            window.shareInit = function(){
+                T.sio.callByServer("http://share.baidu.com/static/js/bds_s_v2.js?v=20110729");
+            };
+            // send coll form share sts
+            window.sendShareColl = function(arg){
+                var n = "log_"+ (new Date()).getTime();
+                var c = window[n] = new Image();   //把new Image()赋给一个全局变量长期持有
+                c.onload = (c.onerror=function(){window[n] = null;});
+                c.src='http://nsclick.baidu.com/v.gif?pid=201&tid=7000&pj=app&item=' + (arg?'platformCollFromShare':'platformColl') + '&fm=apppv&T=' + window._T + '&ck=' + window._ck + '&zone=app-list&url=' + encodeURIComponent(location.href) + '&t=' + (+(new Date()));
+            };
+            window.sendShowColl = function(arg){
+                var n = "log_"+ (new Date()).getTime();
+                var c = window[n] = new Image();   //把new Image()赋给一个全局变量长期持有
+                c.onload = (c.onerror=function(){window[n] = null;});
+                c.src='http://nsclick.baidu.com/v.gif?pid=201&tid=7000&pj=app&item=' + (arg?'platformShowCollFromShare':'platformShowColl') + '&fm=apppv&T=' + window._T + '&ck=' + window._ck + '&zone=app-list&url=' + encodeURIComponent(location.href) + '&t=' + (+(new Date()));
+            };
+            
+            baidu.each((function(){return baidu.q('fullscreen-showcase-menu')[0]?baidu.q('fullscreen-showcase-menu')[0].getElementsByTagName('li'):false})(),function(item){
+                baidu.on(item,'mouseover',function(){
+                    baidu.dom.addClass(this,'over')
+                });
+                baidu.on(item,'mouseout',function(){
+                    baidu.dom.removeClass(this,'over')
+                });
+            });            
+
+            (function(){
+            var n = "log_"+ (new Date()).getTime();
+            var c = window[n] = new Image();   //把new Image()赋给一个全局变量长期持有
+            c.onload = (c.onerror=function(){window[n] = null;});
+            c.src="http://app.baidu.com/static/appstore/images/w.gif?pid=201&tid=7000&pj=app&item=pagebegin&fm=apppv" + '&T=' + window._T + '&ck=' + window._ck + '&zone=app-list&url=' + encodeURIComponent(location.href) + '&t=' + (+(new Date()));
+            })();
+        </script><iframe id="history_iframe" src="./Xss安全测试字符转换工具_百度应用_files/history.htm" style="display: none;"></iframe>
+            
+
+<div id="passport-login-pop" class="tang-pass-pop-login-noimg tang-pass-pop-login-merge tang-pass-pop-login-tpl-app tang-pass-pop-login-color-blue tang-pass-pop-login" style="left: 478px; top: 90px; z-index: 60001; display: none;"><div class="tang-background" id="TANGRAM__PSP_49__" style="position:absolute; top:0px; left:0px;width:100%;height:100%;z-index:-9; -webkit-user-select:none; -moz-user-select:none;" onselectstart="return false"><div class="tang-background-inner" style="width:100%;height:100%;" id="TANGRAM__PSP_49__inner"></div><div style="filter:progid:DXImageTransform.Microsoft.Alpha(opacity:0);position:absolute;z-index:-1;top:0;left:0;width:100%;height:100%;opacity:0;background-color:#FFFFFF"></div></div><div class="tang-foreground" id="TANGRAM__PSP_47__foreground" style="width: 393px;"><div class="tang-title tang-title-dragable" id="TANGRAM__PSP_47__title"><div class="buttons" id="TANGRAM__PSP_47__titleButtons"><a id="TANGRAM__PSP_47__closeBtn" class="close-btn" href="http://app.baidu.com/app/enter?appid=280383###" onmousedown="event.stopPropagation &amp;&amp; event.stopPropagation(); event.cancelBubble = true; return false;" onclick="return false;"></a></div><span id="TANGRAM__PSP_47__titleText">登录百度帐号</span></div><div class="tang-body" id="TANGRAM__PSP_47__body"><div class="tang-content" id="TANGRAM__PSP_47__content"><div id="passport-login-pop-dialog"><div class="clearfix"><div class="pass-login-pop-content" id=""><div class="pass-login-pop-form"><div id="passport-login-pop-api" class="tang-pass-login"><form id="TANGRAM__PSP_53__form" class="pass-form pass-form-normal" method="POST" autocomplete="off"><p id="TANGRAM__PSP_53__errorWrapper" class="pass-generalErrorWrapper"><span id="TANGRAM__PSP_53__error" class="pass-generalError pass-generalError-error"></span></p><p id="TANGRAM__PSP_53__hiddenFields" style="display:none"><input type="hidden" id="TANGRAM__PSP_53__codeString" name="codeString" value=""><input type="hidden" id="TANGRAM__PSP_53__safeFlag" name="safeFlag" value="0"><input type="hidden" id="TANGRAM__PSP_53__u" name="u" value="http://www.baidu.com"><input type="hidden" id="TANGRAM__PSP_53__isPhone" name="isPhone" value="false"><input type="hidden" id="TANGRAM__PSP_53__staticPage" name="staticPage" value="http://app.baidu.com/static/06241840/appweb/scripts/popup_login/v3Jump.html"><input type="hidden" id="TANGRAM__PSP_53__quick_user" name="quick_user" value="0"><input type="hidden" id="TANGRAM__PSP_53__logintype" name="logintype" value="dialogLogin"><input type="hidden" id="TANGRAM__PSP_53__logLoginType" name="logLoginType" value="pc_loginDialog"><input type="hidden" id="TANGRAM__PSP_53__subpro" name="subpro" value=""><input type="hidden" id="TANGRAM__PSP_53__idc" name="idc" value=""><input type="hidden" id="TANGRAM__PSP_53__loginMerge" name="loginMerge" value="true"></p><p id="TANGRAM__PSP_53__userNameWrapper" class="pass-form-item pass-form-item-userName" style="display:"><label for="TANGRAM__PSP_53__userName" id="TANGRAM__PSP_53__userNameLabel" class="pass-label pass-label-userName">手机/邮箱/用户名</label><input id="TANGRAM__PSP_53__userName" type="text" name="userName" class="pass-text-input pass-text-input-userName open" autocomplete="off" placeholder="手机/邮箱/用户名"><span id="TANGRAM__PSP_53__userName_clearbtn" class="pass-clearbtn pass-clearbtn-userName" style="display: block; visibility: visible; opacity: 1;"></span><span id="TANGRAM__PSP_53__userNameTip" class="pass-item-tip pass-item-tip-userName" style="display:none"><span id="TANGRAM__PSP_53__userNameTipText" class="pass-item-tiptext pass-item-tiptext-userName"></span></span><ul id="TANGRAM__PSP_53__suggestionWrapper" class="pass-suggestion-list" style="display: none; visibility: hidden; opacity: 1;"><li class="pass-item-suggsetion" data-select="18508280792" data-type="history">18508280792<a data-delete="18508280792" title="删除该记录"></a></li></ul><span class="pass-item-selectbtn pass-item-selectbtn-userName" style="display: none; visibility: hidden; opacity: 1;"></span></p><p id="TANGRAM__PSP_53__passwordWrapper" class="pass-form-item pass-form-item-password" style="display:"><label for="TANGRAM__PSP_53__password" id="TANGRAM__PSP_53__passwordLabel" class="pass-label pass-label-password">密码</label><input id="TANGRAM__PSP_53__password" type="password" name="password" class="pass-text-input pass-text-input-password" placeholder="密码"><span id="TANGRAM__PSP_53__password_clearbtn" class="pass-clearbtn pass-clearbtn-password" style="display:none;"></span><span id="TANGRAM__PSP_53__passwordTip" class="pass-item-tip pass-item-tip-password" style="display:none"><span id="TANGRAM__PSP_53__passwordTipText" class="pass-item-tiptext pass-item-tiptext-password"></span></span></p><p id="TANGRAM__PSP_53__verifyCodeImgWrapper" class="pass-form-item pass-form-item-verifyCode" style="display:none"><label for="TANGRAM__PSP_53__verifyCode" id="TANGRAM__PSP_53__verifyCodeLabel" class="pass-label pass-label-verifyCode">验证码</label><input id="TANGRAM__PSP_53__verifyCode" type="text" name="verifyCode" class="pass-text-input pass-text-input-verifyCode" maxlength="6" placeholder="验证码"><span id="TANGRAM__PSP_53__verifyCodeImgParent" class="pass-verifyCodeImgParent"><img id="TANGRAM__PSP_53__verifyCodeImg" class="pass-verifyCode" src="./Xss安全测试字符转换工具_百度应用_files/small_blank_9dbbfbb1.gif"></span><a id="TANGRAM__PSP_53__verifyCodeChange" href="http://app.baidu.com/app/enter?appid=280383#" class="pass-change-verifyCode">换一张</a><span id="TANGRAM__PSP_53__verifyCodeError" class="pass-error pass-error-verifyCode"></span><span id="TANGRAM__PSP_53__verifyCodeTip" class="pass-tip pass-tip-verifyCode"></span><span id="TANGRAM__PSP_53__verifyCodeSuccess" class="pass-success pass-success-verifyCode"></span></p><p id="TANGRAM__PSP_53__memberPassWrapper" class="pass-form-item pass-form-item-memberPass"><input id="TANGRAM__PSP_53__memberPass" type="checkbox" name="memberPass" class="pass-checkbox-input pass-checkbox-memberPass" checked="checked"><label for="TANGRAM__PSP_53__memberPass" id="TANGRAM__PSP_53__memberPassLabel" class="">下次自动登录</label></p><p id="TANGRAM__PSP_53__submitWrapper" class="pass-form-item pass-form-item-submit"><input id="TANGRAM__PSP_53__submit" type="submit" value="登录" class="pass-button pass-button-submit"><a class="pass-reglink" href="http://baidu.com/?2" target="_blank">立即注册</a><a class="pass-fgtpwd" href="https://passport.baidu.com/?getpassindex&tpl=app&u=http%3A%2F%2Fwww.baidu.com" target="_blank">忘记密码？</a></p></form></div><div id="TANGRAM__PSP_53__sms" class="tang-pass-login tang-pass-sms" style="display:none"><p class="tang-pass-sms-title">短信登录</p><p class="tang-pass-sms-tip">验证即登录，没有百度帐号也可以使用</p><form id="TANGRAM__PSP_53__smsForm" method="POST"><p id="TANGRAM__PSP_53__smsHiddenFields" style="display:none"><input type="hidden" id="TANGRAM__PSP_53__smsHiddenFields_u" name="u" value="http://www.baidu.com"><input type="hidden" id="TANGRAM__PSP_53__smsHiddenFields_staticPage" name="staticPage" value="http://app.baidu.com/static/06241840/appweb/scripts/popup_login/v3Jump.html"><input type="hidden" id="TANGRAM__PSP_53__smsHiddenFields_tpl" name="tpl" value="app"><input type="hidden" id="TANGRAM__PSP_53__smsHiddenFields_idc" name="idc" value=""><input type="hidden" id="TANGRAM__PSP_53__smsHiddenFields_isdpass" name="isdpass" value="1"><input type="hidden" id="TANGRAM__PSP_53__smsHiddenFields_switchuname" name="switchuname" value=""><input type="hidden" id="TANGRAM__PSP_53__smsHiddenFields_subpro" name="subpro" value=""></p><p id="TANGRAM__PSP_53__smsErrorWrapper" class="pass-generalErrorWrapper"><span id="TANGRAM__PSP_53__smsError" class="pass-generalError"></span></p><p id="TANGRAM__PSP_53__smsPhoneWrapper" class="pass-form-item pass-form-item-smsPhone"><label for="TANGRAM__PSP_53__smsPhone" id="TANGRAM__PSP_53__smsPhoneLabel" class="pass-label pass-label-smsPhone">手机号</label><input id="TANGRAM__PSP_53__smsPhone" type="text" name="username" class="pass-text-input pass-text-input-smsPhone" placeholder="请输入手机号，未注册将自动创建百度帐号"><span id="TANGRAM__PSP_53__smsPhone_clearbtn" class="pass-clearbtn pass-clearbtn-smsPhone" style="display:none;"></span><span id="TANGRAM__PSP_53__smsPhoneTip" class="pass-item-tip pass-item-tip-smsPhone" style="display:none"><span id="TANGRAM__PSP_53__smsPhoneTipText"></span></span></p><p id="TANGRAM__PSP_53__smsVerifyCodeWrapper" class="pass-form-item pass-form-item-smsVerifyCode"><label for="TANGRAM__PSP_53__smsVerifyCode" id="TANGRAM__PSP_53__smsVerifyCodeLabel" class="pass-label pass-label-smsVerifyCode">动态密码</label><input id="TANGRAM__PSP_53__smsVerifyCode" type="text" name="password" class="pass-text-input pass-text-input-smsVerifyCode" placeholder="动态密码"><span id="TANGRAM__PSP_53__smsVerifyCode_clearbtn" class="pass-clearbtn pass-clearbtn-smsVerifyCode" style="display:none;"></span><button id="TANGRAM__PSP_53__smsTimer" class="pass-item-timer">发送动态密码</button><span id="TANGRAM__PSP_53__smsVerifyCodeTip" class="pass-item-tip pass-item-tip-smsVerifyCode" style="display:none"><span id="TANGRAM__PSP_53__smsVerifyCodeTipText"></span></span></p><p id="TANGRAM__PSP_53__smsSubmitWrapper" class="pass-form-item pass-form-item-submit"><input id="TANGRAM__PSP_53__smsSubmit" type="submit" value="登录" class="pass-button pass-button-submit"><a id="TANGRAM__PSP_53__sms_btn_back" class="pass-sms-link pass-sms-link-back">&lt;&lt;返回登录</a></p></form></div><div id="TANGRAM__PSP_53__qrcode" class="clearfix tang-pass-qrcode tang-pass-login" style="display:none;"><div class="tang-pass-qrcode-content" id="TANGRAM__PSP_53__qrcodeContent"><div class="tang-pass-qrcode-init"><p class="tang-pass-qrcode-title">手机扫描，安全登录</p><div class="tang-pass-qrcode-imgWrapper"><img class="tang-pass-qrcode-img" src="./Xss安全测试字符转换工具_百度应用_files/loading_ed5e4a40.gif"></div><p class="tang-pass-qrcode-info">请使用<a href="http://wuxian.baidu.com/baidusearch/" target="_blank">手机百度app</a>扫描登录</p></div></div></div><div id="pass-phoenix-login" class="tang-pass-login-phoenix"><div class="pass-phoenix-title">可以使用以下方式登录<span class="pass-phoenix-note"></span></div><div id="pass-phoenix-list-login" class="pass-phoenix-list clearfix pass-phoenix-list-second"><a class="pass-normal-btn" title="普通登录" style="display:none" data-type="normal">普通登录</a><div class="pass-phoenix-btn clearfix" id="pass_phoenix_btn"><ul class="bd-acc-list"><li class="bd-acc-tsina" data-dialog="1" data-acc="2" data-height="669" data-width="800" id=""><a class="phoenix-btn-item" href="http://app.baidu.com/app/enter?appid=280383#" title="新浪微博">新浪微博</a></li><li class="bd-acc-renren" data-dialog="1" data-acc="1" data-height="356" data-width="600" id=""><a class="phoenix-btn-item" href="http://app.baidu.com/app/enter?appid=280383#" title="人人网">人人网</a></li><li class="bd-acc-tqq" data-dialog="1" data-acc="4" data-height="410" data-width="610" id=""><a class="phoenix-btn-item" href="http://app.baidu.com/app/enter?appid=280383#" title="腾讯微博">腾讯微博</a></li></ul></div><a class="pass-sms-btn" title="短信登录" data-type="sms">短信登录</a></div><div class="clear"></div></div><div id="TANGRAM__PSP_53__pass_b2c" style="display:none;"></div><div class="tang-pass-pop-login-changeWrapper" id=""><div class="tang-pass-pop-login-change tang-pass-pop-qrcodeLogin" data-type="normal"></div></div></div></div></div></div></div></div><div class="tang-footer" id="TANGRAM__PSP_47__footer" style="display: none;"><div id="TANGRAM__PSP_47__footerContainer"></div></div></div></div></body></html>

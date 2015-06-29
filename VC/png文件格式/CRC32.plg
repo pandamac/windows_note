@@ -1,0 +1,60 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: CRC32 - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSPA669.tmp" with contents
+[
+/nologo /ML /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /FR"Release/" /Fp"Release/CRC32.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Users\Administrator\Desktop\png文件格式\CRC32.cpp"
+]
+Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSPA669.tmp" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSPA66A.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:no /pdb:"Release/CRC32.pdb" /machine:I386 /out:"Release/CRC32.exe" 
+".\Release\CalcCRC32.obj"
+".\Release\Chunk.obj"
+".\Release\CRC32.obj"
+".\Release\IDATChunk.obj"
+".\Release\IENDChunk.obj"
+".\Release\IHDRChunk.obj"
+".\Release\pHYsChunk.obj"
+".\Release\PLETChunk.obj"
+".\Release\PNGFile.obj"
+".\Release\StdAfx.obj"
+".\Release\tRNS.obj"
+".\zlibstat.lib"
+]
+Creating command line "link.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSPA66A.tmp"
+<h3>Output Window</h3>
+Compiling...
+CRC32.cpp
+Linking...
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSPA6C9.tmp" with contents
+[
+/nologo /o"Release/CRC32.bsc" 
+".\Release\StdAfx.sbr"
+".\Release\CalcCRC32.sbr"
+".\Release\Chunk.sbr"
+".\Release\CRC32.sbr"
+".\Release\IDATChunk.sbr"
+".\Release\IENDChunk.sbr"
+".\Release\IHDRChunk.sbr"
+".\Release\pHYsChunk.sbr"
+".\Release\PLETChunk.sbr"
+".\Release\PNGFile.sbr"
+".\Release\tRNS.sbr"]
+Creating command line "bscmake.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSPA6C9.tmp"
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+CRC32.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,8 @@
+win32控制台程序中使用CString和string
+发布:wpulog | 发布时间: 2007年7月21日
+  最近编一个控制台程序,开始时用字符数组,发现处理字符串很不方便.于是想到用MFC的CString类.CString的头文件是<afxwin.h>.包含头文件编译,提示错误fatal error C1189: #error :  WINDOWS.H already included.  MFC apps must not #include <windows.h>.后来几经周折终于找到了解决办法:
+一,在工程->设置->常规选项 选择使用MFC做为静态链接库或做为共享的DLL.
+二#include <afxwin.h>必须放在#include <winsock2.h>等文件的前边,具体是什么文件还没弄清楚.
+所以为了方便还是把#include <afxwin.h>放在其它头文件的前边比较好.
+  使用string的方法是:在头文件中包含这两句#include <string>   
+   using namespace std; 

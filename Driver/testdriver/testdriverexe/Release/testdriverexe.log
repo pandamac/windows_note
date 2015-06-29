@@ -1,0 +1,25 @@
+﻿生成启动时间为 2014/11/9 17:47:08。
+     1>项目“G:\beiyong\biancheng\Driver\testdriver\testdriverexe\testdriverexe.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Release\testdriverexe.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         所有输出均为最新。
+         E:\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Release\testdriverexe.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt testdriverexe.cpp
+         testdriverexe.cpp
+     1>testdriverexe.cpp(124): warning C4102: “ret”: 未引用的标签
+       Link:
+         E:\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"G:\beiyong\biancheng\Driver\testdriver\testdriver\Release\testdriverexe.exe" /INCREMENTAL:NO /NOLOGO /MANIFEST /ManifestFile:"Release\testdriverexe.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"G:\beiyong\biancheng\Driver\testdriver\testdriver\Release\testdriverexe.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"G:\beiyong\biancheng\Driver\testdriver\testdriver\Release\testdriverexe.lib" /MACHINE:X86 Release\stdafx.obj
+         Release\testdriverexe.obj
+         正在生成代码
+         已完成代码的生成
+         testdriverexe.vcxproj -> G:\beiyong\biancheng\Driver\testdriver\testdriver\Release\testdriverexe.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"G:\beiyong\biancheng\Driver\testdriver\testdriver\Release\testdriverexe.exe;#1" /manifest Release\testdriverexe.exe.intermediate.manifest "E:\Microsoft Visual Studio 10.0\VC\Include\Manifest\dpiaware.manifest"
+       FinalizeBuildStatus:
+         正在删除文件“Release\testdriverexe.unsuccessfulbuild”。
+         正在对“Release\testdriverexe.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“G:\beiyong\biancheng\Driver\testdriver\testdriverexe\testdriverexe.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:01.12

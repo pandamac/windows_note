@@ -1,0 +1,38 @@
+** 16th March 2009 **
+ Release: 2.0.0
+ Updated to work with Python3.
+
+** 14th November 2008 **
+ Release: 1.3.1
+ Code:  Patch by Shaya: fix PAD_PKCS5 padding modes when using triple des CBC.
+ Tests: Moved to separate test file.
+
+** 28th October 2008 **
+ Release: 1.3
+ Code: Added PAD_NORMAL and PAD_PKCS5 padding modes.
+ Code: Implemented PKCS5 padding suport.
+ Code: Allow pad character and padmode to be set on a class instance.
+
+** 23rd March 2007 **
+ License: Specified license as Public Domain everywhere.
+
+** 12th September 2005 **
+ Release: 1.2
+ Code: Fixed errors with pyDes.triple_des() CBC mode.
+ Code: Added triple DES CBC checks to the testing procedures in __fulltest__()
+
+** 7 May 2003 **
+ Code: pyDes.des and pyDes.triple_des now have an extra optional argument for
+ 	the encrypt and decrypt methods. This is for the padding character and
+ 	immediately follows the data field.
+ Code: Added error checking to the testing procedures in __fulltest__()
+ 
+** 5 May 2003 **
+ Doc:  Modified comments in Readme.txt and in pyDes.py header
+
+ Code: Changed Triple DES method to DES-EDE3 or DES-EDE2, depending on key size
+ Code: Optimized code by replacing inner for loops with map (now twice as fast)
+ Code: Changed all permutation tables to contain indexed locations instead of
+ 	byte offset locations
+ Code: Removed debugging line "Len of data: 1.0000"
+ Code: Included __filetest__() testing procedure

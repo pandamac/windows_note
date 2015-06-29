@@ -1,0 +1,5 @@
+	先写一个安装程序SETUP，里面包含三个文件，SVCHOST.exe,vnc.dll,tianya.exe,
+  
+   SVCHOST.exe,vnc.dll为主要运行时的文件，tianya.exe,起动前面的两个程序，并且自运行。
+   
+   起动项由安装程序加载，

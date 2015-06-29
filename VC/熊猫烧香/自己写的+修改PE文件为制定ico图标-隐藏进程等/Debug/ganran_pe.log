@@ -1,0 +1,50 @@
+﻿生成启动时间为 2014/6/5 19:35:03。
+     1>项目“G:\beiyong\biancheng\test\ganran_pe\ganran_pe.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“.\Debug\ganran_pe.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         所有输出均为最新。
+         E:\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0600 /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Debug\\" /Fd".\Debug\vc100.pdb" /FR".\Debug\\" /Gd /TP /analyze- /errorReport:prompt ganran_pe.cpp
+         ganran_pe.cpp
+     1>g:\beiyong\biancheng\test\ganran_pe\ganran_pe.cpp(305): warning C4102: “function_call”: 未引用的标签
+     1>g:\beiyong\biancheng\test\ganran_pe\ganran_pe.cpp(571): warning C4258: “i”: 忽略 For 循环中的定义；使用封闭范围中的定义
+                 g:\beiyong\biancheng\test\ganran_pe\ganran_pe.cpp(567) : 忽略“i”的定义
+                 g:\beiyong\biancheng\test\ganran_pe\ganran_pe.cpp(97) : 使用“i”的定义
+     1>g:\beiyong\biancheng\test\ganran_pe\ganran_pe.cpp(573): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 e:\microsoft visual studio 10.0\vc\include\string.h(110) : 参见“strcat”的声明
+     1>g:\beiyong\biancheng\test\ganran_pe\ganran_pe.cpp(576): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 e:\microsoft visual studio 10.0\vc\include\stdio.h(234) : 参见“fopen”的声明
+     1>g:\beiyong\biancheng\test\ganran_pe\ganran_pe.cpp(706): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 e:\microsoft visual studio 10.0\vc\include\string.h(110) : 参见“strcat”的声明
+     1>g:\beiyong\biancheng\test\ganran_pe\ganran_pe.cpp(708): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 e:\microsoft visual studio 10.0\vc\include\string.h(110) : 参见“strcat”的声明
+     1>g:\beiyong\biancheng\test\ganran_pe\ganran_pe.cpp(175): warning C4731: “FectPE”: 框架指针寄存器“ebp”被内联程序集代码修改
+     1>g:\beiyong\biancheng\test\ganran_pe\ganran_pe.cpp(181): warning C4731: “FectPE”: 框架指针寄存器“ebp”被内联程序集代码修改
+     1>g:\beiyong\biancheng\test\ganran_pe\ganran_pe.cpp(183): warning C4731: “FectPE”: 框架指针寄存器“ebp”被内联程序集代码修改
+     1>g:\beiyong\biancheng\test\ganran_pe\ganran_pe.cpp(214): warning C4731: “FectPE”: 框架指针寄存器“ebp”被内联程序集代码修改
+     1>g:\beiyong\biancheng\test\ganran_pe\ganran_pe.cpp(216): warning C4731: “FectPE”: 框架指针寄存器“ebp”被内联程序集代码修改
+       ResourceCompile:
+         所有输出均为最新。
+       ManifestResourceCompile:
+         所有输出均为最新。
+       Link:
+         E:\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:".\Debug\ganran_pe.exe" /INCREMENTAL /NOLOGO odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:".\Debug\ganran_pe.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"G:\beiyong\biancheng\test\ganran_pe\Debug\ganran_pe.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\Debug\ganran_pe.lib" /MACHINE:X86 .\Debug\ganran_pe.res
+         .\Debug\ganran_pe.exe.embed.manifest.res
+         .\Debug\ganran_pe.obj
+         .\Debug\StdAfx.obj
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:".\Debug\ganran_pe.exe.embed.manifest" /manifest .\Debug\ganran_pe.exe.intermediate.manifest
+         所有输出均为最新。
+       LinkEmbedManifest:
+         所有输出均为最新。
+         ganran_pe.vcxproj -> G:\beiyong\biancheng\test\ganran_pe\.\Debug\ganran_pe.exe
+       BscMake:
+         E:\Microsoft Visual Studio 10.0\VC\bin\bscmake.exe /nologo /o".\Debug\ganran_pe.bsc" .\Debug\ganran_pe.sbr .\Debug\StdAfx.sbr
+       FinalizeBuildStatus:
+         正在删除文件“.\Debug\ganran_pe.unsuccessfulbuild”。
+         正在对“.\Debug\ganran_pe.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“G:\beiyong\biancheng\test\ganran_pe\ganran_pe.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:01.46

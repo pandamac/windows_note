@@ -1,0 +1,4 @@
+1>warnings in directory e:\tempcode\hidesys\hidesys
+1>e:\tempcode\hidesys\hidesys\ssdthook.cpp(349) : warning C4018: '<' : signed/unsigned mismatch
+1>e:\tempcode\hidesys\hidesys\ssdthook.cpp(374) : warning C4018: '<' : signed/unsigned mismatch
+1>e:\tempcode\hidesys\hidesys\ssdthook.cpp(388) : warning C4018: '<' : signed/unsigned mismatch

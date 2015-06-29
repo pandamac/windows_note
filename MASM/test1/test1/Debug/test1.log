@@ -1,0 +1,15 @@
+﻿生成启动时间为 2014/6/9 20:48:42。
+     1>项目“G:\beiyong\biancheng\MASM\test1\test1\test1.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在对“Debug\test1.unsuccessfulbuild”执行 Touch 任务。
+       _MASM:
+         Assembling [Inputs]...
+         cmd.exe /C "C:\Users\Administrator\AppData\Local\Temp\tmp17953f47ad9844e495434aca3f1eb7af.cmd"
+         ml.exe /c /nologo /Zi /Fo"Debug\test1.obj" /Fl"test1.lst" /I "D:\IrvineExamplesVS2010a" /W3 /errorReport:prompt  /Tatest1.asm
+     1>test1.asm(12): fatal error A1000: cannot open file : windows.inc
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\BuildCustomizations\masm.targets(49,5): error MSB3721: 命令“ml.exe /c /nologo /Zi /Fo"Debug\test1.obj" /Fl"test1.lst" /I "D:\IrvineExamplesVS2010a" /W3 /errorReport:prompt  /Tatest1.asm”已退出，返回代码为 1。
+     1>已完成生成项目“G:\beiyong\biancheng\MASM\test1\test1\test1.vcxproj”(build 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:00.17

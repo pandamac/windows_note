@@ -1,0 +1,20 @@
+// WinService.idl : IDL source for WinService.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (WinService.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	uuid(949AB09E-DA08-40EF-B820-C9DAC45EA2A3),
+	version(1.0),
+	helpstring("WinService 1.0 Type Library")
+]
+library WINSERVICELib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+};

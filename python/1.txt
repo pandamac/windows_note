@@ -1,0 +1,256 @@
+6e0b6ba0 8bff            mov     edi,edi
+6e0b6ba2 55              push    ebp
+6e0b6ba3 8bec            mov     ebp,esp
+6e0b6ba5 6aff            push    0FFFFFFFFh
+6e0b6ba7 685bb4126e      push    offset ext!make_table_8bit+0x6bf8 (6e12b45b)
+6e0b6bac 64a100000000    mov     eax,dword ptr fs:[00000000h]
+6e0b6bb2 50              push    eax
+6e0b6bb3 83ec34          sub     esp,34h
+6e0b6bb6 a1f025146e      mov     eax,dword ptr [ext!__security_cookie (6e1425f0)]
+6e0b6bbb 33c5            xor     eax,ebp
+6e0b6bbd 50              push    eax
+6e0b6bbe 8d45f4          lea     eax,[ebp-0Ch]
+6e0b6bc1 64a300000000    mov     dword ptr fs:[00000000h],eax
+6e0b6bc7 8b4508          mov     eax,dword ptr [ebp+8]
+6e0b6bca 50              push    eax
+6e0b6bcb e8e044f4ff      call    ext!ExtQuery (6dffb0b0)
+6e0b6bd0 8945d8          mov     dword ptr [ebp-28h],eax
+6e0b6bd3 837dd800        cmp     dword ptr [ebp-28h],0
+6e0b6bd7 7408            je      ext!u+0x41 (6e0b6be1)
+6e0b6bd9 8b45d8          mov     eax,dword ptr [ebp-28h]
+6e0b6bdc e939010000      jmp     ext!u+0x17a (6e0b6d1a)
+6e0b6be1 8d4de8          lea     ecx,[ebp-18h]
+6e0b6be4 e8c7ebffff      call    ext!CArgs::CArgs (6e0b57b0)
+6e0b6be9 8b4d0c          mov     ecx,dword ptr [ebp+0Ch]
+6e0b6bec 51              push    ecx
+6e0b6bed 8d4de8          lea     ecx,[ebp-18h]
+6e0b6bf0 e87b910000      call    ext!CArgs::Init (6e0bfd70)
+6e0b6bf5 85c0            test    eax,eax
+6e0b6bf7 751a            jne     ext!u+0x73 (6e0b6c13)
+6e0b6bf9 683cb7ee6d      push    offset ext!`string' (6deeb73c)
+6e0b6bfe ff15947a166e    call    dword ptr [ext!ExtensionApis+0x4 (6e167a94)]
+6e0b6c04 83c404          add     esp,4
+6e0b6c07 e89446f4ff      call    ext!ExtRelease (6dffb2a0)
+6e0b6c0c 33c0            xor     eax,eax
+6e0b6c0e e907010000      jmp     ext!u+0x17a (6e0b6d1a)
+6e0b6c13 6a00            push    0
+6e0b6c15 8d4de8          lea     ecx,[ebp-18h]
+6e0b6c18 e873940000      call    ext!CArgs::GetULONG64 (6e0c0090)
+6e0b6c1d 8945dc          mov     dword ptr [ebp-24h],eax
+6e0b6c20 8955e0          mov     dword ptr [ebp-20h],edx
+6e0b6c23 6a58            push    58h
+6e0b6c25 e855be0300      call    ext!operator new (6e0f2a7f)
+6e0b6c2a 83c404          add     esp,4
+6e0b6c2d 8945d0          mov     dword ptr [ebp-30h],eax
+6e0b6c30 c745fc00000000  mov     dword ptr [ebp-4],0
+6e0b6c37 837dd000        cmp     dword ptr [ebp-30h],0
+6e0b6c3b 7415            je      ext!u+0xb2 (6e0b6c52)
+6e0b6c3d 8b55e0          mov     edx,dword ptr [ebp-20h]
+6e0b6c40 52              push    edx
+6e0b6c41 8b45dc          mov     eax,dword ptr [ebp-24h]
+6e0b6c44 50              push    eax
+6e0b6c45 8b4dd0          mov     ecx,dword ptr [ebp-30h]
+6e0b6c48 e8c3e3f3ff      call    ext!CDisasm::CDisasm (6dff5010)
+6e0b6c4d 8945c4          mov     dword ptr [ebp-3Ch],eax
+6e0b6c50 eb07            jmp     ext!u+0xb9 (6e0b6c59)
+6e0b6c52 c745c400000000  mov     dword ptr [ebp-3Ch],0
+6e0b6c59 8b4dc4          mov     ecx,dword ptr [ebp-3Ch]
+6e0b6c5c 894dd4          mov     dword ptr [ebp-2Ch],ecx
+6e0b6c5f c745fcffffffff  mov     dword ptr [ebp-4],0FFFFFFFFh
+6e0b6c66 8b55d4          mov     edx,dword ptr [ebp-2Ch]
+6e0b6c69 8955e4          mov     dword ptr [ebp-1Ch],edx
+6e0b6c6c 837de400        cmp     dword ptr [ebp-1Ch],0
+6e0b6c70 0f849d000000    je      ext!u+0x173 (6e0b6d13)
+6e0b6c76 8b4de4          mov     ecx,dword ptr [ebp-1Ch]
+6e0b6c79 e8e2f2f3ff      call    ext!CDisasm::GetInstr (6dff5f60)
+6e0b6c7e 50              push    eax
+6e0b6c7f 6830b7ee6d      push    offset ext!`string' (6deeb730)
+6e0b6c84 ff15947a166e    call    dword ptr [ext!ExtensionApis+0x4 (6e167a94)]
+6e0b6c8a 83c408          add     esp,8
+6e0b6c8d 8b4de4          mov     ecx,dword ptr [ebp-1Ch]
+6e0b6c90 e8abf2f3ff      call    ext!CDisasm::GetDest (6dff5f40)
+6e0b6c95 50              push    eax
+6e0b6c96 6824b7ee6d      push    offset ext!`string' (6deeb724)
+6e0b6c9b ff15947a166e    call    dword ptr [ext!ExtensionApis+0x4 (6e167a94)]
+6e0b6ca1 83c408          add     esp,8
+6e0b6ca4 8b4de4          mov     ecx,dword ptr [ebp-1Ch]
+6e0b6ca7 e884c4f9ff      call    ext!CDisasm::GetDestVal (6e053130)
+6e0b6cac 52              push    edx
+6e0b6cad 50              push    eax
+6e0b6cae 6818b7ee6d      push    offset ext!`string' (6deeb718)
+6e0b6cb3 ff15947a166e    call    dword ptr [ext!ExtensionApis+0x4 (6e167a94)]
+6e0b6cb9 83c40c          add     esp,0Ch
+6e0b6cbc 8b4de4          mov     ecx,dword ptr [ebp-1Ch]
+6e0b6cbf e80cf2f3ff      call    ext!CDisasm::GetSrc (6dff5ed0)
+6e0b6cc4 50              push    eax
+6e0b6cc5 680cb7ee6d      push    offset ext!`string' (6deeb70c)
+6e0b6cca ff15947a166e    call    dword ptr [ext!ExtensionApis+0x4 (6e167a94)]
+6e0b6cd0 83c408          add     esp,8
+6e0b6cd3 8b4de4          mov     ecx,dword ptr [ebp-1Ch]
+6e0b6cd6 e895ecfeff      call    ext!CDisasm::GetSrcVal (6e0a5970)
+6e0b6cdb 52              push    edx
+6e0b6cdc 50              push    eax
+6e0b6cdd 6800b7ee6d      push    offset ext!`string' (6deeb700)
+6e0b6ce2 ff15947a166e    call    dword ptr [ext!ExtensionApis+0x4 (6e167a94)]
+6e0b6ce8 83c40c          add     esp,0Ch
+6e0b6ceb 8b45e4          mov     eax,dword ptr [ebp-1Ch]
+6e0b6cee 8945c8          mov     dword ptr [ebp-38h],eax
+6e0b6cf1 8b4dc8          mov     ecx,dword ptr [ebp-38h]
+6e0b6cf4 894dcc          mov     dword ptr [ebp-34h],ecx
+6e0b6cf7 837dcc00        cmp     dword ptr [ebp-34h],0
+6e0b6cfb 740f            je      ext!u+0x16c (6e0b6d0c)
+6e0b6cfd 6a01            push    1
+6e0b6cff 8b4dcc          mov     ecx,dword ptr [ebp-34h]
+6e0b6d02 e849c4f9ff      call    ext!CDisasm::`scalar deleting destructor' (6e053150)
+6e0b6d07 8945c0          mov     dword ptr [ebp-40h],eax
+6e0b6d0a eb07            jmp     ext!u+0x173 (6e0b6d13)
+6e0b6d0c c745c000000000  mov     dword ptr [ebp-40h],0
+6e0b6d13 e88845f4ff      call    ext!ExtRelease (6dffb2a0)
+6e0b6d18 33c0            xor     eax,eax
+6e0b6d1a 8b4df4          mov     ecx,dword ptr [ebp-0Ch]
+6e0b6d1d 64890d00000000  mov     dword ptr fs:[0],ecx
+6e0b6d24 59              pop     ecx
+6e0b6d25 8be5            mov     esp,ebp
+6e0b6d27 5d              pop     ebp
+6e0b6d28 c20800          ret     8
+6e0b6d2b cc              int     3
+6e0b6d2c cc              int     3
+6e0b6d2d cc              int     3
+6e0b6d2e cc              int     3
+6e0b6d2f cc              int     3
+6e0b6d30 8bff            mov     edi,edi
+6e0b6d32 55              push    ebp
+6e0b6d33 8bec            mov     ebp,esp
+6e0b6d35 6aff            push    0FFFFFFFFh
+6e0b6d37 688bb4126e      push    offset ext!make_table_8bit+0x6c28 (6e12b48b)
+6e0b6d3c 64a100000000    mov     eax,dword ptr fs:[00000000h]
+6e0b6d42 50              push    eax
+6e0b6d43 83ec24          sub     esp,24h
+6e0b6d46 a1f025146e      mov     eax,dword ptr [ext!__security_cookie (6e1425f0)]
+6e0b6d4b 33c5            xor     eax,ebp
+6e0b6d4d 50              push    eax
+6e0b6d4e 8d45f4          lea     eax,[ebp-0Ch]
+6e0b6d51 64a300000000    mov     dword ptr fs:[00000000h],eax
+6e0b6d57 8b4508          mov     eax,dword ptr [ebp+8]
+6e0b6d5a 50              push    eax
+6e0b6d5b e85043f4ff      call    ext!ExtQuery (6dffb0b0)
+6e0b6d60 8945e4          mov     dword ptr [ebp-1Ch],eax
+6e0b6d63 837de400        cmp     dword ptr [ebp-1Ch],0
+6e0b6d67 7408            je      ext!isregobjptr+0x41 (6e0b6d71)
+6e0b6d69 8b45e4          mov     eax,dword ptr [ebp-1Ch]
+6e0b6d6c e984000000      jmp     ext!isregobjptr+0xc5 (6e0b6df5)
+6e0b6d71 8d4de8          lea     ecx,[ebp-18h]
+6e0b6d74 e837eaffff      call    ext!CArgs::CArgs (6e0b57b0)
+6e0b6d79 6a01            push    1
+6e0b6d7b e8ffbc0300      call    ext!operator new (6e0f2a7f)
+6e0b6d80 83c404          add     esp,4
+6e0b6d83 8945d8          mov     dword ptr [ebp-28h],eax
+6e0b6d86 c745fc00000000  mov     dword ptr [ebp-4],0
+6e0b6d8d 837dd800        cmp     dword ptr [ebp-28h],0
+6e0b6d91 740d            je      ext!isregobjptr+0x70 (6e0b6da0)
+6e0b6d93 8b4dd8          mov     ecx,dword ptr [ebp-28h]
+6e0b6d96 e8e5c90000      call    ext!CRegisters::CRegisters (6e0c3780)
+6e0b6d9b 8945d0          mov     dword ptr [ebp-30h],eax
+6e0b6d9e eb07            jmp     ext!isregobjptr+0x77 (6e0b6da7)
+6e0b6da0 c745d000000000  mov     dword ptr [ebp-30h],0
+6e0b6da7 8b4dd0          mov     ecx,dword ptr [ebp-30h]
+6e0b6daa 894ddc          mov     dword ptr [ebp-24h],ecx
+6e0b6dad c745fcffffffff  mov     dword ptr [ebp-4],0FFFFFFFFh
+6e0b6db4 8b55dc          mov     edx,dword ptr [ebp-24h]
+6e0b6db7 8955e0          mov     dword ptr [ebp-20h],edx
+6e0b6dba 8b450c          mov     eax,dword ptr [ebp+0Ch]
+6e0b6dbd 50              push    eax
+6e0b6dbe 8d4de8          lea     ecx,[ebp-18h]
+6e0b6dc1 e8aa8f0000      call    ext!CArgs::Init (6e0bfd70)
+6e0b6dc6 85c0            test    eax,eax
+6e0b6dc8 740a            je      ext!isregobjptr+0xa4 (6e0b6dd4)
+6e0b6dca 6a01            push    1
+6e0b6dcc 8b4de0          mov     ecx,dword ptr [ebp-20h]
+6e0b6dcf e83c000000      call    ext!CRegisters::SetVerbose (6e0b6e10)
+6e0b6dd4 8b4de0          mov     ecx,dword ptr [ebp-20h]
+6e0b6dd7 e8e4ca0000      call    ext!CRegisters::EnumRegistersForObjectPtrs (6e0c38c0)
+6e0b6ddc 8b4de0          mov     ecx,dword ptr [ebp-20h]
+6e0b6ddf 894dd4          mov     dword ptr [ebp-2Ch],ecx
+6e0b6de2 8b55d4          mov     edx,dword ptr [ebp-2Ch]
+6e0b6de5 52              push    edx
+6e0b6de6 e883bc0300      call    ext!operator delete (6e0f2a6e)
+6e0b6deb 83c404          add     esp,4
+6e0b6dee e8ad44f4ff      call    ext!ExtRelease (6dffb2a0)
+6e0b6df3 33c0            xor     eax,eax
+6e0b6df5 8b4df4          mov     ecx,dword ptr [ebp-0Ch]
+6e0b6df8 64890d00000000  mov     dword ptr fs:[0],ecx
+6e0b6dff 59              pop     ecx
+6e0b6e00 8be5            mov     esp,ebp
+6e0b6e02 5d              pop     ebp
+6e0b6e03 c20800          ret     8
+6e0b6e06 cc              int     3
+6e0b6e07 cc              int     3
+6e0b6e08 cc              int     3
+6e0b6e09 cc              int     3
+6e0b6e0a cc              int     3
+6e0b6e0b cc              int     3
+6e0b6e0c cc              int     3
+6e0b6e0d cc              int     3
+6e0b6e0e cc              int     3
+6e0b6e0f cc              int     3
+6e0b6e10 8bff            mov     edi,edi
+6e0b6e12 55              push    ebp
+6e0b6e13 8bec            mov     ebp,esp
+6e0b6e15 51              push    ecx
+6e0b6e16 894dfc          mov     dword ptr [ebp-4],ecx
+6e0b6e19 8b45fc          mov     eax,dword ptr [ebp-4]
+6e0b6e1c 8a4d08          mov     cl,byte ptr [ebp+8]
+6e0b6e1f 8808            mov     byte ptr [eax],cl
+6e0b6e21 8be5            mov     esp,ebp
+6e0b6e23 5d              pop     ebp
+6e0b6e24 c20400          ret     4
+6e0b6e27 cc              int     3
+6e0b6e28 cc              int     3
+6e0b6e29 cc              int     3
+6e0b6e2a cc              int     3
+6e0b6e2b cc              int     3
+6e0b6e2c cc              int     3
+6e0b6e2d cc              int     3
+6e0b6e2e cc              int     3
+6e0b6e2f cc              int     3
+6e0b6e30 8bff            mov     edi,edi
+6e0b6e32 55              push    ebp
+6e0b6e33 8bec            mov     ebp,esp
+6e0b6e35 8b450c          mov     eax,dword ptr [ebp+0Ch]
+6e0b6e38 50              push    eax
+6e0b6e39 8b4d08          mov     ecx,dword ptr [ebp+8]
+6e0b6e3c 51              push    ecx
+6e0b6e3d e8eefeffff      call    ext!isregobjptr (6e0b6d30)
+6e0b6e42 5d              pop     ebp
+6e0b6e43 c20800          ret     8
+6e0b6e46 cc              int     3
+6e0b6e47 cc              int     3
+6e0b6e48 cc              int     3
+6e0b6e49 cc              int     3
+6e0b6e4a cc              int     3
+6e0b6e4b cc              int     3
+6e0b6e4c cc              int     3
+6e0b6e4d cc              int     3
+6e0b6e4e cc              int     3
+6e0b6e4f cc              int     3
+6e0b6e50 8bff            mov     edi,edi
+6e0b6e52 55              push    ebp
+6e0b6e53 8bec            mov     ebp,esp
+6e0b6e55 6aff            push    0FFFFFFFFh
+6e0b6e57 68c3b4126e      push    offset ext!make_table_8bit+0x6c60 (6e12b4c3)
+6e0b6e5c 64a100000000    mov     eax,dword ptr fs:[00000000h]
+6e0b6e62 50              push    eax
+6e0b6e63 83ec48          sub     esp,48h
+6e0b6e66 a1f025146e      mov     eax,dword ptr [ext!__security_cookie (6e1425f0)]
+6e0b6e6b 33c5            xor     eax,ebp
+6e0b6e6d 8945f0          mov     dword ptr [ebp-10h],eax
+6e0b6e70 50              push    eax
+6e0b6e71 8d45f4          lea     eax,[ebp-0Ch]
+6e0b6e74 64a300000000    mov     dword ptr fs:[00000000h],eax
+6e0b6e7a 8b4508          mov     eax,dword ptr [ebp+8]
+6e0b6e7d 50              push    eax
+6e0b6e7e e82d42f4ff      call    ext!ExtQuery (6dffb0b0)
+6e0b6e83 8945cc          mov     dword ptr [ebp-34h],eax
+6e0b6e86 837dcc00        cmp     dword ptr [ebp-34h],0
+6e0b6e8a 7408            je      ext!eflags+0x44 (6e0b6e94)
+6e0b6e8c 8b45cc          mov     eax,dword ptr [ebp-34h]

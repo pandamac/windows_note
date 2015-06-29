@@ -1,0 +1,59 @@
+.rs_main {
+    background: #FFF; font: 12px/1.5 Tahoma, Helvetica, \'Simsun\', sans-serif; color: #444; padding: 9px 10px 10px; min-width: 735px; border: 1px solid #94CFDD; background: #EEF7FC;
+}
+
+.rs_head {
+    overflow: hidden; zoom: 1; margin-bottom: 5px; padding-left: 95px;
+}
+
+.rs_head h3 {
+    float: left; display: inline; margin-left: -95px; width: 75px; font-size: 1em; background: transparent
+}
+
+.rs_head h3 .has_adv {
+    padding-left: 20px; background: url('http://cache.soso.com/30d/img/discuz/soso_icon.png') no-repeat 0 50%;
+}
+
+.show_more {
+    clear: left; padding: 5px;
+}
+
+.show_more a {
+    color: rgb(51, 102, 153);
+}
+
+.kws_wrapper {
+    padding: 0 5px; overflow: hidden; zoom: 1; width: 725px;
+}
+
+.kws_wrapper a {
+    display: block-inline; float: left; width: 135px; height: 16px; overflow: hidden; color: rgb(51, 102, 153); text-decoration: none;
+}
+
+#rel_list {
+    overflow: hidden; zoom: 1; width: 735px; padding: 0; margin: 0;
+}
+
+#rel_list li {
+    float: left !important; overflow: hidden !important; word-wrap: break-word !important; list-style: none !important; height: 20px !important; vertical-align: bottom !important; margin-left: 0px
+}
+
+.left_adv {
+    display: inline !important; margin: 0 0 1px 10px; width: 339px !important; border-left: 1px dashed #B5BCC0; list-style:none;
+}
+
+.right_adv {
+    margin-left: -5px; margin-bottom: 1px; width: 339px !important; list-style:none !important;
+}
+
+.left_item {
+    display: inline !important; margin: 0 0 1px 10px; width: 339px !important; border-left: 1px dashed #B5BCC0;
+}
+
+.right_item {
+    margin-bottom: 1px; width: 339px !important; height: 18px;
+}
+
+#rel_list li a {
+    color: #333; text-decoration: none; margin-bottom: 1px; padding-left: 25px; height: 18px; background: url('http://cache.soso.com/30d/img/discuz/dot.png') no-repeat 10px 5px;
+}

@@ -1,0 +1,38 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: hxwdllwx - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\baby\LOCALS~1\Temp\RSP6C.tmp" with contents
+[
+/nologo /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "HXWDLLWX_EXPORTS" /FR"Release/" /Fp"Release/hxwdllwx.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Documents and Settings\baby\桌面\新建文件夹\hxwdllwm\hxwdllwx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\baby\LOCALS~1\Temp\RSP6C.tmp" 
+Creating temporary file "C:\DOCUME~1\baby\LOCALS~1\Temp\RSP6D.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /dll /incremental:no /pdb:"Release/hxwdllwx.pdb" /machine:I386 /def:".\hxwdllwx.def" /out:"Release/hxwdllwx.dll" /implib:"Release/hxwdllwx.lib" 
+".\Release\hxwdllwx.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\baby\LOCALS~1\Temp\RSP6D.tmp"
+<h3>Output Window</h3>
+Compiling...
+hxwdllwx.cpp
+C:\Documents and Settings\baby\桌面\新建文件夹\hxwdllwm\hxwdllwx.cpp(119) : warning C4018: '>=' : signed/unsigned mismatch
+C:\Documents and Settings\baby\桌面\新建文件夹\hxwdllwm\hxwdllwx.cpp(171) : warning C4018: '>=' : signed/unsigned mismatch
+Linking...
+   Creating library Release/hxwdllwx.lib and object Release/hxwdllwx.exp
+Creating command line "bscmake.exe /nologo /o"Release/hxwdllwx.bsc"  ".\Release\hxwdllwx.sbr""
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+hxwdllwx.dll - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

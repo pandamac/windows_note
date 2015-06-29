@@ -1,0 +1,48 @@
+﻿生成启动时间为 2014/11/8 14:55:50。
+     1>项目“G:\beiyong\biancheng\Driver\testdriver\testdriver\testdriver.vcxproj”在节点 2 上(rebuild 个目标)。
+     1>CoreClean:
+         rmdir /s /q G:\beiyong\biancheng\Driver\testdriver\testdriver\\objchk_win7_amd64
+         G:\beiyong\biancheng\Driver\testdriver\testdriver\\objchk_win7_amd64\testdriver.log - 另一个程序正在使用此文件，进程无法访问。
+       Rebuild:
+         rmdir /s /q G:\beiyong\biancheng\Driver\testdriver\testdriver\\objchk_win7_amd64
+         call D:\WinDDK\7600.16385.1\bin\setenv.bat D:\WinDDK\7600.16385.1 chk x64 win7
+         cd /d G:\beiyong\biancheng\Driver\testdriver\testdriver\
+         build
+         G:\beiyong\biancheng\Driver\testdriver\testdriver\\objchk_win7_amd64\testdriver.log - 另一个程序正在使用此文件，进程无法访问。
+         OACR monitor running already
+         path contains nonexistant e:\microsoft visual studio 10.0\common7\tools\bin, removing
+         path contains nonexistant c:\program files (x86)\microsoft sdks\windows\v7.0a\\lib\win64, removing
+         BUILD: Compile and Link for AMD64
+         
+         BUILD: Loading d:\winddk\7600.16385.1\build.dat...
+         
+         BUILD: Computing Include file dependencies:
+         
+         BUILD: Start time: Sat Nov 08 14:55:50 2014
+         BUILD: Examining g:\beiyong\biancheng\driver\testdriver\testdriver directory for files to compile.
+         
+             g:\beiyong\biancheng\driver\testdriver\testdriver 
+         
+         Auto-cleaning queue for 'root:amd64chk' (1 of 1 file(s) removed)
+         BUILD: Saving d:\winddk\7600.16385.1\build.dat...
+         
+         BUILD: Compiling and Linking g:\beiyong\biancheng\driver\testdriver\testdriver directory
+         
+         Configuring OACR for 'root:amd64chk' - <OACR on>
+         Compiling - stdafx.cpp
+         Compiling - testdriver.cpp
+         Linking Executable - objchk_win7_amd64\amd64\testdriver.sys
+         BUILD: Finish time: Sat Nov 08 14:55:52 2014
+         BUILD: Done
+         
+         
+         
+             4 files compiled - 4 Warnings - 106 LPS
+         
+             1 executable built
+         
+     1>已完成生成项目“G:\beiyong\biancheng\Driver\testdriver\testdriver\testdriver.vcxproj”(rebuild 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:02.01

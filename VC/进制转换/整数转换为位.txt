@@ -1,0 +1,16 @@
+void Int2Bits(unsigned int _src, char* dstBits)
+{
+	for(unsigned int i=0; i < 4; i++)
+		dstBits[i] = ((_src<<i) & 8)>>3; //又是转换为二进制的4位
+}
+int _tmain(int argc, _TCHAR* argv[])
+{
+
+	char str = 15;
+	char dump[4];
+
+	Int2Bits(str,dump);
+
+	printf("%d%d%d%d",dump[0],dump[1],dump[2],dump[3]);
+	return 0;
+}

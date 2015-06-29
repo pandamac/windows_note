@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ConfigManager">
+      <UniqueIdentifier>{188a9768-3b79-4fa0-8e0a-9aafe48f02f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DriverManager">
+      <UniqueIdentifier>{3d01d9ba-e412-4675-b03d-9966dffade64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FileManager">
+      <UniqueIdentifier>{806157d4-37a2-4bbf-828d-4befdcfcaf86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ServiceControl">
+      <UniqueIdentifier>{30ef07d8-2d17-4850-8358-f36d706cf37f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CImageStatic">
+      <UniqueIdentifier>{bed69afe-7275-4757-8417-09c8170fcd83}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="res\HideMyFile.rc2">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\HideMyFile.ico">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\BackGround.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\Btn_Add_Hover.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\Btn_Add_Normal.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\close_active.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\close_normal.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\control_active.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\control_normal.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\min_active.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\min_normal.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\Check_Sel.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\Check_UnSel.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\Opt_Sel.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\Opt_UnSel.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ConfigPage.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\SaveBtn_Normal.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\SaveBtn_Active.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\SaveBtn_Norma.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\HideMyFile.ico">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\HideSys\HideSys\objchk_win7_x86\i386\HideSys.sys" />
+    <None Include="res\BTN_OK_ACTIVE.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\BTN_OK_NORMAL.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\LoginForm.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\Search_Active.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\Search_Normal.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\HideSysXp\HideSysXp\objchk_wxp_x86\i386\HideSysXp.sys" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ControlDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigManager.h">
+      <Filter>ConfigManager</Filter>
+    </ClInclude>
+    <ClInclude Include="DriverManager.h">
+      <Filter>DriverManager</Filter>
+    </ClInclude>
+    <ClInclude Include="HideMyFile.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="HideMyFileDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FileManager.h">
+      <Filter>FileManager</Filter>
+    </ClInclude>
+    <ClInclude Include="ServiceControl.h">
+      <Filter>ServiceControl</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageStatic.h">
+      <Filter>CImageStatic</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ControlDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigManager.cpp">
+      <Filter>ConfigManager</Filter>
+    </ClCompile>
+    <ClCompile Include="DriverManager.cpp">
+      <Filter>DriverManager</Filter>
+    </ClCompile>
+    <ClCompile Include="HideMyFile.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="HideMyFileDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FileManager.cpp">
+      <Filter>FileManager</Filter>
+    </ClCompile>
+    <ClCompile Include="ServiceControl.cpp">
+      <Filter>ServiceControl</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageStatic.cpp">
+      <Filter>CImageStatic</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="HideMyFile.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

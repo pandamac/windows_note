@@ -1,0 +1,267 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Deutsch (Deutschland) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
+#ifdef _WIN32
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_TOOLBAR             BITMAP  DISCARDABLE     "rsrc\\toolbar.bmp"
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040704b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "yoda\0"
+            VALUE "FileDescription", "HexEditor module\0"
+            VALUE "FileVersion", "1,0,0,0\0"
+            VALUE "InternalName", "16Edit\0"
+            VALUE "LegalCopyright", "Copyright © 2001\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "16Edit.DLL\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "16Edit\0"
+            VALUE "ProductVersion", "FX\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x407, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_GOTO DIALOGEX 0, 0, 175, 39
+STYLE DS_MODALFRAME | DS_3DLOOK | DS_CENTER | WS_POPUP | WS_VISIBLE | 
+    WS_CAPTION
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "[ Goto Offset ]"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        GO_OFFSET,53,12,42,12,ES_MULTILINE | ES_UPPERCASE | 
+                    ES_AUTOHSCROLL
+    PUSHBUTTON      "OK",GO_OK,118,4,51,14,0,WS_EX_STATICEDGE
+    PUSHBUTTON      "Cancel",GO_CANCEL,118,19,51,14,0,WS_EX_STATICEDGE
+    GROUPBOX        "Goto",IDC_STATIC,5,0,105,34
+    LTEXT           "Offset:",IDC_STATIC,13,14,22,8
+END
+
+IDD_SELBLOCK DIALOGEX 0, 0, 197, 65
+STYLE DS_MODALFRAME | DS_3DLOOK | DS_CENTER | WS_POPUP | WS_VISIBLE | 
+    WS_CAPTION
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "[ Select Block ]"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        SB_START,77,12,42,12,ES_RIGHT | ES_MULTILINE | 
+                    ES_UPPERCASE | ES_AUTOHSCROLL
+    EDITTEXT        SB_END,77,25,42,12,ES_RIGHT | ES_MULTILINE | 
+                    ES_UPPERCASE | ES_AUTOHSCROLL
+    EDITTEXT        SB_SIZE,77,38,42,12,ES_RIGHT | ES_MULTILINE | 
+                    ES_UPPERCASE | ES_AUTOHSCROLL | WS_DISABLED
+    PUSHBUTTON      "OK",SB_OK,140,5,51,14,0,WS_EX_STATICEDGE
+    PUSHBUTTON      "Cancel",SB_CANCEL,140,20,51,14,0,WS_EX_STATICEDGE
+    GROUPBOX        "Location",IDC_STATIC,5,0,127,60
+    LTEXT           "Start Offset:",IDC_STATIC,13,14,47,8
+    CONTROL         "End Offset:",SB_RADIOEND,"Button",BS_AUTORADIOBUTTON | 
+                    BS_LEFT | BS_PUSHLIKE | BS_FLAT,13,25,42,12
+    CONTROL         "Size:",SB_RADIOSIZE,"Button",BS_AUTORADIOBUTTON | 
+                    BS_LEFT | BS_PUSHLIKE | BS_FLAT,13,38,42,12
+END
+
+IDD_SEARCH DIALOGEX 0, 0, 282, 140
+STYLE DS_MODALFRAME | DS_3DLOOK | DS_CENTER | WS_POPUP | WS_VISIBLE | 
+    WS_CAPTION
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "[ Seach String ]"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        SS_STR,47,13,143,12,ES_MULTILINE | ES_AUTOHSCROLL
+    CONTROL         "ASCII string",SS_SEARCHASCII,"Button",BS_AUTOCHECKBOX | 
+                    BS_FLAT | WS_TABSTOP,15,32,59,8
+    PUSHBUTTON      "OK",SS_OK,215,5,51,14,0,WS_EX_STATICEDGE
+    PUSHBUTTON      "Cancel",SS_CANCEL,215,20,51,14,0,WS_EX_STATICEDGE
+    GROUPBOX        "Data",IDC_STATIC,5,0,200,56
+    LTEXT           "String:",IDC_STATIC,15,15,21,8
+    LTEXT           "Case Sensitive:",IDC_STATIC,84,35,50,8
+    RADIOBUTTON     "Yes",SS_CASESENSITIVE,138,33,25,12,BS_CENTER | 
+                    BS_PUSHLIKE | BS_FLAT
+    RADIOBUTTON     "No",SS_NOCASESENSITIVE,165,33,25,12,BS_CENTER | 
+                    BS_PUSHLIKE | BS_FLAT
+    GROUPBOX        "Location",IDC_STATIC,5,60,200,74
+    RADIOBUTTON     "...current position",SS_SEARCHFROMCURPOS,15,100,65,12,
+                    BS_CENTER | BS_PUSHLIKE | BS_FLAT
+    LTEXT           "Start Searching from...",IDC_STATIC,15,75,71,8
+    RADIOBUTTON     "...offset:",SS_SEARCHFROMOFF,15,114,65,12,BS_CENTER | 
+                    BS_PUSHLIKE | BS_FLAT
+    RADIOBUTTON     "...top",SS_SEARCHFROMTOP,15,87,65,12,BS_CENTER | 
+                    BS_PUSHLIKE | BS_FLAT
+    EDITTEXT        SS_OFFSET,104,114,42,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_AUTOHSCROLL | WS_DISABLED | NOT WS_TABSTOP
+    LTEXT           "Direction:",IDC_STATIC,103,75,31,8
+    RADIOBUTTON     "Down",SS_DOWN,104,87,41,12,BS_CENTER | BS_PUSHLIKE | 
+                    BS_FLAT
+    RADIOBUTTON     "Up",SS_UP,149,87,41,12,BS_CENTER | BS_PUSHLIKE | 
+                    BS_FLAT
+    LTEXT           "",SS_CUROFF,104,102,51,8
+    CONTROL         "UNICODE string",SS_SEARCHUNICODE,"Button",
+                    BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,15,40,66,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_GOTO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 168
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 32
+    END
+
+    IDD_SELBLOCK, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 190
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 58
+    END
+
+    IDD_SEARCH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 275
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 133
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_ACCEL ACCELERATORS DISCARDABLE 
+BEGIN
+    "A",            TB_SELALL,              VIRTKEY, CONTROL, NOINVERT
+    "B",            TB_SELBLOCK,            VIRTKEY, CONTROL, NOINVERT
+    "C",            TB_COPY,                VIRTKEY, CONTROL, NOINVERT
+    "D",            TB_SEARCHDOWN,          VIRTKEY, ALT, NOINVERT
+    "F",            TB_SEARCH,              VIRTKEY, CONTROL, NOINVERT
+    "G",            TB_GOTO,                VIRTKEY, CONTROL, NOINVERT
+    "S",            TB_SAVE,                VIRTKEY, CONTROL, NOINVERT
+    "T",            TB_WIN2TOP,             VIRTKEY, CONTROL, NOINVERT
+    "U",            TB_SEARCHUP,            VIRTKEY, ALT, NOINVERT
+    "V",            TB_PASTE,               VIRTKEY, CONTROL, NOINVERT
+    VK_ESCAPE,      TB_CLOSE,               VIRTKEY, NOINVERT
+    VK_F12,         TB_ABOUT,               VIRTKEY, NOINVERT
+    "X",            TB_CUT,                 VIRTKEY, CONTROL, NOINVERT
+    "Z",            TB_UNDO,                VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_16Edit              ICON    DISCARDABLE     "rsrc\\icon1.ico"
+#endif    // Deutsch (Deutschland) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

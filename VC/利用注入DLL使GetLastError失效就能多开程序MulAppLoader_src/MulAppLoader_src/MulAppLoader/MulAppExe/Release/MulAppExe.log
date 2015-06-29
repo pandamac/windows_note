@@ -1,0 +1,32 @@
+﻿生成启动时间为 2014/4/9 11:27:40。
+     1>项目“G:\beiyong\biancheng\121114138MulAppLoader_src\MulAppLoader_src\MulAppLoader\MulAppExe\MulAppExe.vcxproj”在节点 2 上(build 个目标)。
+     1>PrepareForBuild:
+         正在创建目录“G:\beiyong\biancheng\121114138MulAppLoader_src\MulAppLoader_src\MulAppLoader\Release\”。
+       InitializeBuildStatus:
+         正在创建“Release\MulAppExe.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         E:\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D _WINDOWS /D NDEBUG /D _UNICODE /D UNICODE /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Release\MulAppExe.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         E:\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D _WINDOWS /D NDEBUG /D _UNICODE /D UNICODE /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Release\MulAppExe.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt MulAppExe.cpp MulAppExeDlg.cpp
+         MulAppExe.cpp
+         MulAppExeDlg.cpp
+       ResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /D NDEBUG /D _UNICODE /D UNICODE /l"0x0804" /IRelease\ /nologo /fo"Release\MulAppExe.res" MulAppExe.rc 
+       Link:
+         E:\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"G:\beiyong\biancheng\121114138MulAppLoader_src\MulAppLoader_src\MulAppLoader\Release\MulAppExe.exe" /INCREMENTAL:NO /NOLOGO /MANIFEST /ManifestFile:"Release\MulAppExe.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"G:\beiyong\biancheng\121114138MulAppLoader_src\MulAppLoader_src\MulAppLoader\Release\MulAppExe.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /ENTRY:"wWinMainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"G:\beiyong\biancheng\121114138MulAppLoader_src\MulAppLoader_src\MulAppLoader\Release\MulAppExe.lib" /MACHINE:X86 Release\MulAppExe.res
+         Release\MulAppExe.obj
+         Release\MulAppExeDlg.obj
+         Release\stdafx.obj
+         正在生成代码
+         已完成代码的生成
+         MulAppExe.vcxproj -> G:\beiyong\biancheng\121114138MulAppLoader_src\MulAppLoader_src\MulAppLoader\Release\MulAppExe.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"G:\beiyong\biancheng\121114138MulAppLoader_src\MulAppLoader_src\MulAppLoader\Release\MulAppExe.exe;#1" /manifest Release\MulAppExe.exe.intermediate.manifest "E:\Microsoft Visual Studio 10.0\VC\Include\Manifest\dpiaware.manifest"
+       FinalizeBuildStatus:
+         正在删除文件“Release\MulAppExe.unsuccessfulbuild”。
+         正在对“Release\MulAppExe.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“G:\beiyong\biancheng\121114138MulAppLoader_src\MulAppLoader_src\MulAppLoader\MulAppExe\MulAppExe.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:05.11

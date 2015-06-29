@@ -1,0 +1,129 @@
+// test3.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <windows.h>
+typedef struct _PEB
+{
+	UCHAR InheritedAddressSpace; // 00h
+	UCHAR ReadImageFileExecOptions; // 01h
+	UCHAR BeingDebugged; // 02h
+	UCHAR Spare; // 03h
+	PVOID Mutant; // 04h
+	PVOID ImageBaseAddress; // 08h
+	//...... 后面的成员忽略
+} PEB, *PPEB;
+
+struct PROCESS_BASIC_INFORMATION {
+	       long  ExitStatus;
+	       PPEB  PebBaseAddress;
+	       unsigned long  AffinityMask;
+	       long           BasePriority;
+	       unsigned long  UniqueProcessId;
+	       unsigned long  InheritedFromUniqueProcessId;
+ 
+};
+
+typedef enum _PROCESSINFOCLASS {
+    ProcessBasicInformation,/////////////////////////
+    ProcessQuotaLimits,
+    ProcessIoCounters,
+    ProcessVmCounters,
+    ProcessTimes,
+    ProcessBasePriority,
+    ProcessRaisePriority,
+    ProcessDebugPort,/////////////////////////
+    ProcessExceptionPort,
+    ProcessAccessToken,
+    ProcessLdtInformation,
+    ProcessLdtSize,
+    ProcessDefaultHardErrorMode,
+    ProcessIoPortHandlers,
+    ProcessPooledUsageAndLimits,
+    ProcessWorkingSetWatch,
+    ProcessUserModeIOPL,
+    ProcessEnableAlignmentFaultFixup ,
+    ProcessPriorityClass,
+    ProcessWx86Information,
+    ProcessHandleCount,
+    ProcessAffinityMask,
+    ProcessPriorityBoost,
+    ProcessDeviceMap,
+    ProcessSessionInformation,
+    ProcessForegroundInformation,
+    ProcessWow64Information,
+    ProcessImageFileName,	/////////////////////////
+    ProcessLUIDDeviceMapsEnabled,
+    ProcessBreakOnTermination,/////////////////////////
+    ProcessDebugObjectHandle,
+    ProcessDebugFlags,
+    ProcessHandleTracing,
+    ProcessUnknown33,
+    ProcessUnknown34,
+    ProcessUnknown35,
+    ProcessCookie,
+    MaxProcessInfoClass
+} PROCESSINFOCLASS;
+
+
+typedef BOOL (WINAPI *NtQueryInformationProcess)(
+										         HANDLE ProcessHandle,
+										        PROCESSINFOCLASS ProcessInformationClass,
+										        PVOID ProcessInformation,
+										         ULONG ProcessInformationLength,
+										    PULONG ReturnLength
+);
+NtQueryInformationProcess MyNtQueryInformationProcess;
+
+ULONG GetPebBase(ULONG PeocessId)
+{
+	ULONG pebbase;
+	PROCESS_BASIC_INFORMATION pbi = {0};
+	HANDLE hProcess = NULL;
+	ULONG peb = 0;
+	ULONG cnt = 0;
+
+	hProcess = OpenProcess(PROCESS_QUERY_INFORMATION,FALSE,PeocessId);
+
+	NtQueryInformationProcess MyNtQueryInformationProcess = (NtQueryInformationProcess)GetProcAddress(LoadLibrary("ntdll.dll"),"NtQueryInformationProcess");
+	if (hProcess != NULL)
+	{
+		if(MyNtQueryInformationProcess(hProcess,
+						ProcessBasicInformation,
+						&pbi,
+						sizeof(PROCESS_BASIC_INFORMATION),
+						&cnt) == 0)
+		{
+			pebbase = (ULONG)pbi.PebBaseAddress;
+		}
+	}
+	CloseHandle(hProcess);
+	return pebbase;
+}
+int main(int argc, char* argv[])
+{
+	BOOL flag;
+
+	ULONG peb = GetPebBase(3416);
+	
+	ULONG peb2,peb3;
+
+	__asm
+	{
+		mov eax,fs:[0x30]
+		mov peb2,eax
+		movzx eax,byte ptr [eax+2]
+		
+	}
+	__asm
+	{
+		mov eax,fs:[0x18]
+		mov eax,[eax+0x30]
+		mov peb3,eax
+		movzx eax,byte ptr [eax+0x2]
+		
+	}
+
+	return 0;
+}
+
